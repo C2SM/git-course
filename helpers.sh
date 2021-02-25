@@ -44,4 +44,32 @@ init_simple_repo () {
     ls
 }
 
+init_broken_repo () {
+    init_simple_repo &> /dev/null
+
+    echo "Music: Heavy Metal" >> flyer_A
+    echo "Music: Heavy Metal" >> flyer_B
+
+    git add * && git commit -m "Metal Music added"
+
+    sed  's/Heavy Metal/Classical Music/g' flyer_A > flyer_A_tmp
+    sed  's/Heavy Metal/Classical Music/g' flyer_B > flyer_B_tmp
+
+    mv flyer_A_tmp flyer_A
+    mv flyer_B_tmp flyer_B
+
+    git add * && git commit -m "Classical Music added"
+
+    echo ""
+    echo "Your commits so far:"
+    echo ""
+    git log
+
+    echo""
+    echo "Your flyers:"
+    echo""
+    ls
+
+}
+
     
