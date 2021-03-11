@@ -15,6 +15,12 @@ reset () {
     echo "Here we go again!"
 }
 
+init_empty_folder () {
+    mkdir -p party_planning
+    cd party_planning
+    touch partyplan.txt
+}
+
 init_simple_repo () {
     mkdir -p party_planning
     cd party_planning
