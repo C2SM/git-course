@@ -1,6 +1,10 @@
 #!/bin/bash
 
-dir_at_startup=$(pwd)
+if [[ ! -z $dir_at_startup ]]; then
+    echo "You cannot source this file twice"
+else
+    dir_at_startup=$(pwd)
+fi
 
 reset () {
     echo "Go back to $dir_at_startup"
@@ -13,6 +17,13 @@ reset () {
     cd work
 
     echo "Here we go again!"
+}
+
+init_exercise () {
+    cd $dir_at_startup
+    mkdir -p work
+    cd work
+    echo "Working directory prepared"
 }
 
 init_empty_folder () {
@@ -106,7 +117,4 @@ init_broken_repo () {
     echo "Your flyers:"
     echo""
     ls
-
 }
-
-    
