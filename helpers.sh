@@ -36,8 +36,8 @@ init_simple_repo () {
     mkdir -p party_planning
     cd party_planning
     git init
-    cp ../../examples/flyer_A .
-    cp ../../examples/flyer_B .
+    cp ../../../examples/flyer_A .
+    cp ../../../examples/flyer_B .
 
     git add flyer_A && git commit -m "add flyer_A"
     git add flyer_B && git commit -m "add flyer_B"
@@ -65,8 +65,8 @@ init_simple_repo_remote () {
     mkdir -p party_planning
     cd party_planning
     git init
-    cp ../../examples/flyer_A .
-    cp ../../examples/flyer_B .
+    cp ../../../examples/flyer_A .
+    cp ../../../examples/flyer_B .
 
     git add flyer_A && git commit -m "add flyer_A"
     git add flyer_B && git commit -m "add flyer_B"
