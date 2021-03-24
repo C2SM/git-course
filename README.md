@@ -1,6 +1,6 @@
 # Jupyter notebook for Git-course
 
-## Estimated times for exercies
+## Estimated times for exercises
 * Exercise_1: 11 minutes
 * Exercise_2: 9 minutes
 * Exercise_3: 16 minutes
