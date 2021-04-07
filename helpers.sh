@@ -26,7 +26,7 @@ init_exercise () {
     echo "Working directory prepared"
 }
 
-init_empty_folder () {
+init_directory_with_emtpy_file () {
     mkdir -p party_planning
     cd party_planning
     touch partyplan.txt
