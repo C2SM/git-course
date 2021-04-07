@@ -103,8 +103,8 @@ init_broken_repo () {
     sed  's/Heavy Metal/Classical Music/g' flyer_A > flyer_A_tmp
     sed  's/Heavy Metal/Classical Music/g' flyer_B > flyer_B_tmp
 
-    mv flyer_A_tmp flyer_A
-    mv flyer_B_tmp flyer_B
+    mv -f flyer_A_tmp flyer_A
+    mv -f flyer_B_tmp flyer_B
 
     git add * && git commit -m "Classical Music added"
 
