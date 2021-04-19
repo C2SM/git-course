@@ -2,6 +2,9 @@
 This repository contains the exercises for the beginners git course of C2SM.
 Feel free to download the material to practice and enhance your git skills.
 
+The corresponding [slides of this course](https://wiki.c2sm.ethz.ch/CM/WorkshopBestPractices2013) can be found
+at the C2SM-wiki.
+
 A PDF version of the .ipynb files for each exercise is located in the [PDFs folder](PDFs).
 We recommend to make use of the convienient way of doing the exercises with Jupyter Notebook itself.
 For installation instructions see section below.
