@@ -56,7 +56,7 @@ init_simple_repo () {
     git log
 
     echo""
-    echo "Your flyers:"
+    echo "Your schedules:"
     echo""
     ls
 }
