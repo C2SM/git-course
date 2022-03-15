@@ -27,9 +27,9 @@ init_exercise () {
 }
 
 init_directory_with_empty_file () {
-    mkdir -p party_planning
-    cd party_planning
-    touch partyplan.txt
+    mkdir -p conference_planning
+    cd conference_planning
+    touch conference_schedule.txt
 }
 
 init_simple_repo () {
@@ -42,12 +42,12 @@ init_simple_repo () {
     git add schedule_day1 && git commit -m "Add schedule_day1"
     git add schedule_day2 && git commit -m "Add schedule_day2"
 
-    echo "09:00-11:00: Poster session" >> schedule_day1
-    echo "09:00-11:00: Poster session" >> schedule_day2
+    ed -s schedule_day1  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
+    ed -s schedule_day2  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
     git add * && git commit -m "Add poster sessions in the morning"
 
-    echo "11:00-11:15: Coffee break" >> schedule_day1
-    echo "11:00-11:15: Coffee break" >> schedule_day2
+    ed -s schedule_day1  <<< $'/session/\na\n11:00-11:15: Coffee break\n.\nw\nq' > /dev/null
+    ed -s schedule_day2  <<< $'/session/\na\n11:00-11:15: Coffee break\n.\nw\nq' > /dev/null
     git add * && git commit -m "Add coffee break"
 
     echo ""
@@ -62,51 +62,50 @@ init_simple_repo () {
 }
 
 init_simple_repo_remote () {
-    mkdir -p party_planning
-    cd party_planning
+    mkdir -p conference_planning
+    cd conference_planning
     git init
-    cp ../../../examples/flyer_A .
-    cp ../../../examples/flyer_B .
+    cp ../../../examples/schedule_day1 .
+    cp ../../../examples/schedule_day2 .
 
-    git add flyer_A && git commit -m "add flyer_A"
-    git add flyer_B && git commit -m "add flyer_B"
+    git add schedule_day1 && git commit -m "Add schedule_day1"
+    git add schedule_day2 && git commit -m "Add schedule_day2"
 
-    echo "Doors: 22:00" >> flyer_A
-    echo "Doors: 21:00" >> flyer_B
-    git add * && git commit -m "add opening time"
+    ed -s schedule_day1  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
+    ed -s schedule_day2  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
+    git add * && git commit -m "Add poster sessions in the morning"
 
-    echo "Happy Hour: 23:00 - 24:00" >> flyer_A
-    echo "Happy Hour: 22:00 - 24:00" >> flyer_B
-    git add * && git commit -m "add happy-hour"
+    ed -s schedule_day1  <<< $'/session/\na\n11:00-11:15: Coffee break\n.\nw\nq' > /dev/null
+    ed -s schedule_day2  <<< $'/session/\na\n11:00-11:15: Coffee break\n.\nw\nq' > /dev/null
+    git add * && git commit -m "Add coffee breaks"
 
     cd ..
-    git clone party_planning party_planning_remote
-    cd party_planning_remote
-    git checkout -b "updated_flyers"
-    echo "Happy Hour: 17:00 - 18:00" >> flyer_A
-    echo "Happy Hour: 26:00 - 18:00" >> flyer_B
-    git add * && git commit -m "update the flyers"
+    git clone conference_planning conference_planning_remote
+    cd conference_planning_remote
+    git checkout -b "updated_schedules"
+    ed -s schedule_day1  <<< $'/session/\na\n11:15:-12:15: Talk professor A.\n.\nw\nq' > /dev/null
+    ed -s schedule_day2  <<< $'/session/\na\n11:15:-12:15: Talk professor B.\n.\nw\nq' > /dev/null
+    git add * && git commit -m "update schedules"
     git checkout master 
    
-    cd ../party_planning
+    cd ../conference_planning
     ls
 }
 
 init_broken_repo () {
     init_simple_repo &> /dev/null
 
-    echo "Music: Heavy Metal" >> flyer_A
-    echo "Music: Heavy Metal" >> flyer_B
+    ed -s schedule_day1  <<< $'/break/\na\n11:15-12:15: Workshop ice crystal formation\n.\nw\nq' > /dev/null
+    ed -s schedule_day2  <<< $'/break/\na\n11:15-12:12: Workshop secondary ice\n.\nw\nq' > /dev/null
+    git add * && git commit -m "Add workshops"
 
-    git add * && git commit -m "Metal Music added"
+    sed  's/Poster session/Talk professor C./g' schedule_day1 > schedule_day1_tmp
+    sed  's/Poster session/Talk professer D./g' schedule_day2 > schedule_day2_tmp
 
-    sed  's/Heavy Metal/Classical Music/g' flyer_A > flyer_A_tmp
-    sed  's/Heavy Metal/Classical Music/g' flyer_B > flyer_B_tmp
+    mv -f schedule_day1_tmp schedule_day1
+    mv -f schedule_day2_tmp schedule_day2
 
-    mv -f flyer_A_tmp flyer_A
-    mv -f flyer_B_tmp flyer_B
-
-    git add * && git commit -m "Classical Music added"
+    git add * && git commit -m "Change poster sessions to talks"
 
     echo ""
     echo "Your commits so far:"
@@ -114,7 +113,7 @@ init_broken_repo () {
     git log
 
     echo""
-    echo "Your flyers:"
+    echo "Your schedules:"
     echo""
     ls
 }
