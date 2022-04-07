@@ -4,6 +4,7 @@ if [[ ! -z $dir_at_startup ]]; then
     echo "You cannot source this file twice"
 else
     dir_at_startup=$(pwd)
+    git config --global init.defaultBranch main
 fi
 
 reset () {
@@ -82,11 +83,11 @@ init_simple_repo_remote () {
     cd ..
     git clone conference_planning conference_planning_remote
     cd conference_planning_remote
-    git checkout -b "updated_schedules"
-    ed -s schedule_day1  <<< $'/session/\na\n11:15:-12:15: Talk professor A.\n.\nw\nq' > /dev/null
-    ed -s schedule_day2  <<< $'/session/\na\n11:15:-12:15: Talk professor B.\n.\nw\nq' > /dev/null
+    git switch -c "updated_schedules"
+    ed -s schedule_day1  <<< $'/break/\na\n11:15-12:15: Talk professor A.\n.\nw\nq' > /dev/null
+    ed -s schedule_day2  <<< $'/break/\na\n11:15-12:15: Talk professor B.\n.\nw\nq' > /dev/null
     git add * && git commit -m "update schedules"
-    git checkout master 
+    git switch main
    
     cd ../conference_planning
     ls
@@ -116,4 +117,41 @@ init_broken_repo () {
     echo "Your schedules:"
     echo""
     ls
+}
+
+init_repo_remote () {
+    mkdir -p conference_planning
+    cd conference_planning
+    git init
+    cp ../../../examples/schedule_day1 .
+
+    git add schedule_day1 && git commit -m "Add schedule_day1"
+
+    ed -s schedule_day1  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
+    git add * && git commit -m "Add poster sessions in the morning"
+
+    ed -s schedule_day1  <<< $'/session/\na\n11:00-11:15: Coffee break\n.\nw\nq' > /dev/null
+    git add * && git commit -m "Add coffee breaks"
+
+    ed -s schedule_day1  <<< $'/break/\na\n11:15-12:15: Talk professor A.\n12:15-13:30: Lunch\n13:30-15:00: Workshop\n15:00-16:00: Talk professor B.\n.\nw\nq' > /dev/null
+    git add * && git commit -m "Add rest of daily program"
+
+    cd ..
+    git clone conference_planning conference_planning_remote
+    cd conference_planning_remote
+    git switch -c "updated_schedules"
+    git switch main
+
+    cd ../conference_planning
+    ls
+}
+
+commit_to_remote() {
+    cd ../conference_planning_remote
+    git switch updated_schedules
+    sed  's/Poster session/Workshop/g' schedule_day1 > schedule_day1_tmp
+    mv -f schedule_day1_tmp schedule_day1
+    git add * && git commit -m "Workshop in the morning"
+    git switch main
+    cd -
 }
