@@ -2,9 +2,11 @@
 
 In this exercise, you will first setup a simple git repository using helper scripts provided by C2SM.  Then, you will generate a merge conflict between a feature branch and the main branch in a git repository.  Finally, you will learn how to resolve the conflict and successfully complete the merge.  
 
-[Initialize the git repository](#initialization)
-[Create a merge conflict](#conflict)
-[Resolve the merge conflict](#resolution)
+* [Initialize the git repository](#initialization)
+
+* [Create a merge conflict](#conflict)
+
+* [Resolve the merge conflict](#resolution)
 
 ## Initialize the git repository <a name="initialization"></a>
 
