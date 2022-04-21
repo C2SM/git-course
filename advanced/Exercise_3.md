@@ -85,18 +85,18 @@ git bisect bad
 
 Once you run this command, git will recalculate the halfway point between the new good and bad commits and check out a new commit for you to test. Continue by testing the script using `python get_pi.py` and then telling git whether the commit gives the correct result (`git bisect good`), or the incorrect result (`git bisect bad`). Keep repeating this process until you get a message from git identifying the exact commit where the code breaks. You can check that you have the correct solution by reading the Solution section of the README.md file.   
 
-## Use git bisect run to automatically find the bad commit <a name="automate"></a>
-
-We can also automate this process to make it easier. We just need a testing script that will return 0 if the code is correct, and an error value between 1 and 127 (excluding 125) if the code is incorrect. We can make a simple python script to do this. Let's make a new file for this.
+You should reset the repository to it's original state before you try any other git commands.
 
 ```plaintext
-touch check_script.py
+git bisect reset
 ```
 
-Open the file using a file editor. You can either copy the code below into the file, or try to write the scipt yourself if you would like. You could use whatever language you like, the script just needs to run the `get_py.py` script and return a 0 if the result if 3.14 and any number between 1 and 127 if the result is not 3.14.   
+## Use git bisect run to automatically find the bad commit <a name="automate"></a>
 
+We can also automate this process to make it easier. We just need a testing script that will return 0 if the code is correct, and an error value between 1 and 127 (excluding 125) if the code is incorrect. You could use whatever language you like to write such a script. If you are so inclined, you can try to write such a script yourself now. If not, you can use the python script provided below. If you do so, make sure you read through the python script so that you understand what it does.    
+ 
 <details>
-  <summary>Click here for checking script</summary>
+  <summary>Click here to see contents of the code checking script</summary>
 
   ```plaintext
   import subprocess;
@@ -113,3 +113,36 @@ Open the file using a file editor. You can either copy the code below into the f
   ```
 </details>
 
+Now that we have a script to check the code, let's use git bisect run to quickly find the bad commit in our repository.  
+
+Reset the state of git bisect back to the beginning.  
+
+```plaintext
+git bisect reset
+```
+
+Start a new git bisect session.  
+
+```plaintext
+git bisect start
+```
+
+Tell git that the code is broken in the current commit.
+
+```plaintext
+git bisect bad
+```
+
+Tell git that the code works in the first commit.
+
+```plaintext
+git bisect good f0ea950
+```
+
+Use your checking script to automate the bisection process. Substitute the name of your checking script and the method for running it, if it is not a python script.
+
+```plaintext
+git bisect run python check_script.py
+```
+
+Git bisect will automatically run through all the commits and test them until it finds the first bad commit, which it will report to you. Remember to use `git bisect reset` to get the repository back to it's original state.  
