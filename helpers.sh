@@ -146,7 +146,7 @@ init_repo_remote () {
     ls
 }
 
-commit_to_remote() {
+commit_to_remote_by_third_party() {
     cd ../conference_planning_remote
     git switch updated_schedules
     sed  's/Poster session/Workshop/g' schedule_day1 > schedule_day1_tmp
