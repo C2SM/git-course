@@ -10,9 +10,13 @@ In this exercise, we will learn to use git submodule to nest a git repository in
 
 ## Create a new repository and add it as a submodule <a name="submodule"></a>
 
-Navigate to the folder containing the `conference_planning` folder; in other words you should be in a folder that does not contain a git repository.
+Navigate to the folder containing the `conference_planning` folder; in other words you should be in a folder that does not contain a git repository. Make a copy of the conference planning repository to use for adding the submodule.
 
-Make a new folder, and initialize a new git repository there. Let's use this submodule to hold our list of poster presentations for the conference we are planning.
+```plaintext
+cp -r conference_planning conference_submodule
+```
+
+Make a new folder, and initialize a new git repository there for our submodule. Let's use this submodule to hold our list of poster presentations for the conference we are planning.
 
 ```plaintext
 mkdir posters;
@@ -24,14 +28,15 @@ Add a file to the posters repository and commit it.
 
 ```plaintext
 touch schedule;
-git commit -am "Add posters schedule file"
+git add schedule;
+git commit -m "Add posters schedule file"
 ```
 
 Let's add this new git repository as a submodule to our conference planning repository.
 
 ```plaintext
-cd ../conference_planning;
-git submodule add ../git_submodule
+cd ../conference_submodule;
+git submodule add ../posters
 ```
 
 Check the status of the repository. 
@@ -80,7 +85,7 @@ git log
 Switch back to the main repository.
 
 ```plaintext
-cd ../conference_planning
+cd ../conference_submodule
 ```
 
 Let's use submodule update to get the main repository to use the new commit of the poster repository.
