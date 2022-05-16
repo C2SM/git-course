@@ -47,7 +47,7 @@ cd ../posters
 
 Add some text to the `poster_schedule` file, and commit the change to the posters repository.
 
-````plaintext
+```plaintext
 echo "Poster 3: Which is better: subtree or submodule?" > poster_schedule;
 git commit -am "Add Poster 3 to schedule"
 ```
@@ -84,13 +84,13 @@ Let's make some changes in both the host repository and the subtree to understan
 
 Start by making a change in the host repository. Let's add a lunch break to the schedule on day 2.
 
-````plaintext
+```plaintext
 sed -i '/^11:00/a 12:00-13:00: Lunch break' schedule_day2
 ```
 
 Check the status of the repository.
 
-````plaintext
+```plaintext
 git status
 ```
 
