@@ -106,7 +106,7 @@ The SHA that the submodule points to has now been updated to our latest commit.
 
 In order to finalize the update, we need to commit it to the main repository.
 
-````plaintext
+```plaintext
 git commit -am "Update posters to latest commit"
 ```
 
@@ -116,13 +116,13 @@ Let's make some changes in both the host repository and the submodule to underst
 
 Start by making a change in the host repository. Let's add a lunch break to the schedule on day 1.
 
-````plaintext
+```plaintext
 sed -i '/^11:00/a 12:00-13:00: Lunch break' schedule_day1
 ```
 
 Check the status of the repository.
 
-````plaintext
+```plaintext
 git status
 ```
 
