@@ -71,7 +71,7 @@ cd ../posters
 
 Add some text to the `poster_schedule` file, and commit the change to the posters repository.
 
-````plaintext
+```plaintext
 echo "Poster 1: Utilizing git to full potential" > poster_schedule;
 git commit -am "Add Poster 1 to schedule"
 ```
