@@ -17,6 +17,12 @@ pwd
 
 
 ```bash
+# Change default branch name from 'master' to 'main' (in case you are using an old version of git)
+git config --global init.defaultBranch main
+```
+
+
+```bash
 # execute this code at the very beginning to get access to the helper functions
 source ../helpers.sh
 init_exercise
@@ -42,7 +48,7 @@ First, let's make a fork of the repository so that you can have your own copy of
 
 **Use the web interface to make a fork:**
 
-![Fork.png](attachment:Fork.png)
+![Fork.png](../images/Fork.png)
 
 ### Clone the fork
 
@@ -51,7 +57,7 @@ GitHub indicates on the upper left that this repository is a forked one (left ar
 
 Next, copy your forked repository to your local workspace using the link (right arrow):
 
-![Forked_Repo_view.png](attachment:Forked_Repo_view.png)
+![Forked_Repo_view.png](../images/Forked_Repo_view.png)
 
 
 ```bash
@@ -111,7 +117,7 @@ pwd
 
 Please open a terminal and go to the directory you get executing the cell above.
 
-![Open_Terminal.png](attachment:Open_Terminal.png)
+![Open_Terminal.png](../images/Open_Terminal.png)
 
 
 ### Create user token for https
@@ -143,7 +149,7 @@ Let's use the web interface to examine the repository.  Try the following tasks 
 
 2. Modify a file and use the web interface to make a new commit on a new branch and automatically create a Pull Request.
 
-![Edit_file_PR.png](attachment:Edit_file_PR.png)
+![Edit_file_PR.png](../images/Edit_file_PR.png)
 
 3. Find the Pull Request and have a look at it.
 
