@@ -1,9 +1,9 @@
 # Exercise 7
 
 # Goals
-* Work collaboratively with a partner using Git and Github
-* Create a pull request (PR)
-* Do code review and merge a pull request
+* Access code from a Git web interface
+* Push code changes to a Git web interface
+* Examine the code repository on a Git web interface
 
 ### Initialization
 
@@ -34,40 +34,24 @@ execute** ***reset*** **in the following cell. This will restore a clean environ
 reset
 ```
 
-***
 ## Exercise
 
-First, say hi to your partner and exchange Github usernames.  
+In this exercise we are going to work with a repository we are hosting on the GitHub website.
 
-For this exercise, we are going to work in our forked repositories from Exercise 6.  To do this, we want to create an issue to track a feature request.  However, Github doesn't activate issues by default on forks.  So first, we will activate issue tracking on our forked repository.
+First, let's make a fork of the repository so that you can have your own copy of a C2SM repository to work with.  A fork is a complete copy of a repository into your own account, where you have full permission to make whatever changes you like to your forked repository. To make your fork, open another tab in your browser and navigate here: https://github.com/c2sm/git-example
 
-### Activate issues on your forked repository
+**Use the web interface to make a fork:**
 
-Use another tab in the web browser to go to your fork on Github: github.com/your_github_username/git-example
+![Fork.png](attachment:Fork.png)
 
-Navigate to the Settings page.
+### Clone the fork
 
-![image.png](attachment:80180ec9-d94c-4e9d-9527-314925db78fa.png)
-
-Check the Issues box in the Features section.
-
-![image.png](attachment:338f1844-4c5d-4a7b-96eb-c40c118d9494.png)
+GitHub indicates on the upper left that this repository is a forked one (left arrow).
 
 
-### Make an issue in your repository
+Next, copy your forked repository to your local workspace using the link (right arrow):
 
-Let's request a new feature in our repository from our partner.  To do so, we can create a new issue in our repository by clicking on the issues button, and then the New issue button.  
-
-![image.png](attachment:43dec399-ae5a-40b5-8809-bdf72752f5cf.png)
-
-Fill in a title and description for the issue.  You can ask them to add a new flyer, adapt one of your flyers, or any other new feature you can think of.  Then, use the Assignees button on the right to assign the issue to your partner using their Github username.  
-
-### Develop the feature your partner requested  
-
-To find the feature your partner requested, you can click on the "issues" button at the very top of your Github page.  This is a list of all of the issues you have either created, worked on, or been assigned.  
-![image.png](attachment:4d167943-0fad-4791-bac8-676ee5c50da8.png)
-
-Once you have found your partner's feature request, you can download your fork locally to do the feature development.
+![Forked_Repo_view.png](attachment:Forked_Repo_view.png)
 
 
 ```bash
@@ -81,21 +65,31 @@ Once you have found your partner's feature request, you can download your fork l
 
 ```
 
-### Make a feature branch
-Make a new branch in your local repository to develop the new feature in.   
+### Examine the repository
+Let's examine the repository.  Does it have any remotes?  What branches are in it?  
 
 
 ```bash
-# use "git switch -c <branch_name>" to create and move to a new branch
+# use "git remote -v", "git branch -a", and "git status" to examine the repository
 
 ```
 
-### Develop the new feature
-Make the change your partner requested.
-Remember to do all modifications of the flyers directly via Jupyter Notebooks.
-   * Go to folder *work* and enter *party_planning*
-   * Open *flyer_A*
-   * Add more information to your flyer, i.e. music, dresscode, etc.
+You should have seen that your local repository has a remote called "origin", which points to your fork on GitHub.  This is the default behavior when you use git clone to copy a repository.  
+
+### Add to local repository
+Next, let's make a new branch and add a commit to it.  
+
+
+```bash
+# use "git switch -c <branch_name>" to make a new branch
+
+```
+
+Make a change in your local repository.
+Remember to do all modifications of the schedules directly via Jupyter Notebooks.
+   * Go to folder *work* and enter *git-example*
+   * Open *schedule_day1*
+   * Add more information to your schedule, i.e., workshops, talks, poster sessions, etc.
    
 **Don't forget to save your modifications before coming back!**
 
@@ -105,44 +99,90 @@ Remember to do all modifications of the flyers directly via Jupyter Notebooks.
 
 ```
 
-### Send local information to GitHub
+### Send local information to Github
 
-Now, let's send our feature branch to our GitHub fork. 
-
-**Unfortunately we cannot perform *git push* via jupyter notebooks due to the
-interactive way of entering username and password.**
-
-Please open a terminal and go to the directory you get executing the cell below.
-
-Then run *git push origin <"branch_name">* there.
+Now, let's send our new branch to our GitHub fork.
 
 
 ```bash
-# go to this folder in the terminal and perform "git push origin <"branch_name"> there
+# find out current directory
 pwd
+```
+
+Please open a terminal and go to the directory you get executing the cell above.
+
+![Open_Terminal.png](attachment:Open_Terminal.png)
+
+
+### Create user token for https
+
+GitHub only allows authorized users to push to repositories.
+Therefore, we need to create a GitHub user token.
+
+Please follow the [description](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token) provided by GitHub.
+
+Once you have a token, you can enter it instead of your password when performing Git operations over HTTPS.
+
+**Please save the token at some place, GitHub displays it only once to you.**
+
+In our case we use the token to perform the `git push` command in the terminal you just opened:
+
+```
+git push origin <branch_name>
+Username: your_username
+Password: your_token
+```
+
+### Examine the Github repository
+
+Head back to Github and have a look at your forked repository.  
+
+Let's use the web interface to examine the repository.  Try the following tasks there:
+
+1. Find the list of commits and examine the files for a specific commit.  
+
+2. Modify a file and use the web interface to make a new commit on a new branch and automatically create a Pull Request.
+
+![Edit_file_PR.png](attachment:Edit_file_PR.png)
+
+3. Find the Pull Request and have a look at it.
+
+### Update local repository using git fetch
+
+Now, let's get the commit we made on Github into our local repository.   
+
+
+```bash
+# use "git fetch origin" to download the new commit from your fork
 
 ```
 
-### Make a pull request
 
-Go back to your fork on GitHub.  You should find a notification about the new branch you just pushed there.  Choose the option to make a pull request.  
+```bash
+# use "git status" to examine your repository
 
-Fill out the pull request title and description.  Choose your partner's fork as the base.
-Include the following text in your pull request description: "Fixes #issue_number", using the issue number of your partner's feature request.  This will close your partner's feature request issue when they merge the pull request.  
+```
 
-If you are having trouble figuring how to make the pull request, the Github documentation is very helpful:
-https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request
+Our new commit has been downloaded into a remote branch, but is not yet available in our local branch.  Let's use ```git merge``` to update our local branch.    
 
-Once you have made your pull request, you should request a review from your partner:
-https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review
 
-### Review your partner's code
-Once you and your partner have both finished your development and pull requests, you can review each other's pull request.  
-https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews
+```bash
+# use "git merge <remote_name>/<branch_name>" to sync up your local branch with the remote one 
 
-Navigate in your fork to the pull request, and have a look at the changes your partner made.  You can add general comments, or put comments directly on a line of code.  You can also request that your partner change or fix something before the code is merged.  
+```
 
-### Merge the pull request
-Once you are satisfied with your partner's developments, you can merge the pull request using the web interface.  After merging a feature into a main development branch (such as main), it is standard procedure to delete the feature branch, as it is no longer needed.  Usually GitHub will prompt you to delete the feature branch right after you merge a pull request.  
+### Update local repository using git pull
 
-After you have merged the pull request, go back and check that the issue you created to request this feature has now been closed.  
+Let's examine the difference between git fetch and git pull.  We just used git fetch to get a commit from our remote repository, and then we used git merge to include it in our local branch.  
+
+First, go back to the web interface and use it to make a new commit by editing a file and again creating a new branch.  
+
+Next, let's get that commit into our repository.  
+
+
+```bash
+# use "git pull origin" to download the new commit from your fork
+
+```
+
+Have a look at your local branch.  You should see that the commit you made has already been put into your local branch, because git pull does both a git fetch AND a git merge automatically.   

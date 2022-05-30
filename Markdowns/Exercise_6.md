@@ -1,9 +1,24 @@
-# Exercise 6
+## Exercise 6
 
-# Goals
-* Access code from a Git web interface
-* Push code changes to a Git web interface
-* Examine the code repository on a Git web interface
+## Goals
+   * Learn how to deal with merge conflicts:
+       * Undo merge
+       * Choose preferred version
+       * Adapt file directly
+    
+## Structure
+
+In this exercise we will change the same file on different branches in a way that we create a merge conflict. There will also be a change in the remote repository, which will equally lead into a merge conflict when trying to pull from that branch.
+Again, the exercise consists of short descriptions about a specific Git command, followed by a practical part where you can execute appropriate Git commands.
+
+In order to allow a smooth exercise, there are some functions written by C2SM in the file *helpers.sh* that are **NOT** part of Git. For this exercise we use the following functions from that file:
+   * **init_exercise:** It will create the *work* directory and navigate into it 
+   * **reset:** It will delete the *work* folder and enable you a clean restart of the exercise in case you completely mess it up
+   * **init_repo_remote:** setup a Git repository containing a first version of _schedule_day1_ and a remote repo containing the same version of _schedule_day1_ on a different branch called "updated_schedules".
+
+_**Reminder:** all text enclosed with `<>` denotes a placeholder to be replaced by a specific string appropriate in your context._
+
+_**Reminder:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise Git may try to open the Git editor, which does not work on jupyter notebook and will break your current session._
 
 ### Initialization
 
@@ -28,161 +43,251 @@ init_exercise
 execute** ***reset*** **in the following cell. This will restore a clean environment!**
 
 
+
 ```bash
 ## only execute in case of (serious) trouble ##
 ## it will delete your entire work-directory ##
 reset
 ```
 
+***
 ## Exercise
 
-In this exercise we are going to work with a repository we are hosting on the GitHub website.
-
-First, let's make a fork of the repository so that you can have your own copy of a C2SM repository to work with.  A fork is a complete copy of a repository into your own account, where you have full permission to make whatever changes you like to your forked repository. To make your fork, open another tab in your browser and navigate here: https://github.com/c2sm/git-example
-
-**Use the web interface to make a fork:**
-
-![Fork.png](attachment:Fork.png)
-
-### Clone the fork
-
-GitHub indicates on the upper left that this repository is a forked one (left arrow).
-
-
-Next, copy your forked repository to your local workspace using the link (right arrow):
-
-![Forked_Repo_view.png](attachment:Forked_Repo_view.png)
+In this exercise we are going to use a repository together with a remote repository containing the file _schedule_day1_. Let's initialize it with our helper function.
 
 
 ```bash
-# use "git clone <path_to_repository>" to download your forked repository
-
+# this line will setup the local and the remote Git-repositories
+init_repo_remote
 ```
+
+### Now let's make a change in the schedule and commit it
+Remember to do all modifications of the schedules directly via Jupyter Notebooks:
+   * Go to folder ~*Exercise_6/work/conference_planning*
+   * Open _schedule_day1_
+   * Change the workshop to a poster session
 
 
 ```bash
-# use "cd" to enter the repository
+# Change the workshop to a poster session and commit
 
 ```
 
-### Examine the repository
-Let's examine the repository.  Does it have any remotes?  What branches are in it?  
+### Add a remote repository
+
+Let's add the remote repository to our local repository like in the previous exercise.
+
+The setup script has already created one that you can use at: 
+
+**../conference_planning_remote**
+
+Use the line above as *remote_path* to the remote repository.
 
 
 ```bash
-# use "git remote -v", "git branch -a", and "git status" to examine the repository
-
-```
-
-You should have seen that your local repository has a remote called "origin", which points to your fork on GitHub.  This is the default behavior when you use git clone to copy a repository.  
-
-### Add to local repository
-Next, let's make a new branch and add a commit to it.  
-
-
-```bash
-# use "git switch -c <branch_name>" to make a new branch
-
-```
-
-Make a change in your local repository.
-Remember to do all modifications of the schedules directly via Jupyter Notebooks.
-   * Go to folder *work* and enter *git-example*
-   * Open *schedule_day1*
-   * Add more information to your schedule, i.e., workshops, talks, poster sessions, etc.
-   
-**Don't forget to save your modifications before coming back!**
-
-
-```bash
-# add and commit your changes
-
-```
-
-### Send local information to Github
-
-Now, let's send our new branch to our GitHub fork.
-
-
-```bash
-# find out current directory
-pwd
-```
-
-Please open a terminal and go to the directory you get executing the cell above.
-
-![Open_Terminal.png](attachment:Open_Terminal.png)
-
-
-### Create user token for https
-
-GitHub only allows authorized users to push to repositories.
-Therefore, we need to create a GitHub user token.
-
-Please follow the [description](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token) provided by GitHub.
-
-Once you have a token, you can enter it instead of your password when performing Git operations over HTTPS.
-
-**Please save the token at some place, GitHub displays it only once to you.**
-
-In our case we use the token to perform the `git push` command in the terminal you just opened:
-
-```
-git push origin <branch_name>
-Username: your_username
-Password: your_token
-```
-
-### Examine the Github repository
-
-Head back to Github and have a look at your forked repository.  
-
-Let's use the web interface to examine the repository.  Try the following tasks there:
-
-1. Find the list of commits and examine the files for a specific commit.  
-
-2. Modify a file and use the web interface to make a new commit on a new branch and automatically create a Pull Request.
-
-![Edit_file_PR.png](attachment:Edit_file_PR.png)
-
-3. Find the Pull Request and have a look at it.
-
-### Update local repository using git fetch
-
-Now, let's get the commit we made on Github into our local repository.   
-
-
-```bash
-# use "git fetch origin" to download the new commit from your fork
+# use "git remote add <some_remote_name> <remote_path>" to add the remote 
 
 ```
 
 
 ```bash
-# use "git status" to examine your repository
+# Get information from remote branch with "git fetch <my_remote>
+
+# Check which branches are available
 
 ```
 
-Our new commit has been downloaded into a remote branch, but is not yet available in our local branch.  Let's use ```git merge``` to update our local branch.    
+### Now make a different change in the same file on the _updated_schedules_ branch
+  * Switch to the _**updated_schedules**_ branch
+  * Change the workshop to a talk in ~*Exercise_6/work/conference_planning/schedule_day1*
+  * Commit your changes
 
 
 ```bash
-# use "git merge <remote_name>/<branch_name>" to sync up your local branch with the remote one 
+# Switch to updated_schedules
 
 ```
-
-### Update local repository using git pull
-
-Let's examine the difference between git fetch and git pull.  We just used git fetch to get a commit from our remote repository, and then we used git merge to include it in our local branch.  
-
-First, go back to the web interface and use it to make a new commit by editing a file and again creating a new branch.  
-
-Next, let's get that commit into our repository.  
 
 
 ```bash
-# use "git pull origin" to download the new commit from your fork
+# Change workshop to talk and commit
 
 ```
 
-Have a look at your local branch.  You should see that the commit you made has already been put into your local branch, because git pull does both a git fetch AND a git merge automatically.   
+### Merge the _updated_schedules_ branch into the _main_ branch
+We decided to use the schedule on the _**updated_schedules**_ branch. Therfore, we want to merge this branch into the _**main**_ branch.
+
+
+```bash
+# Go to main branch and merge the updated_schedules branch
+# make sure to always add a commit message when merging with -m <my commit message>
+
+```
+
+### Solve merge conflict
+If you've done everything "right", something has gone "wrong" and the output should look like the following:
+```
+CONFLICT (content): Merge conflict in schedule_day1
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+We apparently run into a merge conflict. This happened because we did changes on the _**main**_ branch and the _**updated_schedules**_ branch at the same part of the file and Git doesn't know which changes it should take. Let's see how to solve this. 
+
+Have a look into the file _schedule_day1_. You will see something like this:
+``` 
+<<<<<<< HEAD
+13:30-15:00: Poster session
+=======
+13:30-15:00: Talk professor C.
+>>>>>>> updated_schedules 
+```
+
+The upper line is the HEAD, referring to the branch you are currently on (here _**main**_), and the second line refers to the branch you wanted to merge (here _**updated_schedules**_).
+
+There are different ways to solve a merge conflict
+
+1) If you are afraid that everything is messed up and you don't know what to do, just run ```git merge --abort``` and everything is set back to what it was before you were trying to merge.
+
+2) You can adapt the file directly and delete the lines, which were added by the merge conflict except the lines you want to keep. Now the merge conflict is solved and you can add _schedule_day1_ and finally make a commit of the merge.
+
+3) If you know you want to just use the file on the _**HEAD**_ branch (_ours_) or on the merging branch (_theirs_), you can select the preferred version with ```git restore schedule_day1 --ours``` or ```git restore schedule_day1 --theirs``` respectively. The restored file needs to be added before the final merge is being committed.
+
+Let's try all of the three versions!
+
+### 1) Abort merge
+
+
+```bash
+# Abort the merge commit and check if the file is set back to its previous version
+
+```
+
+### 2) Edit file directly to solve conflict
+
+
+```bash
+# Merge again
+
+```
+
+Now go to the file and select your preferred version. Therefore, remove all of the conflict markers from the file (<<<<<<< HEAD, =======, >>>>>>> updated_schedules) and the lines belonging to _**HEAD**_ or the merging branch (_**updated_schedules**_) depending on which solution you want to keep.
+
+Stage the file once you have resolved the conflict with `git add`. Staging the file indicates to Git that the conflicts have been resolved. Note that Git does not check the file for conflict markers at this point; it is trusting you that you have removed them all, so you must be sure.
+
+
+```bash
+# Stage schedule_day1 and finalize the merge commit (don't forget to add a commit message)
+
+```
+
+### 3) Restore preferred version on command line
+To create a new merge conflict adapt the schedule on the _**main**_ branch on the SAME line as on the _**updated_schedules**_ branch and commit the changes to the branches respectively.
+
+
+```bash
+# Make a change and commit on the main branch
+
+```
+
+
+```bash
+# Switch to the updated_schedules branch
+
+```
+
+
+```bash
+# Make a change at the same line and commit
+
+```
+
+
+```bash
+# Go back to main branch and try to merge the updated_schedules branch
+
+```
+
+Now try to solve the merge conflict with ```git restore schedule_day1 --theirs/ours```.
+
+
+```bash
+# Restore the version of your favorite branch
+
+```
+
+
+```bash
+# Commit the merge with your favorite solution (don't forget to add the solution first)
+
+```
+
+### Merge conflict when trying to pull remote branch
+We just realized that we forgot an introduction talk to the conference. Switch to the _**updated_schedules**_ branch and change the first event to "Introduction" in _~/conference_planning/schedule_day1_ and commit your changes.
+
+
+```bash
+# Switch to updated_schedules
+
+```
+
+
+```bash
+# Change the first event to "Introduction" and commit your changes"
+
+```
+
+What we didn't notice is that someone changed something on the remote branch while we were working on the file. When we now pull try to pull the remote, we will again run into a merge conflict.
+
+
+```bash
+# This command will do that "unnoticed" change on the remote branch
+commit_to_remote_by_third_party
+```
+
+
+```bash
+# Make sure you are on the updated_schedules branch and try to pull with "git pull"
+
+```
+
+Unless you already set how to pull in your Git config, you will get a message like this:
+```
+hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint: 
+hint:   git config pull.rebase false  # merge
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint: 
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+```
+Read the hints and the explanations below carefully and choose your preferred setting.
+
+`# merge`: This option will handle pull requests the same way as when merging a branch, i.e., the merge will not be automatically committed.
+
+`# rebase`: This option will commit a merge directly in case there are no conflicts. Otherwise you will have to solve the conflicts before continuing (Git will tell you all necessary steps)
+
+`# fast-forward only`: This option will only do a merge in case there are no conflicts, otherwise nothing will be done (we do not recommend this option, to undo it, you need to run `git config pull.ff false`)
+
+
+```bash
+# Choose your preferred way of pulling
+
+```
+
+
+```bash
+# Now pull again
+
+```
+
+Again, you ran into a merge conflict. You are now ready to solve the conflict yourself!
+
+
+```bash
+
+```
