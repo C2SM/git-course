@@ -21,6 +21,12 @@ pwd
 
 
 ```bash
+# Change default branch name from 'master' to 'main' (in case you are using an old version of git)
+git config --global init.defaultBranch main
+```
+
+
+```bash
 # execute this code at the very beginning to get access to the helper functions
 source ../helpers.sh
 init_exercise

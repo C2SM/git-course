@@ -5,7 +5,7 @@
    * Note: `git checkout` can be used as an alternative for `git switch`. However, it has some other functionalities, which led to confusion among users in the past. Therefore, we will not use it here but show the alternative commands in brackets.
 
 ## Structure
-In this exercise we will work on planning a two-day conference with two files containing the schedule for day 1 and 2 (schedule_day1 and schedule_day2). For adding events to the schedules (e.g., planned talks, poster sessions, etc.), we work on separate branches to not mix things up.
+In this exercise we will work on planning a two-day conference with two files containing the schedules for day 1 and 2 (schedule_day1 and schedule_day2). For adding events to the schedules (e.g., planned talks, poster sessions, etc.), we work on separate branches to not mix things up.
 Again, the exercise consists of short descriptions about a specific Git command, followed by a practical part where you can execute appropriate Git commands.
 
 In order to allow a smooth exercise, there are some functions written by C2SM in the file *helpers.sh* that are **NOT** part of Git. For this exercise we use the following functions from that file:
@@ -25,6 +25,12 @@ _**Note:** Always run `git commit` and `git merge` with a git message `-m <meani
 pwd
 # go to folder of this exercise using "cd"
 
+```
+
+
+```bash
+# Change default branch name from 'master' to 'main' (in case you are using an old version of git)
+git config --global init.defaultBranch main
 ```
 
 
@@ -50,7 +56,7 @@ reset
 ***
 ## Exercise
 
-### Learn how to work with branches and switch between them using git checkout
+### Learn how to work with branches and switch between them using git switch
 In the output above we see two files:
    * schedule_day1
    * schedule_day2
@@ -87,7 +93,7 @@ one each for schedule_day1 and schedule_day2.
 From now on, we do all modifications of the schedules directly via Jupyter Notebooks.
    * On the start page go to folder *~/Exercise_2/work/conference_planning*
    * Open *schedule_day1*
-   * Add more information to the schedule, i.e. a planned talk or lunch
+   * Add more information to the schedule, i.e., a planned talk or lunch
    
 **Do not forget to save your modifications before coming back!**
 
@@ -134,7 +140,7 @@ The * indicates our current branch.
 
 ```
 
-We can switch easily between these branches using the `git checkout` function.
+We can switch easily between these branches using the `git switch` function.
 Don't worry -> Git will keep all your work done in this branch.
 
 
@@ -144,7 +150,7 @@ Don't worry -> Git will keep all your work done in this branch.
 
 ```
 
-Create a new branch for planning day2 and extend the schedule_day2 in that branch similar as already done for schedule_day1
+Create a new branch for planning day 2 and extend the schedule_day2 in that branch similar as already done for schedule_day1
 
 
 ```bash
@@ -172,12 +178,12 @@ The output should look similar to:
 * plan_day2
 ```
 
-Our git repository now contains:
+Our Git repository now contains:
   * Branch `<meaningful_branch_name A>` with modifications of schedule_day1
   * Branch `<meaningful_branch_name B>` with modifications of schedule_day2
   * Branch `main` with the initial version of schedule_day1 and schedule_day2
   
-With `git checkout` it is easy to jump between these branches and modify our schedules further.
+With `git switch` it is easy to jump between these branches and modify our schedules further.
 To show its capabilities we quickly switch between the branches and see how our schedules change.
 
 To output the content of a text file to the terminal you can use `cat <your_schedule>`.
