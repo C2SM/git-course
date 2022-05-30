@@ -32,9 +32,14 @@ Switch back to the main branch and make a change to the day 1 schedule there. Le
 
 ```plaintext
 git switch main;
-sed -i '/Evening/ i 11:15-12:30: Dinner break' schedule_day1
+sed -i '/Evening/ i Dinner break' schedule_day1
 ```
 
+Add and commit this change. 
+
+```plaintext
+git commit -am "Add dinner break to day 1"
+```
 Now you are ready to incorporate the changes you made in your feature branch into the main branch. Let's do this with a merge. 
 
 ```plaintext

@@ -1,12 +1,12 @@
-# Exercise 1 - Conflicting merges
+# Exercise 1 - Examining your repository with git log and git diff
 
-In this exercise, you will first setup a simple git repository using helper scripts provided by C2SM.  Then, you will generate a merge conflict between a feature branch and the main branch in a git repository.  Finally, you will learn how to resolve the conflict and successfully complete the merge.  
+In this exercise, you will play around with a few different techniques for examining your repository and it's history. We will start by initializing a simple git repository and adding a few commits to it to make the history more interesting. Then we will examine the repository using both git log and git diff from the command line. Finally, we will use third party visualization tools to make examining the repository even easier. 
 
 * [Initialize the git repository](#initialization)
 
-* [Create a merge conflict](#conflict)
+* [Use git log and git diff from command line](#cli)
 
-* [Resolve the merge conflict](#resolution)
+* [Use third party tools to examine the git repository](#tools)
 
 ## Initialize the git repository <a name="initialization"></a>
 
@@ -38,73 +38,41 @@ init_advanced_repo
 Navigate to the new git repository, and take some time to familiarize yourself with it.  
 
 ```plaintext
-cd ../conference_planning
+cd ../advanced_git/conference_planning
 ```
 
-## Create a merge conflict <a name="conflict"></a>
-
-Create a feature branch in the conference planning repository that conflicts with a change in the main branch.  
-
-First, create a new feature branch and switch to it.  
+Let's add a branch and a few commits to make the history a bit more interesting. First, add a feature branch.
 
 ```plaintext
 git switch -c feature
 ```
 
-Make a change in one of the schedule files.  You can use your favorite file editor or a command line utility to do so.  
-
-For example, you could use:
+Make a change in a file and add it as a git commit.
 
 ```plaintext
-sed -i 's/Coffee/Tea/g' schedule_day1
+sed -i '/Coffee/ a 11:15-12:30: Presentation session' schedule_day1;
+git commit -am "Add presentation to day 1"
 ```
-Commit your change to the feature branch, remembering to make a meaningful commit message.  
+
+Switch back to the main branch and add a commit there.
 
 ```plaintext
-git commit -am "Change coffee break to tea break on day 1"
+git switch main;
+sed -i '/Evening/ i Dinner break' schedule_day1;
+git commit -am "Add presentation to day 1"
 ```
 
-Switch back to the main branch.
-
-```plaintext
-git checkout main
-```
-
-Make a different change to the SAME line in the file you changed in the feature branch using either the file editor or a command line utility.  For example, you could use:
-
-```plaintext
-sed -i 's/Coffee/Cocoa/g' schedule_day1
-```
-
-Commit this change to the main branch.  
-
-```plaintext
-git commit -am "Change coffee break to cocoa break on day 1"
-```
-
-Now, we will initiate the merge of the feature branch into the main branch.
+Merge the feature branch into the main branch.
 
 ```plaintext
 git merge feature
 ```
 
-Examine the git output carefully. It will indicate that there are conflicts that need to be resolved before the merge can be completed and which file(s) contain the conflicts.  
+## Use git log and git diff from command line <a name="cli"></a>
+Now we will examine the repository and it's history using git log and git diff. Each of those has multiple options that can be used to tailor them for specific uses. Atlassian provides an excellent tutorial for both git log and git diff, so we are going to follow them now. Go to the following websites and apply the different techniques described there to the repository we just created.
+https://www.atlassian.com/git/tutorials/git-log
+https://www.atlassian.com/git/tutorials/saving-changes/git-diff
 
-## Resolve the merge conflict <a name="resolution"></a>
+## Use third party tools to examine the git repository <a name="tools"></a>
 
-Use a file editor to open the conflicted file and resolve the conflict. To do so, you must 
-1. Decide which of the conflicting lines is the correct one, and delete the other one.
-2. Remove all of the conflict markers from the file (<<<,===,>>>)
-
-Stage the file once you have resolved the conflict.  Staging the file indicates to git that the conflicts have been resolved. Note that git does not check the file for conflict markers at this point; it is trusting you that you have removed them all, so you must be sure.  
-
-```plaintext
-git add schedule_day1
-```
-
-Run git commit to finalize the merge. A merge commit will be created, so you may be prompted to enter a commit message if you don't add one on the command line.  
-
-```plaintext
-git commit -m "Merge feature branch into main including resolved conflict"
-```
 
