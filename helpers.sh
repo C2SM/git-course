@@ -4,7 +4,6 @@ if [[ ! -z $dir_at_startup ]]; then
     echo "You cannot source this file twice"
 else
     dir_at_startup=$(pwd)
-    git config --global init.defaultBranch main
 fi
 
 reset () {
