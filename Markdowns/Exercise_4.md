@@ -98,13 +98,13 @@ Add the events: talk, coffee break, workshop
 
 Remember to do all modifications of the schedules directly via Jupyter Notebooks:
    * Go to folder *~/Exercise_4/work/conference_planning*
-   * Open *schedule_day1*
+   * Open *conference_schedule.txt*
    * Change file
    * Save changes by clicking on *File* -> *Save*
    
 **Don't forget to save your modifications before coming back!**
 
-Please us this way of editing files throughout the exercise.
+Please use this way of editing files throughout the exercise.
 
 
 ```bash
