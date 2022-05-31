@@ -15,7 +15,7 @@ In order to allow a smooth exercise, there are some functions written by C2SM in
    
 _**Reminder:** all text enclosed with `<>` denotes a placeholder to be replaced by a specific string appropriate to your context._
 
-_**Note:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise git may try to open the git editor, which does not work on jupyter notebook and will break your current session._
+_**Note:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise Git may try to open the Git editor, which does not work on jupyter notebook and will break your current session._
 
 ### Initialization
 
@@ -25,12 +25,6 @@ _**Note:** Always run `git commit` and `git merge` with a git message `-m <meani
 pwd
 # go to folder of this exercise using "cd"
 
-```
-
-
-```bash
-# Change default branch name from 'master' to 'main' (in case you are using an old version of git)
-git config --global init.defaultBranch main
 ```
 
 
@@ -107,7 +101,7 @@ After saving, we run `git status` to see if Git tracked our changes.
 
 
 ```bash
-# see if git tracked our changes
+# see if Git tracked our changes
 
 ```
 

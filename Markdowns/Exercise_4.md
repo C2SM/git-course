@@ -4,7 +4,7 @@
    * Practice the typical Git workflow
    
 ## Structure
-In this exercise we won't learn any new git commands. We rather repeat all commands and workflows learned in the
+In this exercise we won't learn any new Git commands. We rather repeat all commands and workflows learned in the
 previous exercises. To do so we work on the *conference_schedule.txt* document and simulate a possible workflow.
 Because it is all repetition, there is less explanation provided.
 
@@ -28,7 +28,7 @@ In order to allow a smooth exercise, there are some functions written by C2SM in
    
 _**Reminder:** all text enclosed with `<>` denotes a placeholder to be replaced by a specific string appropriate in your context._
 
-_**Reminder:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise git may try to open the git editor, which does not work on jupyter notebook and will break your current session._
+_**Reminder:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise Git may try to open the Git editor, which does not work on jupyter notebook and will break your current session._
 
 ### Initialization
 
@@ -37,17 +37,6 @@ _**Reminder:** Always run `git commit` and `git merge` with a git message `-m <m
 # check current directory with "pwd"
 pwd
 # go to folder of this exercise using "cd"
-
-```
-
-
-```bash
-# Change default branch name from 'master' to 'main' (in case you are using an old version of git)
-git config --global init.defaultBranch main
-```
-
-
-```bash
 
 ```
 
@@ -168,7 +157,7 @@ Thanks to Git we can easily restore files, even if they are deleted.
 
 ```
 
-As a next step create a new branch and edit the schedule there, because we are not sure yet if professor X. will accept the talk in the morning.
+As a next step create a new branch and edit the schedule there, because we are not sure yet if Professor X will accept the talk in the morning.
    * Change talk to workshop
 
 

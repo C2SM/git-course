@@ -17,12 +17,6 @@ pwd
 
 
 ```bash
-# Change default branch name from 'master' to 'main' (in case you are using an old version of git)
-git config --global init.defaultBranch main
-```
-
-
-```bash
 # execute this code at the very beginning to get access to the helper functions
 source ../helpers.sh
 init_exercise
@@ -80,7 +74,7 @@ Let's examine the repository.  Does it have any remotes?  What branches are in i
 
 ```
 
-You should have seen that your local repository has a remote called "origin", which points to your fork on GitHub.  This is the default behavior when you use git clone to copy a repository.  
+You should have seen that your local repository has a remote called "origin", which points to your fork on GitHub.  This is the default behavior when you use "git clone" to copy a repository.  
 
 ### Add to local repository
 Next, let's make a new branch and add a commit to it.  
@@ -173,7 +167,7 @@ Our new commit has been downloaded into a remote branch, but is not yet availabl
 
 
 ```bash
-# use "git merge <remote_name>/<branch_name>" to sync up your local branch with the remote one 
+# use "git merge <remote_name>/<branch_name> -m '<commit_message>'" to sync up your local branch with the remote one 
 
 ```
 
