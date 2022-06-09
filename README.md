@@ -6,7 +6,6 @@ The corresponding [slides of this course](https://wiki.c2sm.ethz.ch/CM/WorkshopB
 at the C2SM wiki.
 
 A Markdown version of the .ipynb files for each exercise is located in the [Markdowns folder](Markdowns).
-Please note that pictures are not displayed in the Markdown versions of the exercises.
 
 We recommend to make use of the convienient way of doing the exercises with Jupyter Notebook itself.
 For installation instructions see section below.
