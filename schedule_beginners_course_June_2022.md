@@ -30,4 +30,5 @@
 | Part 6 - Slides       | 6 slides         | 11:13      | 11:19    |
 | Part 6 - Exercise     | 293 lines        | 11:19      | 11:42    |
 | Part 7 - Slides       | 6 slides         | 11:42      | 11:53    |
-| Part 7 - Exercise     | 188 lines        | 11:53      | 12:30    |
+| Part 7 - Exercise     | 188 lines        | 11:53      | 12:25    |
+| Feedback              |                  | 12:25      | 12:30    |
