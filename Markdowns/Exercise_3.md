@@ -8,7 +8,7 @@
 ## Structure
 In this exercise we will continue working on planning the two-day conference using schedule_day1 and schedule_day2 for planning each day. First we need to revert the schedules to a specific commit. Then we modify the same file, but in different branches. Finally, we merge all our changes into branch main.
 
-Again the exercise consists of short descriptions about a specific git command (less detailed than in previous exercises), followed by a hands-on part for you to execute appropiate git commands.
+Again the exercise consists of short descriptions about a specific Git command (less detailed than in previous exercises), followed by a hands-on part for you to execute appropiate git commands.
 
 In order to allow a smooth exercise, there are some functions written by C2SM in the file *helpers.sh* that are **NOT** part of Git. For this exercise we us the following functions from that file:
    * **init_exercise:** It will create the *work* directory and navigate into it 
@@ -17,7 +17,7 @@ In order to allow a smooth exercise, there are some functions written by C2SM in
 
 _**Reminder:** all text enclosed with `<>` denotes a placeholder to be replaced by a specific string appropriate in your context._
 
-_**Reminder:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise git may try to open the git editor, which does not work on jupyter notebook and will break your current session._
+_**Reminder:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise Git may try to open the Git editor, which does not work on jupyter notebook and will break your current session._
 
 ### Initialization
 
@@ -154,7 +154,7 @@ There are two sections in schedule_day1 to modify in a seperate branch:
    * daily-program
    * evening activity
    
-Note: Try to avoid merge conflicts by not changing the same part of a file in two branches you want to merge (usually the main branch and a branch you plan to merge into the main branch). There are *of course* ways to deal with merge conflicts but this is not part of the course. If you just follow the descriptions below, you should not run into a merge conflict.
+Note: Try to avoid merge conflicts by not changing the same part of a file in two branches you want to merge (usually the main branch and a branch you plan to merge into the main branch). There are *of course* ways to deal with merge conflicts and we will learn how to deal with them later in this course. However, if you just follow the descriptions below, you should not run into a merge conflict.
 
 
 ```bash
@@ -266,7 +266,7 @@ Therefore Git creates a *merge-commit* to bring the two histories together.
 
 ```
 
-Your git log looks the following:
+Your git log looks like the following:
 ```
 c0d0459 (HEAD -> main) Merge daily_program
 b1be3b4 (daily_program) Add talk

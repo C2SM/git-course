@@ -7,7 +7,7 @@
 
 _**Reminder:** all text enclosed with `<>` denotes a placeholder to be replaced by a specific string appropriate in your context._
 
-_**Reminder:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise git may try to open the git editor, which does not work on jupyter notebook and will break your current session._
+_**Reminder:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise Git may try to open the Git editor, which does not work on jupyter notebook and will break your current session._
 
 ### Initialization
 

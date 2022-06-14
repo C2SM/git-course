@@ -4,7 +4,6 @@ if [[ ! -z $dir_at_startup ]]; then
     echo "You cannot source this file twice"
 else
     dir_at_startup=$(pwd)
-    git config --global init.defaultBranch main
 fi
 
 reset () {
@@ -101,7 +100,7 @@ init_broken_repo () {
     git add * && git commit -m "Add workshops"
 
     sed  's/Poster session/Talk professor C./g' schedule_day1 > schedule_day1_tmp
-    sed  's/Poster session/Talk professer D./g' schedule_day2 > schedule_day2_tmp
+    sed  's/Poster session/Talk professor D./g' schedule_day2 > schedule_day2_tmp
 
     mv -f schedule_day1_tmp schedule_day1
     mv -f schedule_day2_tmp schedule_day2

@@ -42,7 +42,7 @@ First, let's make a fork of the repository so that you can have your own copy of
 
 **Use the web interface to make a fork:**
 
-![Fork.png](attachment:Fork.png)
+![Fork.png](../images/Fork.png)
 
 ### Clone the fork
 
@@ -51,7 +51,7 @@ GitHub indicates on the upper left that this repository is a forked one (left ar
 
 Next, copy your forked repository to your local workspace using the link (right arrow):
 
-![Forked_Repo_view.png](attachment:Forked_Repo_view.png)
+![Forked_Repo_view.png](../images/Forked_Repo_view.png)
 
 
 ```bash
@@ -74,7 +74,7 @@ Let's examine the repository.  Does it have any remotes?  What branches are in i
 
 ```
 
-You should have seen that your local repository has a remote called "origin", which points to your fork on GitHub.  This is the default behavior when you use git clone to copy a repository.  
+You should have seen that your local repository has a remote called "origin", which points to your fork on GitHub.  This is the default behavior when you use "git clone" to copy a repository.  
 
 ### Add to local repository
 Next, let's make a new branch and add a commit to it.  
@@ -111,7 +111,7 @@ pwd
 
 Please open a terminal and go to the directory you get executing the cell above.
 
-![Open_Terminal.png](attachment:Open_Terminal.png)
+![Open_Terminal.png](../images/Open_Terminal.png)
 
 
 ### Create user token for https
@@ -143,7 +143,7 @@ Let's use the web interface to examine the repository.  Try the following tasks 
 
 2. Modify a file and use the web interface to make a new commit on a new branch and automatically create a Pull Request.
 
-![Edit_file_PR.png](attachment:Edit_file_PR.png)
+![Edit_file_PR.png](../images/Edit_file_PR.png)
 
 3. Find the Pull Request and have a look at it.
 
@@ -167,7 +167,7 @@ Our new commit has been downloaded into a remote branch, but is not yet availabl
 
 
 ```bash
-# use "git merge <remote_name>/<branch_name>" to sync up your local branch with the remote one 
+# use "git merge <remote_name>/<branch_name> -m '<commit_message>'" to sync up your local branch with the remote one 
 
 ```
 

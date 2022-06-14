@@ -6,7 +6,7 @@
 * Know state of Git repo using `git diff` and `git log`
 
 ## Structure
-This exercise consists of short descriptions about a specific git command, followed by a practical part where you can execute appropriate git commands. 
+This exercise consists of short descriptions about a specific git command, followed by a practical part where you can execute appropriate Git commands. 
 In order to allow a smooth exercise, there are some functions written by C2SM in the file *helpers.sh* that are **NOT** part of Git. For this exercise we use the following functions from that file:
    * **init_exercise:** It will create the *work* directory and navigate into it 
    * **reset:** It will delete the *work* folder and enable you a clean restart of the exercise in case you completely mess it up.
@@ -59,7 +59,34 @@ reset
 ***
 ## Exercise
 
-### Create Git-Repository from scratch
+### Global Git configuration settings
+Before we start to use Git, we are specifying a few global configuration settings. This has to be done only once and will be saved for all your future sessions.
+
+First of all, we need to tell Git who we are.
+To do so, execute the lines below with your credentials:
+```
+git config --global user.name "<John Doe>"
+git config --global user.email "<my_name@some.domain>"
+```
+**Note:** The email must be identical to the one that is used for your Github account.
+
+
+```bash
+# tell Git who you are
+
+```
+
+At the end of this course, you will learn something about repository managers like Github. Recently, they changed their naming policy for the initial branch from 'master' to 'main'. Therefore, we want to tell Git to also set our default branch name to 'main'. 
+
+**Note:** Check out the official Git documentation (https://git-scm.com/docs/git-init#Documentation/git-init.txt--bltbranch-namegt).
+
+
+```bash
+# Set main as the default branch name
+git config --global init.defaultBranch main
+```
+
+### Create Git repository from scratch
 
 
 ```bash
@@ -69,16 +96,13 @@ reset
 
 
 ```bash
-# The default branch name of git has changed from 'master' to 'main'.
-# In case you are using an old version of Git, you should set your default branch name to 'main' to avoid confusion.
-git config --global init.defaultBranch main
 # use the command "git init" to initiate your first Git-repository
 git init
 ```
 
 You should now get an output similar to that:
 ```
-Initialized empty Git repository in /Users/juckerj/Desktop/git_course/notebook/work/git_repo/.git/
+Initialized empty Git repository in /Users/juckerj/Desktop/git_course/Exercise_1/work/git_repo/.git/
 ```
 ### Track changes in files using git add and git commit
 
@@ -149,20 +173,6 @@ Changes to be committed:
 
 The last thing to do is to commit these files.  
 
-Prior to that, Git may require us to tell who we are.
-To do so, execute the lines below with your credentials:
-```
-git config --global user.name ”<John Doe>"
-git config --global user.email ”<my_name@some.domain>"
-```
-**Note:** The email must be identical to the one that is used for your GitHub account.
-
-
-```bash
-# tell git who you are
-
-```
-
 
 ```bash
 # use 'git commit -m "<meaningful message>"'
@@ -170,12 +180,12 @@ git config --global user.email ”<my_name@some.domain>"
 ```
 
 **Congrats!**  
-Your files are included in the Git-repository.
+Your files are included in the Git repository.
 
 
 
-### Know state of Git-repo using git diff and git log
-For now we have two files in our Git-repository.  
+### Know state of Git repository using git diff and git log
+For now, we have two files in our Git repository.  
 Let's see what happens when we modify them. We therefore use the ">>" operator to append a new line of text to our files.
 
 
@@ -269,7 +279,7 @@ Git does all this tracking for us!
 
 
 ```bash
-# type git log go get an overview of the (very short) 
+# type git log to get an overview of the (very short) 
 # life of your repository
 
 

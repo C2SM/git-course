@@ -4,7 +4,7 @@
    * Practice the typical Git workflow
    
 ## Structure
-In this exercise we won't learn any new git commands. We rather repeat all commands and workflows learned in the
+In this exercise we won't learn any new Git commands. We rather repeat all commands and workflows learned in the
 previous exercises. To do so we work on the *conference_schedule.txt* document and simulate a possible workflow.
 Because it is all repetition, there is less explanation provided.
 
@@ -28,7 +28,7 @@ In order to allow a smooth exercise, there are some functions written by C2SM in
    
 _**Reminder:** all text enclosed with `<>` denotes a placeholder to be replaced by a specific string appropriate in your context._
 
-_**Reminder:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise git may try to open the git editor, which does not work on jupyter notebook and will break your current session._
+_**Reminder:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise Git may try to open the Git editor, which does not work on jupyter notebook and will break your current session._
 
 ### Initialization
 
@@ -87,13 +87,13 @@ Add the events: talk, coffee break, workshop
 
 Remember to do all modifications of the schedules directly via Jupyter Notebooks:
    * Go to folder *~/Exercise_4/work/conference_planning*
-   * Open *schedule_day1*
+   * Open *conference_schedule.txt*
    * Change file
    * Save changes by clicking on *File* -> *Save*
    
 **Don't forget to save your modifications before coming back!**
 
-Please us this way of editing files throughout the exercise.
+Please use this way of editing files throughout the exercise.
 
 
 ```bash
@@ -157,7 +157,7 @@ Thanks to Git we can easily restore files, even if they are deleted.
 
 ```
 
-As a next step create a new branch and edit the schedule there, because we are not sure yet if professor X. will accept the talk in the morning.
+As a next step create a new branch and edit the schedule there, because we are not sure yet if Professor X will accept the talk in the morning.
    * Change talk to workshop
 
 
