@@ -35,7 +35,7 @@ Run the `init_advanced_repo` script.  This script will create a folder at the sa
 init_advanced_repo
 ```
 
-Take some time to familiarize yourself with the git repository using `git status`, `git log`, `git diff`, etc.  
+Take some time to familiarize yourself with the git repository by examining the files and using `git status`, `git log`, `git diff`, etc.  
 
 Let's add a branch and a few commits to make the history a bit more interesting. First, add a feature branch.
 
