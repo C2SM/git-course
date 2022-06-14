@@ -2,6 +2,8 @@
 
 In this exercise, we will learn to use git submodule to nest a git repository inside another one. We will first add the git submodule and learn to update it when there are changes. We will also examine how the host and nested repositories deal with changes in their respective files.
   
+This exercise uses the same git repository that was created in Exercise 1. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_1.md). 
+
 * [Create a new repository and add it as a submodule](#submodule)
 
 * [Create new content in the submodule and update the host](#update)
@@ -51,7 +53,7 @@ The output shows that there are some changes to the repository, and they are alr
 git commit -m "Add the posters submodule"
 ```
 
-Note that the .gitsubmodules file has been added, which contains the path of the submodule in the host repository and the address where the submodule is hosted which is the file path in our case. It could also be a Github address or anywhere else a repository is hosted.
+Note that the .gitmodules file has been added, which contains the path of the submodule in the host repository and the address where the submodule is hosted which is the file path in our case. It could also be a Github address or anywhere else a repository is hosted.
 
 Check the status of the submodule.
 
@@ -69,10 +71,10 @@ Navigate back to the poster repository.
 cd ../posters
 ```
 
-Add some text to the `poster_schedule` file, and commit the change to the posters repository.
+Add some text to the `schedule` file, and commit the change to the posters repository.
 
 ```plaintext
-echo "Poster 1: Utilizing git to full potential" > poster_schedule;
+echo "Poster 1: Utilizing git to full potential" > schedule;
 git commit -am "Add Poster 1 to schedule"
 ```
 
@@ -117,7 +119,7 @@ Let's make some changes in both the host repository and the submodule to underst
 Start by making a change in the host repository. Let's add a lunch break to the schedule on day 1.
 
 ```plaintext
-sed -i '/^11:00/a 12:00-13:00: Lunch break' schedule_day1
+sed -i '/^11:15/a 12:00-13:00: Lunch break' schedule_day1
 ```
 
 Check the status of the repository.
@@ -140,7 +142,7 @@ Here we see that there are no changes. The submodule is treated as a completely 
 Now try making a change inside the submodule. Let's add another poster title to the poster schedule.
 
 ```plaintext
-echo "Poster 2: Git submodules and you" >> poster_schedule
+echo "Poster 2: Git submodules and you" >> schedule
 ```
 
 Check the status of the posters repository.
