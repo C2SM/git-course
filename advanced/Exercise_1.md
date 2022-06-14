@@ -4,6 +4,8 @@ In this exercise, you will play around with a few different techniques for exami
 
 * [Initialize the git repository](#initialization)
 
+* [Add a few commits](#commits)
+
 * [Use git log and git diff from command line](#cli)
 
 * [Use third party tools to examine the git repository](#tools)
@@ -36,6 +38,8 @@ init_advanced_repo
 ```
 
 Take some time to familiarize yourself with the git repository by examining the files and using `git status`, `git log`, `git diff`, etc.  
+
+## Add a few commits <a name="commits"></a>
 
 Let's add a branch and a few commits to make the history a bit more interesting. First, add a feature branch.
 
