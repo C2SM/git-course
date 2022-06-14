@@ -68,6 +68,7 @@ git merge feature
 Now we will examine the repository and it's history using git log and git diff. Each of those has multiple options that can be used to tailor them for specific uses. Atlassian provides an excellent tutorial for both git log and git diff, so we are going to follow them now. Go to the following websites and apply the different techniques described there to the repository we just created.
 
 https://www.atlassian.com/git/tutorials/git-log
+
 https://www.atlassian.com/git/tutorials/saving-changes/git-diff
 
 ## Use third party tools to examine the git repository <a name="tools"></a>
