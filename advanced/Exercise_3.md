@@ -15,12 +15,19 @@ Clone the example repository into it's own folder.
 ```plaintext
 git clone git@github.com:bast/git-bisect-exercise
 ```
+
+Navigate into the repository.
+
+```plaintext
+cd git-bisect-exercise
+```
+
 Test the pi calculating script (`get_pi.py`) to see what value of pi it gives.  
 
 ```plaintext
 python get_pi.py
 ```
-The script gives 3.57 as a result, of course to be correct it should give 3.14.  
+The script gives 3.57 as a result. To be correct it should give 3.14.  
 
 Let's test the first commit in the repository to see if the script was working then. First, we need to find the hash for the first commit using git log. You can list the commits starting with the oldest using the `--reverse` flag.  
 
@@ -83,7 +90,7 @@ In this first case, you should see that the code gives 3.57, which is the incorr
 git bisect bad
 ```
 
-Once you run this command, git will recalculate the halfway point between the new good and bad commits and check out a new commit for you to test. Continue by testing the script using `python get_pi.py` and then telling git whether the commit gives the correct result (`git bisect good`), or the incorrect result (`git bisect bad`). Keep repeating this process until you get a message from git identifying the exact commit where the code breaks. You can check that you have the correct solution by reading the Solution section of the README.md file.   
+Once you run this command, git will recalculate the halfway point between the new good and bad commits and check out a new commit for you to test. Continue by testing the script using `python get_pi.py` and then telling git whether the commit gives the correct result (`git bisect good`), or the incorrect result (`git bisect bad`). Keep repeating this process until you get a message from git identifying the exact commit where the code breaks. You can check that you have the correct solution by reading the Solutions section of the [README.md](https://github.com/bast/git-bisect-exercise/blob/master/README.md) file.   
 
 You should reset the repository to it's original state before you try any other git commands.
 
@@ -99,27 +106,21 @@ We can also automate this process to make it easier. We just need a testing scri
   <summary>Click here to see contents of the code checking script</summary>
 
   ```plaintext
-  import subprocess;
-  import numpy;
-  import sys;
+  import subprocess
+  import numpy
+  import sys
 
-  output = subprocess.check_output(['python', 'get_pi.py']);
-  result = float(output);
+  output = subprocess.check_output(['python', 'get_pi.py'])
+  result = float(output)
 
-  if numpy.isclose(result, 3.14):;
-      sys.exit(0);
-  else:;
+  if numpy.isclose(result, 3.14):
+      sys.exit(0)
+  else:
       sys.exit(1)
   ```
 </details>
 
 Now that we have a script to check the code, let's use git bisect run to quickly find the bad commit in our repository.  
-
-Reset the state of git bisect back to the beginning.  
-
-```plaintext
-git bisect reset
-```
 
 Start a new git bisect session.  
 
