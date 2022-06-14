@@ -35,11 +35,7 @@ Run the `init_advanced_repo` script.  This script will create a folder at the sa
 init_advanced_repo
 ```
 
-Navigate to the new git repository, and take some time to familiarize yourself with it.  
-
-```plaintext
-cd ../advanced_git/conference_planning
-```
+Take some time to familiarize yourself with the git repository using `git status`, `git log`, `git diff`, etc.  
 
 Let's add a branch and a few commits to make the history a bit more interesting. First, add a feature branch.
 
@@ -51,7 +47,7 @@ Make a change in a file and add it as a git commit.
 
 ```plaintext
 sed -i '/Coffee/ a 11:15-12:30: Presentation session' schedule_day1;
-git commit -am "Add presentation to day 1"
+git commit -am "Add presentation session to day 1"
 ```
 
 Switch back to the main branch and add a commit there.
@@ -59,7 +55,7 @@ Switch back to the main branch and add a commit there.
 ```plaintext
 git switch main;
 sed -i '/Evening/ i Dinner break' schedule_day1;
-git commit -am "Add presentation to day 1"
+git commit -am "Add dinner break to day 1"
 ```
 
 Merge the feature branch into the main branch.
@@ -70,6 +66,7 @@ git merge feature
 
 ## Use git log and git diff from command line <a name="cli"></a>
 Now we will examine the repository and it's history using git log and git diff. Each of those has multiple options that can be used to tailor them for specific uses. Atlassian provides an excellent tutorial for both git log and git diff, so we are going to follow them now. Go to the following websites and apply the different techniques described there to the repository we just created.
+
 https://www.atlassian.com/git/tutorials/git-log
 https://www.atlassian.com/git/tutorials/saving-changes/git-diff
 
