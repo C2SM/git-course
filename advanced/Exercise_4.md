@@ -1,6 +1,8 @@
 # Exercise 4 - Using git cherry-pick
 
-In this exercise, we will learn to use git to cherry pick a commit. We will add a series of commits to a feature branch, and then use cherry pick to apply only one of these commits to the main branch. We will use the same repository that we did in Exercises 1 and 2.  
+In this exercise, we will learn to use git to cherry pick a commit. We will add a series of commits to a feature branch, and then use cherry pick to apply only one of these commits to the main branch. 
+
+This exercise uses the same git repository that was created in Exercise 1. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_1.md). 
   
 * [Add feature branch and commits](#feature)
 
@@ -8,12 +10,12 @@ In this exercise, we will learn to use git to cherry pick a commit. We will add 
 
 ## Add feature branch and commits <a name="feature"></a>
 
-Navigate to the `conference_planning` folder, if you are not already there.
+Navigate to the `conference_planning` folder.
 
 Add a feature branch.  
 
 ```plaintext
-git switch -c feature
+git switch -c cherry_feature
 ```
 
 Let's add a couple of commits to this branch. 
@@ -33,11 +35,12 @@ git commit -am "Add keynote speech to day 1"
 Add an excursion to the schedule for day 2, and add and commit this change as well.
 
 ```plaintext
-sed -i '/^Coffee/a 13:00-15:00: Excursion' schedule_day2;
+sed -i '/^11:00/a 13:00-15:00: Excursion' schedule_day2;
 git commit -am "Add excursion to day 2"
 ```
 
 Extend the coffee break on day 1 to be half an hour in length. Add and commit this change. 
+
 ```plaintext
 sed -i '/Coffee/c\11:00-11:30: Coffee break' schedule_day1;
 git commit -am "Extend coffee break on day 1"
@@ -45,13 +48,12 @@ git commit -am "Extend coffee break on day 1"
 
 Use git log to have a look at the history. Make a note of the SHA of the commit you just made.
 
-
 ## Use git cherry-pick <a name="cherry"></a>
 
 Switch to the main branch, and cherry-pick the last commit.
 
 ```plaintext
-git switch -c main
+git switch main
 git cherry-pick SHA
 ```
 
