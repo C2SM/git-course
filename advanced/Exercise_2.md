@@ -2,6 +2,8 @@
 
 In this exercise, you will create a README file for the conference planning repository using the Markdown language. Then you will generate an HTML README file, and finally create a `.gitignore` file for the repository. This exercise is closely adapted from [this website](https://oesa.pages.ufz.de/git-exercises/exercise-5.html).  
 
+This exercise uses the same git repository that was created in Exercise 1. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section. 
+
 * [Create a README file](#readme)
 
 * [Generate the README file in HTML](#html)
@@ -16,12 +18,13 @@ Create a README.md file in the `conference_planning` folder.
 touch README.md
 ```
 
-Put some content in the README file using a file editor. Good README file content could include the title of the project, a description of the project, how to use the project, and/or the contributors of the project. [Here](https://www.markdownguide.org/basic-syntax/) are some tips for using the Markdown language.
+Put some content in the README file using a file editor. Good README file content could include the title of the project, a description of the project, how to use the project, and/or the contributors of the project. The `.md` file extension we have used indicates that the README file will be written using the Markdown language, which is a common format for README files because it displays well in web browsers. [Here](https://www.markdownguide.org/basic-syntax/) are some tips for using the Markdown language.
 
 Now commit the README file to the repository.
 
 ```plaintext
-git commit -am "Add README file"
+git add README.md;
+git commit -m "Add README file"
 ```
 ## Generate the README file in HTML <a name="html"></a>
 
@@ -60,5 +63,6 @@ git status
 The html file has disappeared, and now the `.gitignore` file is listed as unstaged. In order to save the file in the repository, commit it.  
 
 ```plaintext
-git commit -am "Added gitignore file to ignore html files"
+git add .gitignore
+git commit -m "Added gitignore file to ignore html files"
 ```
