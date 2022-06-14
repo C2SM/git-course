@@ -2,7 +2,7 @@
 
 In this exercise, you will create a README file for the conference planning repository using the Markdown language. Then you will generate an HTML README file, and finally create a `.gitignore` file for the repository. This exercise is closely adapted from [this website](https://oesa.pages.ufz.de/git-exercises/exercise-5.html).  
 
-This exercise uses the same git repository that was created in Exercise 1. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_1.md) 
+This exercise uses the same git repository that was created in Exercise 1. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_1.md). 
 
 * [Create a README file](#readme)
 
