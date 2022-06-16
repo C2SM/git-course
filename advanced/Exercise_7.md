@@ -1,6 +1,8 @@
 # Exercise 7 - Using git rebase
 
 In this exercise, we will learn to use git rebase to rewrite the history of a feature branch in order to keep the history of the main branch cleaner by avoiding merge commits. First we will use the merge strategy to add a feature to a main branch that is being simultaneously developed. Then we will use the rebase strategy to do the same thing and compare the differences.
+
+This exercise uses the same git repository that was created in Exercise 1. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_1.md).
   
 * [Use the merge strategy to incorporate a change into a moving main branch](#merge)
 
@@ -16,29 +18,29 @@ Create and switch to a new feature branch.
 git switch -c merge_feature
 ```
 
-Make a change to the schedule for day 1. Let's add a presentation session.
+Make a change to the schedule for day 2. Let's add a presentation session.
 
 ```plaintext
-sed -i '/Coffee/ a 11:15-12:30: Presentation session' schedule_day1
+sed -i '/Coffee/ a 11:15-12:30: Presentation session' schedule_day2
 ```
 
 Add and commit this change.
 
 ```plaintext
-git commit -am "Add presentation session to day 1"
+git commit -am "Add presentation session to day 2"
 ```
 
-Switch back to the main branch and make a change to the day 1 schedule there. Let's add a dinner break.
+Switch back to the main branch and make a change to the day 2 schedule there. Let's add a dinner break.
 
 ```plaintext
 git switch main;
-sed -i '/Evening/ i Dinner break' schedule_day1
+sed -i '/Evening/ i Dinner break' schedule_day2
 ```
 
 Add and commit this change. 
 
 ```plaintext
-git commit -am "Add dinner break to day 1"
+git commit -am "Add dinner break to day 2"
 ```
 Now you are ready to incorporate the changes you made in your feature branch into the main branch. Let's do this with a merge. 
 
