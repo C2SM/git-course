@@ -105,7 +105,7 @@ cd posters;
 git status
 ```
 
-Here we see the same change listed as not staged for commit. This is a difference to the behavior we saw with submodules. With git subtrees, git considers both the host and nested repository to have the same staging area. The commits from the subtree are all put directly into the commit list of the host repository, unlike with git submodule where they are kept completely separately.
+Here we see the same change listed as not staged for commit. This is a difference to the behavior we saw with submodules. With git subtrees, git considers both the host and nested repository to have the same staging area. The commits from the subtree are all put directly into the commit list of the host repository, unlike with git submodule where they are kept completely separate.
 
 Now try making a change inside the submodule. Let's add another poster title to the poster schedule.
 
