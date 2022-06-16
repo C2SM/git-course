@@ -1,6 +1,8 @@
 # Exercise 6 - Using git subtree
 
 In this exercise, we will learn to use git subtree to nest a git repository inside another one. We will first add the nested git repository and learn to update it when there are changes in the external subtree repository. We will also examine how the host and nested repositories deal with changes in their respective files.
+
+This exercise uses the same git repository that was created in Exercise 1. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_1.md).
   
 * [Create a new repository and add it as a subtree](#subtree)
 
@@ -20,7 +22,7 @@ Let's add the `posters` repository we created in Exercise 5 as a subtree to our 
 
 ```plaintext
 cd conference_subtree;
-git subtree add --prefix posters ../posters master --squash
+git subtree add --prefix posters ../posters main --squash
 ```
 
 Check the status of the repository. 
@@ -45,10 +47,10 @@ Navigate back to the poster repository.
 cd ../posters
 ```
 
-Add some text to the `poster_schedule` file, and commit the change to the posters repository.
+Add some text to the `schedule` file, and commit the change to the posters repository.
 
 ```plaintext
-echo "Poster 3: Which is better: subtree or submodule?" > poster_schedule;
+echo "Poster 3: Which is better: subtree or submodule?" > schedule;
 git commit -am "Add Poster 3 to schedule"
 ```
 
@@ -61,7 +63,7 @@ cd ../conference_subtree
 Let's update the main repository with the new content of the poster repository.
 
 ```plaintext
-git subtree pull --prefix posters ../posters master --squash
+git subtree pull --prefix posters ../posters main --squash
 ```
 
 Git will prompt you to enter a merge commit message, because it is treating this new information addition as a merge. 
