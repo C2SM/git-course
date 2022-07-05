@@ -25,6 +25,8 @@ cd conference_subtree;
 git subtree add --prefix posters ../posters main --squash
 ```
 
+The `--prefix` option gives a folder name relative to the root of the parent repository where the subtree will be installed. And the `--squash` option squashes the history of the posters repository into one commit in the parent repository.
+
 Check the status of the repository. 
 
 ```plaintext
@@ -84,7 +86,7 @@ git log
 
 Let's make some changes in both the host repository and the subtree to understand how git deals with subtrees.  
 
-Start by making a change in the host repository. Let's add a lunch break to the schedule on day 2.
+Start by making a change in the host repository. Let's add a lunch break to the schedule on day 2. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change. 
 
 ```plaintext
 sed -i '/^11:00/a 12:00-13:00: Lunch break' schedule_day2

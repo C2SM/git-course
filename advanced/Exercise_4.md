@@ -20,7 +20,7 @@ git switch -c cherry_feature
 
 Let's add a couple of commits to this branch. 
 
-Add a keynote speech to the schedule for day 1. You can use a file editor to open the file, or use a command line tool to change the file.   
+Add a keynote speech to the schedule for day 1. You can use a file editor to open the file, or use a command line tool to change the file. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms.  
  
 ```plaintext
 sed -i '/^Daily/a 08:00-09:00: Keynote speech' schedule_day1 
@@ -50,11 +50,11 @@ Use git log to have a look at the history. Make a note of the SHA of the commit 
 
 ## Use git cherry-pick <a name="cherry"></a>
 
-Switch to the main branch, and cherry-pick the last commit.
+Switch to the main branch, and cherry-pick the last commit, substituting the SHA of the commit you just made for `<SHA>` in the following commands.
 
 ```plaintext
 git switch main
-git cherry-pick SHA
+git cherry-pick <SHA>
 ```
 
 Have a look at the repository using the log, and examine the files as well. There's a couple important things to note here. First, notice that git has created an entirely new commit and SHA for the commit you cherry picked. This means that the feature branch should NOT be merged into the main branch anymore, because you will end up with two commits with exactly the same content. Therefore, cherry picking should really be reserved for saving useful changes from abandoned branches. If the branch is still actively being developed, then `git merge` should be used instead.

@@ -18,7 +18,7 @@ Create and switch to a new feature branch.
 git switch -c merge_feature
 ```
 
-Make a change to the schedule for day 2. Let's add a presentation session.
+Make a change to the schedule for day 2. Let's add a presentation session. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change. 
 
 ```plaintext
 sed -i '/Coffee/ a 11:15-12:30: Presentation session' schedule_day2
@@ -76,11 +76,17 @@ Add and commit this change.
 git commit -am "Add lunch break to day 1"
 ```
 
-Switch back to the main branch and make a change to the day 1 schedule there. Let's add an apero before dinner.
+Switch back to the main branch and make a change to the day 2 schedule there. Let's add an apero before dinner.
 
 ```plaintext
 git switch main;
-sed -i '/Dinner/ i Apero' schedule_day1
+sed -i '/Dinner/ i Apero' schedule_day2
+```
+
+Add and commit this change.
+
+```plaintext
+git commit -am "Add Apero to day 2"
 ```
 
 Now you are ready to incorporate the changes you made in your feature branch into the main branch. Let's do this with rebase this time instead of a merge. 

@@ -28,7 +28,15 @@ git commit -m "Add README file"
 ```
 ## Generate the README file in HTML <a name="html"></a>
 
-It may be useful to convert the README file into an html file in order to see how it will look to a user web browsing your repository. We will use a document converter called [Pandoc](https://pandoc.org) to do this. 
+It may be useful to convert the README file into an html file in order to see how it will look to a user web browsing your repository. We will use a document converter called [Pandoc](https://pandoc.org) to do this. You can check if you have Pandoc installed with the following command: 
+
+```plaintext
+pandoc -h
+```
+
+If you don't have Pandoc installed, there are instructions on how to do so [here](https://pandoc.org/installing.html).
+
+Once you have Pandoc ready to go, convert the README to an html file. 
 
 ```plaintext
 pandoc README.md -o README.html

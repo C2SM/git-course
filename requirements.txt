@@ -1,2 +1,3 @@
 jupyterlab
 bash_kernel
+numpy

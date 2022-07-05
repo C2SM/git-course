@@ -1,6 +1,6 @@
 # Exercise 5 - Using git submodule
 
-In this exercise, we will learn to use git submodule to nest a git repository inside another one. We will first add the git submodule and learn to update it when there are changes. We will also examine how the host and nested repositories deal with changes in their respective files.
+This exercise is designed to be paired with Exercise 6 to help you compare and contrast the two main methods for embedding a git repository into another git repository. This exercise illustrates the submodule method, while the next exercise illustrates the subtree method. In this exercise, we will learn to use git submodule to nest a git repository inside another one. We will first add the git submodule and learn to update it when there are changes. We will also examine how the host and nested repositories deal with changes in their respective files.
   
 This exercise uses the same git repository that was created in Exercise 1. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_1.md). 
 
@@ -116,7 +116,8 @@ git commit -am "Update posters to latest commit"
 
 Let's make some changes in both the host repository and the submodule to understand how git deals with submodules.  
 
-Start by making a change in the host repository. Let's add a lunch break to the schedule on day 1.
+Start by making a change in the host repository. Let's add a lunch break to the schedule on day 1. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change. 
+ 
 
 ```plaintext
 sed -i '/^11:15/a 12:00-13:00: Lunch break' schedule_day1

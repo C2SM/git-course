@@ -47,7 +47,7 @@ Let's add a branch and a few commits to make the history a bit more interesting.
 git switch -c feature
 ```
 
-Make a change in a file and add it as a git commit.
+Make a change in a file and add it as a git commit. Note that the `-am` options of the `git commit` command can be used to add all changed files to the staging area and commit them with a message in one single operation.
 
 ```plaintext
 sed -i '/Coffee/ a 11:15-12:30: Presentation session' schedule_day1;

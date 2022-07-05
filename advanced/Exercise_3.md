@@ -90,7 +90,13 @@ In this first case, you should see that the code gives 3.57, which is the incorr
 git bisect bad
 ```
 
-Once you run this command, git will recalculate the halfway point between the new good and bad commits and check out a new commit for you to test. Continue by testing the script using `python get_pi.py` and then telling git whether the commit gives the correct result (`git bisect good`), or the incorrect result (`git bisect bad`). Keep repeating this process until you get a message from git identifying the exact commit where the code breaks. You can check that you have the correct solution by reading the Solutions section of the [README.md](https://github.com/bast/git-bisect-exercise/blob/master/README.md) file.   
+Once you run this command, git will recalculate the halfway point between the new good and bad commits and check out a new commit for you to test. Continue by testing the script using `python get_pi.py` and then telling git whether the commit gives the correct result (`git bisect good`), or the incorrect result (`git bisect bad`). Keep repeating this process until you get a message from git identifying the exact commit where the code breaks. You can check the correct solution below.
+
+<details>
+  <summary>Click here to see the solution</summary>
+
+  The code breaks on commit number 137.
+</details>
 
 You should reset the repository to it's original state before you try any other git commands.
 
@@ -100,7 +106,7 @@ git bisect reset
 
 ## Use git bisect run to automatically find the bad commit <a name="automate"></a>
 
-We can also automate this process to make it easier. We just need a testing script that will return 0 if the code is correct, and an error value between 1 and 127 (excluding 125) if the code is incorrect. You could use whatever language you like to write such a script. If you are so inclined, you can try to write such a script yourself now. If not, you can use the python script provided below. If you do so, make sure you read through the python script so that you understand what it does.    
+We can also automate this process to make it easier. We just need a testing script that will return 0 if the code is correct, and an error value between 1 and 127 (excluding 125) if the code is incorrect. The error value 125 is reserved for when the code cannot be tested, and tells git bisect to skip the current commit. You could use whatever language you like to write such a script. If you are so inclined, you can try to write such a script yourself now. If not, you can use the python script provided below. If you do so, make sure you read through the python script so that you understand what it does.    
  
 <details>
   <summary>Click here to see contents of the code checking script</summary>
