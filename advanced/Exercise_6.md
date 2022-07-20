@@ -2,7 +2,7 @@
 
 In this exercise, we will learn to use git subtree to nest a git repository inside another one. We will first add the nested git repository and learn to update it when there are changes in the external subtree repository. We will also examine how the host and nested repositories deal with changes in their respective files.
 
-This exercise uses the same git repository that was created in Exercise 1. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_1.md).
+This exercise uses the same git repository that was created in Exercise 2. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_2.md).
   
 * [Create a new repository and add it as a subtree](#subtree)
 

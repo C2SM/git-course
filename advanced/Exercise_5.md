@@ -2,7 +2,7 @@
 
 This exercise is designed to be paired with Exercise 6 to help you compare and contrast the two main methods for embedding a git repository into another git repository. This exercise illustrates the submodule method, while the next exercise illustrates the subtree method. In this exercise, we will learn to use git submodule to nest a git repository inside another one. We will first add the git submodule and learn to update it when there are changes. We will also examine how the host and nested repositories deal with changes in their respective files.
   
-This exercise uses the same git repository that was created in Exercise 1. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_1.md). 
+This exercise uses the same git repository that was created in Exercise 2. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_2.md). 
 
 * [Create a new repository and add it as a submodule](#submodule)
 

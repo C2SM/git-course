@@ -1,14 +1,43 @@
 # Exercise 2 - Ignoring files
 
-In this exercise, you will create a README file for the conference planning repository using the Markdown language. Then you will generate an HTML README file, and finally create a `.gitignore` file for the repository. This exercise is closely adapted from [this website](https://oesa.pages.ufz.de/git-exercises/exercise-5.html).  
+In this exercise, you will first use a provided script to generate a simple git repository containing materials for planning a conference. You will then create a README file for the conference planning repository using the Markdown language. Then you will generate an HTML README file, and finally create a `.gitignore` file for the repository. This exercise is closely adapted from [this website](https://oesa.pages.ufz.de/git-exercises/exercise-5.html).  
 
-This exercise uses the same git repository that was created in Exercise 1. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_1.md). 
+* [Initialize the git repository](#initialize)
 
 * [Create a README file](#readme)
 
 * [Generate the README file in HTML](#html)
 
 * [Create a .gitignore file](#gitignore)
+
+## Initialize the git repository <a name="initialize"></a>
+
+Use the helper scripts provided in https://www.github.com/C2SM/git-course to set up a simple git repository.
+
+First, clone the git-course repository if you have not already done so in Exercise 1.  
+
+```plaintext
+git clone git@github.com:C2SM/git-course
+```
+
+Navigate into the repository.
+
+```plaintext
+cd git-course
+```
+
+Source the file containing the helper scripts: `helpers.sh`
+
+```plaintext
+source helpers.sh
+```
+Run the `init_advanced_repo` script.  This script will create a folder at the same level as the git-course repository containing a simple git repository called `conference_planning`.  
+
+```plaintext
+init_advanced_repo
+```
+
+Take some time to familiarize yourself with the git repository by examining the files and using `git status`, `git log`, `git diff`, etc.
 
 ## Create a README file <a name="readme"></a>
 

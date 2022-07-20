@@ -1,20 +1,24 @@
-# Exercise 1 - Examining your repository with git log and git diff
+# Exercise 1 - Examining your repository
 
-In this exercise, you will play around with a few different techniques for examining your repository and it's history. We will start by initializing a simple git repository and adding a few commits to it to make the history more interesting. Then we will examine the repository using both git log and git diff from the command line. Finally, we will use third party visualization tools to make examining the repository even easier. 
+In this exercise, you will explore a few different techniques for examining a git repository and it's history, including git log, git diff, and git grep. You will first clone the repository containing this git course, and then examine it using the different tools. The sections covering git log and git diff are adapted from the following excellent Atlassian tutorials:
 
-* [Initialize the git repository](#initialization)
+https://www.atlassian.com/git/tutorials/git-log
 
-* [Add a few commits](#commits)
+https://www.atlassian.com/git/tutorials/saving-changes/git-diff
 
-* [Use git log and git diff from command line](#cli)
+These tutorials offer a more comprehensive overview of the useful functionality of git log and git diff than presented here, so keep them in mind as a future reference.
 
-* [Use third party tools to examine the git repository](#tools)
+* [Clone the git repository](#initialization)
 
-## Initialize the git repository <a name="initialization"></a>
+* [Use git log](#log)
 
-Use the helper scripts provided in https://www.github.com/C2SM/git-course to set up a simple git repository.
+* [Use git diff](#diff)
 
-First, clone the git-course repository.  
+* [Use git difftool](#tool)
+
+* [Use git grep](#grep)
+
+## Clone the git repository <a name="initialization"></a>
 
 ```plaintext
 git clone git@github.com:C2SM/git-course
@@ -26,55 +30,79 @@ Navigate into the repository.
 cd git-course
 ```
 
-Source the file containing the helper scripts: `helpers.sh`
+## Use git log to have a look at the repository <a name="log"></a>
+
+The `git log` command lists the commits in the repository. You can use the various options for git log to format how the commits are displayed and/or filter which commits are displayed. Start with the basic command to see the default behavior. You can exit out of the log at any time by hitting the `q` key.
 
 ```plaintext
-source helpers.sh
+git log
 ```
-Run the `init_advanced_repo` script.  This script will create a folder at the same level as the git-course repository containing a simple git repository called `conference_planning`.  
+
+Let's look at some of the ways that we can change how the commits are displayed.
+
+To get a high-level overview of the repository, try the `--oneline` option:
 
 ```plaintext
-init_advanced_repo
+git log --oneline
 ```
 
-Take some time to familiarize yourself with the git repository by examining the files and using `git status`, `git log`, `git diff`, etc.  
-
-## Add a few commits <a name="commits"></a>
-
-Let's add a branch and a few commits to make the history a bit more interesting. First, add a feature branch.
+To get a brief summary of the changes introduced by each commit, use the `--stat` option: 
 
 ```plaintext
-git switch -c feature
+git log --stat
 ```
 
-Make a change in a file and add it as a git commit. Note that the `-am` options of the `git commit` command can be used to add all changed files to the staging area and commit them with a message in one single operation.
+To quickly see who has been working on what commits, use the `shortlog` command:
 
 ```plaintext
-sed -i '/Coffee/ a 11:15-12:30: Presentation session' schedule_day1;
-git commit -am "Add presentation session to day 1"
+git shortlog
 ```
 
-Switch back to the main branch and add a commit there.
+To get a picture of the history of the branch structure of the repository, use the `--graph` option. This option is particulary helpful when used in combination with the `--oneline` option.
 
 ```plaintext
-git switch main;
-sed -i '/Evening/ i Dinner break' schedule_day1;
-git commit -am "Add dinner break to day 1"
+git log --graph --oneline
 ```
 
-Merge the feature branch into the main branch.
+Now, let's look at some of the ways we can filter commits using the `git log` options.  
+
+To limit the number of commits displayed, try the `-` option:
 
 ```plaintext
-git merge feature
+git log -3
 ```
 
-## Use git log and git diff from command line <a name="cli"></a>
-Now we will examine the repository and it's history using git log and git diff. Each of those has multiple options that can be used to tailor them for specific uses. Atlassian provides an excellent tutorial for both git log and git diff, so we are going to follow them now. Go to the following websites and apply the different techniques described there to the repository we just created.
+To see commits made by a certain author, use the `--author` option. This option accepts a regular expression and returns all commits whose author matches that pattern.  
 
-https://www.atlassian.com/git/tutorials/git-log
+```plaintext
+git log --author="Jonas"
+```
 
-https://www.atlassian.com/git/tutorials/saving-changes/git-diff
+To see all the commits that changed one specific file, for example the `helpers.sh` file, try the following:
 
-## Use third party tools to examine the git repository <a name="tools"></a>
+```plaintext
+git log helpers.sh
+```
+
+To see all commits that introduce or remove a specific line of text, for example `Have fun!`, try the following:
+
+```plaintext
+git log -S 'Have fun!'
+```
+
+Remember that you can combine any of these git log options together to achieve your desired output. And if you decide on a format that you would like to use frequently, you can create an alias for this format using `git config`. For example, to set up an alias to use git log with the `--oneline` and `--graph` options, use the following command: 
+
+```plaintext
+git config --global alias.lg "log --oneline --graph"
+```
+
+Now, if you use `git lg`, you will see the log with the options you specified. Note that you can create aliases for any git command using `git config` and this is a very powerful tool.
+
+ 
+## Use git diff <a name="diff"></a>
+
+
+
+## Use git difftool <a name="tool"></a>
 
 
