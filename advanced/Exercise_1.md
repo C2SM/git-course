@@ -1,6 +1,6 @@
 # Exercise 1 - Examining your repository
 
-In this exercise, you will explore a few different techniques for examining a git repository and it's history, including git log, git diff, and git grep. You will first clone the repository containing this git course, and then examine it using the different tools. The sections covering git log and git diff are adapted from the following excellent Atlassian tutorials:
+In this exercise, you will explore a few different techniques for examining a git repository and it's history, including git log, git diff, and git grep. You will first clone the repository containing this git course, and then examine it using the different tools. The sections covering git log and git diff are adapted from the following Atlassian tutorials:
 
 https://www.atlassian.com/git/tutorials/git-log
 
@@ -13,8 +13,6 @@ These tutorials offer a more comprehensive overview of the useful functionality 
 * [Use git log](#log)
 
 * [Use git diff](#diff)
-
-* [Use git difftool](#tool)
 
 * [Use git grep](#grep)
 
@@ -100,9 +98,92 @@ Now, if you use `git lg`, you will see the log with the options you specified. N
 
  
 ## Use git diff <a name="diff"></a>
+The `git diff` command shows the differences between two different git data sources. These data sources can be commits, files, branches, tags and more. The `git diff` command can be used from the command line, but it can be difficult to interpret the output in that format. Therefore people often use a third-party visualization tool to examine the output of git diff. In this section, you will start by using `git diff` from the command line and then you will explore some of the options available for improving the readability of the output. 
 
+### git diff on the command line
 
+To get started, let's make a new branch with a change in it.  
 
-## Use git difftool <a name="tool"></a>
+```plaintext
+git switch -c difftest
+```
+
+Open the README.md file and make a change in it.
+
+The default behavior of `git diff` is to show any uncommited changes since the last commit. Try this now. 
+
+```plaintext
+git diff
+```
+
+Now, let's add and commit the change you made. Remember to make a meaningful commit message.
+
+```plaintext
+git commit -am "Put your commit message here"
+```
+
+You can use `git diff` to compare the content between branches, for example the main branch and the difftest branch:
+
+```plaintext
+git diff main difftest
+```
+
+You can also output the difference between one specific file in two different branches.
+
+```plaintext
+git diff main difftest ./README.md
+```
+
+Now let's use git diff to compare the difference between two commits. Use git log to get two commit IDs, and then put the two commit IDs as arguments to git diff. 
+
+```plaintext
+git log
+```
+
+```plaintext
+git diff 8eb59b37 f435db79
+```
+
+Here you can see that the output of git diff in the command line can be difficult to read if there are many changes. Let's have a look at some ways to better visualize these differences.
+
+### git diff visualization options
+
+#### git difftool
+
+One way that you can better visualize the output of `git diff` is to use `git difftool`. This command is a wrapper for `git diff` that allows you to specify the diff tool of your choice to view the output in. You can see all of the possible tools with the `--tool-help` option. 
+
+```plaintext
+git difftool --tool-help
+```
+
+Here you can see listed the available tools that are already installed on the system you are using, as well as the other tools that would work but you don't yet have installed. 
+
+Choose one of the installed tools on your system, and try `git difftool`. Use the `-t` option to specify which tool you want to use. For example, to use vimdiff, try: 
+
+```plaintext
+git difftool -t vimdiff 8eb59b37 f435db79
+```
+
+This command allows you to step through all the files that were changed between the two commits one at a time and get a clearer picture of how the files were changed.  
+
+#### Git web interface
+
+Git web interfaces, such as Github and Gitlab, also have built in wrappers which help to visualize the output for `git diff`. 
+
+Let's have a look at the git course repository on Github. You can find it here:
+https://github.com/C2SM/git-course
+
+You can get to the `git diff` wrapper by adding `/compare` to any Github repository url. So have a look at:
+https://github.com/C2SM/git-course/compare
+
+This will open up a comparison interface in your web browser. Here you can use the gui provided to compare the code between branches and forks. You can also specify exact comparisons by changing the url. For example, to compare the same two commits we have compared with `git diff` and `git difftool`, you can use the following url:
+
+https://github.com/C2SM/git-course/compare/8eb59b37..f435db79
+
+You can find more information about how to use the Github compare tool [here](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits).
+
+Note: You may have noticed that the comparison we have done includes some binary (.png) files. Because these are binary files, you cannot get an exact difference between them, but the fact that they showed up in the `git diff` output means that the files have changed between the two commits. This can sometimes be useful information. Remember that it's best practice to try to avoid committing binary files into git repositories when possible. If it is necessary, try to keep the size of the files as small as possible to make it quick and easy to work with your git repository. 
+
+## Use git grep <a name="grep"></a>
 
 
