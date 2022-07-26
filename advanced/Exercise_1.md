@@ -1,6 +1,6 @@
 # Exercise 1 - Examining your repository
 
-In this exercise, you will explore a few different techniques for examining a git repository and it's history, including git log, git diff, and git grep. You will first clone the repository containing this git course, and then examine it using the different tools. The sections covering git log and git diff are adapted from the following Atlassian tutorials:
+In this exercise, you will explore a few different techniques for examining a git repository and it's history, including git log and  git diff. You will first clone the repository containing this git course, and then examine it using the different tools. The sections covering git log and git diff are adapted from the following Atlassian tutorials:
 
 https://www.atlassian.com/git/tutorials/git-log
 
@@ -13,8 +13,6 @@ These tutorials offer a more comprehensive overview of the useful functionality 
 * [Use git log](#log)
 
 * [Use git diff](#diff)
-
-* [Use git grep](#grep)
 
 ## Clone the git repository <a name="initialization"></a>
 
@@ -184,6 +182,5 @@ You can find more information about how to use the Github compare tool [here](ht
 
 Note: You may have noticed that the comparison we have done includes some binary (.png) files. Because these are binary files, you cannot get an exact difference between them, but the fact that they showed up in the `git diff` output means that the files have changed between the two commits. This can sometimes be useful information. Remember that it's best practice to try to avoid committing binary files into git repositories when possible. If it is necessary, try to keep the size of the files as small as possible to make it quick and easy to work with your git repository. 
 
-## Use git grep <a name="grep"></a>
 
 
