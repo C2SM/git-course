@@ -1,154 +1,62 @@
-# Exercise 5 - Using git submodule
+# Exercise 5 - Using git cherry-pick
 
-This exercise is designed to be paired with Exercise 6 to help you compare and contrast the two main methods for embedding a git repository into another git repository. This exercise illustrates the submodule method, while the next exercise illustrates the subtree method. In this exercise, we will learn to use git submodule to nest a git repository inside another one. We will first add the git submodule and examine how the host and nested repositories deal with changes in their respective files. We will then learn how to pull and push changes to and from the sub-repository.
+In this exercise, we will learn to use git to cherry pick a commit. We will add a series of commits to a feature branch, and then use cherry pick to apply only one of these commits to the main branch.
 
-This exercise uses the same git repository that was created in Exercise 2. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_2.md).
+This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_3.md).
 
-* [Fork a repository on Github and add it as a submodule](#submodule)
+* [Add feature branch and commits](#feature)
 
-* [Examine how git deals with changes to both repositories](#examine)
+* [Use git cherry-pick](#cherry)
 
-* [Create new content locally and update the sub-repository](#push)
+## Add feature branch and commits <a name="feature"></a>
 
-* [Create new content in the sub-repository and update the local repository](#pull)
+Navigate to the `conference_planning` folder.
 
-## Fork a repository on Github and add it as a submodule <a name="submodule"></a>
-
-Navigate to the folder containing the `conference_planning` folder; in other words you should be in a folder that does not contain a git repository. Make a copy of the conference planning repository to use for adding the submodule.
+Add a feature branch.  
 
 ```plaintext
-cp -r conference_planning conference_submodule
+git switch -c cherry_feature
 ```
 
-I have already created a repository on Github that we will use as a submodule. This repository is called `posters` and will contain the poster schedule for our conference.
+Let's add a couple of commits to this branch.
 
-Navigate to the repository, found [here](https://github.com/kosterried/posters), and make a fork of it using the Github user interface.
-
-Let's add this fork as a submodule to our conference planning repository. You will need to copy the SSH address of your fork and paste it into the `git submodule add` command below.
+Add a keynote speech to the schedule for day 1. You can use a file editor to open the file, or use a command line tool to change the file. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms.  
 
 ```plaintext
-cd conference_submodule;
-git submodule add YOUR_FORK_ADDRESS
+sed -i '/^Daily/a 08:00-09:00: Keynote speech' schedule_day1
 ```
 
-Note that Github requires an SSH key in order to push content to repositories. If you have not already set up an SSH key in your Github account, it is easy to do and you can find instructions [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
-
-Check the status of the repository.
+Add and commit this change. Remember to use a meaningful commit message.
 
 ```plaintext
-git status
+git commit -am "Add keynote speech to day 1"
 ```
 
-The output shows that there are some changes to the repository, and they are already staged for commit. We should commit them to finalize the adding of the submodule.
+Add an excursion to the schedule for day 2, and add and commit this change as well.
 
 ```plaintext
-git commit -m "Add the posters submodule"
+sed -i '/^12:30/a 13:30-15:00: Excursion' schedule_day2;
+git commit -am "Add excursion to day 2"
 ```
 
-Note that the .gitmodules file has been added, which contains the path of the submodule in the host repository and the address where the submodule is hosted which is the Github URL in our case. It could also be another git web host, a file path, or anywhere else a repository is hosted.
-
-Check the status of the submodule.
+Extend the coffee break on day 1 to be half an hour in length. Add and commit this change.
 
 ```plaintext
-git submodule status
+sed -i '/Coffee/c\11:00-11:30: Coffee break' schedule_day1;
+git commit -am "Extend coffee break on day 1"
 ```
 
-The output shows us the SHA of the commit that the submodule is currently pointing to.  
+Use git log to have a look at the history. Make a note of the SHA of the commit you just made.
 
-## Examine how git deals with changes to both repositories <a name="examine"></a>
+## Use git cherry-pick <a name="cherry"></a>
 
-Let's make some changes in both the host repository and the submodule to understand how git deals with submodules.  
-
-Start by making a change in the host repository. Let's add a lunch break to the schedule on day 1. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change.
-
+Switch to the main branch, and cherry-pick the last commit, substituting the SHA of the commit you just made for `<SHA>` in the following commands.
 
 ```plaintext
-sed -i '/^11:15/a 12:00-13:00: Lunch break' schedule_day1
+git switch main
+git cherry-pick <SHA>
 ```
 
-Check the status of the repository.
+Have a look at the repository using the log, and examine the files as well. There's a couple important things to note here. First, notice that git has created an entirely new commit and SHA for the commit you cherry picked. This means that the feature branch should NOT be merged into the main branch anymore, because you will end up with two commits with exactly the same content. Therefore, cherry picking should really be reserved for saving useful changes from abandoned branches. If the branch is still actively being developed, then `git merge` should be used instead.
 
-```plaintext
-git status
-```
-
-You should see the change you just made listed as not staged for commit.
-
-Now navigate into the submodule and check the status there.
-
-```plaintext
-cd posters;
-git status
-```
-
-Here we see that there are no changes. The submodule is treated as a completely separate repository with it's own staging area and commits.
-
-Now try making a change inside the submodule. Let's add a poster title to the poster schedule.
-
-```plaintext
-echo "Poster 1: Git submodules and you" >> schedule
-```
-
-Check the status of the posters repository.
-
-```plaintext
-git status
-```
-
-Check the status of the conference planning repository.
-
-```plaintext
-cd ..;
-git status
-```
-
-Git is now informing us that we now have modified content in the posters submodule.  
-
-## Create new content locally and update the sub-repository <a name="push"></a>
-Now, let's commit the change to the posters submodule, and push that change to our posters repository on Github.
-
-Go back into the posters submodule and add and commit the change we just made.
-
-```plaintext
-cd posters;
-git commit -am "Add poster 1 to the schedule"
-```
-
-You can treat the submodule like any git repository and simply push the new commit to your fork on Github.  
-
-```plaintext
-git push origin
-```
-
-If you navigate back to your Github fork (and refresh the page if necessary), you should see the commit that you just made.  
-
-The conference planning repository now needs to be updated, to point to the new commit in the posters submodule.  Let's do this now.
-
-```plaintext
-cd ..
-git add posters
-git commit -m "Update posters submodule"
-```
-
-Now, if you check the submodule status, you will see that it is pointing to the latest commit you made.
-
-## Create new content in the sub-repository and update the local repository <a name="pull"></a>
-
-Finally, let's learn how to pull changes from the submodule into our host repository.  
-
-Navigate back to your fork of the poster repository on Github, and make a change to the schedule file and commit it. You can do this directly on the web interface by simply selecting the file and using the edit button.
-
-Once you have done this, go to back to the terminal and use `git submodule update` to get the main repository to fetch the new commit of the poster repository.
-
-```plaintext
-git submodule update --remote --merge
-```
-
-The `--remote` option tells git to refer to the remote repository for the latest commit, in this case our poster repository. The `--merge` option tells git to merge the commit into our submodule to keep it up to date.
-
-In order to finalize the update, we need to commit it to the main repository.
-
-```plaintext
-git add posters
-git commit -am "Update posters to latest commit"
-```
+The other important thing to notice here is that git has only applied the changes in the last commit, i.e. the extension of the coffee break. The other changes we made before in previous commits (adding the keynote and excursion) are not applied.

@@ -1,107 +1,138 @@
-# Exercise 7 - Using git rebase
+# Exercise 7 - Using git subtree
 
-In this exercise, we will learn to use git rebase to rewrite the history of a feature branch in order to keep the history of the main branch cleaner by avoiding merge commits. First we will use the merge strategy to add a feature to a main branch that is being simultaneously developed. Then we will use the rebase strategy to do the same thing and compare the differences.
+This exercise is designed to be paired with Exercise 6 to help you compare and contrast the two main methods for embedding a git repository into another git repository. In this exercise, we will learn to use git subtree to nest a git repository inside another one. We will first add the git subtree and examine how the host and nested repositories deal with changes in their respective files. We will then learn how to pull and push changes to and from the sub-repository.
 
-This exercise uses the same git repository that was created in Exercise 2. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_2.md).
-  
-* [Use the merge strategy to incorporate a change into a moving main branch](#merge)
+This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_3.md).
 
-* [Use the rebase strategy to incorporate a change into a moving main branch](#rebase)
+* [Add the posters repository using git subtree](#subtree)
 
-## Use the merge strategy to incorporate a change into a moving main branch <a name="merge"></a>
+* [Examine how git deals with changes to both repositories](#examine)
 
-Navigate to the `conference_planning` folder.
+* [Create new content locally and update the sub-repository](#push)
 
-Create and switch to a new feature branch.
+* [Create new content in the sub-repository and update the local repository](#pull)
 
-```plaintext
-git switch -c merge_feature
-```
+## Add the posters repository using git subtree <a name="subtree"></a>
 
-Make a change to the schedule for day 2. Let's add a presentation session. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change. 
+Navigate to the folder containing the `conference_planning` folder; in other words you should be in a folder that does not contain a git repository. Make a copy of the conference planning repository to use for adding the subtree.
 
 ```plaintext
-sed -i '/Coffee/ a 11:15-12:30: Presentation session' schedule_day2
+cp -r conference_planning conference_subtree
 ```
 
-Add and commit this change.
+Let's add your `posters` Github fork we created in Exercise 6 as a subtree to our conference planning repository.
 
 ```plaintext
-git commit -am "Add presentation session to day 2"
+cd conference_subtree;
+git subtree add --prefix posters YOUR_FORK_ADDRESS master --squash
 ```
 
-Switch back to the main branch and make a change to the day 2 schedule there. Let's add a dinner break.
+The `--prefix` option gives a folder name relative to the root of the parent repository where the subtree will be installed. And the `--squash` option squashes the history of the posters repository into one commit in the parent repository.
+
+Check the status of the repository.
 
 ```plaintext
-git switch main;
-sed -i '/Evening/ i Dinner break' schedule_day2
+git status
 ```
 
-Add and commit this change. 
+In this case, unlike the submodule, we don't have to make a commit to finalize the addition of the subtree. If you have a look at the log, you will see that git has added a couple of commits automatically to do this.
 
 ```plaintext
-git commit -am "Add dinner break to day 2"
+git log
 ```
-Now you are ready to incorporate the changes you made in your feature branch into the main branch. Let's do this with a merge. 
+
+Note that there is no equivalent command to `git submodule status` that will allow us to list our subtrees and their status.  
+
+
+## Examine how git deals with changes to both repositories <a name="examine"></a>
+
+Let's make some changes in both the host repository and the subtree to understand how git deals with subtrees.  
+
+Start by making a change in the host repository. Let's add a presentation session to the schedule on day 1. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change.
 
 ```plaintext
-git merge merge_feature
+sed -i '/^11:00/a 11:30-12:30: Presentation session' schedule_day1
 ```
 
-Examine the log. You should see that a merge commit has been created in the master branch.  
-
-Follow git best practices and delete the no longer needed feature branch.
+Check the status of the repository.
 
 ```plaintext
-git branch -d merge_feature
+git status
 ```
 
-## Use the rebase strategy to incorporate a change into a moving main branch <a name="rebase"></a>
+You should see the change you just made listed as not staged for commit.
 
-Create and switch to a new feature branch.
+Now navigate into the subtree and check the status there.
 
 ```plaintext
-git switch -c rebase_feature
+cd posters;
+git status
 ```
 
-Make a change to the schedule for day 1. Let's add a lunch break.
+Here we see the same change listed as not staged for commit. This is a difference to the behavior we saw with submodules. With git subtrees, git considers both the host and nested repository to have the same staging area. The commits from the subtree are all put directly into the commit list of the host repository, unlike with git submodule where they are kept completely separate.
+
+Now try making a change inside the submodule. Let's add another poster title to the poster schedule.
 
 ```plaintext
-sed -i '/Presentation/ a 12:30-13:30: Lunch break' schedule_day1
+echo "Poster 3: 3 easy steps to git mastery" >> schedule
 ```
 
-Add and commit this change.
+Check the status of the repository.
 
 ```plaintext
-git commit -am "Add lunch break to day 1"
+git status
 ```
 
-Switch back to the main branch and make a change to the day 2 schedule there. Let's add an apero before dinner.
+Now we see both changes listed as not staged for commit. This means that we could potentially now make a commit that included content from the host repository AND the subtree, and git would allow it. This could create problems with the history of the repository further down the line, so this should be avoided. The user simply needs to know not to do this, as git will not do anything to stop this.
+
+## Create new content locally and update the sub-repository <a name="push"></a>
+
+Let's push the change we've made to the subtree to the Github fork.
+First we need to commit this change.
 
 ```plaintext
-git switch main;
-sed -i '/Dinner/ i Apero' schedule_day2
+git add schedule;
+git commit -m "Add Poster 3"
 ```
 
-Add and commit this change.
+Now, we need to go to the root of the host repository and use `git subtree push` to send this commit to our Github fork.
 
 ```plaintext
-git commit -am "Add Apero to day 2"
+cd ..;
+git subtree push --prefix=posters YOUR_FORK_ADDRESS master
 ```
 
-Now you are ready to incorporate the changes you made in your feature branch into the main branch. Let's do this with rebase this time instead of a merge. 
+If you check your Github fork now, you should see that the change has appeared there.  
+
+## Create new content in the sub-repository and update the local repository <a name="pull"></a>
+
+Finally, let's learn how to pull changes from the subtree into our host repository.  
+
+Navigate back to your fork of the poster repository on Github, and make a change to the schedule file and commit it. You can do this directly on the web interface by simply selecting the file and using the edit button.
+
+Let's update the main repository with the new content of the poster repository.
+You can't do this if there are any changes in your working tree, so you should discard the changes we made to the day 1 schedule first.
 
 ```plaintext
-git rebase main rebase_feature
+git checkout schedule_day1
 ```
 
-Examine the repository status and log. Git has switched us to the `rebase_feature` branch and played the commit from the main branch here, without creating a merge commit.
-
-Now, switch to the `main` branch and sync it with the `rebase_feature` branch.
+Use `git subtree pull` to get the newest commit from your Github fork.
 
 ```plaintext
-git switch main
-git merge rebase_feature
+git subtree pull --prefix posters YOUR_FORK_ADDRESS master --squash
 ```
 
-Examine the repository status and log again. Even though we have done a merge command, by doing the rebase beforehand we have created a situation where the merge can be done with the fast-forward technique, and therefore no merge commit was required. This is particularly advantageous in actively developed codes because it allows the history of the main branch to remain clean and free of unnecessary merge commits.  
+Git will prompt you to enter a merge commit message, because it is treating this new information addition as a merge.
+
+Look at the contents of the posters subtree to see that the change you made has been added.
+
+```plaintext
+cat posters/schedule
+```
+
+Have a look at the log to see exactly how git has handled the subtree and it's updates.
+
+```plaintext
+git log
+```

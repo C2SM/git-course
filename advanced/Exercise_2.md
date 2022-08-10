@@ -1,105 +1,155 @@
-# Exercise 2 - Ignoring files
+# Exercise 2 - Using git bisect
 
-In this exercise, you will first use a provided script to generate a simple git repository containing materials for planning a conference. You will then create a README file for the conference planning repository using the Markdown language. Then you will generate an HTML README file, and finally create a `.gitignore` file for the repository. This exercise is closely adapted from [this website](https://oesa.pages.ufz.de/git-exercises/exercise-5.html).  
+In this exercise, you will use git bisect to pinpoint the exact commit in a repository where the code has broken. This tool is very useful for debugging. For this exercise, we will be using a publicly available git bisect example: https://github.com/bast/git-bisect-exercise. It consists of a git repository that contains a simple python script to calculate pi to 2 decimal places, which has broken at some point in the history of the repository. Your job is to use git bisect to find the commit where the code has broken and no longer returns the correct value of pi. You will do this in two ways: first, using git bisect manually, and then doing it automatically with git bisect run. Spoiler alert: Try to avoid the README.md file in the repository, as it contains the solution of the exercise.    
 
-* [Initialize the git repository](#initialize)
+* [Clone and test the example repository](#clone)
 
-* [Create a README file](#readme)
+* [Use git bisect manually to find the bad commit](#manual)
 
-* [Generate the README file in HTML](#html)
+* [Use git bisect run to automatically find the bad commit](#automate)
 
-* [Create a .gitignore file](#gitignore)
+## Clone and test the example repository <a name="clone"></a>
 
-## Initialize the git repository <a name="initialize"></a>
-
-Use the helper scripts provided in https://www.github.com/C2SM/git-course to set up a simple git repository.
-
-First, clone the git-course repository if you have not already done so in Exercise 1.  
+Clone the example repository into it's own folder.   
 
 ```plaintext
-git clone git@github.com:C2SM/git-course
+git clone git@github.com:bast/git-bisect-exercise
 ```
 
 Navigate into the repository.
 
 ```plaintext
-cd git-course
+cd git-bisect-exercise
 ```
 
-Source the file containing the helper scripts: `helpers.sh`
+Test the pi calculating script (`get_pi.py`) to see what value of pi it gives.  
 
 ```plaintext
-source helpers.sh
+python get_pi.py
 ```
-Run the `init_advanced_repo` script.  This script will create a folder at the same level as the git-course repository containing a simple git repository called `conference_planning`.  
+The script gives 3.57 as a result. To be correct it should give 3.14.  
+
+Let's test the first commit in the repository to see if the script was working then. First, we need to find the hash for the first commit using git log. You can list the commits starting with the oldest using the `--reverse` flag.  
 
 ```plaintext
-init_advanced_repo
+git log --reverse
 ```
 
-Take some time to familiarize yourself with the git repository by examining the files and using `git status`, `git log`, `git diff`, etc.
+Note the SHA value of the first commit in the repository, then use `q` to exit the log.  
 
-## Create a README file <a name="readme"></a>
-
-Create a README.md file in the `conference_planning` folder.  
+Switch to the first commit in the repository.
 
 ```plaintext
-touch README.md
+git checkout f0ea950
 ```
-
-Put some content in the README file using a file editor. Good README file content could include the title of the project, a description of the project, how to use the project, and/or the contributors of the project. The `.md` file extension we have used indicates that the README file will be written using the Markdown language, which is a common format for README files because it displays well in web browsers. [Here](https://www.markdownguide.org/basic-syntax/) are some tips for using the Markdown language.
-
-Now commit the README file to the repository.
+Test the script again.  
 
 ```plaintext
-git add README.md;
-git commit -m "Add README file"
+python get_pi.py
 ```
-## Generate the README file in HTML <a name="html"></a>
 
-It may be useful to convert the README file into an html file in order to see how it will look to a user web browsing your repository. We will use a document converter called [Pandoc](https://pandoc.org) to do this. You can check if you have Pandoc installed with the following command: 
+Now we get the correct answer: 3.14. So we know that somewhere between the first commit and the last commit, the script has stopped working. Git bisect will help us to figure out at exactly which commit this happened.
+
+Before we move on, let's switch our repository back to the final commit.  
 
 ```plaintext
-pandoc -h
+git switch -
 ```
 
-If you don't have Pandoc installed, there are instructions on how to do so [here](https://pandoc.org/installing.html).
+## Use git bisect manually to find the bad commit <a name="manual"></a>
 
-Once you have Pandoc ready to go, convert the README to an html file. 
+Initiate a git bisect session.
 
 ```plaintext
-pandoc README.md -o README.html
+git bisect start
 ```
 
-You can examine the output html file in a browser to check how it looks.  
+Next, you need to tell git bisect the commit you know where the code is good, and the commit you know where the code is bad. If you omit the commit SHA number, then git assumes you are referring to the current commit.  
 
-We could now commit the `README.html` file. However, it is good practice not to commit anything to a repository that can be generated from the project's source files. Therefore, we will instead tell git to ignore this file.
-
-Before we do that, let's check the status of the repository, and ensure that the html file you generated is unstaged.
+Tell git the current commit is bad.
 
 ```plaintext
-git status
+git bisect bad
 ```
 
-## Create a .gitignore file <a name="gitignore"></a>
-
-In order to tell git to ignore our html file, we will create a `.gitignore` file.  
+Tell git the first commit is good.
 
 ```plaintext
-touch .gitignore
+git bisect good f0ea950
 ```
 
-Open the file using a file editor. In this file, you can list files, directories, or file patterns to be ignored, one entry per line. In order to ignore the html file, you can either list it specifically (`README.html`), or use wildcards to tell git to ignore all html files (`*.html`).
-
-Check the status again.
+Once you have run this command, git has enough information to start the bisection. It automatically finds the commit that is halfway in between the good commit and the bad commit, and checks it out for you. All you need to do is test the current commit, and then tell git whether the code is good or bad at this point.  
 
 ```plaintext
-git status
+python get_pi.py
 ```
 
-The html file has disappeared, and now the `.gitignore` file is listed as unstaged. In order to save the file in the repository, commit it.  
+In this first case, you should see that the code gives 3.57, which is the incorrect answer. Let's inform git of this.
 
 ```plaintext
-git add .gitignore
-git commit -m "Added gitignore file to ignore html files"
+git bisect bad
 ```
+
+Once you run this command, git will recalculate the halfway point between the new good and bad commits and check out a new commit for you to test. Continue by testing the script using `python get_pi.py` and then telling git whether the commit gives the correct result (`git bisect good`), or the incorrect result (`git bisect bad`). Keep repeating this process until you get a message from git identifying the exact commit where the code breaks. You can check the correct solution below.
+
+<details>
+  <summary>Click here to see the solution</summary>
+
+  The code breaks on commit number 137.
+</details>
+
+You should reset the repository to it's original state before you try any other git commands.
+
+```plaintext
+git bisect reset
+```
+
+## Use git bisect run to automatically find the bad commit <a name="automate"></a>
+
+We can also automate this process to make it easier. We just need a testing script that will return 0 if the code is correct, and an error value between 1 and 127 (excluding 125) if the code is incorrect. The error value 125 is reserved for when the code cannot be tested, and tells git bisect to skip the current commit. You could use whatever language you like to write such a script. If you are so inclined, you can try to write such a script yourself now. If not, you can use the python script provided below. If you do so, make sure you read through the python script so that you understand what it does.    
+
+<details>
+  <summary>Click here to see contents of the code checking script</summary>
+
+  ```plaintext
+  import subprocess
+  import numpy
+  import sys
+
+  output = subprocess.check_output(['python', 'get_pi.py'])
+  result = float(output)
+
+  if numpy.isclose(result, 3.14):
+      sys.exit(0)
+  else:
+      sys.exit(1)
+  ```
+</details>
+
+Now that we have a script to check the code, let's use git bisect run to quickly find the bad commit in our repository.  
+
+Start a new git bisect session.  
+
+```plaintext
+git bisect start
+```
+
+Tell git that the code is broken in the current commit.
+
+```plaintext
+git bisect bad
+```
+
+Tell git that the code works in the first commit.
+
+```plaintext
+git bisect good f0ea950
+```
+
+Use your checking script to automate the bisection process. Substitute the name of your checking script and the method for running it, if it is not a python script.
+
+```plaintext
+git bisect run python check_script.py
+```
+
+Git bisect will automatically run through all the commits and test them until it finds the first bad commit, which it will report to you. Remember to use `git bisect reset` to get the repository back to it's original state.  
