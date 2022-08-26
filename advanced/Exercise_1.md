@@ -42,7 +42,7 @@ To get a high-level overview of the repository, try the `--oneline` option:
 git log --oneline
 ```
 
-To get a brief summary of the changes introduced by each commit, use the `--stat` option: 
+To get a brief summary of the changes introduced by each commit, use the `--stat` option:
 
 ```plaintext
 git log --stat
@@ -86,7 +86,7 @@ To see all commits that introduce or remove a specific line of text, for example
 git log -S 'Have fun!'
 ```
 
-Remember that you can combine any of these git log options together to achieve your desired output. And if you decide on a format that you would like to use frequently, you can create an alias for this format using `git config`. For example, to set up an alias to use git log with the `--oneline` and `--graph` options, use the following command: 
+Remember that you can combine any of these git log options together to achieve your desired output. And if you decide on a format that you would like to use frequently, you can create an alias for this format using `git config`. For example, to set up an alias to use git log with the `--oneline` and `--graph` options, use the following command:
 
 ```plaintext
 git config --global alias.lg "log --oneline --graph"
@@ -94,9 +94,9 @@ git config --global alias.lg "log --oneline --graph"
 
 Now, if you use `git lg`, you will see the log with the options you specified. Note that you can create aliases for any git command using `git config` and this is a very powerful tool.
 
- 
+
 ## Use git diff <a name="diff"></a>
-The `git diff` command shows the differences between two different git data sources. These data sources can be commits, files, branches, tags and more. The `git diff` command can be used from the command line, but it can be difficult to interpret the output in that format. Therefore people often use a third-party visualization tool to examine the output of git diff. In this section, you will start by using `git diff` from the command line and then you will explore some of the options available for improving the readability of the output. 
+The `git diff` command shows the differences between two different git data sources. These data sources can be commits, files, branches, tags and more. The `git diff` command can be used from the command line, but it can be difficult to interpret the output in that format. Therefore people often use a third-party visualization tool to examine the output of git diff. In this section, you will start by using `git diff` from the command line and then you will explore some of the options available for improving the readability of the output.
 
 ### git diff on the command line
 
@@ -108,13 +108,13 @@ git switch -c difftest
 
 Open the README.md file and make a change in it.
 
-The default behavior of `git diff` is to show any uncommited changes since the last commit. Try this now. 
+The default behavior of `git diff` is to show any uncommited changes since the last commit. Try this now.
 
 ```plaintext
 git diff
 ```
 
-Now, let's add and commit the change you made. Remember to make a meaningful commit message.
+Now, let's add and commit the change you made. Remember to make a meaningful commit message. Note that the `-a` option to the `git commit` command allows us to add any changed files to the staging area without having to separately use the `git add` command.
 
 ```plaintext
 git commit -am "Put your commit message here"
@@ -132,7 +132,7 @@ You can also output the difference between one specific file in two different br
 git diff main difftest ./README.md
 ```
 
-Now let's use git diff to compare the difference between two commits. Use git log to get two commit IDs, and then put the two commit IDs as arguments to git diff. 
+Now let's use git diff to compare the difference between two commits. Use git log to get two commit IDs, and then put the two commit IDs as arguments to git diff.
 
 ```plaintext
 git log
@@ -148,15 +148,15 @@ Here you can see that the output of git diff in the command line can be difficul
 
 #### git difftool
 
-One way that you can better visualize the output of `git diff` is to use `git difftool`. This command is a wrapper for `git diff` that allows you to specify the diff tool of your choice to view the output in. You can see all of the possible tools with the `--tool-help` option. 
+One way that you can better visualize the output of `git diff` is to use `git difftool`. This command is a wrapper for `git diff` that allows you to specify the diff tool of your choice to view the output in. You can see all of the possible tools with the `--tool-help` option.
 
 ```plaintext
 git difftool --tool-help
 ```
 
-Here you can see listed the available tools that are already installed on the system you are using, as well as the other tools that would work but you don't yet have installed. 
+Here you can see listed the available tools that are already installed on the system you are using, as well as the other tools that would work but you don't yet have installed.
 
-Choose one of the installed tools on your system, and try `git difftool`. Use the `-t` option to specify which tool you want to use. For example, to use vimdiff, try: 
+Choose one of the installed tools on your system, and try `git difftool`. Use the `-t` option to specify which tool you want to use. For example, to use vimdiff, try:
 
 ```plaintext
 git difftool -t vimdiff 8eb59b37 f435db79
@@ -166,7 +166,7 @@ This command allows you to step through all the files that were changed between 
 
 #### Git web interface
 
-Git web interfaces, such as Github and Gitlab, also have built in wrappers which help to visualize the output for `git diff`. 
+Git web interfaces, such as Github and Gitlab, also have built in wrappers which help to visualize the output for `git diff`.
 
 Let's have a look at the git course repository on Github. You can find it here:
 https://github.com/C2SM/git-course
@@ -180,7 +180,4 @@ https://github.com/C2SM/git-course/compare/8eb59b37..f435db79
 
 You can find more information about how to use the Github compare tool [here](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits).
 
-Note: You may have noticed that the comparison we have done includes some binary (.png) files. Because these are binary files, you cannot get an exact difference between them, but the fact that they showed up in the `git diff` output means that the files have changed between the two commits. This can sometimes be useful information. Remember that it's best practice to try to avoid committing binary files into git repositories when possible. If it is necessary, try to keep the size of the files as small as possible to make it quick and easy to work with your git repository. 
-
-
-
+Note: You may have noticed that the comparison we have done includes some binary (.png) files. Because these are binary files, you cannot get an exact difference between them, but the fact that they showed up in the `git diff` output means that the files have changed between the two commits. This can sometimes be useful information. Remember that it's best practice to try to avoid committing binary files into git repositories when possible. If it is necessary, try to keep the size of the files as small as possible to make it quick and easy to work with your git repository.
