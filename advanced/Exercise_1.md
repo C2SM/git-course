@@ -1,6 +1,6 @@
 # Exercise 1 - Examining your repository
 
-In this exercise, you will explore a few different techniques for examining a git repository and it's history, including git log and  git diff. You will first clone the repository containing this git course, and then examine it using the different tools. The sections covering git log and git diff are adapted from the following Atlassian tutorials:
+In this exercise, you will explore a few different techniques for examining a git repository and it's history, including git log, git diff, and git show. You will first clone the repository containing this git course, and then examine it using the various tools. The sections covering git log and git diff are adapted from the following Atlassian tutorials:
 
 https://www.atlassian.com/git/tutorials/git-log
 
@@ -13,6 +13,8 @@ These tutorials offer a more comprehensive overview of the useful functionality 
 * [Use git log](#log)
 
 * [Use git diff](#diff)
+
+* [Use git show](#show)
 
 ## Clone the git repository <a name="initialization"></a>
 
@@ -54,7 +56,7 @@ To quickly see who has been working on what commits, use the `shortlog` command:
 git shortlog
 ```
 
-To get a picture of the history of the branch structure of the repository, use the `--graph` option. This option is particulary helpful when used in combination with the `--oneline` option.
+To get a picture of the history of the branch structure of the repository, use the `--graph` option. This option is particularly helpful when used in combination with the `--oneline` option.
 
 ```plaintext
 git log --graph --oneline
@@ -181,3 +183,25 @@ https://github.com/C2SM/git-course/compare/8eb59b37..f435db79
 You can find more information about how to use the Github compare tool [here](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits).
 
 Note: You may have noticed that the comparison we have done includes some binary (.png) files. Because these are binary files, you cannot get an exact difference between them, but the fact that they showed up in the `git diff` output means that the files have changed between the two commits. This can sometimes be useful information. Remember that it's best practice to try to avoid committing binary files into git repositories when possible. If it is necessary, try to keep the size of the files as small as possible to make it quick and easy to work with your git repository.
+
+## Use git show <a name="show"></a>
+
+The `git show` command is another command that can be used to examine git objects such as tags and commits. This command can be useful for examining commits because it shows not only the commit SHA and commit message like `git log` but additionally the difference in the files committed like `git diff`.  
+
+Go back to your terminal window with the git course repository and try out the `git show` command.
+
+```plaintext
+git show
+```
+
+By default, this command shows us the latest commit, or HEAD in git terminology. You can see the commit SHA and message as well as the difference between any files that were changed in this commit. You could examine any commit in the repository by giving the commit SHA as an input to the `git show` command.
+
+```plaintext
+git show f435db79
+```
+
+Like `git log`, `git show` can be used with various options that allow you to change the way the information is displayed. There are options that change the way the commit SHA and message are displayed, such as `git show --oneline`. There are also options that change the way that the diff is displayed, but none of them really alleviate the problem that big diffs are generally hard to read in the terminal window. As with all git commands, you can use the `-h` option to get a description of all the possible options that can be used with `git show`.
+
+```plaintext
+git show -h
+```
