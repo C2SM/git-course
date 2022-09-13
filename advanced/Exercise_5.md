@@ -1,62 +1,107 @@
-# Exercise 5 - Using git cherry-pick
+# Exercise 5 - Using git rebase
 
-In this exercise, we will learn to use git to cherry pick a commit. We will add a series of commits to a feature branch, and then use cherry pick to apply only one of these commits to the main branch.
+In this exercise, we will learn to use git rebase to rewrite the history of a feature branch in order to keep the history of the main branch cleaner by avoiding merge commits. First we will use the merge strategy to add a feature to a main branch that is being simultaneously developed. Then we will use the rebase strategy to do the same thing and compare the differences.
 
 This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_3.md).
 
-* [Add feature branch and commits](#feature)
+* [Use the merge strategy to incorporate a change into a moving main branch](#merge)
 
-* [Use git cherry-pick](#cherry)
+* [Use the rebase strategy to incorporate a change into a moving main branch](#rebase)
 
-## Add feature branch and commits <a name="feature"></a>
+## Use the merge strategy to incorporate a change into a moving main branch <a name="merge"></a>
 
 Navigate to the `conference_planning` folder.
 
-Add a feature branch.  
+Create and switch to a new feature branch.
 
 ```plaintext
-git switch -c cherry_feature
+git switch -c merge_feature
 ```
 
-Let's add a couple of commits to this branch.
-
-Add a keynote speech to the schedule for day 1. You can use a file editor to open the file, or use a command line tool to change the file. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms.  
+Make a change to the schedule for day 2. Let's add a presentation session. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change.
 
 ```plaintext
-sed -i '/^Daily/a 08:00-09:00: Keynote speech' schedule_day1
+sed -i '/Coffee/ a 11:15-12:30: Presentation session' schedule_day2
 ```
 
-Add and commit this change. Remember to use a meaningful commit message.
+Add and commit this change.
 
 ```plaintext
-git commit -am "Add keynote speech to day 1"
+git commit -am "Add presentation session to day 2"
 ```
 
-Add an excursion to the schedule for day 2, and add and commit this change as well.
-
-```plaintext
-sed -i '/^12:30/a 13:30-15:00: Excursion' schedule_day2
-git commit -am "Add excursion to day 2"
-```
-
-Extend the coffee break on day 1 to be half an hour in length. Add and commit this change.
-
-```plaintext
-sed -i '/Coffee/c\11:00-11:30: Coffee break' schedule_day1
-git commit -am "Extend coffee break on day 1"
-```
-
-Use git log to have a look at the history. Make a note of the SHA of the commit you just made.
-
-## Use git cherry-pick <a name="cherry"></a>
-
-Switch to the main branch, and cherry-pick the last commit, substituting the SHA of the commit you just made for `<SHA>` in the following commands.
+Switch back to the main branch and make a change to the day 2 schedule there. Let's add a dinner break.
 
 ```plaintext
 git switch main
-git cherry-pick <SHA>
+sed -i '/Evening/ i Dinner break' schedule_day2
 ```
 
-Have a look at the repository using the log, and examine the files as well. There's a couple important things to note here. First, notice that git has created an entirely new commit and SHA for the commit you cherry picked. This means that the feature branch should NOT be merged into the main branch anymore, because you will end up with two commits with exactly the same content. Therefore, cherry picking should really be reserved for saving useful changes from abandoned branches. If the branch is still actively being developed, then `git merge` should be used instead.
+Add and commit this change.
 
-The other important thing to notice here is that git has only applied the changes in the last commit, i.e. the extension of the coffee break. The other changes we made before in previous commits (adding the keynote and excursion) are not applied.
+```plaintext
+git commit -am "Add dinner break to day 2"
+```
+Now you are ready to incorporate the changes you made in your feature branch into the main branch. Let's do this with a merge.
+
+```plaintext
+git merge merge_feature
+```
+
+Examine the log. You should see that a merge commit has been created in the main branch.  
+
+Follow git best practices and delete the no longer needed feature branch.
+
+```plaintext
+git branch -d merge_feature
+```
+
+## Use the rebase strategy to incorporate a change into a moving main branch <a name="rebase"></a>
+
+Create and switch to a new feature branch.
+
+```plaintext
+git switch -c rebase_feature
+```
+
+Make a change to the schedule for day 2. Let's add a lunch break.
+
+```plaintext
+sed -i '/Presentation/ a 12:30-13:30: Lunch break' schedule_day2
+```
+
+Add and commit this change.
+
+```plaintext
+git commit -am "Add lunch break to day 2"
+```
+
+Switch back to the main branch and make a change to the day 2 schedule there. Let's add an apero before dinner.
+
+```plaintext
+git switch main
+sed -i '/Dinner/ i Apero' schedule_day2
+```
+
+Add and commit this change.
+
+```plaintext
+git commit -am "Add Apero to day 2"
+```
+
+Now you are ready to incorporate the changes you made in your feature branch into the main branch. Let's do this with rebase this time instead of a merge.
+
+```plaintext
+git rebase main rebase_feature
+```
+
+Examine the repository status and log. Git has switched us to the `rebase_feature` branch and played the commit from the main branch here, without creating a merge commit.
+
+Now, switch to the `main` branch and sync it with the `rebase_feature` branch.
+
+```plaintext
+git switch main
+git merge rebase_feature
+```
+
+Examine the repository status and log again. Even though we have done a merge command, by doing the rebase beforehand we have created a situation where the merge can be done with the fast-forward technique, and therefore no merge commit was required. This is particularly advantageous in actively developed codes because it allows the history of the main branch to remain clean and free of unnecessary merge commits.  

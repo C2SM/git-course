@@ -1,107 +1,82 @@
-# Exercise 4 - Using git rebase
+# Exercise 4 - Using git stash and git worktree
 
-In this exercise, we will learn to use git rebase to rewrite the history of a feature branch in order to keep the history of the main branch cleaner by avoiding merge commits. First we will use the merge strategy to add a feature to a main branch that is being simultaneously developed. Then we will use the rebase strategy to do the same thing and compare the differences.
+In this exercise, you will learn how to use `git stash` to save changes not yet ready to be committed. Then you will learn how to recover those changes in your git repository. Next you will use `git worktree` to learn how to work with simultaneous checkouts of the same repository in one place, allowing you work on and transfer files between different git branches easily.   
 
 This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_3.md).
 
-* [Use the merge strategy to incorporate a change into a moving main branch](#merge)
+* [Stash your changes](#stash)
 
-* [Use the rebase strategy to incorporate a change into a moving main branch](#rebase)
+* [Use git worktree to create parallel branch checkouts](#worktree)
 
-## Use the merge strategy to incorporate a change into a moving main branch <a name="merge"></a>
+## Stash your changes <a name="stash"></a>
 
-Navigate to the `conference_planning` folder.
-
-Create and switch to a new feature branch.
+Let's make a change to the repository by adding a conference breakfast to the schedule on day 1.
 
 ```plaintext
-git switch -c merge_feature
+sed -i '/Daily/ a 08:30-09:00: Conference breakfast' schedule_day1
 ```
 
-Make a change to the schedule for day 2. Let's add a presentation session. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change.
+Now let's suppose that you decide that you aren't ready to commit this change, but you don't want to discard it either. Use `git stash` to save the change and revert the repository back the latest commit.
 
 ```plaintext
-sed -i '/Coffee/ a 11:15-12:30: Presentation session' schedule_day2
+git stash save "Add breakfast to day 1"
 ```
 
-Add and commit this change.
+If you check the status of your repository now, you can see that the change you made is no longer listed as unstaged.
 
 ```plaintext
-git commit -am "Add presentation session to day 2"
+git status
 ```
 
-Switch back to the main branch and make a change to the day 2 schedule there. Let's add a dinner break.
+You can save more than one stash if you like. Examine the list of your stashes (currently just the one you just created).
 
 ```plaintext
-git switch main
-sed -i '/Evening/ i Dinner break' schedule_day2
+git stash list
 ```
 
-Add and commit this change.
+Let's assume you have now decided you would like to recover these changes and keep working with them. Let's recover the stash using it's identifier from the list (`stash@{0}`).
 
 ```plaintext
-git commit -am "Add dinner break to day 2"
+git stash pop stash@{0}
 ```
-Now you are ready to incorporate the changes you made in your feature branch into the main branch. Let's do this with a merge.
+
+Note that you can make any changes or commits in between saving the stash and reapplying it to your repository. If there are conflicts between the stash and the new commits in your repository, you will need to resolve those conflicts manually before proceeding, and a merge commit will be generated. You should also know that the stash is only saved in your local repository copy and cannot be pushed to a remote repository to be used by other people.
+
+## Use git worktree to create parallel branch checkouts <a name="worktree"></a>
+
+Next you will use `git worktree` to checkout multiple instances of the git repository in parallel. This can be very useful for transferring changes between branches or working on different features simultaneously.
+
+In order to use `git worktree`, you must work in a bare git repository. Remember that a bare git repository is one where there is no working directory. Instead it just consists of the files and objects git uses to register the changes you make to your working directory.
+
+Let's make a bare clone of the conference_planning git repository.
 
 ```plaintext
-git merge merge_feature
+cd ..
+git clone --bare conference_planning conference_bare
 ```
 
-Examine the log. You should see that a merge commit has been created in the main branch.  
-
-Follow git best practices and delete the no longer needed feature branch.
+Navigate into the new repository and examine it.
 
 ```plaintext
-git branch -d merge_feature
+cd conference_bare
+ls
+git status
 ```
 
-## Use the rebase strategy to incorporate a change into a moving main branch <a name="rebase"></a>
+Note that the `git status` command does not work because we are not in a working directory!
 
-Create and switch to a new feature branch.
+Let's make a folder containing the files as they currently are in the main branch of our repository.
 
 ```plaintext
-git switch -c rebase_feature
+git worktree add main
 ```
 
-Make a change to the schedule for day 2. Let's add a lunch break.
+A folder called `main` has been created, and if you examine it you will find the checked out files from the main branch. You can make changes and add and commit them as you normally would from this new folder.
+
+Let's suppose that in addition to working in the main branch of the repository, you would also like to work in a feature branch in parallel. You can do this easily now. Let's add a feature branch.
 
 ```plaintext
-sed -i '/Presentation/ a 12:30-13:30: Lunch break' schedule_day2
+git worktree add feature
 ```
 
-Add and commit this change.
-
-```plaintext
-git commit -am "Add lunch break to day 2"
-```
-
-Switch back to the main branch and make a change to the day 2 schedule there. Let's add an apero before dinner.
-
-```plaintext
-git switch main
-sed -i '/Dinner/ i Apero' schedule_day2
-```
-
-Add and commit this change.
-
-```plaintext
-git commit -am "Add Apero to day 2"
-```
-
-Now you are ready to incorporate the changes you made in your feature branch into the main branch. Let's do this with rebase this time instead of a merge.
-
-```plaintext
-git rebase main rebase_feature
-```
-
-Examine the repository status and log. Git has switched us to the `rebase_feature` branch and played the commit from the main branch here, without creating a merge commit.
-
-Now, switch to the `main` branch and sync it with the `rebase_feature` branch.
-
-```plaintext
-git switch main
-git merge rebase_feature
-```
-
-Examine the repository status and log again. Even though we have done a merge command, by doing the rebase beforehand we have created a situation where the merge can be done with the fast-forward technique, and therefore no merge commit was required. This is particularly advantageous in actively developed codes because it allows the history of the main branch to remain clean and free of unnecessary merge commits.  
+Because the branch `feature` did not already exist, one has been created from the master branch. It is now located in the `feature` folder, and you can now navigate there and work as you normally would in your git working directory. Note that you can also push and fetch commits as you normally would to and from remote repositories if you need to.
