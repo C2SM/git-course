@@ -52,7 +52,7 @@ Put some content in the README file using a file editor. Good README file conten
 Now commit the README file to the repository.
 
 ```plaintext
-git add README.md;
+git add README.md
 git commit -m "Add README file"
 ```
 ## Generate the README file in HTML <a name="html"></a>

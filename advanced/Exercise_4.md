@@ -33,7 +33,7 @@ git commit -am "Add presentation session to day 2"
 Switch back to the main branch and make a change to the day 2 schedule there. Let's add a dinner break.
 
 ```plaintext
-git switch main;
+git switch main
 sed -i '/Evening/ i Dinner break' schedule_day2
 ```
 
@@ -79,7 +79,7 @@ git commit -am "Add lunch break to day 2"
 Switch back to the main branch and make a change to the day 2 schedule there. Let's add an apero before dinner.
 
 ```plaintext
-git switch main;
+git switch main
 sed -i '/Dinner/ i Apero' schedule_day2
 ```
 

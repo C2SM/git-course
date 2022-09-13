@@ -27,7 +27,7 @@ Navigate to the repository, found [here](https://github.com/kosterried/posters),
 Let's add this fork as a submodule to our conference planning repository. You will need to copy the SSH address of your fork and paste it into the `git submodule add` command below.
 
 ```plaintext
-cd conference_submodule;
+cd conference_submodule
 git submodule add YOUR_FORK_ADDRESS
 ```
 
@@ -77,7 +77,7 @@ You should see the change you just made listed as not staged for commit.
 Now navigate into the submodule and check the status there.
 
 ```plaintext
-cd posters;
+cd posters
 git status
 ```
 
@@ -98,7 +98,7 @@ git status
 Check the status of the conference planning repository.
 
 ```plaintext
-cd ..;
+cd ..
 git status
 ```
 
@@ -110,7 +110,7 @@ Now, let's commit the change to the posters submodule, and push that change to o
 Go back into the posters submodule and add and commit the change we just made.
 
 ```plaintext
-cd posters;
+cd posters
 git commit -am "Add poster 1 to the schedule"
 ```
 

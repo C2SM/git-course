@@ -35,14 +35,14 @@ git commit -am "Add keynote speech to day 1"
 Add an excursion to the schedule for day 2, and add and commit this change as well.
 
 ```plaintext
-sed -i '/^12:30/a 13:30-15:00: Excursion' schedule_day2;
+sed -i '/^12:30/a 13:30-15:00: Excursion' schedule_day2
 git commit -am "Add excursion to day 2"
 ```
 
 Extend the coffee break on day 1 to be half an hour in length. Add and commit this change.
 
 ```plaintext
-sed -i '/Coffee/c\11:00-11:30: Coffee break' schedule_day1;
+sed -i '/Coffee/c\11:00-11:30: Coffee break' schedule_day1
 git commit -am "Extend coffee break on day 1"
 ```
 

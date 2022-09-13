@@ -23,7 +23,7 @@ cp -r conference_planning conference_subtree
 Let's add your `posters` Github fork we created in Exercise 6 as a subtree to our conference planning repository.
 
 ```plaintext
-cd conference_subtree;
+cd conference_subtree
 git subtree add --prefix posters YOUR_FORK_ADDRESS master --squash
 ```
 
@@ -65,7 +65,7 @@ You should see the change you just made listed as not staged for commit.
 Now navigate into the subtree and check the status there.
 
 ```plaintext
-cd posters;
+cd posters
 git status
 ```
 
@@ -91,14 +91,14 @@ Let's push the change we've made to the subtree to the Github fork.
 First we need to commit this change.
 
 ```plaintext
-git add schedule;
+git add schedule
 git commit -m "Add Poster 3"
 ```
 
 Now, we need to go to the root of the host repository and use `git subtree push` to send this commit to our Github fork.
 
 ```plaintext
-cd ..;
+cd ..
 git subtree push --prefix=posters YOUR_FORK_ADDRESS master
 ```
 
