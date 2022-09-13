@@ -24,7 +24,7 @@ Let's add your `posters` Github fork we created in Exercise 6 as a subtree to ou
 
 ```plaintext
 cd conference_subtree
-git subtree add --prefix posters YOUR_FORK_ADDRESS master --squash
+git subtree add --prefix posters YOUR_FORK_ADDRESS main --squash
 ```
 
 The `--prefix` option gives a folder name relative to the root of the parent repository where the subtree will be installed. And the `--squash` option squashes the history of the posters repository into one commit in the parent repository.
@@ -99,7 +99,7 @@ Now, we need to go to the root of the host repository and use `git subtree push`
 
 ```plaintext
 cd ..
-git subtree push --prefix=posters YOUR_FORK_ADDRESS master
+git subtree push --prefix=posters YOUR_FORK_ADDRESS main
 ```
 
 If you check your Github fork now, you should see that the change has appeared there.  
@@ -120,7 +120,7 @@ git checkout schedule_day1
 Use `git subtree pull` to get the newest commit from your Github fork.
 
 ```plaintext
-git subtree pull --prefix posters YOUR_FORK_ADDRESS master --squash
+git subtree pull --prefix posters YOUR_FORK_ADDRESS main --squash
 ```
 
 Git will prompt you to enter a merge commit message, because it is treating this new information addition as a merge.

@@ -26,6 +26,12 @@ Navigate into the repository.
 cd git-course
 ```
 
+Set the name of the default branch in any git repository you create to be `main`.
+
+```plaintext
+git config --global init.defaultBranch main
+```
+
 Source the file containing the helper scripts: `helpers.sh`
 
 ```plaintext

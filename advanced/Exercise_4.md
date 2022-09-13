@@ -48,7 +48,7 @@ Now you are ready to incorporate the changes you made in your feature branch int
 git merge merge_feature
 ```
 
-Examine the log. You should see that a merge commit has been created in the master branch.  
+Examine the log. You should see that a merge commit has been created in the main branch.  
 
 Follow git best practices and delete the no longer needed feature branch.
 
