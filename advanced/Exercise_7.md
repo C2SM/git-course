@@ -114,7 +114,7 @@ Let's update the main repository with the new content of the poster repository.
 You can't do this if there are any changes in your working tree, so you should discard the changes we made to the day 1 schedule first.
 
 ```plaintext
-git checkout schedule_day1
+git restore schedule_day1
 ```
 
 Use `git subtree pull` to get the newest commit from your Github fork.
