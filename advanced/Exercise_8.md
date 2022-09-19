@@ -2,7 +2,7 @@
 
 This exercise is designed to be paired with Exercise 6 to help you compare and contrast the two main methods for embedding a git repository into another git repository. In this exercise, we will learn to use git subtree to nest a git repository inside another one. We will first add the git subtree and examine how the host and nested repositories deal with changes in their respective files. We will then learn how to pull and push changes to and from the sub-repository.
 
-This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_3.md).
+This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` [section of Exercise 3](./Exercise_3.md).
 
 * [Add the posters repository using git subtree](#subtree)
 
