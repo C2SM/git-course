@@ -124,8 +124,8 @@ init_advanced_repo () {
     mkdir -p conference_planning
     cd conference_planning
     git init
-    cp ../../git-course/examples/schedule_day1 .
-    cp ../../git-course/examples/schedule_day2 .
+    cp ../../advanced/examples/schedule_day1 .
+    cp ../../advanced/examples/schedule_day2 .
 
     git add schedule_day1 && git commit -m "Add schedule_day1"
     git add schedule_day2 && git commit -m "Add schedule_day2"
