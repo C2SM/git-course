@@ -12,7 +12,7 @@ In this exercise, you will first use a provided script to generate a simple git 
 
 ## Initialize the git repository <a name="initialize"></a>
 
-Use the helper scripts provided in https://www.github.com/C2SM/git-course to set up a simple git repository.
+Use the [helper scripts](helpers.sh) provided in folder [advanced](../advanced) to set up a simple git repository.
 
 First, clone the git-course repository if you have not already done so in Exercise 1.  
 
@@ -35,6 +35,7 @@ git config --global init.defaultBranch main
 Source the file containing the helper scripts: `helpers.sh`
 
 ```plaintext
+cd advanced
 source helpers.sh
 ```
 Run the `init_advanced_repo` script.  This script will create a folder at the same level as the git-course repository containing a simple git repository called `conference_planning`.  
