@@ -1,6 +1,6 @@
 # Exercise 3 - Ignoring files
 
-In this exercise, you will first use a provided script to generate a simple git repository containing materials for planning a conference. You will then create a README file for the conference planning repository using the Markdown language. Then you will generate an HTML README file, and finally create a `.gitignore` file for the repository. This exercise is closely adapted from [this website](https://oesa.pages.ufz.de/git-exercises/exercise-5.html).  
+In this exercise, you will first use a provided script to generate a simple git repository containing materials for planning a conference. You will then create a README file for the conference planning repository using the Markdown language. Then you will generate an HTML README file, and finally create a `.gitignore` file for the repository. This exercise is closely adapted from [OESA Git Workshop](https://oesa.pages.ufz.de/git-exercises/exercise-5.html).  
 
 * [Initialize the git repository](#initialize)
 
@@ -12,7 +12,7 @@ In this exercise, you will first use a provided script to generate a simple git 
 
 ## Initialize the git repository <a name="initialize"></a>
 
-Use the helper scripts provided in https://www.github.com/C2SM/git-course to set up a simple git repository.
+Use the [helper scripts](helpers.sh) provided in folder [advanced](../advanced) to set up a simple git repository.
 
 First, clone the git-course repository if you have not already done so in Exercise 1.  
 
@@ -35,6 +35,7 @@ git config --global init.defaultBranch main
 Source the file containing the helper scripts: `helpers.sh`
 
 ```plaintext
+cd advanced
 source helpers.sh
 ```
 Run the `init_advanced_repo` script.  This script will create a folder at the same level as the git-course repository containing a simple git repository called `conference_planning`.  
