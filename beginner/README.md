@@ -1,5 +1,5 @@
 # Git Course for Beginners
-This repository contains the exercises for the C2SM Git Workshop "Git for Beginners".
+This folder contains the exercises for the C2SM Git Workshop "Git for Beginners".
 Feel free to download the material to practice and enhance your Git skills.
 
 The corresponding [slides of this course](https://wiki.c2sm.ethz.ch/CM/WorkshopBestPractices2013) can be found
