@@ -10,7 +10,7 @@ This exercise uses the same git repository that was created in Exercise 3. If yo
 
 ## Stash your changes <a name="stash"></a>
 
-Let's make a change to the repository by adding a conference breakfast to the schedule on day 1.
+Let's make a change to the repository by adding a conference breakfast to the schedule on day 1. The following are examples of how to use the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change.
 
 ```plaintext
 sed -i '/Daily/ a 08:30-09:00: Conference breakfast' schedule_day1
