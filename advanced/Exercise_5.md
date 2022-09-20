@@ -1,8 +1,8 @@
 # Exercise 5 - Using git rebase
 
-In this exercise, we will learn to use git rebase to rewrite the history of a feature branch in order to keep the history of the main branch cleaner by avoiding merge commits. First we will use the merge strategy to add a feature to a main branch that is being simultaneously developed. Then we will use the rebase strategy to do the same thing and compare the differences.
+In this exercise, we will learn to use `git rebase` to rewrite the history of a feature branch in order to keep the history of the main branch cleaner by avoiding merge commits. First we will use the merge strategy to add a feature to a main branch that is being simultaneously developed. Then we will use the rebase strategy to do the same thing and compare the differences.
 
-This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_3.md).
+This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the ["Initialize the git repository" section of Exercise 3](./Exercise_3.md#initialize).
 
 * [Use the merge strategy to incorporate a change into a moving main branch](#merge)
 
@@ -18,7 +18,7 @@ Create and switch to a new feature branch.
 git switch -c merge_feature
 ```
 
-Make a change to the schedule for day 2. Let's add a presentation session. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change.
+Make a change to the schedule for day 2. Let's add a presentation session. The following are examples of how to use the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change.
 
 ```plaintext
 sed -i '/Coffee/ a 11:15-12:30: Presentation session' schedule_day2

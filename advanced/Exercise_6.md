@@ -2,7 +2,7 @@
 
 In this exercise, we will learn to use git to cherry pick a commit. We will add a series of commits to a feature branch, and then use cherry pick to apply only one of these commits to the main branch.
 
-This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_3.md).
+This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the ["Initialize the git repository" section of Exercise 3](./Exercise_3.md#initialize).
 
 * [Add feature branch and commits](#feature)
 

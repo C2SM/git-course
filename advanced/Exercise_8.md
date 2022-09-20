@@ -1,8 +1,8 @@
 # Exercise 8 - Using git subtree
 
-This exercise is designed to be paired with Exercise 6 to help you compare and contrast the two main methods for embedding a git repository into another git repository. In this exercise, we will learn to use git subtree to nest a git repository inside another one. We will first add the git subtree and examine how the host and nested repositories deal with changes in their respective files. We will then learn how to pull and push changes to and from the sub-repository.
+This exercise is designed to be paired with Exercise 7 to help you compare and contrast the two main methods for embedding a git repository into another git repository. In this exercise, we will learn to use `git subtree` to nest a git repository inside another one. We will first add the git subtree and examine how the host and nested repositories deal with changes in their respective files. We will then learn how to pull and push changes to and from the sub-repository.
 
-This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` section [here](./Exercise_3.md).
+This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the ["Initialize the git repository" section of Exercise 3](./Exercise_3.md#initialize).
 
 * [Add the posters repository using git subtree](#subtree)
 
@@ -20,12 +20,14 @@ Navigate to the folder containing the `conference_planning` folder; in other wor
 cp -r conference_planning conference_subtree
 ```
 
-Let's add your `posters` Github fork we created in Exercise 6 as a subtree to our conference planning repository.
+Let's add your `posters` Github fork we created in Exercise 7 as a subtree to our conference planning repository.
 
 ```plaintext
 cd conference_subtree
 git subtree add --prefix posters YOUR_FORK_ADDRESS main --squash
 ```
+
+> **_Note:_**  If you get an error message of the type `Working tree has modifications.  Cannot add.`, please first try `git switch main`. If the error still persists, type `git reset --hard`. For more information about this, check [this stackoverflow question](https://stackoverflow.com/questions/3623351/git-subtree-pull-says-that-the-working-tree-has-modifications-but-git-status-sa).
 
 The `--prefix` option gives a folder name relative to the root of the parent repository where the subtree will be installed. And the `--squash` option squashes the history of the posters repository into one commit in the parent repository.
 
@@ -69,7 +71,7 @@ cd posters
 git status
 ```
 
-Here we see the same change listed as not staged for commit. This is a difference to the behavior we saw with submodules. With git subtrees, git considers both the host and nested repository to have the same staging area. The commits from the subtree are all put directly into the commit list of the host repository, unlike with git submodule where they are kept completely separate.
+Here we see the same change listed as not staged for commit. This is a difference to the behavior we saw with submodules. With git subtrees, git considers both the host and nested repository to have the same staging area. The commits from the subtree are all put directly into the commit list of the host repository, unlike with `git submodule` where they are kept completely separate.
 
 Now try making a change inside the submodule. Let's add another poster title to the poster schedule.
 
