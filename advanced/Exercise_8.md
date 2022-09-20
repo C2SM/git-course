@@ -20,7 +20,7 @@ Navigate to the folder containing the `conference_planning` folder; in other wor
 cp -r conference_planning conference_subtree
 ```
 
-Let's add your `posters` Github fork we created in Exercise 6 as a subtree to our conference planning repository.
+Let's add your `posters` Github fork we created in Exercise 7 as a subtree to our conference planning repository.
 
 ```plaintext
 cd conference_subtree
