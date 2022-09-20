@@ -79,4 +79,4 @@ Let's suppose that in addition to working in the main branch of the repository, 
 git worktree add feature
 ```
 
-Because the branch `feature` did not already exist, one has been created from the master branch. It is now located in the `feature` folder, and you can now navigate there and work as you normally would in your git working directory. Note that you can also push and fetch commits as you normally would to and from remote repositories if you need to.
+Because the branch `feature` did not already exist, one has been created from the main branch. It is now located in the `feature` folder, and you can now navigate there and work as you normally would in your git working directory. Note that you can also push and fetch commits as you normally would to and from remote repositories if you need to.
