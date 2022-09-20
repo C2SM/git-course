@@ -27,6 +27,8 @@ cd conference_subtree
 git subtree add --prefix posters YOUR_FORK_ADDRESS main --squash
 ```
 
+> **_Note:_**  If you get an error message of the type `Working tree has modifications.  Cannot add.`, please first try `git switch main`. If the error still persists, type `git reset --hard`. For more information about this, check [this stackoverflow question](https://stackoverflow.com/questions/3623351/git-subtree-pull-says-that-the-working-tree-has-modifications-but-git-status-sa).
+
 The `--prefix` option gives a folder name relative to the root of the parent repository where the subtree will be installed. And the `--squash` option squashes the history of the posters repository into one commit in the parent repository.
 
 Check the status of the repository.
