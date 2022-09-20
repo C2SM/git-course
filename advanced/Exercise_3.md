@@ -1,6 +1,6 @@
 # Exercise 3 - Ignoring files
 
-In this exercise, you will first use a provided script to generate a simple git repository containing materials for planning a conference. You will then create a README file for the conference planning repository using the Markdown language. Then you will generate an HTML README file, and finally create a `.gitignore` file for the repository. This exercise is closely adapted from [OESA Git Workshop](https://oesa.pages.ufz.de/git-exercises/exercise-5.html).  
+In this exercise, you will first use a provided script to generate a simple git repository containing materials for planning a conference. You will then create a README file for the conference planning repository using the Markdown language. Then you will generate an HTML README file, and finally create a `.gitignore` file for the repository. This exercise is closely adapted from the [OESA Git Workshop](https://oesa.pages.ufz.de/git-exercises/exercise-5.html).  
 
 * [Initialize the git repository](#initialize)
 
