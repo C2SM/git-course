@@ -2,7 +2,7 @@
 
 This exercise is designed to be paired with Exercise 7 to help you compare and contrast the two main methods for embedding a git repository into another git repository. This exercise illustrates the submodule method, while the next exercise illustrates the subtree method. In this exercise, we will learn to use git submodule to nest a git repository inside another one. We will first add the git submodule and examine how the host and nested repositories deal with changes in their respective files. We will then learn how to pull and push changes to and from the sub-repository.
 
-This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the `Initialize the git repository` [section of Exercise 3](./Exercise_3.md).
+This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the ["Initialize the git repository" section of Exercise 3](./Exercise_3.md#initialize).
 
 * [Fork a repository on Github and add it as a submodule](#submodule)
 
@@ -45,7 +45,7 @@ The output shows that there are some changes to the repository, and they are alr
 git commit -m "Add the posters submodule"
 ```
 
-Note that the .gitmodules file has been added, which contains the path of the submodule in the host repository and the address where the submodule is hosted which is the Github URL in our case. It could also be another git web host, a file path, or anywhere else a repository is hosted.
+Note that the `.gitmodules` file has been added, which contains the path of the submodule in the host repository and the address where the submodule is hosted which is the Github URL in our case. It could also be another git web host, a file path, or anywhere else a repository is hosted.
 
 Check the status of the submodule.
 
