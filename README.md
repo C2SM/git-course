@@ -17,7 +17,7 @@ Second, you also need a Python installation.
 We provide you here with [instructions from realpython](https://realpython.com/installing-python/),
 but of course many other instructions will do as well.
 
-Third, you need some non-standard python packages, namely:
+For the beginners course, you also need some non-standard python packages, namely:
    - jupyterlab
    - bash_kernel
 
