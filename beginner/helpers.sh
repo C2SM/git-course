@@ -92,11 +92,11 @@ init_simple_repo_remote () {
     ls
 }
 
-init_broken_repo () {
+init_repo () {
     init_simple_repo &> /dev/null
 
     ed -s schedule_day1.txt  <<< $'/break/\na\n11:15-12:15: Workshop ice crystal formation\n.\nw\nq' > /dev/null
-    ed -s schedule_day2.txt  <<< $'/break/\na\n11:15-12:12: Workshop secondary ice\n.\nw\nq' > /dev/null
+    ed -s schedule_day2.txt  <<< $'/break/\na\n11:15-12:15: Workshop secondary ice\n.\nw\nq' > /dev/null
     git add * && git commit -m "Add workshops"
 
     sed  's/Poster session/Talk professor C./g' schedule_day1.txt > schedule_day1_tmp.txt
