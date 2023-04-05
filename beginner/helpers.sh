@@ -26,10 +26,10 @@ init_exercise () {
     echo "Working directory prepared"
 }
 
-init_directory_with_empty_file () {
+init_repo_empty_schedule () {
     mkdir -p conference_planning
     cd conference_planning
-    touch conference_schedule.txt
+    cp ../../../examples/schedule_day1.txt conference_schedule.txt
 }
 
 init_simple_repo () {
