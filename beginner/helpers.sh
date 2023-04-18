@@ -7,37 +7,34 @@ else
 fi
 
 reset () {
-    echo "Go back to $dir_at_startup"
-    cd $dir_at_startup
-
-    echo "Restore clean working directory"
-    mkdir -p work
-    rm -rf work
-    mkdir work
-    cd work
-
+    echo "Go back to $dir_at_startup and restore clean working directory"
+    init_exercise &> /dev/null
     echo "Here we go again!"
 }
 
 init_exercise () {
     cd $dir_at_startup
-    mkdir -p work
-    cd work
+    mkdir -p ../../../beginners_git
+    rm -rf ../../../beginners_git
+    mkdir -p ../../../beginners_git
+    cd ../../../beginners_git
     echo "Working directory prepared"
 }
 
 init_repo_empty_schedule () {
-    mkdir -p conference_planning
-    cd conference_planning
-    cp ../../../examples/schedule_day1.txt conference_schedule.txt
+    cd $dir_at_startup
+    mkdir -p ../../../beginners_git/conference_planning
+    cd ../../../beginners_git/conference_planning
+    cp ../../git-course/beginner/examples/schedule_day1.txt conference_schedule.txt
 }
 
 init_simple_repo () {
-    mkdir -p conference_planning
-    cd conference_planning
+    cd $dir_at_startup
+    mkdir -p ../../../beginners_git/conference_planning
+    cd ../../../beginners_git/conference_planning
     git init
-    cp ../../../examples/schedule_day1.txt .
-    cp ../../../examples/schedule_day2.txt .
+    cp ../../git-course/beginner/examples/schedule_day1.txt .
+    cp ../../git-course/beginner/examples/schedule_day2.txt .
 
     git add schedule_day1.txt && git commit -m "Add schedule_day1"
     git add schedule_day2.txt && git commit -m "Add schedule_day2"
@@ -62,11 +59,12 @@ init_simple_repo () {
 }
 
 init_simple_repo_remote () {
-    mkdir -p conference_planning
-    cd conference_planning
+    cd $dir_at_startup
+    mkdir -p ../../../beginners_git/conference_planning
+    cd ../../../beginners_git/conference_planning
     git init
-    cp ../../../examples/schedule_day1.txt .
-    cp ../../../examples/schedule_day2.txt .
+    cp ../../git-course/beginner/examples/schedule_day1.txt .
+    cp ../../git-course/beginner/examples/schedule_day2.txt .
 
     git add schedule_day1.txt && git commit -m "Add schedule_day1"
     git add schedule_day2.txt && git commit -m "Add schedule_day2"
@@ -119,10 +117,11 @@ init_repo () {
 }
 
 init_repo_remote () {
-    mkdir -p conference_planning
-    cd conference_planning
+    cd $dir_at_startup
+    mkdir -p ../../../beginners_git/conference_planning
+    cd ../../../beginners_git/conference_planning
     git init
-    cp ../../../examples/schedule_day1.txt .
+    cp ../../git-course/beginner/examples/schedule_day1.txt .
 
     git add schedule_day1.txt && git commit -m "Add schedule_day1"
 
@@ -146,11 +145,12 @@ init_repo_remote () {
 }
 
 commit_to_remote_by_third_party() {
-    cd ../conference_planning_remote
+    cd $dir_at_startup
+    cd ../../../beginners_git/conference_planning_remote
     git switch updated_schedules
     sed  's/Poster session/Workshop/g' schedule_day1.txt > schedule_day1_tmp.txt
     mv -f schedule_day1_tmp.txt schedule_day1.txt
     git add * && git commit -m "Workshop in the morning"
     git switch main
-    cd -
+    cd ..
 }
