@@ -131,9 +131,10 @@ commit_to_remote_by_third_party() {
     cd $dir_at_startup
     cd ../../../beginners_git/conference_planning_remote
     git switch updated_schedules
+    cp ../../git-course/beginner/examples/schedule_day1.txt .
     sed  's/Poster session/Workshop/g' schedule_day1.txt > schedule_day1_tmp.txt
     mv -f schedule_day1_tmp.txt schedule_day1.txt
     git add * && git commit -m "Workshop in the morning"
     git switch main
-    cd ..
+    cd ../conference_planning
 }
