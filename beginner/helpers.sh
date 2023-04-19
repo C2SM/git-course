@@ -59,24 +59,7 @@ init_simple_repo () {
 }
 
 init_simple_repo_remote () {
-    cd $dir_at_startup
-    mkdir -p ../../../beginners_git/conference_planning
-    cd ../../../beginners_git/conference_planning
-    git init
-    cp ../../git-course/beginner/examples/schedule_day1.txt .
-    cp ../../git-course/beginner/examples/schedule_day2.txt .
-
-    git add schedule_day1.txt && git commit -m "Add schedule_day1"
-    git add schedule_day2.txt && git commit -m "Add schedule_day2"
-
-    ed -s schedule_day1.txt  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
-    ed -s schedule_day2.txt  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
-    git add * && git commit -m "Add poster sessions in the morning"
-
-    ed -s schedule_day1.txt  <<< $'/session/\na\n11:00-11:15: Coffee break\n.\nw\nq' > /dev/null
-    ed -s schedule_day2.txt  <<< $'/session/\na\n11:00-11:15: Coffee break\n.\nw\nq' > /dev/null
-    git add * && git commit -m "Add coffee breaks"
-
+    init_simple_repo &> /dev/null
     cd ..
     git clone conference_planning conference_planning_remote
     cd conference_planning_remote
