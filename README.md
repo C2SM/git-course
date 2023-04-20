@@ -64,8 +64,8 @@ git clone git@github.com:C2SM/git-course.git
 ```
 
 ```bash
-# Change directory to the "beginner" subdirectory of the cloned repository
-cd git-course/beginner
+# Navigate into the cloned repository
+cd git-course
 ```
 
 ```bash
