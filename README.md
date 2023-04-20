@@ -6,29 +6,79 @@ The folder [beginner](beginner) contains the exercises for the C2SM Git Workshop
 ## Git Course for Advanced
 The folder [advanced](advanced) contains the exercises for the C2SM Git Workshop "Git for Advanced".
 
-## How to do the exercises
+## Getting Started
+
+### Installing Git on your Computer
+
+<details>
+<summary>Instructions for Windows Users</summary>
+<br>
+
+We recommend to install the Windows Subsystem for Linux 2 (WSL2). Using Git with WSL2 provides a better terminal experience for Windows users. With WSL2, you can access a Linux terminal directly from Windows, which makes it easier to work with Git commands and other Linux-based tools. This also allows for more flexibility in managing and running scripts, as well as better compatibility with Linux-based workflows. Additionally, WSL2 provides a more secure environment for Git operations by isolating them from the Windows operating system.
+
+#### Setting up WSL2
+
+1. Enable the Windows Subsystem for Linux (WSL) feature on your Windows machine by following the steps [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+2. Install a Linux distribution of your choice from the Microsoft Store. We recommend using Ubuntu 22.04.2 LTS.
+3. Open the Start menu and search for "Ubuntu" to launch the distribution.
+4. Follow the prompts to set up a username and password for the Ubuntu distribution.
+
+Congratulations! You have now an Ubuntu environment and can work in the same way as on a Linux machine.
+</details>
+
 First, you need to install Git on your computer.
 To do this, please follow the [instructions from GitHub](https://github.com/git-guides/install-git).
 
 > **_Important note:_**  You must have at least Git 2.28 (released 27 July 2020) installed.
 > You can check your Git version by typing `git --version` in your terminal.
 
-Second, you also need a Python installation.
-We provide you here with [instructions from realpython](https://realpython.com/installing-python/),
-but of course many other instructions will do as well.
+### Creating a GitHub Account and SSH key
+
+Having a GitHub account allows you to collaborate on open-source projects and store your own code in the cloud. With an SSH key, you can securely connect to GitHub without having to enter your username and password every time you push or pull code, which makes the process faster and more convenient. It also adds an extra layer of security to protect your GitHub account from unauthorized access.
+
+#### Instructions
+
+- Create your own GitHub account [GitHub.com](https://github.com/).
+- [Generate an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+- [Add your SSH key to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+
+### Installing Python
+For this interactive course, we use Jupyter Notebooks. For that, we need a Python installation.
+You can follow the [instructions from realpython](https://realpython.com/installing-python/),
+but of course many other instructions will do as well. Note that the latest Python version is 3.11 (April 2023).
 
 For the beginners course, you also need some non-standard python packages, namely:
    - jupyterlab
    - bash_kernel
 
-To install these two packages, run the following command in your terminal:
+To install these two packages, run the following commands in your terminal:
+```bash
+# Clone this Git repository
+git clone git@github.com:C2SM/git-course.git
 ```
+
+```bash
+# Change directory to the "beginner" subdirectory of the cloned repository
+cd git-course/beginner
+```
+
+```bash
+# Create a new Python virtual environment named "git-course_env"
 python -m venv git-course_env
-source git-course_env/bin/activate
-pip install -r requirements.txt
 ```
+
+```bash
+# Activate the newly created virtual environment
+source git-course_env/bin/activate 
+```
+
+```bash
+# Install the required Python packages specified in the "requirements.txt" file
+pip install -r requirements.txt 
+```
+
 On some machines an extra step is required:
-```
+```bash
 python -m bash_kernel.install
 ```
 
