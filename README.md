@@ -38,8 +38,18 @@ We recommend to install the Windows Subsystem for Linux 2 (WSL2). Using Git with
 Congratulations! You have now an Ubuntu environment and can work in the same way as on a Linux machine.
 </details>
 
+### 2. Creating a GitHub Account and SSH key
 
-### 2. Installing Python and Jupyter Notebooks
+Having a GitHub account allows you to collaborate on open-source projects and store your own code in the cloud. With an SSH key, you can securely connect to GitHub without having to enter your username and password every time you push or pull code, which makes the process faster and more convenient. It also adds an extra layer of security to protect your GitHub account from unauthorized access.
+
+#### Instructions
+
+- [Create your own GitHub account](https://github.com/) (if not yet available)
+- [Generate an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+- [Add your SSH key to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+
+
+### 3. Installing Python and Jupyter Notebook
 To install Python, we recommend the [instructions from realpython](https://realpython.com/installing-python/),
 but of course many other instructions will do as well.
 
@@ -88,13 +98,3 @@ In this case, please follow the instructions on your terminal.
 
 **Have fun!**
 
-
-### 3. Creating a GitHub Account and SSH key
-
-Having a GitHub account allows you to collaborate on open-source projects and store your own code in the cloud. With an SSH key, you can securely connect to GitHub without having to enter your username and password every time you push or pull code, which makes the process faster and more convenient. It also adds an extra layer of security to protect your GitHub account from unauthorized access.
-
-#### Instructions
-
-- [Create your own GitHub account](https://github.com/) (if not yet available)
-- [Generate an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
-- [Add your SSH key to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
