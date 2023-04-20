@@ -8,7 +8,7 @@ The folder [advanced](advanced) contains the exercises for the C2SM Git Workshop
 
 ## Getting Started
 
-To run this course on your computer, the following things need to be set up on your computer:
+To run this course on your computer, the following things need to be set up:
 1. [Git](#1-installing-git-on-your-computer)
 2. [Python and Jupyter Notebooks](#2-installing-python-and-jupyter-notebooks) (only for beginner course)
 4. [SSH key linked to your GitHub account](#3-creating-a-github-account-and-ssh-key)
@@ -21,7 +21,7 @@ To run this course on your computer, the following things need to be set up on y
 
 **Mac and Linux users:** To install Git on your computer, please follow the instructions to [Install Git on Mac](https://github.com/git-guides/install-git#install-git-on-mac) or [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux)
 
-**Windows user:** We recommend you to follow the instructions below to install Ubuntu and then follow the [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux) instruction.
+**Windows users:** We recommend you to follow the instructions below to install Ubuntu and then follow the [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux) instruction.
 <details>
 <summary>Instructions for Windows Users</summary>
 <br>
