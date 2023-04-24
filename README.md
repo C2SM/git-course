@@ -10,8 +10,8 @@ The folder [advanced](advanced) contains the exercises for the C2SM Git Workshop
 
 To run this course on your computer, the following things need to be set up:
 1. [Git](#1-installing-git-on-your-computer)
-2. [Python and Jupyter Notebooks](#2-installing-python-and-jupyter-notebooks) (only for beginner course)
-4. [SSH key linked to your GitHub account](#3-creating-a-github-account-and-ssh-key)
+2. [Python and JupyterLab](#2-creating-a-github-account-and-ssh-key) (only for beginner course)
+4. [SSH key linked to your GitHub account](#3-installing-python-and-jupyterlab)
 
 
 ### 1. Installing Git on your Computer
@@ -49,7 +49,7 @@ Having a GitHub account allows you to collaborate on open-source projects and st
 - [Add your SSH key to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
 
-### 3. Installing Python and Jupyter Notebook
+### 3. Installing Python and JupyterLab
 To install Python, we recommend the [instructions from realpython](https://realpython.com/installing-python/),
 but of course many other instructions will do as well.
 
@@ -88,18 +88,23 @@ On some machines an extra step is required:
 python -m bash_kernel.install
 ```
 
-To be able to access directories outside of the *git-course* repository in Jupyter Notebook, you need to navigate out of the repository BEFORE launching Jupyter Notebook:
+To be able to access directories outside of the *git-course* repository in JupyterLab, you need to navigate out of the repository BEFORE launching JupyterLab:
 ```
 cd ..
 ```
 
 Finally, you can start with the exercises by running:
 ```
-jupyter notebook
+jupyter lab
 ```
-This command will open the Jupyter Notebook interface in your browser.
+This command will open the JupyterLab interface in your browser.
 If it does not open automatically, you will need to copy and paste the URL manually.
 In this case, please follow the instructions on your terminal.
+
+If you are note able to start JupyterLab for some reason, you can try to launch a Jupyter Notebook, which provides a simpler user interface:
+```
+jupyter notebook
+```
 
 **Have fun!**
 
