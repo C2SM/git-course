@@ -88,6 +88,11 @@ On some machines an extra step is required:
 python -m bash_kernel.install
 ```
 
+To be able to access directories outside of the *git-course* repository in Jupyter Notebook, you need to navigate out of the repository BEFORE launching Jupyter Notebook:
+```
+cd ..
+```
+
 Finally, you can start with the exercises by running:
 ```
 jupyter notebook
