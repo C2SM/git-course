@@ -1,32 +1,22 @@
 ## Exercise 4
 
-## Goals
+## Objective
    * Practice the typical Git workflow
    
 ## Structure
-In this exercise we won't learn any new Git commands. We rather repeat all commands and workflows learned in the
-previous exercises. To do so we work on the *conference_schedule.txt* document and simulate a possible workflow.
-Because it is all repetition, there is less explanation provided.
+In this exercise, we won't be learning any new Git commands. Rather, we will review all the commands and workflows we learned in the previous exercises. We will do this by working on the *conference_schedule.txt* document and simulating a possible workflow.
+Since this is a review, there will be less explanation.
 
-The raw outline of this workflow:
-   * Add events
-   * Change events
-   * Add more events
-   * "Accidentially" delete all files, recover it
-   * Change one event in another branch (alternative schedule)
-   * Create two additional branches for different evening activity options
-   * Merge the alternative schedule into main
-   * Delete merged branch
-   * Merge your preferred evening activity into main
-   * Delete merged branch and unused branch
+## Helper Functions
+The following helper functions in the file *helpers.sh* are written by C2SM and are **NOT** **part of Git**. They will set up simple repositories for you that have a short Git history, so that you have something to work with.
 
-In order to allow a smooth exercise, there are some functions written by C2SM in the file *helpers.sh* that are **NOT** part of Git. For this exercise we us the following functions from that file:
+For this exercise, we will use the following functions from this file:
+   * **init_exercise:** This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
+   * **reset:** This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
+   * **init_repo_empty_schedule:** This will create the directory `conference_planning` and a file `conference_schedule.txt` with an empty schedule.
 
-   * **init_exercise:** It will create the *work* directory and navigate into it 
-   * **reset:** It will delete the *work* folder and enable you a clean restart of the exercise in case you completely mess it up
-   * **init_empty_folder:** create the directory `conference_planning` and the empty file `conference_schedule.txt` in it.
-   
-_**Reminder:** all text enclosed with `<>` denotes a placeholder to be replaced by a specific string appropriate in your context._
+## Remarks
+_**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
 
 _**Reminder:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise Git may try to open the Git editor, which does not work on jupyter notebook and will break your current session._
 
@@ -35,92 +25,97 @@ _**Reminder:** Always run `git commit` and `git merge` with a git message `-m <m
 
 ```bash
 # check current directory with "pwd"
-pwd
+
 # go to folder of this exercise using "cd"
 
 ```
 
+**To initialize the exercise properly, run this code at the very beginning. Check the Helper Functions section above for more explanation.**
+
 
 ```bash
-# execute this code at the very beginning to initialize the exercise properly
+# source the helpers.sh file to be able to use its functions
 source ../helpers.sh
+# init exercise
 init_exercise
 ```
 
 ***
 ### Optional: clear notebook and restart
-**In case you mess up your notebook completely,  
-execute** ***reset*** **in the following cell. This will restore a clean environment!**
-
+**In case you messed up your notebook completely, execute** ***reset*** **in the following cell. Check the Helper Functions section above for more explanation.**
 
 
 ```bash
 ## only execute in case of (serious) trouble ##
-## it will delete your entire work directory ##
+## it will delete your entire beginners_git directory ##
 reset
 ```
 
 ***
 ## Exercise
 
-### Exercise typical Git workflow
+### Practice typical Git workflow
+
+First, we will set up a simple Git repository for you using one of the helper functions:
 
 
 ```bash
-# this line will create the directory `conference_planning` and the empty file `conference_schedule.txt` in it
-init_directory_with_empty_file
+# this line will create the directory `conference_planning` and the empty schedule `conference_schedule.txt` in it
+init_repo_empty_schedule
 ```
 
 
 ```bash
-# init git repository
+# init Git repository
 
 ```
 
 
 ```bash
-# execute "ls -a" to also see the hidden git-folder
+# execute "ls -a" to also see the hidden git folder
 
 ```
 
-Add the events: talk, coffee break, workshop
+Add events to the schedule.
 
-Remember to do all modifications of the schedules directly via Jupyter Notebooks:
-   * Go to folder *~/Exercise_4/work/conference_planning*
+Remember to make any changes to the schedule directly in Jupyter Notebooks:
+   * Go to folder *beginners_git/conference_planning*
    * Open *conference_schedule.txt*
    * Change file
-   * Save changes by clicking on *File* -> *Save*
-   
+
 **Don't forget to save your modifications before coming back!**
 
 Please use this way of editing files throughout the exercise.
+
+- Add a talk, coffee break, workshop
 
 
 ```bash
 # commit your changes
 
+
 ```
 
-The workshop was cancelled and we will do a poster session instead.
+The workshop has been canceled and we will have a poster session instead.
 
-Adapt your document accordingly.
+Adjust your document accordingly.
 
 
 ```bash
 # commit the adapted "conference_schedule.txt"
 
+
 ```
 
-We go on with the planning. Add those three events:
+We continue to plan. Add these three events to *conference_schedule.txt*:
    * Lunch break
    * Another talk
    * Second poster session
 
-Implement these points into your document.
-
 
 ```bash
 # commit your changes
+
 
 ```
 
@@ -129,19 +124,19 @@ Check if all of your changes are really tracked by Git.
 
 
 ```bash
-# git status
+# check Git status
 
-# git log
+# check Git log
 
 ```
 
-In case you don't have any untracked changes in your repository move on to the next part of this exercise.
+If you don't have any untracked changes in your repository, proceed to the next part of this exercise.
 
 
 
-**It is already late at night, our concentration is not very high anymore...**
+**It is late at night and your concentration is not very high...**
 
-By *accident* we delete all of our existing files...
+By accident you delete all of your existing files...
 
 
 ```bash
@@ -153,32 +148,63 @@ Thanks to Git we can easily restore files, even if they are deleted.
 
 
 ```bash
+# check Git status
+
+```
+
+
+```bash
 # restore deleted files
 
 ```
 
-As a next step create a new branch and edit the schedule there, because we are not sure yet if Professor X will accept the talk in the morning.
-   * Change talk to workshop
+As a next step, create a new branch and edit the schedule there, since we are not sure yet if Professor X will accept the talk in the morning. 
+
+**Always make sure to reload your file before changing it**
+   * Change the talk to a workshop
 
 
 ```bash
-# create new branch and adjust schedule
+# create new branch and adjust the schedule
 
 ```
 
 
 ```bash
 # commit changes
+
 
 ```
 
 Switch back to branch *main* and create another branch on top of it.
-We want to plan an evening activity but are not sure what it will be:
-   * Add an evening activity
+We want to plan an evening activity but are not sure what it will be. Therefore, we create two branches with different activities.
 
 
 ```bash
-# switch to main, create new branch and add an evening activity
+# switch to main
+
+# create new branch and add an evening activity
+
+
+```
+
+Add an evening activity and commit the changes. Don't forget to reload your file before changing!
+
+
+```bash
+# commit changes
+
+
+```
+
+Switch to branch *main* and create another branch on top of it, to add an alternative evening activity.
+
+
+```bash
+# switch to main branch
+
+# create new branch and add another evening activity
+
 
 ```
 
@@ -186,29 +212,15 @@ We want to plan an evening activity but are not sure what it will be:
 ```bash
 # commit changes
 
-```
-
-Switch to branch *main* and create another branch on top of it:
-   * Add an alternative evening activity
-
-
-```bash
-# switch to main, create new branch and add evening activity
-
-```
-
-
-```bash
-# commit changes
 
 ```
 
 It's time to get an overview of what we just did.
 Our repository has currently 4 branches (names may be different for your case):
-   * main (base version of all subsequent branches)
-   * alternative_talk (workshop instead of talk)
-   * evening_activity (First planned activity)
-   * evening_activity_alternative (Alternative activity)
+   * *main* (base version of all subsequent branches)
+   * *alternative_talk* (workshop instead of talk)
+   * *evening_activity* (First planned activity)
+   * *evening_activity_alternative* (Alternative activity)
    
 Ensure your repository contains the same amount of different branches.
 
@@ -219,37 +231,30 @@ Ensure your repository contains the same amount of different branches.
 ```
 
 The talk in the morning has not been accepted.
-Therefore merge the branch *alternative_talk* into main.
+Therefore merge the branch *alternative_talk* into *main*.
 
-**Remark:** Make sure you are in the main branch before starting the merge, because Git always merges a branch **into** your current branch.
+**Remark:** Make sure you are in the *main* branch before starting the merge, because Git always merges a branch **into** your current branch.
 
 
 
 ```bash
 # merge schedule branch into the main branch
 
-```
-
-Inspect the document and make sure the changes from the merged branch are present.
-
-If everything is ok, make a commit
-
-
-```bash
-# commit merge
 
 ```
 
 
 ```bash
-# follow good practice and delete merged branches
+# follow good practice and delete the merge branch
 
 ```
 
 The last step of the planning is to choose one of the two evening activities.
 Decide which one you prefer.
 
-Merge the corresponding branch into main.
+Merge the corresponding branch into *main*.
+
+**Don't forget to add a commit message!**
 
 
 ```bash
@@ -266,7 +271,7 @@ Merge the corresponding branch into main.
 There is one unused branch left in our repository.
 We want to keep the repository clean and nice. So please delete the unmerged branch as well.
 
-**Remark:** Since we did not merge the remaining branch, a different option is needed to *git branch*
+**Remark:** Since we did not merge the remaining branch, it has to be done differently before. But don't worry, Git will tell you what to do.
 
 
 ```bash
@@ -274,8 +279,4 @@ We want to keep the repository clean and nice. So please delete the unmerged bra
 
 ```
 
-**Congrats** 
-
-You already know the most essential Git commands for the local use of Git.
-
-Further exercises will focus more on typical workflows with remote servers like GitHub or Gitlab.
+**Congrats, you already know the most essential Git commands for the local use of Git.**
