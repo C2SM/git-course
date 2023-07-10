@@ -8,7 +8,7 @@ https://www.atlassian.com/git/tutorials/saving-changes/git-diff
 
 These tutorials provide a more comprehensive overview of the useful features of `git log` and `git diff` than is presented here, so keep them in mind for future reference.
 
-* [Clone the git repository](#initialization)
+* [Clone the Git repository](#initialization)
 
 * [Use git log](#log)
 
@@ -76,7 +76,7 @@ To see commits made by a specific author, use the `--author` option. This option
 git log --author="Jonas"
 ```
 
-To see all the commits that have changed a specific file, such as `helpers.sh`, try the following:
+To see all the commits that have changed a specific file, such as *helpers.sh*, try the following:
 
 ```plaintext
 git log helpers.sh
