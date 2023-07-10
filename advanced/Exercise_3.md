@@ -96,7 +96,7 @@ In order to tell Git to ignore our HTML file, we will create a *.gitignore* file
 touch .gitignore
 ```
 
-Open the file using a file editor. In this file, you can list files, directories, or file patterns to be ignored, one entry per line. In order to ignore the HTML file, you can either list it specifically (*README.html*), or use wildcards to tell Git to ignore all HTML files (**.html*).
+Open the file using a file editor. In this file, you can list files, directories, or file patterns to be ignored, one entry per line. In order to ignore the HTML file, you can either list it specifically (*README.html*), or use wildcards to tell Git to ignore all HTML files (*.\*html)*.
 
 Check the status again.
 
