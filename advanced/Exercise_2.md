@@ -13,7 +13,7 @@ In this exercise, you will use `git bisect` to pinpoint the exact commit in a re
 Clone the example repository into its own folder (outside the *git-course* folder).
 
 ```plaintext
-git clone git@github.com:bast/git-bisect-exercise
+git clone git@github.com:bast/git-bisect-exercise git-bisect-exercise
 ```
 
 Navigate into the repository.

@@ -17,7 +17,7 @@ Use the [helper script](helpers.sh) provided in the [advanced](../advanced) fold
 First, clone the *git-course* repository if you have not already done so in Exercise 1.
 
 ```plaintext
-git clone git@github.com:C2SM/git-course
+git clone git@github.com:C2SM/git-course git-course
 ```
 
 Navigate into the repository.

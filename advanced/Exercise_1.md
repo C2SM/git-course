@@ -19,7 +19,7 @@ These tutorials provide a more comprehensive overview of the useful features of 
 ## Clone the git repository <a name="initialization"></a>
 
 ```plaintext
-git clone git@github.com:C2SM/git-course
+git clone git@github.com:C2SM/git-course git-course
 ```
 
 Navigate to the repository.

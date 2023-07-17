@@ -2,7 +2,7 @@
 
 In this exercise, you will learn how to use `git stash` to store changes that are not yet ready for commit. Then you will learn how to recover those changes in your Git repository. Next, you will use `git worktree` to learn how to work with simultaneous checkouts of the same repository in one place, allowing you work on and transfer files between different Git branches easily.
 
-This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the *Initialize the Git repository* section in [Exercise 3](./Exercise_3.md).
+This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3.md#initialize) section of Exercise 3.
 
 * [Stash your changes](#stash)
 
