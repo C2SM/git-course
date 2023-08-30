@@ -12,6 +12,12 @@ This exercise uses the same Git repository that was created in Exercise 3. If yo
 
 Navigate to the *conference_planning* folder.
 
+There could be modifications in the repository still from Exercise 4.
+Restore the repository to the last commit in history to avoid problems later on. 
+```plaintext
+git checkout -- .
+```
+
 Create and switch to a new feature branch.
 
 ```plaintext
