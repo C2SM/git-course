@@ -88,6 +88,12 @@ To see all commits that add or remove a specific line of text, for example `Have
 git log -S 'Have fun!'
 ```
 
+In case you do not want case-sensitivity you can use the `-i` option:
+
+```plaintext
+git log -i -S 'have fun!'
+```
+
 Remember that you can combine any of these `git log` options to get the output you want. And if you decide on a format that you want to use frequently, you can create an alias for that format using `git config`. For example, to set up an alias to use `git log` with the `--oneline` and `--graph` options, use the following command:
 
 ```plaintext
