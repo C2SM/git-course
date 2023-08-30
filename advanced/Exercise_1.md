@@ -94,7 +94,7 @@ Remember that you can combine any of these `git log` options to get the output y
 git config --global alias.lg "log --oneline --graph"
 ```
 
-This command writes into your *.gitconfig* file on your *$HOME* directory. If you now run `git lg`, you will see the log with the options you specified. Note that you can create aliases for any Git command using `git config` and this is a very powerful tool.
+This command edits a file with path `~/.gitconfig`. If you now run `git lg`, you will see the log with the options you specified. Note that you can create aliases for any Git command using `git config` and this is a very powerful tool.
 
 
 ## Use git diff <a name="diff"></a>
