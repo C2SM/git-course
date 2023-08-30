@@ -4,6 +4,8 @@ In this exercise, we will learn how to use `git rebase` to rewrite the history o
 
 This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3.md#initialize) section of Exercise 3.
 
+
+
 * [Use the merge strategy to incorporate a change into a moving main branch](#merge)
 
 * [Use the rebase strategy to incorporate a change into a moving main branch](#rebase)
@@ -11,6 +13,12 @@ This exercise uses the same Git repository that was created in Exercise 3. If yo
 ## Use the merge strategy to incorporate a change into a moving main branch <a name="merge"></a>
 
 Navigate to the *conference_planning* folder.
+
+There could be modifications in the repository still from Exercise 4.
+Restore the repository to the last commit in history to avoid problems later on. 
+```plaintext
+git checkout -- .
+```
 
 Create and switch to a new feature branch.
 
