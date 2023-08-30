@@ -88,7 +88,7 @@ To see all commits that add or remove a specific line of text, for example `Have
 git log -S 'Have fun!'
 ```
 
-In case you do not want case-sensitivity you can use the `-i` option:
+In case you want to ignore case-sensitivity use the `-i` option:
 
 ```plaintext
 git log -i -S 'have fun!'
