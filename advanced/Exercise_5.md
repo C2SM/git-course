@@ -4,8 +4,6 @@ In this exercise, we will learn how to use `git rebase` to rewrite the history o
 
 This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3.md#initialize) section of Exercise 3.
 
-
-
 * [Use the merge strategy to incorporate a change into a moving main branch](#merge)
 
 * [Use the rebase strategy to incorporate a change into a moving main branch](#rebase)
