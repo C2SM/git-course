@@ -1,13 +1,15 @@
 #!/bin/bash
 
+script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 init_advanced_repo () {
-    mkdir ../../advanced_git
-    cd ../../advanced_git
+    mkdir $script_dir/../../advanced_git
+    cd $script_dir/../../advanced_git
     mkdir -p conference_planning
     cd conference_planning
     git init
-    cp ../../git-course/advanced/examples/schedule_day1.txt .
-    cp ../../git-course/advanced/examples/schedule_day2.txt .
+    cp $script_dir/examples/schedule_day1.txt .
+    cp $script_dir/examples/schedule_day2.txt .
 
     git add schedule_day1.txt && git commit -m "Add schedule_day1"
     git add schedule_day2.txt && git commit -m "Add schedule_day2"
