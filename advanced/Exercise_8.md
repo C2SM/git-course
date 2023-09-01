@@ -1,8 +1,8 @@
 # Exercise 8 - Using git submodule
 
-This exercise is designed to be paired with Exercise 8 to help you compare and contrast the two main methods for embedding a git repository into another git repository. This exercise illustrates the submodule method, while the next exercise illustrates the subtree method. In this exercise, we will learn to use git submodule to nest a git repository inside another one. We will first add the git submodule and examine how the host and nested repositories deal with changes in their respective files. We will then learn how to pull and push changes to and from the sub-repository.
+In this exercise, we will learn to use git submodule to nest a git repository inside another one. We will first add the git submodule and examine how the host and nested repositories deal with changes in their respective files. We will then learn how to pull and push changes to and from the sub-repository.
 
-This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the ["Initialize the git repository" section of Exercise 3](./Exercise_3.md#initialize).
+This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3.md#initialize) section of Exercise 3.
 
 * [Fork a repository on Github and add it as a submodule](#submodule)
 
