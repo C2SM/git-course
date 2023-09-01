@@ -46,24 +46,24 @@ Note that you can make any changes or commits in between saving the stash and re
 
 Now you will use `git worktree` to checkout multiple instances of the Git repository in parallel. This can be very useful for transferring changes between branches, or working on different features simultaneously.
 
-In order to use `git worktree`, you must work in a bare Git repository. A bare Git repository is one where there is no working directory. Instead, it consists only of the files and objects that Git uses to register the changes you make to your working directories.
+In order to use `git worktree`, you must work in a bare Git repository. A bare Git repository is one where there is no working directory. Instead, it consists only of the files and objects that Git uses to register the changes you make to your working directories. This can be a lot of information we don't care about and we therefore recommend you do hide it in a hidden folder called *.bare*.
 
-Let's make a bare clone of the *conference_planning* Git repository. Therefore, navigate out of the *conference_planning* repository to its parent directory:
+We will first create a new folder *conference_worktree* and then make a bare clone of the *conference_planning* Git repository into it. The relevant information for Git will be hidden in the *.bare* folder, so the *conference_worktree* folder will seem emtpy to you.
 
 ```plaintext
 cd ..
-git clone --bare conference_planning conference_bare
+mkdir conference_worktree
+cd conference_worktree
+git clone --bare ../conference_planning .bare
 ```
 
-Navigate into the new repository and examine it.
+To now make this repository a Git repository, we need to copy the relevant information into the *.git* file:
 
 ```plaintext
-cd conference_bare
-ls
-git status
+echo "gitdir: ./.bare" > .git
 ```
 
-Note that the `git status` command does not work because we are not in a working directory!
+See what happens if you type `git status`. Why does it not work?
 
 Let's make a folder containing the files as they currently are in the *main* branch of our repository.
 
@@ -71,9 +71,9 @@ Let's make a folder containing the files as they currently are in the *main* bra
 git worktree add main
 ```
 
-A folder called *main* has been created, and if you examine it you will find the files checked out from the *main* branch. You can make changes and add and commit them as you normally would from this new folder.
+A folder called *main* has been created, and if you examine it you will find the files checked out from the *main* branch (within this folder `git status` should work again!). You can make changes and add and commit them as you normally would from a Git folder.
 
-Let's suppose that in addition to working on the *main* branch of the repository, you also want to work on a parallel *feature* branch. You can do this easily now. Let's add a *feature* branch.
+Let's suppose that in addition to working on the *main* branch of the repository, you also want to work on a parallel *feature* branch. You can do this easily now. Let's add a *feature* branch (make sure to do this from the parent folder and not from a work tree).
 
 ```plaintext
 git worktree add feature
