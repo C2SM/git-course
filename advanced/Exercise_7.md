@@ -3,11 +3,22 @@
 In this exercise, you'll practice implementing a pre-commit hook in the `conference_planning` repository to prevent committing files with trailing whitespace. You'll also learn how to set up multiple pre-commit hooks for different tasks.
 
 This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the ["Initialize the git repository" section of Exercise 3](./Exercise_3.md#initialize).
-## Navigate to the Repository
+
+* [Navigate to the Repository](#navigate)
+
+* [Implement Pre-Commit Hook for Trailing Whitespace](#whitespace)
+
+* [Test the Hook](#test)
+
+* [Add Another Custom Hook](#another)
+
+* [Conclusion](#conclusion)
+
+## Navigate to the Repository <a name="navigate"></a>
 
 Open a terminal and navigate to the `conference_planning` repository on your local machine.
 
-## Implement Pre-Commit Hook for Trailing Whitespace
+## Implement Pre-Commit Hook for Trailing Whitespace <a name="whitespace"></a>
 
 Create a new file named `pre-commit` in the `.git/hooks` directory. Make it executable.
 
@@ -36,7 +47,7 @@ fi
 
 Save and close the file.
 
-## Test the Hook
+## Test the Hook <a name="test"></a>
 
 Now you have a pre-commit hook for preventing trailing whitespace set up.
 
@@ -44,19 +55,19 @@ Create a new branch or make changes on an existing branch and stage your changes
 
 Try to make a commit with a file that has trailing whitespace and observe how the `pre-commit-whitespace` hook prevents the commit.
 
-## Add Another Custom Hook
+## Add Another Custom Hook <a name="another"></a>
 
 The following repository contains a collection of useful Git Hooks: https://github.com/CompSciLauren/awesome-git-hooks
 
 We now want to implement another `pre-commit` in addition to the trailing whitespace test.
 
-For that, we first rename our existing `pre-commit` script:
+To do this, we will first rename our existing `pre-commit` script:
 
 ```sh
 mv .git/hooks/pre-commit .git/hooks/pre-commit-whitespace
 ```
 
-Now, `pre-commit` will become our master script that calls our actual hook scripts.
+Now, `pre-commit` becomes our master script that calls our actual hook scripts.
 
 ```sh
 touch .git/hooks/pre-commit
@@ -77,9 +88,10 @@ Integrate another `pre-commit` hook from the above repository into your workflow
 .git/hooks/pre-commit-verify-name-and-email
 ```
 
-Don't forget that all scripts need to be executable!
+> **Hint:** Don't forget that all scripts need to be executable! 
 
-## Conclusion
+Finally, verify that both `pre-commit` hooks are working correctly.
 
-In this exercise, you learned how to implement a pre-commit hook that prevents committing files with trailing whitespace. You also explored setting up multiple pre-commit hooks for different tasks. This helps improve code quality and maintain consistency in your development workflow.
+## Conclusion <a name="conclusion"></a>
 
+In this exercise, you learned how to implement a `pre-commit`` hook that prevents committing files with trailing whitespace. You also explored setting up multiple pre-commit hooks for different tasks. This helps improve code quality and maintain consistency in your development workflow.
