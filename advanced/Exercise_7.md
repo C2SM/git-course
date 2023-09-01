@@ -1,6 +1,6 @@
 # Exercise 7 - Custom Git Hooks
 
-In this exercise, you'll practice implementing a pre-commit hook in the `conference_planning` repository to prevent committing files with trailing whitespace. You'll also learn how to set up multiple pre-commit hooks for different tasks.
+In this exercise, you will practice implementing a pre-commit hook in the `conference_planning` repository to prevent committing files with trailing whitespace. You will also learn how to set up multiple pre-commit hooks for different tasks.
 
 This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3.md#initialize) section of Exercise 3.
 
@@ -76,7 +76,7 @@ touch .git/hooks/pre-commit
 chmod +x .git/hooks/pre-commit
 ```
 
-Integrate another `pre-commit` hook from the above repository into your workflow. Try the `verify-name-and-email` one if you're not sure where to start. In that case, your `.git/hooks/pre-commit` script should look as follows:
+Integrate another `pre-commit` hook from the above repository into your workflow. Try the `verify-name-and-email` one if you are not sure where to start. In that case, your `.git/hooks/pre-commit` script should look as follows:
 
 ```bash
 #!/bin/bash
