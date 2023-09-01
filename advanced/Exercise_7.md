@@ -20,7 +20,9 @@ Open a terminal and navigate to the `conference_planning` repository on your loc
 
 ## Implement Pre-Commit Hook for Trailing Whitespace <a name="whitespace"></a>
 
-Create a new file named `pre-commit` in the `.git/hooks` directory. Make it executable.
+As our first hook, we are going to implement a check for trailing whitespace. Trailing whitespaces are spaces or tabs at the end of a line in a text file, and they should be avoided because they can introduce inconsistencies in code formatting, create visual distractions, and cause unintended issues when working with the code.
+
+Create a new file called `pre-commit` in the `.git/hooks` directory. Our Git hook files need to be set as executable in order to work. To do this, we use the `chmod` command to change file permissions, along with the `+x` parameter to make a file executable so that it can be run as a script.
 
 ```sh
 touch .git/hooks/pre-commit
