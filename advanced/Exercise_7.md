@@ -94,4 +94,4 @@ Finally, verify that both `pre-commit` hooks are working correctly.
 
 ## Conclusion <a name="conclusion"></a>
 
-In this exercise, you learned how to implement a `pre-commit`` hook that prevents committing files with trailing whitespace. You also explored setting up multiple pre-commit hooks for different tasks. This helps improve code quality and maintain consistency in your development workflow.
+In this exercise, you learned how to implement a `pre-commit` hook that prevents committing files with trailing whitespace. You also explored setting up multiple pre-commit hooks for different tasks. This helps improve code quality and maintain consistency in your development workflow.
