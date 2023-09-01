@@ -2,7 +2,7 @@
 
 In this exercise, you'll practice implementing a pre-commit hook in the `conference_planning` repository to prevent committing files with trailing whitespace. You'll also learn how to set up multiple pre-commit hooks for different tasks.
 
-This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the ["Initialize the git repository" section of Exercise 3](./Exercise_3.md#initialize).
+This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3.md#initialize) section of Exercise 3.
 
 * [Navigate to the Repository](#navigate)
 
