@@ -12,6 +12,8 @@ This exercise uses the same Git repository that was created in Exercise 3. If yo
 
 * [Add Another Custom Hook](#another)
 
+* [Local Testing with the `pre-commit` Tool](#pre-commit)
+
 * [Conclusion](#conclusion)
 
 ## Navigate to the Repository <a name="navigate"></a>
@@ -94,6 +96,54 @@ Integrate another *pre-commit* hook from the above repository into your workflow
 
 Finally, verify that both *pre-commit* hooks are working correctly.
 
+## Local Testing with the `pre-commit` Tool <a name="pre-commit"></a>
+
+In order to manually run the pre-commit hooks to preview your actions without committing, you can utilize the [pre-commit](https://pre-commit.com/) tool.
+
+If you haven't already, install the `pre-commit` tool globally on your system:
+
+```sh
+pip install pre-commit
+```
+
+or
+
+```sh
+conda install -c conda-forge pre-commit
+```
+
+After installation, you can verify that pre-commit is available by running:
+
+```sh
+pre-commit --version
+```
+
+This should display the version of `pre-commit`, confirming a successful installation.
+
+In your *conference_planning* repository, create a *.pre-commit-config.yaml* file to configure which hooks to run. Here is an example configuration:
+
+```yaml
+-   repo: local
+   hooks:
+   -   id: pre-commit-whitespace
+# Add other hooks here if needed
+```
+
+This configuration specifies that the `pre-commit-whitespace` hook (the one we created earlier) should run.
+
+To manually run the `pre-commit` checks without making a commit, use the following command:
+
+```sh
+pre-commit run --all-files --verbose
+```
+
+- `--all-files`: This flag tells `pre-commit` to check all files in the repository.
+- `--verbose`: This flag provides detailed output, showing you exactly what each hook is doing.
+
+Running this command will execute the specified hooks, including your `pre-commit-whitespace` hook, and display the results.
+
+Examine the output of the `pre-commit` checks to see if any issues are reported. If the `pre-commit-whitespace` hook detects trailing whitespace, it will be shown in the output.
+
 ## Conclusion <a name="conclusion"></a>
 
-In this exercise, you learned how to implement a *pre-commit* hook that prevents committing files with trailing whitespace. You also explored setting up multiple pre-commit hooks for different tasks. This helps improve code quality and maintain consistency in your development workflow.
+In this exercise, you learned how to implement a *pre-commit* hook that prevents committing files with trailing whitespace. You also explored setting up multiple *pre-commit* hooks for different tasks. By integrating the `pre-commit` tool and configuring it with your custom hooks, you have learned a convenient way to check your changes before committing them, helping to maintain code quality and consistency in your development workflow.
