@@ -4,8 +4,6 @@ In this exercise, you will practice implementing a pre-commit hook in the *confe
 
 This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3.md#initialize) section of Exercise 3.
 
-* [Navigate to the Repository](#navigate)
-
 * [Implement Pre-Commit Hook for Trailing Whitespace](#whitespace)
 
 * [Test the Hook](#test)
@@ -16,15 +14,11 @@ This exercise uses the same Git repository that was created in Exercise 3. If yo
 
 * [Conclusion](#conclusion)
 
-## Navigate to the Repository <a name="navigate"></a>
-
-Open a terminal and navigate to the *conference_planning* repository on your local machine.
-
 ## Implement Pre-Commit Hook for Trailing Whitespace <a name="whitespace"></a>
 
 As our first hook, we are going to implement a check for trailing whitespace. Trailing whitespaces are spaces or tabs at the end of a line in a text file, and they should be avoided because they can introduce inconsistencies in code formatting, create visual distractions, and cause unintended issues when working with the code.
 
-Create a new file called *pre-commit* in the *.git/hooks* directory. Our Git hook files need to be set as executable in order to work. To do this, we use the `chmod` command to change file permissions, along with the `+x` parameter to make a file executable so that it can be run as a script.
+Open a terminal and navigate to the *conference_planning* repository on your local machine. Create a new file called *pre-commit* in the *.git/hooks* directory. Our Git hook files need to be set as executable in order to work. To do this, we use the `chmod` command to change file permissions, along with the `+x` parameter to make a file executable so that it can be run as a script.
 
 ```sh
 touch .git/hooks/pre-commit
