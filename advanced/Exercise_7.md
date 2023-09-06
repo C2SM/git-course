@@ -117,10 +117,14 @@ This should display the version of `pre-commit`, confirming a successful install
 In your *conference_planning* repository, create a *.pre-commit-config.yaml* file to configure which hooks to run. Here is an example configuration:
 
 ```yaml
--   repo: local
-   hooks:
-   -   id: pre-commit-whitespace
-# Add other hooks here if needed
+repos:
+- repo: local
+  hooks:
+  - id: pre-commit-whitespace
+    name: check for trailing whitespaces
+    entry: .git/hooks/pre-commit-whitespace
+    language: system
+  # Add other hooks here if needed
 ```
 
 This configuration specifies that the `pre-commit-whitespace` hook (the one we created earlier) should run.
