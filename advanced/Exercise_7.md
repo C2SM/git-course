@@ -1,154 +1,148 @@
-# Exercise 7 - Using git submodule
+# Exercise 7 - Custom Git Hooks
 
-This exercise is designed to be paired with Exercise 8 to help you compare and contrast the two main methods for embedding a git repository into another git repository. This exercise illustrates the submodule method, while the next exercise illustrates the subtree method. In this exercise, we will learn to use git submodule to nest a git repository inside another one. We will first add the git submodule and examine how the host and nested repositories deal with changes in their respective files. We will then learn how to pull and push changes to and from the sub-repository.
+In this exercise, you will practice implementing a pre-commit hook in the *conference_planning* repository to prevent committing files with trailing whitespace. You will also learn how to set up multiple pre-commit hooks for different tasks.
 
-This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the ["Initialize the git repository" section of Exercise 3](./Exercise_3.md#initialize).
+This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3.md#initialize) section of Exercise 3.
 
-* [Fork a repository on Github and add it as a submodule](#submodule)
+* [Implement Pre-Commit Hook for Trailing Whitespace](#whitespace)
 
-* [Examine how git deals with changes to both repositories](#examine)
+* [Test the Hook](#test)
 
-* [Create new content locally and update the sub-repository](#push)
+* [Add Another Custom Hook](#another)
 
-* [Create new content in the sub-repository and update the local repository](#pull)
+* [Local Testing with the `pre-commit` Tool](#pre-commit)
 
-## Fork a repository on Github and add it as a submodule <a name="submodule"></a>
+* [Conclusion](#conclusion)
 
-Navigate to the folder containing the `conference_planning` folder; in other words you should be in a folder that does not contain a git repository. Make a copy of the conference planning repository to use for adding the submodule.
+## Implement Pre-Commit Hook for Trailing Whitespace <a name="whitespace"></a>
 
-```plaintext
-cp -r conference_planning conference_submodule
+As our first hook, we are going to implement a check for trailing whitespace. Trailing whitespaces are spaces or tabs at the end of a line in a text file, and they should be avoided because they can introduce inconsistencies in code formatting, create visual distractions, and cause unintended issues when working with the code.
+
+Open a terminal and navigate to the *conference_planning* repository on your local machine. Create a new file called *pre-commit* in the *.git/hooks* directory. Our Git hook files need to be set as executable in order to work. To do this, we use the `chmod` command to change file permissions, along with the `+x` parameter to make a file executable so that it can be run as a script.
+
+```sh
+touch .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
 ```
 
-I have already created a repository on Github that we will use as a submodule. This repository is called `posters` and will contain the poster schedule for our conference.
+Open the *pre-commit* file in a text editor and add the following script:
 
-Navigate to the repository, found [here](https://github.com/kosterried/posters), and make a fork of it using the Github user interface.
+```bash
+#!/bin/bash
 
-Let's add this fork as a submodule to our conference planning repository. You will need to copy the SSH address of your fork and paste it into the `git submodule add` command below.
+# This is the pre-commit hook to prevent committing files with trailing whitespace.
 
-```plaintext
-cd conference_submodule
-git submodule add YOUR_FORK_ADDRESS
+# Redirect output to stderr.
+exec 1>&2
+
+# Check for trailing whitespace in staged files.
+if git diff --check --cached | grep -q '[[:blank:]]$'; then
+    echo "Error: Found files with trailing whitespace."
+    echo "Please remove trailing whitespace before committing."
+    exit 1
+fi
 ```
 
-Note that Github requires an SSH key in order to push content to repositories. If you have not already set up an SSH key in your Github account, it is easy to do and you can find instructions [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+Save and close the file.
 
-Check the status of the repository.
+## Test the Hook <a name="test"></a>
 
-```plaintext
-git status
+Now you have a pre-commit hook for preventing trailing whitespace set up.
+
+Create a new branch or make changes on an existing branch and stage your changes using `git add`.
+
+Try to make a commit with a file that has trailing whitespace and observe how the *pre-commit-whitespace* hook prevents the commit.
+
+## Add Another Custom Hook <a name="another"></a>
+
+The following repository contains a collection of useful Git Hooks: https://github.com/CompSciLauren/awesome-git-hooks
+
+We now want to implement another *pre-commit* in addition to the trailing whitespace test.
+
+To do this, we will first rename our existing *pre-commit* script:
+
+```sh
+mv .git/hooks/pre-commit .git/hooks/pre-commit-whitespace
 ```
 
-The output shows that there are some changes to the repository, and they are already staged for commit. We should commit them to finalize the adding of the submodule.
+Now, *pre-commit* becomes our master script that calls our actual hook scripts.
 
-```plaintext
-git commit -m "Add the posters submodule"
+```sh
+touch .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
 ```
 
-Note that the `.gitmodules` file has been added, which contains the path of the submodule in the host repository and the address where the submodule is hosted which is the Github URL in our case. It could also be another git web host, a file path, or anywhere else a repository is hosted.
+Integrate another *pre-commit* hook from the above repository into your workflow. Try the *verify-name-and-email* one if you are not sure where to start. In that case, your *.git/hooks/pre-commit* script should look as follows:
 
-Check the status of the submodule.
+```bash
+#!/bin/bash
 
-```plaintext
-git submodule status
+# This is the main pre-commit hook script.
+
+# Run the whitespace check script.
+.git/hooks/pre-commit-whitespace
+
+# Run the name and email verification script.
+.git/hooks/pre-commit-verify-name-and-email
 ```
 
-The output shows us the SHA of the commit that the submodule is currently pointing to.  
+> **Hint:** Don't forget that all scripts need to be executable! 
 
-## Examine how git deals with changes to both repositories <a name="examine"></a>
+Finally, verify that both *pre-commit* hooks are working correctly.
 
-Let's make some changes in both the host repository and the submodule to understand how git deals with submodules.  
+## Local Testing with the `pre-commit` Tool <a name="pre-commit"></a>
 
-Start by making a change in the host repository. Let's add a lunch break to the schedule on day 1. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change.
+In order to manually run the pre-commit hooks to preview your actions without committing, you can utilize the [pre-commit](https://pre-commit.com/) tool.
 
+If you haven't already, install the `pre-commit` tool globally on your system:
 
-```plaintext
-sed -i '/^11:00/a 12:00-13:00: Lunch break' schedule_day1
+```sh
+pip install pre-commit
 ```
 
-Check the status of the repository.
+or
 
-```plaintext
-git status
+```sh
+conda install -c conda-forge pre-commit
 ```
 
-You should see the change you just made listed as not staged for commit.
+After installation, you can verify that pre-commit is available by running:
 
-Now navigate into the submodule and check the status there.
-
-```plaintext
-cd posters
-git status
+```sh
+pre-commit --version
 ```
 
-Here we see that there are no changes. The submodule is treated as a completely separate repository with it's own staging area and commits.
+This should display the version of `pre-commit`, confirming a successful installation.
 
-Now try making a change inside the submodule. Let's add a poster title to the poster schedule.
+In your *conference_planning* repository, create a *.pre-commit-config.yaml* file to configure which hooks to run. Here is an example configuration:
 
-```plaintext
-echo "Poster 1: Git submodules and you" >> schedule
+```yaml
+repos:
+- repo: local
+  hooks:
+  - id: pre-commit-whitespace
+    name: check for trailing whitespaces
+    entry: .git/hooks/pre-commit-whitespace
+    language: system
+  # Add other hooks here if needed
 ```
 
-Check the status of the posters repository.
+This configuration specifies that the `pre-commit-whitespace` hook (the one we created earlier) should run.
 
-```plaintext
-git status
+To manually run the `pre-commit` checks without making a commit, keep in mind that the `pre-commit` tool only checks against
+staged files, i.e. you need to do `git add` for your file that contains whitespace. Afterwards, use the following command:
+
+```sh
+pre-commit run --all-files --verbose
 ```
 
-Check the status of the conference planning repository.
+- `--all-files`: This flag tells `pre-commit` to check all files in the repository.
+- `--verbose`: This flag provides detailed output, showing you exactly what each hook is doing.
 
-```plaintext
-cd ..
-git status
-```
+Running this command will execute the specified hooks, including your `pre-commit-whitespace` hook, and display the results.
 
-Git is now informing us that we now have modified content in the posters submodule.  
+Examine the output of the `pre-commit` checks to see if any issues are reported. If the `pre-commit-whitespace` hook detects trailing whitespace, it will be shown in the output.
 
-## Create new content locally and update the sub-repository <a name="push"></a>
-Now, let's commit the change to the posters submodule, and push that change to our posters repository on Github.
+## Conclusion <a name="conclusion"></a>
 
-Go back into the posters submodule and add and commit the change we just made.
-
-```plaintext
-cd posters
-git commit -am "Add poster 1 to the schedule"
-```
-
-You can treat the submodule like any git repository and simply push the new commit to your fork on Github.  
-
-```plaintext
-git push origin
-```
-
-If you navigate back to your Github fork (and refresh the page if necessary), you should see the commit that you just made.  
-
-The conference planning repository now needs to be updated, to point to the new commit in the posters submodule.  Let's do this now.
-
-```plaintext
-cd ..
-git add posters
-git commit -m "Update posters submodule"
-```
-
-Now, if you check the submodule status, you will see that it is pointing to the latest commit you made.
-
-## Create new content in the sub-repository and update the local repository <a name="pull"></a>
-
-Finally, let's learn how to pull changes from the submodule into our host repository.  
-
-Navigate back to your fork of the poster repository on Github, and make a change to the schedule file and commit it. You can do this directly on the web interface by simply selecting the file and using the edit button.
-
-Once you have done this, go to back to the terminal and use `git submodule update` to get the main repository to fetch the new commit of the poster repository.
-
-```plaintext
-git submodule update --remote --merge
-```
-
-The `--remote` option tells git to refer to the remote repository for the latest commit, in this case our poster repository. The `--merge` option tells git to merge the commit into our submodule to keep it up to date.
-
-In order to finalize the update, we need to commit it to the main repository.
-
-```plaintext
-git add posters
-git commit -am "Update posters to latest commit"
-```
+In this exercise, you learned how to implement a *pre-commit* hook that prevents committing files with trailing whitespace. You also explored setting up multiple *pre-commit* hooks for different tasks. By integrating the `pre-commit` tool and configuring it with your custom hooks, you have learned a convenient way to check your changes before committing them, helping to maintain code quality and consistency in your development workflow.

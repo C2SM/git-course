@@ -1,10 +1,10 @@
-# Exercise 8 - Using git subtree
+# Exercise 8 - Using git submodule
 
-This exercise is designed to be paired with Exercise 7 to help you compare and contrast the two main methods for embedding a git repository into another git repository. In this exercise, we will learn to use `git subtree` to nest a git repository inside another one. We will first add the git subtree and examine how the host and nested repositories deal with changes in their respective files. We will then learn how to pull and push changes to and from the sub-repository.
+In this exercise, we will learn to use git submodule to nest a git repository inside another one. We will first add the git submodule and examine how the host and nested repositories deal with changes in their respective files. We will then learn how to pull and push changes to and from the sub-repository.
 
-This exercise uses the same git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the ["Initialize the git repository" section of Exercise 3](./Exercise_3.md#initialize).
+This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3.md#initialize) section of Exercise 3.
 
-* [Add the posters repository using git subtree](#subtree)
+* [Fork a repository on Github and add it as a submodule](#submodule)
 
 * [Examine how git deals with changes to both repositories](#examine)
 
@@ -12,24 +12,26 @@ This exercise uses the same git repository that was created in Exercise 3. If yo
 
 * [Create new content in the sub-repository and update the local repository](#pull)
 
-## Add the posters repository using git subtree <a name="subtree"></a>
+## Fork a repository on Github and add it as a submodule <a name="submodule"></a>
 
-Navigate to the folder containing the `conference_planning` folder; in other words you should be in a folder that does not contain a git repository. Make a copy of the conference planning repository to use for adding the subtree.
-
-```plaintext
-cp -r conference_planning conference_subtree
-```
-
-Let's add your `posters` Github fork we created in Exercise 7 as a subtree to our conference planning repository.
+Navigate to the folder containing the `conference_planning` folder; in other words you should be in a folder that does not contain a git repository. Make a copy of the conference planning repository to use for adding the submodule.
 
 ```plaintext
-cd conference_subtree
-git subtree add --prefix posters YOUR_FORK_ADDRESS main --squash
+cp -r conference_planning conference_submodule
 ```
 
-> **_Note:_**  If you get an error message of the type `Working tree has modifications.  Cannot add.`, please first try `git switch main`. If the error still persists, type `git reset --hard`. For more information about this, check [this stackoverflow question](https://stackoverflow.com/questions/3623351/git-subtree-pull-says-that-the-working-tree-has-modifications-but-git-status-sa).
+I have already created a repository on Github that we will use as a submodule. This repository is called `posters` and will contain the poster schedule for our conference.
 
-The `--prefix` option gives a folder name relative to the root of the parent repository where the subtree will be installed. And the `--squash` option squashes the history of the posters repository into one commit in the parent repository.
+Navigate to the repository, found [here](https://github.com/kosterried/posters), and make a fork of it using the Github user interface.
+
+Let's add this fork as a submodule to our conference planning repository. You will need to copy the SSH address of your fork and paste it into the `git submodule add` command below.
+
+```plaintext
+cd conference_submodule
+git submodule add YOUR_FORK_ADDRESS
+```
+
+Note that Github requires an SSH key in order to push content to repositories. If you have not already set up an SSH key in your Github account, it is easy to do and you can find instructions [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
 Check the status of the repository.
 
@@ -37,23 +39,31 @@ Check the status of the repository.
 git status
 ```
 
-In this case, unlike the submodule, we don't have to make a commit to finalize the addition of the subtree. If you have a look at the log, you will see that git has added a couple of commits automatically to do this.
+The output shows that there are some changes to the repository, and they are already staged for commit. We should commit them to finalize the adding of the submodule.
 
 ```plaintext
-git log
+git commit -m "Add the posters submodule"
 ```
 
-Note that there is no equivalent command to `git submodule status` that will allow us to list our subtrees and their status.  
+Note that the `.gitmodules` file has been added, which contains the path of the submodule in the host repository and the address where the submodule is hosted which is the Github URL in our case. It could also be another git web host, a file path, or anywhere else a repository is hosted.
 
+Check the status of the submodule.
+
+```plaintext
+git submodule status
+```
+
+The output shows us the SHA of the commit that the submodule is currently pointing to.  
 
 ## Examine how git deals with changes to both repositories <a name="examine"></a>
 
-Let's make some changes in both the host repository and the subtree to understand how git deals with subtrees.  
+Let's make some changes in both the host repository and the submodule to understand how git deals with submodules.  
 
-Start by making a change in the host repository. Let's add a presentation session to the schedule on day 1. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change.
+Start by making a change in the host repository. Let's add a lunch break to the schedule on day 1. The following gives examples using the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change.
+
 
 ```plaintext
-sed -i '/^11:00/a 11:30-12:30: Presentation session' schedule_day1
+sed -i '/^11:00/a 12:00-13:00: Lunch break' schedule_day1
 ```
 
 Check the status of the repository.
@@ -64,77 +74,81 @@ git status
 
 You should see the change you just made listed as not staged for commit.
 
-Now navigate into the subtree and check the status there.
+Now navigate into the submodule and check the status there.
 
 ```plaintext
 cd posters
 git status
 ```
 
-Here we see the same change listed as not staged for commit. This is a difference to the behavior we saw with submodules. With git subtrees, git considers both the host and nested repository to have the same staging area. The commits from the subtree are all put directly into the commit list of the host repository, unlike with `git submodule` where they are kept completely separate.
+Here we see that there are no changes. The submodule is treated as a completely separate repository with it's own staging area and commits.
 
-Now try making a change inside the submodule. Let's add another poster title to the poster schedule.
+Now try making a change inside the submodule. Let's add a poster title to the poster schedule.
 
 ```plaintext
-echo "Poster 3: 3 easy steps to git mastery" >> schedule
+echo "Poster 1: Git submodules and you" >> schedule
 ```
 
-Check the status of the repository.
+Check the status of the posters repository.
 
 ```plaintext
 git status
 ```
 
-Now we see both changes listed as not staged for commit. This means that we could potentially now make a commit that included content from the host repository AND the subtree, and git would allow it. This could create problems with the history of the repository further down the line, so this should be avoided. The user simply needs to know not to do this, as git will not do anything to stop this.
-
-## Create new content locally and update the sub-repository <a name="push"></a>
-
-Let's push the change we've made to the subtree to the Github fork.
-First we need to commit this change.
-
-```plaintext
-git add schedule
-git commit -m "Add Poster 3"
-```
-
-Now, we need to go to the root of the host repository and use `git subtree push` to send this commit to our Github fork.
+Check the status of the conference planning repository.
 
 ```plaintext
 cd ..
-git subtree push --prefix=posters YOUR_FORK_ADDRESS main
+git status
 ```
 
-If you check your Github fork now, you should see that the change has appeared there.  
+Git is now informing us that we now have modified content in the posters submodule.  
+
+## Create new content locally and update the sub-repository <a name="push"></a>
+Now, let's commit the change to the posters submodule, and push that change to our posters repository on Github.
+
+Go back into the posters submodule and add and commit the change we just made.
+
+```plaintext
+cd posters
+git commit -am "Add poster 1 to the schedule"
+```
+
+You can treat the submodule like any git repository and simply push the new commit to your fork on Github.  
+
+```plaintext
+git push origin
+```
+
+If you navigate back to your Github fork (and refresh the page if necessary), you should see the commit that you just made.  
+
+The conference planning repository now needs to be updated, to point to the new commit in the posters submodule.  Let's do this now.
+
+```plaintext
+cd ..
+git add posters
+git commit -m "Update posters submodule"
+```
+
+Now, if you check the submodule status, you will see that it is pointing to the latest commit you made.
 
 ## Create new content in the sub-repository and update the local repository <a name="pull"></a>
 
-Finally, let's learn how to pull changes from the subtree into our host repository.  
+Finally, let's learn how to pull changes from the submodule into our host repository.  
 
 Navigate back to your fork of the poster repository on Github, and make a change to the schedule file and commit it. You can do this directly on the web interface by simply selecting the file and using the edit button.
 
-Let's update the main repository with the new content of the poster repository.
-You can't do this if there are any changes in your working tree, so you should discard the changes we made to the day 1 schedule first.
+Once you have done this, go to back to the terminal and use `git submodule update` to get the main repository to fetch the new commit of the poster repository.
 
 ```plaintext
-git restore schedule_day1
+git submodule update --remote --merge
 ```
 
-Use `git subtree pull` to get the newest commit from your Github fork.
+The `--remote` option tells git to refer to the remote repository for the latest commit, in this case our poster repository. The `--merge` option tells git to merge the commit into our submodule to keep it up to date.
+
+In order to finalize the update, we need to commit it to the main repository.
 
 ```plaintext
-git subtree pull --prefix posters YOUR_FORK_ADDRESS main --squash
-```
-
-Git will prompt you to enter a merge commit message, because it is treating this new information addition as a merge.
-
-Look at the contents of the posters subtree to see that the change you made has been added.
-
-```plaintext
-cat posters/schedule
-```
-
-Have a look at the log to see exactly how git has handled the subtree and it's updates.
-
-```plaintext
-git log
+git add posters
+git commit -am "Update posters to latest commit"
 ```
