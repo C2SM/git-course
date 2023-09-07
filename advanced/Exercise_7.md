@@ -129,7 +129,8 @@ repos:
 
 This configuration specifies that the `pre-commit-whitespace` hook (the one we created earlier) should run.
 
-To manually run the `pre-commit` checks without making a commit, use the following command:
+To manually run the `pre-commit` checks without making a commit, keep in mind that the `pre-commit` tool only checks against
+staged files, i.e. you need to do `git add` for your file that contains whitespace. Afterwards, use the following command:
 
 ```sh
 pre-commit run --all-files --verbose
