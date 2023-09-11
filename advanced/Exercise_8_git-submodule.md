@@ -2,7 +2,7 @@
 
 In this exercise, we will learn to use `git submodule` to nest a Git repository inside another one. We will first add the Git submodule and examine how the host and nested repositories deal with changes in their respective files. We will then learn how to pull and push changes to and from the sub-repository.
 
-This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3.md#initialize) section of Exercise 3.
+This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3_gitignore.md#initialize) section of Exercise 3.
 
 * [Fork a repository on GitHub and add it as a submodule](#submodule)
 
