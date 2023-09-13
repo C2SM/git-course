@@ -10,7 +10,7 @@ This exercise uses the same Git repository that was created in Exercise 3. If yo
 
 ## Stash your changes <a name="stash"></a>
 
-Let's make a change to the repository by adding a conference breakfast to the schedule on day 1. The following command is an example of how to use the `sed` command line tool, which was tested on Linux but may not work on other platforms. It will add '08:30-09:00: Conference breakfast' after the line containing the word 'Daily' in *schedule_day1.txt*. If this does not work on your platform, simply open the file in a file editor to make the change.
+Let's make a change to the repository by adding a conference breakfast to the schedule on day 1. The following command is an example of how to use the `sed` command line tool, which was tested on **Linux** but may not work on other platforms, i.e **MacOS**. It will add '08:30-09:00: Conference breakfast' after the line containing the word 'Daily' in *schedule_day1.txt*. If this does not work on your platform, simply open the file in a file editor to make the change.
 
 ```plaintext
 sed -i '/Daily/ a 08:30-09:00: Conference breakfast' schedule_day1.txt
