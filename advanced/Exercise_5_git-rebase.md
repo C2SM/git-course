@@ -24,7 +24,7 @@ Create and switch to a new feature branch.
 git switch -c merge_feature
 ```
 
-Make a change to the schedule for day 2. Let's add a presentation session after the coffee break. The following are examples of how to use the `sed` command line tool, which were tested on Linux but may not work on other platforms. You can also simply open the file in a file editor to make the change.
+Make a change to the schedule for day 2. Let's add a presentation session after the coffee break. The following are examples of how to use the `sed` command line tool, which were tested on **Linux** but may not work on other platforms, i.e **MacOS**. You can also simply open the file in a file editor to make the change.
 
 ```plaintext
 sed -i '/Coffee/ a 11:15-12:30: Presentation session' schedule_day2.txt
