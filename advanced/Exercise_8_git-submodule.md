@@ -28,7 +28,7 @@ Let's add this fork to our *conference_planning* repository as a submodule. You 
 
 ```plaintext
 cd conference_submodule
-git submodule add YOUR_FORK_ADDRESS
+git submodule add YOUR_FORK_ADDRESS posters
 ```
 
 Note that GitHub requires an SSH key to push content to repositories. If you do not already have an SSH key set up in your GitHub account, follow the instructions for [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
