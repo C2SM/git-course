@@ -15,13 +15,14 @@ To run this course on your computer, the following things need to be set up:
 
 
 ### 1. Installing Git on your Computer
+To follow the course, Git needs to run on a _**Linux or MacOS terminal**_. Windows users can either follow the instructions below to install Ubuntu or use a Linux server they have access to.
 
 > **_Important note:_**  You must have at least Git 2.28 (released 27 July 2020) installed.
 > You can check your Git version by typing `git --version` in your terminal.
 
 **Mac and Linux users:** To install Git on your computer, please follow the instructions to [Install Git on Mac](https://github.com/git-guides/install-git#install-git-on-mac) or [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux)
 
-**Windows users:** We recommend you to follow the instructions below to install Ubuntu and then follow the [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux) instruction.
+**Windows users:** Follow the instructions below to install Ubuntu and then follow the [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux) instruction.
 <details>
 <summary>Instructions for Windows Users</summary>
 <br>
