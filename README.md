@@ -22,7 +22,7 @@ To follow the course, Git needs to run on a _**Linux or MacOS terminal**_. Windo
 
 **Mac and Linux users:** To install Git on your computer, please follow the instructions to [Install Git on Mac](https://github.com/git-guides/install-git#install-git-on-mac) or [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux)
 
-**Windows users:** Follow the instructions below to install Ubuntu and then follow the [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux) instruction.
+**Windows users:** Please follow the instructions below to install Ubuntu under Windows. Afterwards, please follow the [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux) instruction.
 <details>
 <summary>Instructions for Windows Users</summary>
 <br>
