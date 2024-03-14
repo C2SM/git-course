@@ -25,6 +25,7 @@ init_repo_empty_schedule () {
     cd $dir_at_startup
     mkdir -p ../../../beginners_git/conference_planning
     cd ../../../beginners_git/conference_planning
+    git init
     cp ../../git-course/beginner/examples/schedule_day1.txt conference_schedule.txt
 }
 
