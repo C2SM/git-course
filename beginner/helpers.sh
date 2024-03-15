@@ -13,13 +13,18 @@ reset () {
 }
 
 init_exercise () {
+    # Save the name of the current directory
+    current_dir_name=$(basename "$(pwd)")
+
     cd $dir_at_startup
     mkdir -p ../../../beginners_git
     rm -rf ../../../beginners_git
     mkdir -p ../../../beginners_git
     cd ../../../beginners_git
-    echo "Working directory prepared"
+    echo "Working directory prepared."
+    echo "You've been moved to the 'beginners_git' directory. This is where you'll start your ${current_dir_name}."
 }
+
 
 init_repo_empty_schedule () {
     cd $dir_at_startup
