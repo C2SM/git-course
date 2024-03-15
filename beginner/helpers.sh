@@ -12,6 +12,27 @@ reset () {
     echo "Here we go again!"
 }
 
+# determine main or master for default branch name
+get_default_branch_name() {
+
+    # Attempt to identify the default branch by querying the remote repository
+    default_branch=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+
+    # Check if the default branch was found; if not, check local references for main, i.e., master branch
+    if [ -z "$default_branch" ]; then
+        if git show-ref --verify --quiet refs/heads/main; then
+            default_branch="main"
+        elif git show-ref --verify --quiet refs/heads/master; then
+            default_branch="master"
+        else
+            echo "Error: Could not determine the default branch name."
+            exit 1
+        fi
+    fi
+
+    echo $default_branch
+}
+
 init_exercise () {
     # Save the name of the current directory
     current_dir_name=$(basename "$(pwd)")
@@ -72,7 +93,12 @@ init_simple_repo_remote () {
     ed -s schedule_day1.txt  <<< $'/break/\na\n11:15-12:15: Talk professor A.\n.\nw\nq' > /dev/null
     ed -s schedule_day2.txt  <<< $'/break/\na\n11:15-12:15: Talk professor B.\n.\nw\nq' > /dev/null
     git add * && git commit -m "update schedules"
-    git switch main
+
+    # Dynamically get the default branch name (main or master, based on the version of git)
+    default_branch=$(get_default_branch_name)
+    
+    # Switch to the dynamically determined default branch
+    git switch "$default_branch"
    
     cd ../conference_planning
     ls
@@ -126,7 +152,12 @@ init_repo_remote () {
     git clone conference_planning conference_planning_remote
     cd conference_planning_remote
     git switch -c "updated_schedules"
-    git switch main
+    
+    # Dynamically get the default branch name (main or master, based on the version of git)
+    default_branch=$(get_default_branch_name)
+    
+    # Switch to the dynamically determined default branch
+    git switch "$default_branch"
 
     cd ../conference_planning
     ls
@@ -140,6 +171,12 @@ commit_to_remote_by_third_party() {
     sed  's/Poster session/Workshop/g' schedule_day1.txt > schedule_day1_tmp.txt
     mv -f schedule_day1_tmp.txt schedule_day1.txt
     git add * && git commit -m "Workshop in the morning"
-    git switch main
+    
+    # Dynamically get the default branch name (main or master, based on the version of git)
+    default_branch=$(get_default_branch_name)
+    
+    # Switch to the dynamically determined default branch
+    git switch "$default_branch"
+    
     cd ../conference_planning
 }
