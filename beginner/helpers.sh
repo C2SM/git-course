@@ -59,10 +59,11 @@ init_simple_repo () {
     mkdir -p ../../../beginners_git/conference_planning
     cd ../../../beginners_git/conference_planning
     git init
+    echo ".ipynb_checkpoints" >> .gitignore
     cp ../../git-course/beginner/examples/schedule_day1.txt .
     cp ../../git-course/beginner/examples/schedule_day2.txt .
 
-    git add schedule_day1.txt && git commit -m "Add schedule_day1"
+    git add schedule_day1.txt .gitignore && git commit -m "Add schedule_day1"
     git add schedule_day2.txt && git commit -m "Add schedule_day2"
 
     ed -s schedule_day1.txt  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
@@ -135,9 +136,10 @@ init_repo_remote () {
     mkdir -p ../../../beginners_git/conference_planning
     cd ../../../beginners_git/conference_planning
     git init
+    echo ".ipynb_checkpoints" >> .gitignore
     cp ../../git-course/beginner/examples/schedule_day1.txt .
 
-    git add schedule_day1.txt && git commit -m "Add schedule_day1"
+    git add schedule_day1.txt .gitignore && git commit -m "Add schedule_day1"
 
     ed -s schedule_day1.txt  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
     git add * && git commit -m "Add poster sessions in the morning"
