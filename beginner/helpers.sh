@@ -42,8 +42,8 @@ init_exercise () {
     rm -rf ../../../beginners_git
     mkdir -p ../../../beginners_git
     cd ../../../beginners_git
-    echo "Working directory prepared."
-    echo "You've been moved to the 'beginners_git' directory. This is where you'll start your ${current_dir_name}."
+    echo -e "\033[31m\033[1mWorking directory prepared.\033[0m"
+    echo -e "\033[31m\033[1mYou've been moved to the 'beginners_git' directory. This is where you'll start your ${current_dir_name}.\033[0m"
 }
 
 
@@ -104,7 +104,7 @@ init_simple_repo_remote () {
     cd ../conference_planning
 
     echo""
-    echo "You've been automatically moved to the 'conference_planning' directory, where the 'Conference Planning' repository is ready for you to go on with your exercise."
+    echo -e "\033[31m\033[1mYou've been automatically moved to the 'conference_planning' directory, where the 'Conference Planning' repository is ready for you to go on with your exercise.\033[0m"
     
     echo""
     echo "Your schedules:"
@@ -171,7 +171,7 @@ init_repo_remote () {
     cd ../conference_planning
     
     echo""
-    echo "You've been automatically moved to the 'conference_planning' directory, where the 'Conference Planning' repository is ready for you to go on with your exercise."
+    echo -e "\033[31m\033[1mYou've been automatically moved to the 'conference_planning' directory, where the 'Conference Planning' repository is ready for you to go on with your exercise.\033[0m"
     
     echo""
     echo "Your schedules:"
