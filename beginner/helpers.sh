@@ -42,7 +42,7 @@ init_exercise () {
     rm -rf ../../../beginners_git
     mkdir -p ../../../beginners_git
     cd ../../../beginners_git
-    echo -e "\033[31m\033[1mWorking directory prepared.\033[0m"
+    echo -e "Working directory prepared."
     echo -e "\033[31m\033[1mYou've been moved to the 'beginners_git' directory. This is where you'll start your ${current_dir_name}.\033[0m"
 }
 
