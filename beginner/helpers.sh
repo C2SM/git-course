@@ -77,7 +77,7 @@ init_simple_repo () {
     echo ""
     echo "Your commits so far:"
     echo ""
-    git log
+    git --no-pager log
 
     echo""
     echo "Your schedules:"
@@ -102,6 +102,13 @@ init_simple_repo_remote () {
     git switch "$default_branch"
    
     cd ../conference_planning
+
+    echo""
+    echo "You've been automatically moved to the 'conference_planning' directory, where the 'Conference Planning' repository is ready for you to go on with your exercise."
+    
+    echo""
+    echo "Your schedules:"
+    echo""
     ls
 }
 
@@ -123,7 +130,7 @@ init_repo () {
     echo ""
     echo "Your commits so far:"
     echo ""
-    git log
+    git --no-pager log
 
     echo""
     echo "Your schedules:"
@@ -162,6 +169,13 @@ init_repo_remote () {
     git switch "$default_branch"
 
     cd ../conference_planning
+    
+    echo""
+    echo "You've been automatically moved to the 'conference_planning' directory, where the 'Conference Planning' repository is ready for you to go on with your exercise."
+    
+    echo""
+    echo "Your schedules:"
+    echo""
     ls
 }
 
