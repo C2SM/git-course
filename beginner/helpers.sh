@@ -90,7 +90,7 @@ init_simple_repo_remote () {
     cd ..
     git clone conference_planning conference_planning_remote
     cd conference_planning_remote
-    git switch -c "updated_schedules"
+    git checkout -b "updated_schedules"
     ed -s schedule_day1.txt  <<< $'/break/\na\n11:15-12:15: Talk professor A.\n.\nw\nq' > /dev/null
     ed -s schedule_day2.txt  <<< $'/break/\na\n11:15-12:15: Talk professor B.\n.\nw\nq' > /dev/null
     git add * && git commit -m "update schedules"
@@ -99,7 +99,7 @@ init_simple_repo_remote () {
     default_branch=$(get_default_branch_name)
     
     # Switch to the dynamically determined default branch
-    git switch "$default_branch"
+    git checkout "$default_branch"
    
     cd ../conference_planning
 
@@ -160,13 +160,13 @@ init_repo_remote () {
     cd ..
     git clone conference_planning conference_planning_remote
     cd conference_planning_remote
-    git switch -c "updated_schedules"
+    git checkout -b "updated_schedules"
     
     # Dynamically get the default branch name (main or master, based on the version of git)
     default_branch=$(get_default_branch_name)
     
     # Switch to the dynamically determined default branch
-    git switch "$default_branch"
+    git checkout "$default_branch"
 
     cd ../conference_planning
     
@@ -182,7 +182,7 @@ init_repo_remote () {
 commit_to_remote_by_third_party() {
     cd $dir_at_startup
     cd ../../../beginners_git/conference_planning_remote
-    git switch updated_schedules
+    git checkout updated_schedules
     cp ../../beginners_git/conference_planning/schedule_day1.txt .
     sed  's/Poster session/Workshop/g' schedule_day1.txt > schedule_day1_tmp.txt
     mv -f schedule_day1_tmp.txt schedule_day1.txt
@@ -192,7 +192,7 @@ commit_to_remote_by_third_party() {
     default_branch=$(get_default_branch_name)
     
     # Switch to the dynamically determined default branch
-    git switch "$default_branch"
+    git checkout "$default_branch"
     
     cd ../conference_planning
 }
