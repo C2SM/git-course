@@ -3,7 +3,7 @@
 if [[ ! -z $dir_at_startup ]]; then
     echo "You cannot source this file twice"
 else
-    dir_at_startup=$(pwd)
+    dir_at_startup=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 fi
 
 reset () {
