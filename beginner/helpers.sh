@@ -38,10 +38,10 @@ init_exercise () {
     current_dir_name=$(basename "$(pwd)")
 
     cd $dir_at_startup
-    mkdir -p ../../../beginners_git
-    rm -rf ../../../beginners_git
-    mkdir -p ../../../beginners_git
-    cd ../../../beginners_git
+    mkdir -p ../../beginners_git
+    rm -rf ../../beginners_git
+    mkdir -p ../../beginners_git
+    cd ../../beginners_git
     echo -e "Working directory prepared."
     echo -e "\033[31m\033[1mYou've been moved to the 'beginners_git' directory. This is where you'll start your ${current_dir_name}.\033[0m"
 }
@@ -49,15 +49,15 @@ init_exercise () {
 
 init_repo_empty_schedule () {
     cd $dir_at_startup
-    mkdir -p ../../../beginners_git/conference_planning
-    cd ../../../beginners_git/conference_planning
+    mkdir -p ../../beginners_git/conference_planning
+    cd ../../beginners_git/conference_planning
     cp ../../git-course/beginner/examples/schedule_day1.txt conference_schedule.txt
 }
 
 init_simple_repo () {
     cd $dir_at_startup
-    mkdir -p ../../../beginners_git/conference_planning
-    cd ../../../beginners_git/conference_planning
+    mkdir -p ../../beginners_git/conference_planning
+    cd ../../beginners_git/conference_planning
     git init
     echo ".ipynb_checkpoints" >> .gitignore
     cp ../../git-course/beginner/examples/schedule_day1.txt .
@@ -140,8 +140,8 @@ init_repo () {
 
 init_repo_remote () {
     cd $dir_at_startup
-    mkdir -p ../../../beginners_git/conference_planning
-    cd ../../../beginners_git/conference_planning
+    mkdir -p ../../beginners_git/conference_planning
+    cd ../../beginners_git/conference_planning
     git init
     echo ".ipynb_checkpoints" >> .gitignore
     cp ../../git-course/beginner/examples/schedule_day1.txt .
@@ -181,7 +181,7 @@ init_repo_remote () {
 
 commit_to_remote_by_third_party() {
     cd $dir_at_startup
-    cd ../../../beginners_git/conference_planning_remote
+    cd ../../beginners_git/conference_planning_remote
     git checkout updated_schedules
     cp ../../beginners_git/conference_planning/schedule_day1.txt .
     sed  's/Poster session/Workshop/g' schedule_day1.txt > schedule_day1_tmp.txt
