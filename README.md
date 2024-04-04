@@ -13,7 +13,8 @@ The folder [advanced](advanced) contains the exercises for the C2SM Git Workshop
 To run this course on your computer, the following things need to be set up:
 1. [Git](#1-installing-git-on-your-computer)
 2. [SSH key linked to your GitHub account](#2-creating-a-github-account-and-ssh-key)
-3. [Python and JupyterLab](#3-installing-python-and-jupyterlab) (only for beginner course)
+3. [Python](#3-installing-python) 
+4. [JupyterLab](#4-installing-jupyterlab-beginners-course-only) (Beginner's course only)
 
 
 ### 1. Installing Git on your Computer
