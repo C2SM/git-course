@@ -183,14 +183,14 @@ commit_to_remote_by_third_party() {
     cd $dir_at_startup
     cd ../../beginners_git/conference_planning_remote
     git checkout updated_schedules
-    cp ../../beginners_git/conference_planning/schedule_day1.txt .
-    sed  's/Poster session/Workshop/g' schedule_day1.txt > schedule_day1_tmp.txt
+    cp ../conference_planning/schedule_day1.txt .
+    sed '3s/.*/09:00-11:00: Workshop Git for advanced/' schedule_day1.txt > schedule_day1_tmp.txt
     mv -f schedule_day1_tmp.txt schedule_day1.txt
-    git add * && git commit -m "Workshop in the morning"
-    
+    git add * && git commit -m "Git workshop in the morning"
+
     # Dynamically get the default branch name (main or master, based on the version of git)
     default_branch=$(get_default_branch_name)
-    
+
     # Switch to the dynamically determined default branch
     git checkout "$default_branch"
     
