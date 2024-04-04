@@ -67,9 +67,14 @@ For the beginners course, you also need some non-standard Python packages, namel
 
 To install these two packages, run the following commands in your terminal.
 
-Clone this Git repository:
+If you have set up your SSH key, clone this Git repository by using the SSH protocol:
 ```bash
 git clone git@github.com:C2SM/git-course.git
+```
+
+Otherwise, use the HTTPS protocol:
+```bash
+git clone https://github.com/C2SM/git-course.git
 ```
 
 Navigate into the cloned repository:
