@@ -1,9 +1,11 @@
 # C2SM Git Courses
 
 ## Git Course for Beginners
+
 The folder [beginner](beginner) contains the exercises for the C2SM Git Workshop "Git for Beginners".
 
 ## Git Course for Advanced
+
 The folder [advanced](advanced) contains the exercises for the C2SM Git Workshop "Git for Advanced".
 
 ## Getting Started
@@ -15,6 +17,7 @@ To run this course on your computer, the following things need to be set up:
 
 
 ### 1. Installing Git on your Computer
+
 To follow the course, Git needs to run on a _**Linux or MacOS terminal**_. Windows users can either follow the instructions below to install Ubuntu or use a Linux server they have access to.
 
 > **_Important note:_**  You must have at least Git 2.28 (released 27 July 2020) installed.
@@ -27,12 +30,12 @@ To follow the course, Git needs to run on a _**Linux or MacOS terminal**_. Windo
 <summary>Instructions for Windows Users</summary>
 <br>
 
-We recommend to install the Windows Subsystem for Linux 2 (WSL2). Using Git with WSL2 provides a better terminal experience for Windows users. With WSL2, you can access a Linux terminal directly from Windows, which makes it easier to work with Git commands and other Linux-based tools. This also allows for more flexibility in managing and running scripts, as well as better compatibility with Linux-based workflows. Additionally, WSL2 provides a more secure environment for Git operations by isolating them from the Windows operating system.
+We recommend to install the **Windows Subsystem for Linux 2** (WSL2). Using Git with WSL2 provides a better terminal experience for Windows users. With WSL2, you can access a Linux terminal directly from Windows, which makes it easier to work with Git commands and other Linux-based tools. This also allows for more flexibility in managing and running scripts, as well as better compatibility with Linux-based workflows. Additionally, WSL2 provides a more secure environment for Git operations by isolating them from the Windows operating system.
 
 #### Setting up WSL2
 
 1. Enable the Windows Subsystem for Linux (WSL) feature on your Windows machine by following the steps [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
-2. Install a Linux distribution of your choice from the Microsoft Store. We recommend using Ubuntu 22.04.2 LTS.
+2. Install a Linux distribution of your choice from the Microsoft Store. We recommend using Ubuntu 22.04.3 LTS.
 3. Open the Start menu and search for "Ubuntu" to launch the distribution.
 4. Follow the prompts to set up a username and password for the Ubuntu distribution.
 
@@ -50,41 +53,45 @@ Having a GitHub account allows you to collaborate on open-source projects and st
 - [Add your SSH key to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
 
-### 3. Installing Python and JupyterLab
+### 3. Installing Python
+
 To install Python, we recommend the [instructions from realpython](https://realpython.com/installing-python/),
 but of course many other instructions will do as well.
 
-For the beginners course, you also need some non-standard python packages, namely:
+### 4. Installing JupyterLab (Beginner's Course only)
+
+For the beginners course, you also need some non-standard Python packages, namely:
    - jupyterlab
    - bash_kernel
 
-To install these two packages, run the following commands in your terminal:
+To install these two packages, run the following commands in your terminal.
+
+Clone this Git repository:
 ```bash
-# Clone this Git repository
 git clone git@github.com:C2SM/git-course.git
 ```
 
+Navigate into the cloned repository:
 ```bash
-# Navigate into the cloned repository
 cd git-course
 ```
 
+Create a new Python virtual environment named *git-course_env*:
 ```bash
-# Create a new Python virtual environment named "git-course_env"
 python -m venv git-course_env
 ```
 
+Activate the newly created virtual environment:
 ```bash
-# Activate the newly created virtual environment
 source git-course_env/bin/activate 
 ```
 
+Install the required Python packages specified in the *requirements.txt* file:
 ```bash
-# Install the required Python packages specified in the "requirements.txt" file
 pip install -r requirements.txt 
 ```
 
-On some machines an extra step is required:
+Install Bash kernel for Jupyter notebooks:
 ```bash
 python -m bash_kernel.install
 ```
@@ -102,7 +109,7 @@ This command will open the JupyterLab interface in your browser.
 If it does not open automatically, you will need to copy and paste the URL manually.
 In this case, please follow the instructions on your terminal.
 
-If you are note able to start JupyterLab for some reason, you can try to launch a Jupyter Notebook, which provides a simpler user interface:
+If you are not able to start JupyterLab for some reason, you can try to launch a Jupyter Notebook, which provides a simpler user interface:
 ```
 jupyter notebook
 ```
