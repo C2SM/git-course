@@ -1,4 +1,5 @@
 .ipynb_checkpoints
 */work
 .DS_Store
-*/git-course_env
+git-course_env/
+.vscode/
