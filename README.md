@@ -56,7 +56,7 @@ Having a GitHub account allows you to collaborate on open-source projects and st
 
 ### 3. Installing Python
 
-To install Python, we recommend the [instructions from realpython](https://realpython.com/installing-python/),
+To install Python, we recommend the [instructions from Real Python](https://realpython.com/installing-python/),
 but of course many other instructions will do as well.
 
 ### 4. Installing JupyterLab (Beginner's Course only)
