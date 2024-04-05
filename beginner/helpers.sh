@@ -3,7 +3,7 @@
 if [[ ! -z $dir_at_startup ]]; then
     echo "You cannot source this file twice"
 else
-    dir_at_startup=$(pwd)
+    dir_at_startup=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 fi
 
 reset () {
@@ -12,31 +12,58 @@ reset () {
     echo "Here we go again!"
 }
 
-init_exercise () {
-    cd $dir_at_startup
-    mkdir -p ../../../beginners_git
-    rm -rf ../../../beginners_git
-    mkdir -p ../../../beginners_git
-    cd ../../../beginners_git
-    echo "Working directory prepared"
+# determine main or master for default branch name
+get_default_branch_name() {
+
+    # Attempt to identify the default branch by querying the remote repository
+    default_branch=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+
+    # Check if the default branch was found; if not, check local references for main, i.e., master branch
+    if [ -z "$default_branch" ]; then
+        if git show-ref --verify --quiet refs/heads/main; then
+            default_branch="main"
+        elif git show-ref --verify --quiet refs/heads/master; then
+            default_branch="master"
+        else
+            echo "Error: Could not determine the default branch name."
+            exit 1
+        fi
+    fi
+
+    echo $default_branch
 }
+
+init_exercise () {
+    # Save the name of the current directory
+    current_dir_name=$(basename "$(pwd)")
+
+    cd $dir_at_startup
+    mkdir -p ../../beginners_git
+    rm -rf ../../beginners_git
+    mkdir -p ../../beginners_git
+    cd ../../beginners_git
+    echo -e "Working directory prepared."
+    echo -e "\033[31m\033[1mYou've been moved to the 'beginners_git' directory. This is where you'll start your ${current_dir_name}.\033[0m"
+}
+
 
 init_repo_empty_schedule () {
     cd $dir_at_startup
-    mkdir -p ../../../beginners_git/conference_planning
-    cd ../../../beginners_git/conference_planning
+    mkdir -p ../../beginners_git/conference_planning
+    cd ../../beginners_git/conference_planning
     cp ../../git-course/beginner/examples/schedule_day1.txt conference_schedule.txt
 }
 
 init_simple_repo () {
     cd $dir_at_startup
-    mkdir -p ../../../beginners_git/conference_planning
-    cd ../../../beginners_git/conference_planning
+    mkdir -p ../../beginners_git/conference_planning
+    cd ../../beginners_git/conference_planning
     git init
+    echo ".ipynb_checkpoints" >> .gitignore
     cp ../../git-course/beginner/examples/schedule_day1.txt .
     cp ../../git-course/beginner/examples/schedule_day2.txt .
 
-    git add schedule_day1.txt && git commit -m "Add schedule_day1"
+    git add schedule_day1.txt .gitignore && git commit -m "Add schedule_day1"
     git add schedule_day2.txt && git commit -m "Add schedule_day2"
 
     ed -s schedule_day1.txt  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
@@ -50,7 +77,7 @@ init_simple_repo () {
     echo ""
     echo "Your commits so far:"
     echo ""
-    git log
+    git --no-pager log
 
     echo""
     echo "Your schedules:"
@@ -63,13 +90,25 @@ init_simple_repo_remote () {
     cd ..
     git clone conference_planning conference_planning_remote
     cd conference_planning_remote
-    git switch -c "updated_schedules"
+    git checkout -b "updated_schedules"
     ed -s schedule_day1.txt  <<< $'/break/\na\n11:15-12:15: Talk professor A.\n.\nw\nq' > /dev/null
     ed -s schedule_day2.txt  <<< $'/break/\na\n11:15-12:15: Talk professor B.\n.\nw\nq' > /dev/null
     git add * && git commit -m "update schedules"
-    git switch main
+
+    # Dynamically get the default branch name (main or master, based on the version of git)
+    default_branch=$(get_default_branch_name)
+    
+    # Switch to the dynamically determined default branch
+    git checkout "$default_branch"
    
     cd ../conference_planning
+
+    echo""
+    echo -e "\033[31m\033[1mYou've been automatically moved to the 'conference_planning' directory, where the 'Conference Planning' repository is ready for you to go on with your exercise.\033[0m"
+    
+    echo""
+    echo "Your schedules:"
+    echo""
     ls
 }
 
@@ -91,7 +130,7 @@ init_repo () {
     echo ""
     echo "Your commits so far:"
     echo ""
-    git log
+    git --no-pager log
 
     echo""
     echo "Your schedules:"
@@ -101,12 +140,13 @@ init_repo () {
 
 init_repo_remote () {
     cd $dir_at_startup
-    mkdir -p ../../../beginners_git/conference_planning
-    cd ../../../beginners_git/conference_planning
+    mkdir -p ../../beginners_git/conference_planning
+    cd ../../beginners_git/conference_planning
     git init
+    echo ".ipynb_checkpoints" >> .gitignore
     cp ../../git-course/beginner/examples/schedule_day1.txt .
 
-    git add schedule_day1.txt && git commit -m "Add schedule_day1"
+    git add schedule_day1.txt .gitignore && git commit -m "Add schedule_day1"
 
     ed -s schedule_day1.txt  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
     git add * && git commit -m "Add poster sessions in the morning"
@@ -120,21 +160,39 @@ init_repo_remote () {
     cd ..
     git clone conference_planning conference_planning_remote
     cd conference_planning_remote
-    git switch -c "updated_schedules"
-    git switch main
+    git checkout -b "updated_schedules"
+    
+    # Dynamically get the default branch name (main or master, based on the version of git)
+    default_branch=$(get_default_branch_name)
+    
+    # Switch to the dynamically determined default branch
+    git checkout "$default_branch"
 
     cd ../conference_planning
+    
+    echo""
+    echo -e "\033[31m\033[1mYou've been automatically moved to the 'conference_planning' directory, where the 'Conference Planning' repository is ready for you to go on with your exercise.\033[0m"
+    
+    echo""
+    echo "Your schedules:"
+    echo""
     ls
 }
 
 commit_to_remote_by_third_party() {
     cd $dir_at_startup
-    cd ../../../beginners_git/conference_planning_remote
-    git switch updated_schedules
-    cp ../../git-course/beginner/examples/schedule_day1.txt .
-    sed  's/Poster session/Workshop/g' schedule_day1.txt > schedule_day1_tmp.txt
+    cd ../../beginners_git/conference_planning_remote
+    git checkout updated_schedules
+    cp ../conference_planning/schedule_day1.txt .
+    sed '3s/.*/09:00-11:00: Workshop Git for advanced/' schedule_day1.txt > schedule_day1_tmp.txt
     mv -f schedule_day1_tmp.txt schedule_day1.txt
-    git add * && git commit -m "Workshop in the morning"
-    git switch main
+    git add * && git commit -m "Git workshop in the morning"
+
+    # Dynamically get the default branch name (main or master, based on the version of git)
+    default_branch=$(get_default_branch_name)
+
+    # Switch to the dynamically determined default branch
+    git checkout "$default_branch"
+    
     cd ../conference_planning
 }

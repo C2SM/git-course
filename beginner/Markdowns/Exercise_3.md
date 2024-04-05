@@ -6,7 +6,7 @@
    * Delete unused branches
    
 ## Structure
-In this exercise we will continue working on the schedule for the two-day conference using *schedule_day1.txt* and *schedule_day2.txt* for each day's schedule. First, we need to revert the schedules back to a specific commit. Then we modify the same file, but on different branches. Finally, we merge all our changes back to the *main* branch.
+In this exercise, we will continue working on the schedule for the two-day conference using *schedule_day1.txt* and *schedule_day2.txt* for each day's schedule. First, we need to revert the schedules back to a specific commit. Then we modify the same file, but on different branches. Finally, we merge all our changes back to the *main* branch.
 
 Again, this exercise will consist of short descriptions of specific Git commands, followed by a hands-on part where you will be able to execute the corresponding Git commands.
 
@@ -14,9 +14,9 @@ Again, this exercise will consist of short descriptions of specific Git commands
 The following helper functions in the file *helpers.sh* are written by C2SM and are **NOT** **part of Git**. They will set up simple repositories for you that have a short Git history, so that you have something to work with.
 
 For this exercise, we will use the following functions from this file:
-   * **init_exercise:** This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
-   * **reset:** This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
-   * **init_repo:** This sets up a Git repository as in Exercise 2, but with more commits.
+   * `init_exercise`: This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
+   * `reset`: This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
+   * `init_repo`: This sets up a Git repository as in Exercise 2, but with more commits.
 
 ## Remarks
 _**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
@@ -29,7 +29,7 @@ _**Reminder:** Always run `git commit` and `git merge` with a git message `-m <m
 ```bash
 # check current directory with "pwd"
 
-# go to folder of this exercise using "cd"
+# in case you are in the wrong directory, navigate to Exercise_3 using "cd"
 
 ```
 
@@ -83,14 +83,19 @@ To avoid doing the same work twice, we want to reuse the old schedules that we d
 
 We can use `git restore` to get any version of a file along its Git history.
 
-Just run `git restore --source=<specific_commit_hash> <your_schedule>`.
+Just run `git restore -s <specific_commit_hash> <your_schedule>`.
+
+**Note**: 
+For simplicity, we've used the `-s` option in the `git restore` command. Note that `-s` is a shorthand for `--source`, which you can also use interchangeably. The primary difference lies in the syntax: use `-s <commit_hash>` for a shorter command, or `--source=<commit_hash>` if you prefer a more explicit approach. Both options perform the same function: specifying the source from which to restore. Whether you prefer `-s` for brevity or `--source` for clarity is up to you.
+
+
 
 Let's try it out for *schedule_day1.txt* first!
 
 
 ```bash
 # restore the version of schedule_day1.txt before commit: "Change poster sessions to talks"
-# "git restore --source=<commit_hash> <file_to_restore>"
+# "git restore -s <commit_hash> <file_to_restore>"
 # (Alternative - includes "git add": "git checkout <commit_hash> <file_to_restore>")
 
 ```
@@ -230,7 +235,7 @@ Let's put the pieces of the schedules together. For that we use the `git merge` 
 It allows us to merge files with different text from different branches.
 
 
-To merge all modification from a branch inte the current branch, we type `git merge <branch-to-be-merged>`
+To merge all modifications from a branch into the current branch, we type `git merge <branch-to-be-merged>`
 
 
 ```bash
@@ -238,7 +243,7 @@ To merge all modification from a branch inte the current branch, we type `git me
 
 ```
 
-Git just performed a so called **Fast-forward merge**. This means that there is a linear path
+Git just performed a so-called **fast-forward merge**. This means that there is a linear path
 between the two merged branches. See the slides for more detailed information about it. 
 
 **Most important:**  

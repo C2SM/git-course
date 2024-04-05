@@ -9,8 +9,8 @@
 The following helper functions in the file *helpers.sh* are written by C2SM and are **NOT** **part of Git**. They will set up simple repositories for you that have a short Git history, so that you have something to work with.
 
 For this exercise, we will use the following functions from this file:
-   * **init_exercise:** This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
-   * **reset:** This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
+   * `init_exercise`: This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
+   * `reset`: This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
 
 ## Remarks
 _**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
@@ -21,7 +21,7 @@ _**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced wi
 ```bash
 # check current directory with "pwd"
 
-# go to folder of this exercise using "cd"
+# in case you are in the wrong directory, navigate to Exercise_7 using "cd"
 
 ```
 
@@ -61,9 +61,10 @@ First, we'll create a fork of the repository so that you can have your own copy 
 GitHub will indicate at the top left that this repository has been forked (left arrow).
 
 
-Now copy the forked repository to your local workspace using the link (right arrow, dropdown from `Code`). If you have a ssh-key on GitHub that connects your local Git to GitHub, use the SSH link to clone, otherwise use HTTPS.
+Now copy the forked repository to your local workspace using the link (right arrow, dropdown from `Code`). If you have an SSH key on GitHub that connects your local Git to GitHub, use the SSH link to clone, otherwise use HTTPS.
 
-> **Note about SSH**: We strongly recommend that you create an ssh-key for GitHub if you plan to work with it in the future. It will make things much easier! For now, we provide a solution for you to work with HTTPS when going through the example, but it is more complicated.
+> **Note about HTTPS**: If you clone the repository with HTTPS, you will not be able to exchange any information with the remote repository without setting up a token (`git push`, `git pull` and `git fetch` will NOT work). Follow the instructions in [Create a user token to use HTTPS for working with remote repositories](../token.ipynb) to do so.
+However, we strongly recommend that you create an SSH key for GitHub if you plan to work with it in the future. It will make things much easier!
 
 ![Forked_Repo_view.png](../images/Forked_Repo_view.png)
 
@@ -128,36 +129,15 @@ Now, let's send our new branch to our GitHub fork.
 
 
 ```bash
-# find out current directory
+# find out current directory; make sure you are in the beginners_git/git-example directory
 
 ```
 
-Please open a terminal and go to the directory you get by executing the cell above.
 
-![Open_Terminal.png](../images/Open_Terminal.png)
-
-
-### Create user token for HTTPS
-
-GitHub only allows authorized users to push to repositories.
-Therefore, we need to create a GitHub user token.
-
-Please follow the description for [Creating a personal access token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic) provided by GitHub.
-
-Once you have a token, you can enter it instead of your password when performing Git operations over HTTPS.
-
-**Please save the token somewhere, GitHub will only show it to you once.**
-
-In our case, we use the token to execute the `git push` command in the terminal you just opened. You may get a popup window saying something like _git-credential-osxkeychain wants to use your confidential information stored in “github.com” in your keychain_, click `Deny` and proceed to enter your GitHub username.
+```bash
+# push your local changes to the remote repository using git push origin <branch_name>
 
 ```
-git push origin <branch_name>
-Username: your_username
-Password: your_token
-```
-
-
-> **Note about SSH**: With an SSH key, you don't need to create a user token but can push directly, as GitHub already has your information.
 
 ### Examine the GitHub repository
 

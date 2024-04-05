@@ -12,8 +12,8 @@ This exercise consists of short descriptions of specific Git commands, followed 
 The following helper functions in the file *helpers.sh* are written by C2SM and are **NOT** **part of Git**. They will set up simple repositories for you that have a short Git history, so that you have something to work with.
 
 For this exercise, we will use the following functions from this file:
-   * **init_exercise:** This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
-   * **reset:** This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
+   * `init_exercise`: This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
+   * `reset`: This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
 
 
 ## Remarks   
@@ -36,7 +36,7 @@ If it returns something like `/home/juckerj`, change to the correct directory.
 ```bash
 # check current directory with "pwd"
 
-# go to folder of this exercise using "cd"
+# in case you are in the wrong directory, navigate to Exercise_1 using "cd"
 
 ```
 
@@ -114,7 +114,7 @@ Initialized empty Git repository in <parent-dir-of-git-course>/beginners_git/git
 ### Make and track changes in files using `git add`, `git commit` and `git status`
 
 In a next step you will add some files to your repository.  
-To do this, we will use the *echo* command in combination with the ">" operator to direct its
+To do this, we will use the *echo* command in combination with the `>` operator to direct its
 output to a file.
 
 
@@ -191,7 +191,7 @@ Your files are included in the Git repository.
 
 ### Know state of Git repository using `git diff` and `git log`
 Right now we have two files in our Git repository.
-Let's see what happens when we modify them. We will use the ">>" operator to append a new line of text to our files.
+Let's see what happens when we modify them. We will use the `>>` operator to append a new line of text to our files.
 
 
 ```bash
