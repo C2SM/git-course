@@ -8,16 +8,16 @@
     
 ## Structure
 
-In this exercise we will change the same file on different branches in a way that causes a merge conflict. We will also have to deal with a merge request when trying to pull from a remote repository because "someone else" made a conflicting change remotely.
+In this exercise, we will change the same file on different branches in a way that causes a merge conflict. We will also have to deal with a merge request when trying to pull from a remote repository because "someone else" made a conflicting change remotely.
 
 ## Helper Functions
 The following helper functions in the file *helpers.sh* are written by C2SM and are **NOT** **part of Git**. They will set up simple repositories for you that have a short Git history, so that you have something to work with.
 
 For this exercise, we will use the following functions from this file:
-   * **init_exercise:** This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
-   * **reset:** This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
-   * **init_repo_remote:** This will set up a Git repository with a first version of *schedule_day1.txt* and a remote repository containing the same version of *schedule_day1.txt* on a different branch called *updated_schedules*.
-   * **commit_to_remote_by_third_party:** This will make a commit to the remote Git repository to create an artificial merge conflict when pulling.
+   * `init_exercise`: This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
+   * `reset`: This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
+   * `init_repo_remote`: This will set up a Git repository with a first version of *schedule_day1.txt* and a remote repository containing the same version of *schedule_day1.txt* on a different branch called *updated_schedules*.
+   * `commit_to_remote_by_third_party`: This will make a commit to the remote Git repository to create an artificial merge conflict when pulling.
 
 ## Remarks
 _**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
@@ -30,7 +30,7 @@ _**Reminder:** Always run `git commit` and `git merge` with a git message `-m <m
 ```bash
 # check current directory with "pwd"
 
-# go to folder of this exercise using "cd"
+# in case you are in the wrong directory, navigate to Exercise_6 using "cd"
 
 ```
 
@@ -83,7 +83,7 @@ Remember to do all modifications of the schedules directly via Jupyter Notebooks
 
 Let's add the remote repository to our local repository as we did in the previous exercise.
 
-The setup script has already created one for you to use at: 
+The setup script has already created one for you at: 
 
 **../conference_planning_remote**
 
@@ -145,14 +145,16 @@ We have decided to use the schedule on the *updated_schedules* branch. So we wan
 
 ### Solve merge conflict
 If you've done everything "right", something went "wrong" and the output should look like this:
+
 ```
 CONFLICT (content): Merge conflict in schedule_day1.txt
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-Looks like we run into a merge conflict. This happened because we made changes on the *main* branch and the *updated_schedules* branch at the same part of the file, and Git doesn't know which changes it should take. Let's see how to fix this. 
+It looks like we ran into a merge conflict. This happened because we made changes on the *main* branch and the *updated_schedules* branch at the same part of the file. Git doesn't know which changes it should accept. Let's see how to fix this. 
 
-Have a look into the file _schedule_day1.txt_. You will see something like this:
+Have a look at the file *schedule_day1.txt*. You will see something like this:
+
 ``` 
 <<<<<<< HEAD
 13:30-15:00: Poster session
@@ -165,11 +167,40 @@ The top line is the HEAD, referring to the branch you are currently on (here *ma
 
 Here are two ways to resolve a merge conflict:
 
-1) You can adjust the file directly and delete the lines, which were added by the merge conflict except the lines you want to keep. Now the merge conflict is resolved and you can add _schedule_day1.txt_ and finally make a commit of the merge.
+1. **Adjust the file directly:**
 
-2) If you know you want to just use the version of the file on the *HEAD* branch (_ours_) or the version on the merging branch (_theirs_), you can select the preferred version with ```git restore schedule_day1.txt --ours``` or ```git restore schedule_day1.txt --theirs``` respectively. The restored file must be added before the final merge is being committed.
+    * Edit the file to resolve the conflict: You can adjust the file directly and delete the lines, which were added by the merge conflict except the lines you want to keep. Now the merge conflict is resolved.
 
-If you're afraid that everything is screwed up and you don't know what to do, just run ```git merge --abort``` and everything will be back to where it was before your tried to merge.
+    * Save your changes: After you've resolved all conflicts in the file, don't forget to save your changes.
+
+    * Add your changes: Use `git add` to stage the resolved changes within _schedule_day1.txt_.
+
+    * Commit your changes:  Commiting your changes will finalize the merge process that was interrupted by the conflict.
+
+2. **Simplifying Conflict Resolution with `git restore`**
+
+   Sometimes, you'll find that the entire version of the file from one branch is preferred over the other. In such cases, you can bypass manual edits by leveraging `git restore` to quickly choose between the version on your current branch (HEAD, referred to as _ours_) and the version from the branch you're merging from (_theirs_).
+
+   * To adopt the version from your current branch (HEAD), use the command:  
+     ```git restore schedule_day1.txt --ours```
+     
+   * Conversely, to accept the version from the merging branch, switch to:  
+     ```git restore schedule_day1.txt --theirs```
+    
+    These commands replace the conflicted file in your working directory with the selected version. It's important to understand that `git restore` directly overwrites the file content, so use it when you're certain of wanting to keep only one branch's changes.
+
+   After restoring the file:
+
+     * Add your changes: Use `git add` to stage the resolved file within _schedule_day1.txt_.
+
+     * Commit your changes:  Commiting your changes will finalize the merge process that was interrupted by the conflict.
+
+
+**Important note when dealing with merge conflicts**: After resolving the conflict, **no new merge command is required**. The original merge operation was paused, not stopped, when the conflict was detected. By resolving the conflict and committing the changes, you are completing the paused merge process.
+
+**Abort merge**:
+
+If you're afraid that everything is screwed up and you don't know what to do, just run ```git merge --abort``` and everything will be back to where it was before you tried to merge.
 
 Let's deal with the merge conflict!
 
@@ -205,7 +236,7 @@ Stage the file once you have resolved the conflict with `git add`. Staging the f
 
 
 ```bash
-# Finalize merge commit (don't forget to add a commit message)
+# Finalize merge commit by running "git commit" (don't forget to add a commit message)
 
 ```
 

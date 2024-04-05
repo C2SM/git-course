@@ -12,9 +12,9 @@ Again, this exercise will consist of short descriptions of specific Git commands
 The following helper functions in the file *helpers.sh* are written by C2SM and are **NOT** **part of Git**. They will set up simple repositories for you that have a short Git history, so that you have something to work with.
 
 For this exercise, we will use the following functions from this file:
-   * **init_exercise:** This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
-   * **reset:** This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
-   * **init_simple_repo:** This will set up a Git repository containing a first version of *schedule_day1.txt* and *schedule_day2.txt* on the *main* branch.
+   * `init_exercise`: This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
+   * `reset`: This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
+   * `init_simple_repo`: This will set up a Git repository containing a first version of *schedule_day1.txt* and *schedule_day2.txt* on the *main* branch.
 
 ## Remarks
 _**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
@@ -27,7 +27,7 @@ _**Note:** Always run `git commit` and `git merge` with a Git message `-m <meani
 ```bash
 # check current directory with "pwd"
 
-# go to folder of this exercise using "cd"
+# in case you are in the wrong directory, navigate to Exercise_2 using "cd"
 
 ```
 
@@ -66,8 +66,8 @@ init_simple_repo
 ```
 
 In the output above we see two files:
-   * schedule_day1.txt
-   * schedule_day2.txt
+   * *schedule_day1.txt*
+   * *schedule_day2.txt*
    
 Let's have a look at them using the `cat` command:
 
@@ -109,7 +109,7 @@ After saving, we run `git status` to see if Git has tracked our changes.
 
 The output should look like:
 ```
-On branch plan_day1
+On branch planning_day1
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
@@ -151,7 +151,7 @@ Create a new branch for scheduling day 2 and extend the *schedule_day2.txt* file
 
 
 ```bash
-# create a new branch for planning day 2
+# create a new branch for the planning of day 2
 
 ```
 
@@ -174,8 +174,8 @@ The output should look like this:
 
 ```
   main
-  plan_day1
-* plan_day2
+  planning_day1
+* planning_day2
 ```
 
 Our Git repository now contains:

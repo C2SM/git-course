@@ -12,9 +12,9 @@ In this exercise we will start to learn about working with remote repositories. 
 The following helper functions in the file *helpers.sh* are written by C2SM and are **NOT** **part of Git**. They will set up simple repositories for you that have a short Git history, so that you have something to work with.
 
 For this exercise, we will use the following functions from this file:
-   * **init_exercise:** This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
-   * **reset:** This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
-   * **init_simple_repo_remote:** This will create the same simple repository as before, along with a second repository to be used as a remote.
+   * `init_exercise`: This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
+   * `reset`: This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
+   * `init_simple_repo_remote`: This will create the same simple repository as before, along with a second repository to be used as a remote.
 
 ## Remarks
 _**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
@@ -27,7 +27,7 @@ _**Reminder:** Always run `git commit` and `git merge` with a git message `-m <m
 ```bash
 # check current directory with "pwd"
 
-# go to folder of this exercise using "cd"
+# in case you are in the wrong directory, navigate to Exercise_5 using "cd"
 
 ```
 
@@ -186,19 +186,4 @@ To ../conference_planning_remote
    1dacf13..80e64e8  updated_schedules -> updated_schedules
 ```
 
-Now go to the folder *../conference_planning_remote* and check if you can see your changes in *schedule_day1.txt*.
-Why can you not see them? (Think before you read the solution!)
-
-**Solution**: In the remote repository you are still on the *main* branch. To change this, use the [Unix command](../Unix_Commands.ipynb) `cd` to navigate to *../conference_planning_remote* and switch to the *updated_schedules* branch. Can you now see your changes?
-
-
-```bash
-# Navigate to the remote repository
-
-```
-
-
-```bash
-# Switch to the "updated_schedule" branch on the remote repository
-
-```
+**Congrats, you now also know the most essential Git commands for the _remote_ use of Git.**

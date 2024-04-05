@@ -2,18 +2,23 @@
 
 ## Objective
    * Practice the typical Git workflow
+   * Understand the function of a *.gitignore* file, and learn the steps involved in creating and configuring it within a Git repository.
    
 ## Structure
-In this exercise, we won't be learning any new Git commands. Rather, we will review all the commands and workflows we learned in the previous exercises. We will do this by working on the *conference_schedule.txt* document and simulating a possible workflow.
-Since this is a review, there will be less explanation.
+
+In this exercise, we won't be learning any new Git commands. Rather, we will review all the commands and workflows we learned in the previous exercises. We will do this by working on the *conference_schedule.txt* document and simulating a possible workflow. Since this is a review, there will be less explanation for that part of this exercise.
+
+In addition to that, we will explore a crucial aspect of Git: the *.gitignore* file. We'll learn how to create and configure this file to manage the files that Git should ignore, enhancing our typical workflow.
+
+
 
 ## Helper Functions
 The following helper functions in the file *helpers.sh* are written by C2SM and are **NOT** **part of Git**. They will set up simple repositories for you that have a short Git history, so that you have something to work with.
 
 For this exercise, we will use the following functions from this file:
-   * **init_exercise:** This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
-   * **reset:** This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
-   * **init_repo_empty_schedule:** This will create the directory `conference_planning` and a file `conference_schedule.txt` with an empty schedule.
+   * `init_exercise`: This will create the *beginners_git* directory in the parent directory of the *git-course* directory. It will also delete any old version of the *beginners_git* directory, so don't use the *beginners_git* directory to save any work.
+   * `reset`: This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
+   * `init_repo_empty_schedule`: This will create the directory *conference_planning* and a file *conference_schedule.txt* with an empty schedule.
 
 ## Remarks
 _**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
@@ -26,7 +31,7 @@ _**Reminder:** Always run `git commit` and `git merge` with a git message `-m <m
 ```bash
 # check current directory with "pwd"
 
-# go to folder of this exercise using "cd"
+# in case you are in the wrong directory, navigate to Exercise_4 using "cd"
 
 ```
 
@@ -75,6 +80,42 @@ init_repo_empty_schedule
 # execute "ls -a" to also see the hidden git folder
 
 ```
+
+### Understanding *.gitignore*
+
+The *.gitignore* file is an essential and commonly used feature in Git. It specifies intentionally untracked files that Git should ignore. It's particularly useful for excluding files generated during execution or build processes—like log files, compiled code, or local configuration files—that don't need to be shared within the repository. Creating a *.gitignore* file and listing the file patterns to exclude achieves this.
+
+**Typical Ingredients of *.gitignore*:**
+
+Once your *.gitignore* is created, you can specify:
+
+- **Patterns**: Direct patterns such as *my_file_to_ignore.txt* to exclude specific files or *my_directory_to_ignore/* to exclude specific directories. For example, *.ipynb_checkpoints/* is often added to the *.gitignore* when working with Jupyter Notebooks to ignore checkpoint folders created during development.
+- **Wildcards**: Broad patterns like `*.log` to exclude all log files created across the project.
+- **Exceptions**: If you've used a wildcard but want to track specific files, precede the exception with `!`. For instance, *!important_log.log* ensures this file is tracked despite the `*.log` exclusion.
+
+Remember, the *.gitignore* file should be committed into your repository, so it is shared with other developers, ensuring that everyone working on the project is ignoring the same files.
+
+**Practical Application:**
+
+Now that you have seen and understood the concept of the *.gitignore* file, you can proceed with your exercises. At a certain point, after you run `git status`, you might notice a file named *.ipynb_checkpoints*. This is created by Jupyter Notebooks to save checkpoint files and it's exactly the type of content we aim to exclude from our Git repository, as it is specific to your local Jupyter Notebook environment. It thus presents a perfect opportunity to apply what you've just learned. Follow these steps to create a *.gitignore* and specify the patterns. Remember to add and commit your *.gitignore* after creating it. 
+
+
+
+
+```bash
+# Create `.gitignore` and add the `.ipynb_checkpoints pattern` (Note: make sure you are in the conference_planning directory when running the following command)
+echo ".ipynb_checkpoints/" >> .gitignore
+
+```
+
+
+```bash
+# Add and commit your .gitignore
+
+
+```
+
+### Go on with your Exercise
 
 Add events to the schedule.
 
@@ -185,7 +226,6 @@ We want to plan an evening activity but are not sure what it will be. Therefore,
 
 # create new branch and add an evening activity
 
-
 ```
 
 Add an evening activity and commit the changes. Don't forget to reload your file before changing!
@@ -204,7 +244,6 @@ Switch to branch *main* and create another branch on top of it, to add an altern
 # switch to main branch
 
 # create new branch and add another evening activity
-
 
 ```
 
@@ -245,7 +284,7 @@ Therefore merge the branch *alternative_talk* into *main*.
 
 
 ```bash
-# follow good practice and delete the merge branch
+# follow good practice and delete the merged branch
 
 ```
 
