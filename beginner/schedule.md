@@ -11,7 +11,7 @@
 | Coffee break              | 1 coffee        | 15'       | 10', 15'               | 10:55      | 11:10    |
 | Part 3 + 4 - Slides       | 10 slides       | 5'        | 4', 6'                 | 11:10      | 11:15    |
 | Part 3 + 4 Exercises      | 307 + 282 lines | 25'       | 26', 26'               | 11:15      | 12:00    |
-| Lunch break               | 1 meal          | 60'       | -                      | 12:55      | 13:00    |
+| Lunch break               | 1 meal          | 60'       | -                      | 12:00      | 13:00    |
 | Part 5 - Slides           | 8 slides        | 10'       | 10', 6'                | 13:00      | 13:10    |
 | Part 5 - Exercise         | 204 lines       | 20'       | 13', 27'               | 13:10      | 13:40    |
 | Part 6 - Slides           | 6 slides        | 5'        | 6', 5'                 | 13:40      | 13:45    |
