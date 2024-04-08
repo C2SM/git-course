@@ -182,17 +182,31 @@ init_repo_remote () {
 commit_to_remote_by_third_party() {
     cd $dir_at_startup
     cd ../../beginners_git/conference_planning_remote
-    git checkout updated_schedules
+    
+    # Dynamically get the default branch name (main or master, based on the version of git)
+    default_branch=$(get_default_branch_name)
+    
+    # Checkout the default branch
+    git checkout "$default_branch"
+
+    # Pull latest changes from the remote repository
+    git pull origin "$default_branch"
+    
+    # Checkout a temporary branch to make changes
+    git checkout -b temp_branch
+
+    # Make changes to the repository
     cp ../conference_planning/schedule_day1.txt .
     sed '3s/.*/09:00-11:00: Workshop Git for advanced/' schedule_day1.txt > schedule_day1_tmp.txt
     mv -f schedule_day1_tmp.txt schedule_day1.txt
-    git add * && git commit -m "Git workshop in the morning"
+    git add schedule_day1.txt && git commit -m "Git workshop in the morning"
 
-    # Dynamically get the default branch name (main or master, based on the version of git)
-    default_branch=$(get_default_branch_name)
-
-    # Switch to the dynamically determined default branch
+    # Push changes to the remote repository
+    git push origin temp_branch:updated_schedules
+    
+    # Delete the temporary branch
     git checkout "$default_branch"
+    git branch -D temp_branch
     
     cd ../conference_planning
 }
