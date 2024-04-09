@@ -14,7 +14,6 @@ reset () {
 
 # determine main or master for default branch name
 get_default_branch_name() {
-
     # Attempt to identify the default branch by querying the remote repository
     default_branch=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
 
@@ -97,15 +96,15 @@ init_simple_repo_remote () {
 
     # Dynamically get the default branch name (main or master, based on the version of git)
     default_branch=$(get_default_branch_name)
-    
+
     # Switch to the dynamically determined default branch
     git checkout "$default_branch"
-   
+
     cd ../conference_planning
 
     echo""
     echo -e "\033[31m\033[1mYou've been automatically moved to the 'conference_planning' directory, where the 'Conference Planning' repository is ready for you to go on with your exercise.\033[0m"
-    
+
     echo""
     echo "Your schedules:"
     echo""
@@ -145,9 +144,9 @@ init_repo_remote () {
     git init
     echo ".ipynb_checkpoints" >> .gitignore
     cp ../../git-course/beginner/examples/schedule_day1.txt .
-    
+
     git add schedule_day1.txt .gitignore && git commit -m "Add schedule_day1"
-    
+
     # Edit schedule_day1.txt
     ed -s schedule_day1.txt  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
     git add * && git commit -m "Add poster sessions in the morning"
@@ -157,12 +156,12 @@ init_repo_remote () {
 
     ed -s schedule_day1.txt  <<< $'/break/\na\n11:15-12:15: Talk professor A.\n12:15-13:30: Lunch\n13:30-15:00: Workshop\n15:00-16:00: Talk professor B.\n.\nw\nq' > /dev/null
     git add * && git commit -m "Add rest of daily program"
-    
+
     cd ..
 
     # Clone non-bare remote repository
     git clone conference_planning conference_planning_remote_tmp
-    
+
     # Navigate into the cloned repository directory and create update_schedules branch
     cd conference_planning_remote_tmp
     git checkout -b "updated_schedules"
@@ -170,7 +169,7 @@ init_repo_remote () {
     # Dynamically get the default branch name (main or master, based on the version of git)
     head_ref=$(git symbolic-ref HEAD)
     default_branch=$(basename "$head_ref")
-    
+
     # Switch to the dynamically determined default branch
     git checkout "$default_branch"
 
@@ -184,7 +183,7 @@ init_repo_remote () {
 
     echo""
     echo -e "\033[31m\033[1mYou've been automatically moved to the 'conference_planning' directory, where the 'Conference Planning' repository is ready for you to go on with your exercise.\033[0m"
-    
+
     echo""
     echo "Your schedules:"
     echo""
@@ -194,9 +193,9 @@ init_repo_remote () {
 commit_to_remote_by_third_party() {
     cd $dir_at_startup
     cd ../../beginners_git
-    
+
     git clone conference_planning_remote conference_planning_remote_tmp
-    
+
     cd conference_planning_remote_tmp
     git checkout updated_schedules
     cp ../conference_planning/schedule_day1.txt .
@@ -213,6 +212,7 @@ commit_to_remote_by_third_party() {
     cd ..
     rm -fr conference_planning_remote
     git clone --bare conference_planning_remote_tmp conference_planning_remote
-    
+    rm -rf conference_planning_remote_tmp
+
     cd conference_planning
 }
