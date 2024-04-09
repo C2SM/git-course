@@ -145,9 +145,10 @@ init_repo_remote () {
     git init
     echo ".ipynb_checkpoints" >> .gitignore
     cp ../../git-course/beginner/examples/schedule_day1.txt .
-
+    
     git add schedule_day1.txt .gitignore && git commit -m "Add schedule_day1"
-
+    
+    # Edit schedule_day1.txt
     ed -s schedule_day1.txt  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
     git add * && git commit -m "Add poster sessions in the morning"
 
@@ -156,20 +157,31 @@ init_repo_remote () {
 
     ed -s schedule_day1.txt  <<< $'/break/\na\n11:15-12:15: Talk professor A.\n12:15-13:30: Lunch\n13:30-15:00: Workshop\n15:00-16:00: Talk professor B.\n.\nw\nq' > /dev/null
     git add * && git commit -m "Add rest of daily program"
-
-    cd ..
-    git clone conference_planning conference_planning_remote
-    cd conference_planning_remote
-    git checkout -b "updated_schedules"
     
+    cd ..
+
+    # Clone non-bare remote repository
+    git clone conference_planning conference_planning_remote_tmp
+    
+    # Navigate into the cloned repository directory and create update_schedules branch
+    cd conference_planning_remote_tmp
+    git checkout -b "updated_schedules"
+
     # Dynamically get the default branch name (main or master, based on the version of git)
-    default_branch=$(get_default_branch_name)
+    head_ref=$(git symbolic-ref HEAD)
+    default_branch=$(basename "$head_ref")
     
     # Switch to the dynamically determined default branch
     git checkout "$default_branch"
 
-    cd ../conference_planning
-    
+    cd ../
+
+    # Clone bare remote repository and remove non-bare repository
+    git clone --bare conference_planning_remote_tmp conference_planning_remote
+    rm -fr conference_planning_remote_tmp
+
+    cd conference_planning
+
     echo""
     echo -e "\033[31m\033[1mYou've been automatically moved to the 'conference_planning' directory, where the 'Conference Planning' repository is ready for you to go on with your exercise.\033[0m"
     
@@ -181,32 +193,26 @@ init_repo_remote () {
 
 commit_to_remote_by_third_party() {
     cd $dir_at_startup
-    cd ../../beginners_git/conference_planning_remote
+    cd ../../beginners_git
     
-    # Dynamically get the default branch name (main or master, based on the version of git)
-    default_branch=$(get_default_branch_name)
+    git clone conference_planning_remote conference_planning_remote_tmp
     
-    # Checkout the default branch
-    git checkout "$default_branch"
-
-    # Pull latest changes from the remote repository
-    git pull origin "$default_branch"
-    
-    # Checkout a temporary branch to make changes
-    git checkout -b temp_branch
-
-    # Make changes to the repository
+    cd conference_planning_remote_tmp
+    git checkout updated_schedules
     cp ../conference_planning/schedule_day1.txt .
     sed '3s/.*/09:00-11:00: Workshop Git for advanced/' schedule_day1.txt > schedule_day1_tmp.txt
     mv -f schedule_day1_tmp.txt schedule_day1.txt
-    git add schedule_day1.txt && git commit -m "Git workshop in the morning"
+    git add * && git commit -m "Git workshop in the morning"
 
-    # Push changes to the remote repository
-    git push origin temp_branch:updated_schedules
-    
-    # Delete the temporary branch
+    # Dynamically get the default branch name (main or master, based on the version of git)
+    default_branch=$(get_default_branch_name)
+
+    # Switch to the dynamically determined default branch
     git checkout "$default_branch"
-    git branch -D temp_branch
+
+    cd ..
+    rm -fr conference_planning_remote
+    git clone --bare conference_planning_remote_tmp conference_planning_remote
     
-    cd ../conference_planning
+    cd conference_planning
 }
