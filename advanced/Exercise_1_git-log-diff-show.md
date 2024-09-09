@@ -79,7 +79,7 @@ git log --author="Jonas"
 To see all the commits that have changed a specific file, such as *helpers.sh*, try the following:
 
 ```plaintext
-git log helpers.sh
+git log advanced/helpers.sh
 ```
 
 To see all commits that add or remove a specific line of text, for example `Have fun!`, try the following:
@@ -206,7 +206,7 @@ By default, this command shows us the latest commit, or HEAD in Git terminology.
 git show f435db79
 ```
 
-Like `git log`, `git show` can be used with various options that allow you to change the way the information is displayed. There are options that change the way the commit SHA and message are displayed, such as `git show --oneline`. There are also options that change the way that the diff is displayed, but none of them really alleviate the problem that large diffs are generally hard to read in the terminal window. As with all Git commands, you can use the `-h` option to get a description of all the possible options that can be used with `git show`.
+Like `git log`, `git show` can be used with various options that allow you to change the way the information is displayed. There are options that change the way the commit SHA and message are displayed, such as `git show --oneline`. There are also options that change the way that the diff is displayed, but none of them really alleviate the problem that large diffs are generally hard to read in the terminal window. As with all Git commands, you can use the `-h` option (or `--help` for more details) to get a description of all the possible options that can be used with `git show`.
 
 ```plaintext
 git show --help
