@@ -15,6 +15,7 @@ To run this course on your computer, the following things need to be set up:
 2. [SSH key linked to your GitHub account](#2-creating-a-github-account-and-ssh-key)
 3. [Python](#3-installing-python) 
 4. [JupyterLab](#4-installing-jupyterlab-beginners-course-only) (Beginner's course only)
+5. [Final check](#5-final-check-advanced-course-only) (Advanced course only)
 
 
 ### 1. Installing Git on your Computer
@@ -119,6 +120,13 @@ If you are not able to start JupyterLab for some reason, you can try to launch a
 ```
 jupyter notebook
 ```
+
+### 5. Final check (Advanced course only)
+To check if everything is set up correctly, please run the following from a Linux shell:
+```
+./check_requirements_advanced.sh
+```
+
 
 **Have fun!**
 
