@@ -15,7 +15,7 @@ else
 fi
 
 # Check if python is installed
-if command -v python >/dev/null 2>&1; then
+if command -v python >/dev/null 2>&1 || command -v python3 >/dev/null 2>&1; then
     echo "Python is installed."
 else
     echo "Python is not installed. Please install Python."
