@@ -122,8 +122,9 @@ jupyter notebook
 ```
 
 ### 5. Final check (Advanced course only)
-To check if everything is set up correctly, please run the following from a Linux shell:
+Download the file [check_requirements_advanced.sh](https://github.com/C2SM/git-course/blob/review_advanced/check_requirements_advanced.sh) and run it from a Linux shell to check if everything is set up correctly:
 ```
+chmod +x ./check_requirements_advanced.sh
 ./check_requirements_advanced.sh
 ```
 

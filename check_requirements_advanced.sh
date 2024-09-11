@@ -22,9 +22,9 @@ else
 fi
 
 # Check GitHub account and SSH key by trying to clone a repository
-if git clone git@github.com:C2SM/git-course.git >/dev/null 2>&1; then
+if git clone git@github.com:C2SM/git-course.git test_ssh_key >/dev/null 2>&1; then
     echo "GitHub account and SSH key are set up correctly."
-    rm -rf git-course
+    rm -rf test_ssh_key
 else
     echo "GitHub account or SSH key is not set up correctly. Please check your settings."
 fi
