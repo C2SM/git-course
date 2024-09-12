@@ -6,7 +6,7 @@ This exercise uses the same Git repository that was created in Exercise 3. If yo
 
 * [Stash your changes](#stash)
 
-* [Use git worktree to create parallel branch checkouts](#worktree)
+* [Use git worktree for parallel development](#worktree)
 
 ## Stash your changes <a name="stash"></a>
 
