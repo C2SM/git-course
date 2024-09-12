@@ -1,6 +1,6 @@
 # Exercise 4 - Using git stash and git worktree
 
-In this exercise, you will learn how to use `git stash` to store changes that are not yet ready for commit. Then you will learn how to recover those changes in your Git repository. Next, you will use `git worktree` to learn how to work with simultaneous checkouts of the same repository in one place, allowing you work on and transfer files between different Git branches easily.
+In this exercise, you will learn how to use `git stash` to store changes that are not yet ready for commit. Then you will learn how to recover those changes in your Git repository. Next, you will use `git worktree` to learn how to work with simultaneous checkouts of the same repository in one place, making it easy to work on and transfer files between different git branches.
 
 This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3_gitignore.md#initialize) section of Exercise 3.
 
@@ -42,41 +42,28 @@ git stash pop stash@{0}
 
 Note that you can make any changes or commits in between saving the stash and reapplying it to your repository. If there are conflicts between the stash and the new commits in your repository, you will need to resolve those conflicts manually before proceeding, and a merge commit will be generated. You should also know that the stash is only stored in your local copy of the repository, and cannot be pushed to a remote repository to be used by other people.
 
-## Use git worktree to create parallel branch checkouts <a name="worktree"></a>
+## Use git worktree for parallel development <a name="worktree"></a>
+You can use `git worktree` to check out multiple instances of a Git repository at the same time. This is useful for transferring changes between branches, or working on different features at the same time. It is especially helpful when working with code that requires compilation, as switching branches would normally require recompiling. Using `git worktree` keeps the compiled versions in separate folders, saving time.
 
-Now you will use `git worktree` to checkout multiple instances of the Git repository in parallel. This can be very useful for transferring changes between branches, or working on different features simultaneously.
+Here's how to set up `git worktree` in the way we find most useful:
 
-In order to use `git worktree`, you must work in a bare Git repository. A bare Git repository is one where there is no working directory. Instead, it consists only of the files and objects that Git uses to register the changes you make to your working directories. This can be a lot of information we don't care about and we therefore recommend you do hide it in a hidden folder called *.bare*.
-
-We will first create a new folder *conference_worktree* and then make a bare clone of the *conference_planning* Git repository into it. The relevant information for Git will be hidden in the *.bare* folder, so the *conference_worktree* folder will seem emtpy to you.
+First, create a new folder, *conference_worktree*, where you will store the repository folders for the different branches.
+Then clone the *conference_planning* repository inta a folder called *main*, which will be used for the `main` branch.
 
 ```plaintext
 cd ..
 mkdir conference_worktree
 cd conference_worktree
-git clone --bare ../conference_planning .bare
+git clone ../conference_planning main
+cd main
 ```
 
-To now make this repository a Git repository, we need to copy the relevant information into the *.git* file:
+You are now on the `main` branch, and can make changes, additions, and commits as usual.
+
+To work on a feature branch alongside the `main` branch, add a new working tree. Make sure you do this from the *main* folder, not a worktree.
 
 ```plaintext
-echo "gitdir: ./.bare" > .git
+git worktree add ../feature
 ```
 
-See what happens if you type `git status`. Why does it not work?
-
-Let's make a folder containing the files as they currently are in the *main* branch of our repository.
-
-```plaintext
-git worktree add main
-```
-
-A folder called *main* has been created, and if you examine it you will find the files checked out from the *main* branch (within this folder `git status` should work again!). You can make changes and add and commit them as you normally would from a Git folder.
-
-Let's suppose that in addition to working on the *main* branch of the repository, you also want to work on a parallel *feature* branch. You can do this easily now. Let's add a *feature* branch (make sure to do this from the parent folder and not from a work tree).
-
-```plaintext
-git worktree add feature
-```
-
-Since the *feature* branch did not already exist, one has been created from the *main* branch. It is now located in the *feature* folder, and you can now navigate there and work as you normally would in your Git working directory. Note that you can also push and fetch commits to and from remote repositories as you would in a normal Git working directory.
+If the `feature` branch does not exist, it will be created from the `main` branch. You can now navigate to the *feature* folder and work as usual, while being on the `feature` branch. You can also push and fetch commits to and from remote repositories as you would in a normal Git working directory.
