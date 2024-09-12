@@ -117,3 +117,5 @@ Don't forget to delete the `rebase_feature` branch after this merge.
 ```plaintext
 git branch -d rebase_feature
 ```
+
+To visualise the difference have a look at the Git log graph (remember what we learned in [Exercise 1](./Exercise_1_git-log-diff-show.md#use-git-log-to-have-a-look-at-the-repository))
