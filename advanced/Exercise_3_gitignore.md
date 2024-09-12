@@ -12,7 +12,7 @@ In this exercise, you will first use a provided script to generate a simple Git 
 
 ## Initialize the Git repository <a name="initialize"></a>
 
-Use the [helper script](helpers.sh) provided in the [advanced](../advanced) folder to set up a simple Git repository.
+Use the [helpers script](helpers.sh) provided in the [advanced](../advanced) folder to set up a simple Git repository.
 
 First, clone the *git-course* repository if you have not already done so in Exercise 1.
 
@@ -97,7 +97,7 @@ In order to tell Git to ignore our HTML file, we will create a *.gitignore* file
 touch .gitignore
 ```
 
-Open the file using a file editor. In this file, you can list files, directories, or file patterns to be ignored, one entry per line. In order to ignore the HTML file, you can either list it specifically (*README.html*), or use wildcards to tell Git to ignore all HTML files (*.\*html)*.
+Open the file using a file editor. In this file, you can list files, directories, or file patterns to be ignored, one entry per line. In order to ignore the HTML file, you can either list it specifically (*README.html*), or use wildcards to tell Git to ignore all HTML files (*\*.html)*.
 
 Check the status again.
 
