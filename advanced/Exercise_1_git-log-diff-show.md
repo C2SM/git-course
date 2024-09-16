@@ -10,13 +10,13 @@ These tutorials provide a more comprehensive overview of the useful features of 
 
 * [Clone the Git repository](#initialization)
 
-* [Use git log](#log)
+* [Use `git log`](#log)
 
-* [Use git diff](#diff)
+* [Use `git diff`](#diff)
 
-* [Use git show](#show)
+* [Use `git show`](#show)
 
-## Clone the git repository <a name="initialization"></a>
+## Clone the Git repository <a name="initialization"></a>
 
 ```plaintext
 git clone git@github.com:C2SM/git-course git-course
@@ -100,7 +100,7 @@ Remember that you can combine any of these `git log` options to get the output y
 git config --global alias.lg "log --oneline --graph"
 ```
 
-This command edits a file with path `~/.gitconfig`. If you now run `git lg`, you will see the log with the options you specified. Note that you can create aliases for any Git command using `git config` and this is a very powerful tool.
+This command edits a file with path *~/.gitconfig*. If you now run `git lg`, you will see the log with the options you specified. Note that you can create aliases for any Git command using `git config` and this is a very powerful tool.
 
 
 ## Use `git diff` <a name="diff"></a>
