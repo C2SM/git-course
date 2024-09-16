@@ -102,7 +102,7 @@ cd ..
 git status
 ```
 
-Git is now informing us that we now have modified content in the *posters* submodule.
+Git is now informing us that we have modified content in the *posters* submodule.
 
 ## Create new content locally and update the sub-repository <a name="push"></a>
 Now, let's commit the change to the *posters* submodule, and push that change to our *posters* repository on GitHub.
@@ -138,9 +138,10 @@ Finally, let's learn how to pull changes from the submodule into our host reposi
 
 Navigate back to your fork of the *posters* repository on GitHub, and make a change to the schedule file, and commit it. You can do this directly in the web interface by simply selecting the file and using the edit button.
 
-Once you have done this, go to back to the terminal and use `git submodule update` to get the main repository to fetch the new commit from the *posters* repository.
+Once you have done this, navigate back into into root of the *conference_planning* folder and use `git submodule update` to get the main repository to fetch the new commit from the *posters* repository.
 
 ```plaintext
+cd ..
 git submodule update --remote --merge
 ```
 
