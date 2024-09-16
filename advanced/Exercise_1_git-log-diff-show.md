@@ -12,6 +12,8 @@ These tutorials provide a more comprehensive overview of the useful features of 
 
 * [Use `git log`](#log)
 
+* [Use `git blame`](#blame)
+
 * [Use `git diff`](#diff)
 
 * [Use `git show`](#show)
@@ -102,6 +104,14 @@ git config --global alias.lg "log --oneline --graph"
 
 This command edits a file with path *~/.gitconfig*. If you now run `git lg`, you will see the log with the options you specified. Note that you can create aliases for any Git command using `git config` and this is a very powerful tool.
 
+## Use `git blame` <a name="blame"></a>
+A useful complement to `git log` is `git blame`. While `git log` shows the history of changes in chronological order, `git blame` focuses on individual lines of a file, showing when each line was last changed and by whom. To see this in action, run the following command to check the history of changes to the *README.md* file in the *git-course* folder:
+
+```plaintext
+git blame README.md
+```
+
+You can do the same thing directly on a file in a GitHub repository, such as our [git-course](https://github.com/C2SM/git-course/tree/main) repository. Open a file and click `Blame` to see the the output.
 
 ## Use `git diff` <a name="diff"></a>
 The `git diff` command shows the differences between two different Git data sources. These data sources can be commits, files, branches, tags and more. The `git diff` command can be used from the command line, but it can be difficult to interpret the output in that format. Therefore, people often use a third-party visualization tool to examine the output of `git diff`. In this section, you will first learn how to use `git diff` from the command line and then you will explore some of the options available to improve the readability of the output.
