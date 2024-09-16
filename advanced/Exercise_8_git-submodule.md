@@ -1,4 +1,4 @@
-# Exercise 8 - Using git submodule
+# Exercise 8 - Using `git submodule`
 
 In this exercise, we will learn to use `git submodule` to nest a Git repository inside another one. We will first add the Git submodule and examine how the host and nested repositories deal with changes in their respective files. We will then learn how to pull and push changes to and from the sub-repository.
 

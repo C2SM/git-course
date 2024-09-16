@@ -1,4 +1,4 @@
-# Exercise 5 - Using git rebase
+# Exercise 5 - Using `git rebase`
 
 In this exercise, we will learn how to use `git rebase` to rewrite the history of a feature branch in order to keep the history of the `main` branch cleaner by avoiding merge commits. First, we will use the merge strategy to add a feature to a `main` branch that is being simultaneously developed. Then we will use the rebase strategy to do the same thing and compare the differences.
 

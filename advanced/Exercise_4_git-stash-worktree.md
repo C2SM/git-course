@@ -1,12 +1,12 @@
-# Exercise 4 - Using git stash and git worktree
+# Exercise 4 - Using `git stash` and `git worktree`
 
-In this exercise, you will learn how to use `git stash` to store changes that are not yet ready for commit. Then you will learn how to recover those changes in your Git repository. Next, you will use `git worktree` to learn how to work with simultaneous checkouts of the same repository in one place, making it easy to work on and transfer files between different git branches.
+In this exercise, you will learn how to use `git stash` to store changes that are not yet ready for commit. Then you will learn how to recover those changes in your Git repository. Next, you will use `git worktree` to learn how to work with simultaneous checkouts of the same repository in one place, making it easy to work on and transfer files between different Git branches.
 
 This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3_gitignore.md#initialize) section of Exercise 3.
 
 * [Stash your changes](#stash)
 
-* [Use git worktree for parallel development](#worktree)
+* [Use `git worktree` for parallel development](#worktree)
 
 ## Stash your changes <a name="stash"></a>
 
@@ -42,7 +42,7 @@ git stash pop stash@{0}
 
 Note that you can make any changes or commits in between saving the stash and reapplying it to your repository. If there are conflicts between the stash and the new commits in your repository, you will need to resolve those conflicts manually before proceeding, and a merge commit will be generated. You should also know that the stash is only stored in your local copy of the repository, and cannot be pushed to a remote repository to be used by other people.
 
-## Use git worktree for parallel development <a name="worktree"></a>
+## Use `git worktree` for parallel development <a name="worktree"></a>
 You can use `git worktree` to check out multiple instances of a Git repository at the same time. This is useful for transferring changes between branches, or working on different features at the same time. It is especially helpful when working with code that requires compilation, as switching branches would normally require recompiling. Using `git worktree` keeps the compiled versions in separate folders, saving time.
 
 Here's how to set up `git worktree` in the way we find most useful:

@@ -8,7 +8,7 @@ In this exercise, you will first use a provided script to generate a simple Git 
 
 * [Generate the README file in HTML](#html)
 
-* [Create a .gitignore file](#gitignore)
+* [Create a *.gitignore* file](#gitignore)
 
 ## Initialize the Git repository <a name="initialize"></a>
 
@@ -89,7 +89,7 @@ Before we do that, let's check the status of the repository, and ensure that the
 git status
 ```
 
-## Create a .gitignore file <a name="gitignore"></a>
+## Create a *.gitignore* file <a name="gitignore"></a>
 
 In order to tell Git to ignore our HTML file, we will create a *.gitignore* file.
 
