@@ -118,4 +118,4 @@ Don't forget to delete the `rebase_feature` branch after this merge.
 git branch -d rebase_feature
 ```
 
-To visualise the difference, take a look at the Git log graph (remember what we learned in [Exercise 1](./Exercise_1_git-log-diff-show.md#use-git-log-to-have-a-look-at-the-repository))
+To visualize the difference, take a look at the Git log graph (remember what we learned in [Exercise 1](./Exercise_1_git-log-diff-show.md#use-git-log-to-have-a-look-at-the-repository))
