@@ -1,12 +1,12 @@
 # Exercise 3 - Ignoring files
 
-In this exercise, you will first use a provided script to generate a simple Git repository containing materials for planning a conference. You will then create a *README* file for the so-called *conference_planning* repository using the Markdown language. Then you will generate an HTML README file, and finally create a *.gitignore* file for the repository. This exercise is closely adapted from the [OESA Git Workshop](https://oesa.pages.ufz.de/git-exercises/exercise-5.html).
+In this exercise, you will first use a provided script to generate a simple Git repository containing materials for planning a conference. You will then create a *README* file for the so-called *conference_planning* repository using the Markdown language. Then you will generate an HTML *README* file, and finally create a *.gitignore* file for the repository. This exercise is closely adapted from the [OESA Git Workshop](https://oesa.pages.ufz.de/git-exercises/exercise-5.html).
 
 * [Initialize the Git repository](#initialize)
 
-* [Create a README file](#readme)
+* [Create a *README* file](#readme)
 
-* [Generate the README file in HTML](#html)
+* [Generate the *README* file in HTML](#html)
 
 * [Create a *.gitignore* file](#gitignore)
 
@@ -46,7 +46,7 @@ init_advanced_repo
 
 Take some time to familiarize yourself with the Git repository by examining the files and using `git status`, `git log`, `git diff`, etc.
 
-## Create a README file <a name="readme"></a>
+## Create a *README* file <a name="readme"></a>
 
 Create a *README.md* file in the *conference_planning* folder.
 
@@ -62,7 +62,7 @@ Now commit the *README* file to the repository.
 git add README.md
 git commit -m "Add README file"
 ```
-## Generate the README file in HTML <a name="html"></a>
+## Generate the *README* file in HTML <a name="html"></a>
 
 It may be useful to convert the *README* file to HTML in order to see how it will look to a user browsing your repository on the web. We will use a document converter called [Pandoc](https://pandoc.org) to do this. 
 If you don't have Pandoc installed, there are instructions on how to do so [here](https://pandoc.org/installing.html). If you use conda, then `conda install -c conda-forge pandoc` should do the trick. 

@@ -124,7 +124,7 @@ To get started, let's make a new branch with one change in it.
 git switch -c difftest
 ```
 
-Open the README.md file and make a change to it.
+Open the *README.md* file and make a change to it.
 
 The default behavior of `git diff` is to show all uncommited changes since the last commit. Try this now.
 
