@@ -10,13 +10,15 @@ These tutorials provide a more comprehensive overview of the useful features of 
 
 * [Clone the Git repository](#initialization)
 
-* [Use git log](#log)
+* [Use `git log`](#log)
 
-* [Use git diff](#diff)
+* [Use `git blame`](#blame)
 
-* [Use git show](#show)
+* [Use `git diff`](#diff)
 
-## Clone the git repository <a name="initialization"></a>
+* [Use `git show`](#show)
+
+## Clone the Git repository <a name="initialization"></a>
 
 ```plaintext
 git clone git@github.com:C2SM/git-course git-course
@@ -28,7 +30,7 @@ Navigate to the repository.
 cd git-course
 ```
 
-## Use git log to have a look at the repository <a name="log"></a>
+## Use `git log` to have a look at the repository <a name="log"></a>
 
 The `git log` command lists the commits in the repository. You can use the various options for `git log` to format how the commits are displayed and/or filter which commits are displayed. Start with the basic command to see the default behavior. You can exit out of the log at any time by pressing the `q` key.
 
@@ -79,7 +81,7 @@ git log --author="Jonas"
 To see all the commits that have changed a specific file, such as *helpers.sh*, try the following:
 
 ```plaintext
-git log helpers.sh
+git log advanced/helpers.sh
 ```
 
 To see all commits that add or remove a specific line of text, for example `Have fun!`, try the following:
@@ -100,13 +102,21 @@ Remember that you can combine any of these `git log` options to get the output y
 git config --global alias.lg "log --oneline --graph"
 ```
 
-This command edits a file with path `~/.gitconfig`. If you now run `git lg`, you will see the log with the options you specified. Note that you can create aliases for any Git command using `git config` and this is a very powerful tool.
+This command edits a file with path *~/.gitconfig*. If you now run `git lg`, you will see the log with the options you specified. Note that you can create aliases for any Git command using `git config` and this is a very powerful tool.
 
+## Use `git blame` <a name="blame"></a>
+A useful complement to `git log` is `git blame`. While `git log` shows the history of changes in chronological order, `git blame` focuses on individual lines of a file, showing when each line was last changed and by whom. To see this in action, run the following command to check the history of changes to the *README.md* file in the *git-course* folder:
 
-## Use git diff <a name="diff"></a>
+```plaintext
+git blame README.md
+```
+
+You can do the same thing directly on a file in a GitHub repository, such as our [git-course](https://github.com/C2SM/git-course/tree/main) repository. Open a file and click `Blame` to see the the output.
+
+## Use `git diff` <a name="diff"></a>
 The `git diff` command shows the differences between two different Git data sources. These data sources can be commits, files, branches, tags and more. The `git diff` command can be used from the command line, but it can be difficult to interpret the output in that format. Therefore, people often use a third-party visualization tool to examine the output of `git diff`. In this section, you will first learn how to use `git diff` from the command line and then you will explore some of the options available to improve the readability of the output.
 
-### git diff on the command line
+### `git diff` on the command line
 
 To get started, let's make a new branch with one change in it.
 
@@ -114,7 +124,7 @@ To get started, let's make a new branch with one change in it.
 git switch -c difftest
 ```
 
-Open the README.md file and make a change to it.
+Open the *README.md* file and make a change to it.
 
 The default behavior of `git diff` is to show all uncommited changes since the last commit. Try this now.
 
@@ -152,9 +162,9 @@ git diff 8eb59b37 f435db79
 
 Here you can see that the output of `git diff` on the command line can be difficult to read when there are many changes. Let's have a look at some ways to better visualize these differences.
 
-### git diff visualization options
+### `git diff` visualization options
 
-#### git difftool
+#### `git difftool`
 
 One way to better visualize the output of `git diff` is to use `git difftool`. This command is a wrapper for `git diff` that allows you to specify the diff tool of your choice to view the output in. You can see all of the possible tools with the `--tool-help` option.
 
@@ -190,7 +200,7 @@ You can find more information about using the GitHub compare tool [here](https:/
 
 Note: You may have noticed that the comparison we did included some binary (.png) files. Since these are binary files, you cannot get an exact difference between them, but the fact that they showed up in the `git diff` output means that the files have changed between the two commits. This can sometimes be useful information. Keep in mind that it's best practice to try to avoid committing binaries to Git repositories if possible. If it is necessary, try to keep the size of the files as small as possible to keep working with your Git repository fast and easy.
 
-## Use git show <a name="show"></a>
+## Use `git show` <a name="show"></a>
 
 The `git show` command is another command that can be used to examine Git objects such as tags and commits. This command can be useful for examining commits because it shows not only the commit SHA and commit message like `git log`, but also the difference in the committed files like the `git diff` command.
 
@@ -206,7 +216,7 @@ By default, this command shows us the latest commit, or HEAD in Git terminology.
 git show f435db79
 ```
 
-Like `git log`, `git show` can be used with various options that allow you to change the way the information is displayed. There are options that change the way the commit SHA and message are displayed, such as `git show --oneline`. There are also options that change the way that the diff is displayed, but none of them really alleviate the problem that large diffs are generally hard to read in the terminal window. As with all Git commands, you can use the `-h` option to get a description of all the possible options that can be used with `git show`.
+Like `git log`, `git show` can be used with various options that allow you to change the way the information is displayed. There are options that change the way the commit SHA and message are displayed, such as `git show --oneline`. There are also options that change the way that the diff is displayed, but none of them really alleviate the problem that large diffs are generally hard to read in the terminal window. As with all Git commands, you can use the `-h` option (or `--help` for more details) to get a description of all the possible options that can be used with `git show`.
 
 ```plaintext
 git show --help

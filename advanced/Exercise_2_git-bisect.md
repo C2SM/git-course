@@ -1,12 +1,12 @@
-# Exercise 2 - Using git bisect
+# Exercise 2 - Using `git bisect`
 
 In this exercise, you will use `git bisect` to pinpoint the exact commit in a repository where the code has broken. This tool is very useful for debugging. For this exercise, we will be using a publicly available `git bisect` example: https://github.com/bast/git-bisect-exercise. It consists of a Git repository that contains a simple Python script to calculate $\pi$ to 2 decimal places, which has broken at some point in the history of the repository. Your job is to use `git bisect` to find the commit where the code has broken and no longer returns the correct value of $\pi$. You will do this in two ways: first, using `git bisect` manually, and then doing it automatically with `git bisect run`. Spoiler alert: Try to avoid the *README.md* file in the repository, as it contains the solution of the exercise.
 
 * [Clone and test the example repository](#clone)
 
-* [Use git bisect manually to find the bad commit](#manual)
+* [Use `git bisect` manually to find the bad commit](#manual)
 
-* [Use git bisect run to automatically find the bad commit](#automate)
+* [Use `git bisect` run to automatically find the bad commit](#automate)
 
 ## Clone and test the example repository <a name="clone"></a>
 
@@ -56,7 +56,7 @@ Before we move on, let's switch our repository back to the final commit.
 git switch -
 ```
 
-## Use git bisect manually to find the bad commit <a name="manual"></a>
+## Use `git bisect` manually to find the bad commit <a name="manual"></a>
 
 Initiate a `git bisect` session.
 
@@ -104,7 +104,7 @@ You should reset the repository to its original state before you try any other G
 git bisect reset
 ```
 
-## Use git bisect run to automatically find the bad commit <a name="automate"></a>
+## Use `git bisect` run to automatically find the bad commit <a name="automate"></a>
 
 We can also automate this process to make it easier. We just need a testing script that will return 0 if the code is correct, and an error value between 1 and 127 (excluding 125) if the code is incorrect. The error value 125 is reserved for when the code cannot be tested, and tells `git bisect` to skip the current commit. You could use whatever language you like to write such a script. If you are so inclined, you can try to write such a script yourself now. If not, you can use the Python script provided below. If you do so, make sure you read through the Python script so that you understand what it does.
 

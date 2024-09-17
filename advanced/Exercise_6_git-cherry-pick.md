@@ -1,4 +1,4 @@
-# Exercise 6 - Using git cherry-pick
+# Exercise 6 - Using `git cherry-pick`
 
 In this exercise, we will learn how to use Git to cherry pick a commit. We will add a series of commits to a feature branch, and then use cherry pick to apply only one of those commits to the *main* branch.
 
@@ -6,7 +6,7 @@ This exercise uses the same Git repository that was created in Exercise 3. If yo
 
 * [Add feature branch and commits](#feature)
 
-* [Use git cherry-pick](#cherry)
+* [Use `git cherry-pick`](#cherry)
 
 ## Add feature branch and commits <a name="feature"></a>
 
@@ -48,7 +48,7 @@ git commit -am "Extend coffee break on day 1"
 
 Use `git log` to have a look at the history. Make a note of the SHA of the commit you just made.
 
-## Use git cherry-pick <a name="cherry"></a>
+## Use `git cherry-pick` <a name="cherry"></a>
 
 Switch to the *main* branch, and cherry-pick the last commit, replacing `<SHA>` with the SHA of the commit you just made in the following commands.
 
