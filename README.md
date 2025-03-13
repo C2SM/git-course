@@ -64,7 +64,7 @@ Check if everything is set up correctly by following the steps below from a Linu
 
 - Step 1: Download the file [check_requirements.sh](https://github.com/C2SM/git-course/blob/main/check_requirements.sh).
 ```
-curl -O https://raw.githubusercontent.com/C2SM/git-course/main/check_requirements_advanced.sh
+curl -O https://raw.githubusercontent.com/C2SM/git-course/main/check_requirements.sh
 ```
 - Step 2: Make the file executable.
 ```
