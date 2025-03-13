@@ -14,8 +14,7 @@ To run this course on your computer, the following things need to be set up:
 1. [Git](#1-installing-git-on-your-computer)
 2. [SSH key linked to your GitHub account](#2-creating-a-github-account-and-ssh-key)
 3. [Python](#3-installing-python) 
-4. [JupyterLab](#4-installing-jupyterlab-beginners-course-only) (Beginner's course only)
-5. [Final check](#5-final-check-advanced-course-only) (Advanced course only)
+4. [Final check](#5-final-check)
 
 
 ### 1. Installing Git on your Computer
@@ -60,83 +59,21 @@ Having a GitHub account allows you to collaborate on open-source projects and st
 To install Python, we recommend the [instructions from Real Python](https://realpython.com/installing-python/),
 but of course many other instructions will do as well.
 
-### 4. Installing JupyterLab (Beginner's Course only)
-
-For the beginners course, you also need some non-standard Python packages, namely:
-   - jupyterlab
-   - bash_kernel
-
-To install these two packages, run the following commands in your terminal.
-
-If you have set up your SSH key, clone this Git repository by using the SSH protocol:
-```bash
-git clone git@github.com:C2SM/git-course.git
-```
-
-Otherwise, use the HTTPS protocol:
-```bash
-git clone https://github.com/C2SM/git-course.git
-```
-
-Navigate into the cloned repository:
-```bash
-cd git-course
-```
-
-Create a new Python virtual environment named *git-course_env*:
-```bash
-python -m venv git-course_env
-```
-
-Activate the newly created virtual environment:
-```bash
-source git-course_env/bin/activate 
-```
-
-Install the required Python packages specified in the *requirements.txt* file:
-```bash
-pip install -r requirements.txt 
-```
-
-Install Bash kernel for Jupyter notebooks:
-```bash
-python -m bash_kernel.install
-```
-
-To be able to access directories outside of the *git-course* repository in JupyterLab, you need to navigate out of the repository BEFORE launching JupyterLab:
-```
-cd ..
-```
-
-Finally, you can start with the exercises by running:
-```
-jupyter lab
-```
-This command will open the JupyterLab interface in your browser.
-If it does not open automatically, you will need to copy and paste the URL manually.
-In this case, please follow the instructions on your terminal.
-
-If you are not able to start JupyterLab for some reason, you can try to launch a Jupyter Notebook, which provides a simpler user interface:
-```
-jupyter notebook
-```
-
-### 5. Final check (Advanced course only)
+### 5. Final check
 Check if everything is set up correctly by following the steps below from a Linux shell.
 
-- Step 1: Download the file [check_requirements_advanced.sh](https://github.com/C2SM/git-course/blob/main/check_requirements_advanced.sh).
+- Step 1: Download the file [check_requirements.sh](https://github.com/C2SM/git-course/blob/main/check_requirements.sh).
 ```
 curl -O https://raw.githubusercontent.com/C2SM/git-course/main/check_requirements_advanced.sh
 ```
 - Step 2: Make the file executable.
 ```
-chmod +x ./check_requirements_advanced.sh
+chmod +x ./check_requirements.sh
 ```
 - Step 3: Run the script from a Linux shell.
 ```
-./check_requirements_advanced.sh
+./check_requirements.sh
 ```
 
 
 **Have fun!**
-
