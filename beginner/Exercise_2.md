@@ -19,16 +19,17 @@ For this exercise, we will use the following functions from this file:
 ## Remarks
 _**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
 
-_**Note:** Always run `git commit` and `git merge` with a Git message `-m <meaningful_message>`. Otherwise Git may try to open the Git editor, which does not work on jupyter notebook and will break your current session._
-
 ### Initialization
 
+**Note:** You don't need to do the following, if everything is still set up from the last exercise, but you can jump to the exercise directly.
 
+If the `pwd` command returns something like `/home/juckerj/git-course/beginner`, everything is fine:
 ```bash
-# check current directory with "pwd"
-
-# in case you are in the wrong directory, navigate to Exercise_2 using "cd"
-
+pwd
+```
+If it returns something like `/home/juckerj`, change to the correct directory:
+```bash
+cd <path to git-course directory>/beginner
 ```
 
 **To initialize the exercise properly, run this code at the very beginning. Check the Helper Functions section above for more explanation.**
@@ -36,7 +37,7 @@ _**Note:** Always run `git commit` and `git merge` with a Git message `-m <meani
 
 ```bash
 # source the helpers.sh file to be able to use its functions
-source ../helpers.sh
+source helpers.sh
 # init exercise
 init_exercise
 ```
@@ -57,24 +58,21 @@ reset
 
 ### Learn how to work with branches and switch between them using `git switch`
 
-First, we will set up a simple Git repository for you using one of the helper functions:
+1. First, we will set up a simple Git repository for you using one of the helper functions.
 
-
+The following command will set up a simple Git repository called *conference_planning* in the *beginners_git* directory for you and navigate you to it:
 ```bash
-# this line will set up a simple Git repository for you
 init_simple_repo
 ```
 
 In the output above we see two files:
    * *schedule_day1.txt*
    * *schedule_day2.txt*
-   
-Let's have a look at them using the `cat` command:
 
+2. Let's have a look at them using the `cat` command:
 
 ```bash
-# display content with cat: "cat <schedule_dayX.txt>"
-
+cat schedule_day1.txt
 ```
 
 As you can see, there is still a lot of free time available to add talks, poster sessions, breaks, etc.
@@ -82,30 +80,17 @@ As you can see, there is still a lot of free time available to add talks, poster
 To keep things organized, we will do this in two different Git branches, one for scheduling day 1 and one for scheduling day 2.
 
 **Let's get started!**
-
-
+1. Create a new branch for planning day 1:
 ```bash
-# create a new branch for planning day 1
-# use "git switch -c <meaningful_branch_name A>" to create a new branch
+git switch -c <meaningful_branch_name A>
 # (Alternative: "git checkout -b <meaningful_branch_name A>")
-
 ```
 
-From now on, we will make all modifications to the schedules directly in Jupyter Notebooks.
-   * On the start page, go to the folder *beginners_git* (outside of *git-course*)
-   * Navigate to the folder *conference_planning*
-   * Open *schedule_day1.txt*
-   * Add more information to the schedule, such as planned talks, poster sessions, lunch, etc.
+2. Open *schedule_day1.txt* (you should find it in *< parent path to Git repository>/beginners_git/conference_planning*) and add more information to the schedule, such as planned talks, poster sessions, lunch, etc.
    
 **Remember to save your changes before you come back!**
 
-After saving, we run `git status` to see if Git has tracked our changes.
-
-
-```bash
-# see if Git tracked our changes
-
-```
+3. After saving, we run `git status` to see if Git has tracked our changes.
 
 The output should look like:
 ```
@@ -118,57 +103,30 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-Now do a commit with those changes.
-
-
-```bash
-# add schedule_day1.txt and commit it (don't forget the commit message)
-
-
-```
+4. Add and commit the changes.
 
 For the planning of the other day, we want to use another Git branch.
 To keep track of all the different branches, Git provides the `git branch` command to see all branches of a repository.
 The * indicates our current branch.
 
-
 ```bash
-# see all branches of our Git repository
-
+git branch
 ```
 
 We can easily switch between these branches using the `git switch` command.
 Don't worry -> Git will keep all your work done on that branch.
 
-
+5. Switch back to *main* branch:
 ```bash
-# go back to branch main using "git switch main"
+git switch main
 # (Alternative: "git checkout main")
-
 ```
 
-Create a new branch for scheduling day 2 and extend the *schedule_day2.txt* file in that branch, similar to what was done for the *schedule_day1.txt* file.
+6. Create a new branch for scheduling day 2 and extend the *schedule_day2.txt* file in that branch, similar to what was done for the *schedule_day1.txt* file.
 
+7. Add and commit the changes of *schedule_day2.txt* in your new branch.
 
-```bash
-# create a new branch for the planning of day 2
-
-```
-
-Now open *schedule_day2.txt*, make changes, and save them. Proceed to commit your changes.
-
-
-```bash
-# add and commit your changes
-
-
-```
-
-
-```bash
-# view all branches of your Git repository again
-
-```
+8. View all branches of your Git repository again
 
 The output should look like this:
 
@@ -186,27 +144,8 @@ Our Git repository now contains:
 Using `git switch` it is easy to jump between these branches and modify our schedules further.
 To show its capabilities, we will quickly switch between the branches and see how our schedules change.
 
+9. Display the content of *schedule_day1.txt* and *schedule_day2.txt* using `cat`.
 
-```bash
-# display the content of schedule_day1.txt and schedule_day2.txt using "cat"
-
-
-```
-
-
-```bash
-# switch to the "main" branch and do the same again
-
-
-
-```
-
-
-```bash
-# switch to the branch for scheduling day 1 and do the same
-
-
-
-```
+10. Repeat displaying the content of the files after switching to the *main* branch and the branch for scheduling day 1.
 
 You should see that the output for the two files is slightly different depending on which branch you are on.
