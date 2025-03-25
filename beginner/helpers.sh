@@ -15,7 +15,7 @@ reset () {
 # determine main or master for default branch name
 get_default_branch_name() {
     # Attempt to identify the default branch by querying the remote repository
-    default_branch=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+    default_branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
 
     # Check if the default branch was found; if not, check local references for main, i.e., master branch
     if [ -z "$default_branch" ]; then
@@ -58,19 +58,23 @@ init_simple_repo () {
     mkdir -p ../../beginners_git/conference_planning
     cd ../../beginners_git/conference_planning
     git init
-    echo ".ipynb_checkpoints" >> .gitignore
+
+    # Dynamically get the default branch name and switch to it
+    default_branch=$(get_default_branch_name)
+    git checkout "$default_branch"
+
     cp ../../git-course/beginner/examples/schedule_day1.txt .
     cp ../../git-course/beginner/examples/schedule_day2.txt .
 
     git add schedule_day1.txt .gitignore && git commit -m "Add schedule_day1"
     git add schedule_day2.txt && git commit -m "Add schedule_day2"
 
-    ed -s schedule_day1.txt  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
-    ed -s schedule_day2.txt  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
+    printf "/program/\na\n09:00-11:00: Poster session\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
+    printf "/program/\na\n09:00-11:00: Poster session\n.\nw\nq\n" | ed -s schedule_day2.txt > /dev/null
     git add * && git commit -m "Add poster sessions in the morning"
 
-    ed -s schedule_day1.txt  <<< $'/session/\na\n11:00-11:15: Coffee break\n.\nw\nq' > /dev/null
-    ed -s schedule_day2.txt  <<< $'/session/\na\n11:00-11:15: Coffee break\n.\nw\nq' > /dev/null
+    printf "/session/\na\n11:00-11:15: Coffee break\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
+    printf "/session/\na\n11:00-11:15: Coffee break\n.\nw\nq\n" | ed -s schedule_day2.txt > /dev/null
     git add * && git commit -m "Add coffee break"
 
     echo ""
@@ -90,14 +94,12 @@ init_simple_repo_remote () {
     git clone conference_planning conference_planning_remote
     cd conference_planning_remote
     git checkout -b "updated_schedules"
-    ed -s schedule_day1.txt  <<< $'/break/\na\n11:15-12:15: Talk professor A.\n.\nw\nq' > /dev/null
-    ed -s schedule_day2.txt  <<< $'/break/\na\n11:15-12:15: Talk professor B.\n.\nw\nq' > /dev/null
+    printf "/break/\na\n11:15-12:15: Talk professor A.\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
+    printf "/break/\na\n11:15-12:15: Talk professor B.\n.\nw\nq\n" | ed -s schedule_day2.txt > /dev/null
     git add * && git commit -m "update schedules"
 
-    # Dynamically get the default branch name (main or master, based on the version of git)
+    # Dynamically get the default branch name and switch to it
     default_branch=$(get_default_branch_name)
-
-    # Switch to the dynamically determined default branch
     git checkout "$default_branch"
 
     cd ../conference_planning
@@ -114,8 +116,8 @@ init_simple_repo_remote () {
 init_repo () {
     init_simple_repo &> /dev/null
 
-    ed -s schedule_day1.txt  <<< $'/break/\na\n11:15-12:15: Workshop ice crystal formation\n.\nw\nq' > /dev/null
-    ed -s schedule_day2.txt  <<< $'/break/\na\n11:15-12:15: Workshop secondary ice\n.\nw\nq' > /dev/null
+    printf "/break/\na\n11:15-12:15: Workshop ice crystal formation\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
+    printf "/break/\na\n11:15-12:15: Workshop secondary ice\n.\nw\nq\n" | ed -s schedule_day2.txt > /dev/null
     git add * && git commit -m "Add workshops"
 
     sed  's/Poster session/Talk professor C./g' schedule_day1.txt > schedule_day1_tmp.txt
@@ -142,19 +144,23 @@ init_repo_remote () {
     mkdir -p ../../beginners_git/conference_planning
     cd ../../beginners_git/conference_planning
     git init
-    echo ".ipynb_checkpoints" >> .gitignore
+
+    # Dynamically get the default branch name and switch to it
+    default_branch=$(get_default_branch_name)
+    git checkout "$default_branch"
+
     cp ../../git-course/beginner/examples/schedule_day1.txt .
 
     git add schedule_day1.txt .gitignore && git commit -m "Add schedule_day1"
 
     # Edit schedule_day1.txt
-    ed -s schedule_day1.txt  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
+    printf "/program/\na\n09:00-11:00: Poster session\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
     git add * && git commit -m "Add poster sessions in the morning"
 
-    ed -s schedule_day1.txt  <<< $'/session/\na\n11:00-11:15: Coffee break\n.\nw\nq' > /dev/null
+    printf "/session/\na\n11:00-11:15: Coffee break\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
     git add * && git commit -m "Add coffee breaks"
 
-    ed -s schedule_day1.txt  <<< $'/break/\na\n11:15-12:15: Talk professor A.\n12:15-13:30: Lunch\n13:30-15:00: Workshop\n15:00-16:00: Talk professor B.\n.\nw\nq' > /dev/null
+    printf "/break/\na\n11:15-12:15: Talk professor A.\n12:15-13:30: Lunch\n13:30-15:00: Workshop\n15:00-16:00: Talk professor B.\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
     git add * && git commit -m "Add rest of daily program"
 
     cd ..
