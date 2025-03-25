@@ -27,17 +27,13 @@ _**Note:** The exercises require you to use basic Unix commands. If you are not 
 **Start exercises in correct folder:**
 This exercise (and all the exercises that follow) assume that the shell is already in the folder where the exercise notebooks are located. For some reason, the notebook may not switch to the notebook folder by default. In this case, you will need to manually change the directory in order to complete the exercises.
 
-If the `pwd` command returns something like `/home/juckerj/git-course/beginner`, everything is fine.
-
-If it returns something like `/home/juckerj`, change to the correct directory.
-
-
-
+If the `pwd` command returns something like `/home/juckerj/git-course/beginner`, everything is fine:
 ```bash
-# check current directory with "pwd"
-
-# in case you are in the wrong directory, navigate to Exercise_1 using "cd"
-
+pwd
+```
+If it returns something like `/home/juckerj`, change to the correct directory:
+```bash
+cd <path to git-course directory>/beginner
 ```
 
 **To initialize the exercise properly, run this code at the very beginning. Check the Helper Functions section above for more explanation.**
