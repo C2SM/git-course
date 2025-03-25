@@ -19,7 +19,7 @@ For this exercise, we will use the following functions from this file:
 ## Remarks   
 _**Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
 
-_**Note:** The exercises require you to use basic Unix commands. If you are not familiar with Unix systems, we have listed all the necessary commands in the file [Basic Unix Commands](../Unix_Commands.ipynb)._
+_**Note:** The exercises require you to use basic Unix commands. If you are not familiar with Unix systems, we have listed all the necessary commands in the file [Basic Unix Commands](Unix_Commands.md)._
 
 
 ### Initialization
@@ -27,7 +27,7 @@ _**Note:** The exercises require you to use basic Unix commands. If you are not 
 **Start exercises in correct folder:**
 This exercise (and all the exercises that follow) assume that the shell is already in the folder where the exercise notebooks are located. For some reason, the notebook may not switch to the notebook folder by default. In this case, you will need to manually change the directory in order to complete the exercises.
 
-If the `pwd` command returns something like `/home/juckerj/git-course/beginner/Exercise_1`, everything is fine.
+If the `pwd` command returns something like `/home/juckerj/git-course/beginner`, everything is fine.
 
 If it returns something like `/home/juckerj`, change to the correct directory.
 
@@ -45,7 +45,7 @@ If it returns something like `/home/juckerj`, change to the correct directory.
 
 ```bash
 # source the helpers.sh file to be able to use its functions
-source ../helpers.sh
+source helpers.sh
 # init exercise
 init_exercise
 ```
@@ -73,14 +73,7 @@ To do this, run the following lines with your credentials:
 git config --global user.name "<John Doe>"
 git config --global user.email "<my_name@some.domain>"
 ```
-**Note:** The email must be identical to the one that is used for your GitHub account.
-
-
-```bash
-# tell Git who you are
-
-
-```
+**Note:** The email should be the same as the one used for your GitHub account, otherwise your commits will have different authors.
 
 At the end of this course, you will learn something about repository managers like GitHub. Recently, they changed their naming policy for the initial branch from *master* to *main*. So we want to tell Git to set our default branch name to *main* as well. 
 
@@ -92,20 +85,11 @@ At the end of this course, you will learn something about repository managers li
 git config --global init.defaultBranch main
 ```
 
-### Create Git repository from scratch
-> Hint: check the [Basic Unix Commands](../Unix_Commands.ipynb) if you don't know how to do the following.
+### Create a Git repository from scratch
+> Hint: check the [Basic Unix Commands](Unix_Commands.md) if you don't know how to do the following.
 
-
-```bash
-# create a new folder (e.g. <git_repo>) and navigate to it
-
-```
-
-
-```bash
-# use the command "git init" to initiate your first Git repository
-
-```
+1. Create a new folder (e.g. *git_repo*) and navigate to it
+2. Use the command `git init` to initiate your first Git repository
 
 You should now get an output similar to:
 ```
@@ -117,24 +101,12 @@ In a next step you will add some files to your repository.
 To do this, we will use the *echo* command in combination with the `>` operator to direct its
 output to a file.
 
-
+1. Create a text file using the echo-command
 ```bash
-# create a text file using the echo-command
-# echo "<my text for file>" > first_file.txt
-
+echo "<my text for file>" > first_file.txt
 ```
-
-
-```bash
-# use echo and ">" again to create a second text file
-
-```
-
-
-```bash
-# check the status of your Git repository with "git status"
-
-```
+2. Use echo and ">" again to create a second text file
+3. Check the status of your Git repository with `git status`
 
 You should now get an output similar to:
 
@@ -155,13 +127,13 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 Git has detected the two new files, but the files are not yet included in the Git repository.
 
-
+4. Add the files using `git add`
 ```bash
-# add the files using "git add"
-
-# check your actions with "git status" again
-
+git add first_file.txt
+git add second_file.txt
 ```
+
+5. Check your actions with `git status` again
 
 Your output should look like this:
 
@@ -176,12 +148,9 @@ Changes to be committed:
 	new file:   second_file.txt
 ```
 
-The last thing to do is to commit these files.  
-
-
+6. The last thing to do is to commit these files together with a commit message:
 ```bash
-# use "git commit -m "<meaningful message>""
-
+git commit -m "<meaningful message>"
 ```
 
 **Congrats!**  
@@ -193,17 +162,8 @@ Your files are included in the Git repository.
 Right now we have two files in our Git repository.
 Let's see what happens when we modify them. We will use the `>>` operator to append a new line of text to our files.
 
-
-```bash
-# append a new line of text with "echo" and ">>" to one of the files
-
-```
-
-
-```bash
-# check state of your repository with "git status"
-
-```
+1. Append a new line of text with "echo" and ">>" to one of the files
+2. Check state of your repository with `git status`
 
 Your output should look similar to:
 
@@ -221,13 +181,9 @@ no changes added to commit (use "git add" and/or "git commit -a")
 When working in a repository, it easily happens that you forget about changes you have made, such as the extra lines you just added. 
 Git provides the `git diff` command to check, what new changes are contained in a file
 
+3. See local changes of a modified file with `git diff <your_filename>`
 
-```bash
-# see local changes of a modified file with "git diff <your_filename>"
-
-```
-
-In the output
+The output should we something like:
 
 ```
 diff --git a/first_file b/first_file
@@ -245,27 +201,15 @@ The "+" indicates that we have a new line in our file.
 
 Let's modify the second file as well.
 
-
-```bash
-# add a new line in the second file as well
-
-```
+4. Add a new line in the second file
 
 The next lecture is starting soon, so let's add and commit our changes for safety reasons.
 
+5. Add the two modified files with `git add`
 
-```bash
-# add the two modified files with "git add"
+6. Use `git status` to check if your action was successful
 
-# use "git status" to check if your action was successful
-
-```
-
-
-```bash
-# use "git commit -m "<meaningful message>"" to commit your files
-
-```
+7. Now commit your changes with a meaningful commit message
 
 **Congrats!**   
 But how many commits do you already have in this repository?
@@ -273,26 +217,22 @@ Git does all this tracking for us!
 
 The command `git log` allows us to look back in time and explore what commits are contained in our repository.
 
+8. Type `git log` to get an overview of the (very short) life of your repository
 
-```bash
-# type "git log" to get an overview of the (very short) life of your repository
-
-```
-
-Below you see an example how your log could look like:
+Below you see an example of what your log could look like:
 
 ```
 commit 26c65dd070e995db55ac46d76cdb5052da03f5cb (HEAD -> main)
 Author: juckerj <jonas.jucker@env.ethz.ch>
 Date:   Tue Feb 23 17:16:03 2021 +0100
 
-    second commit
+    add second lines
 
 commit 495eb9387e4407f3accb57a8f29d7362eead85bb
 Author: juckerj <jonas.jucker@env.ethz.ch>
 Date:   Tue Feb 23 16:09:54 2021 +0100
 
-    test
+    create two files
 ```
 
 We see the unique hash of each commit, its author, and the date of the commit.
