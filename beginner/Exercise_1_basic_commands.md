@@ -1,4 +1,4 @@
-## Exercise 1
+# Exercise 1
 
 ## Objective
 * Create a Git repository from scratch

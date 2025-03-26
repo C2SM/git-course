@@ -1,4 +1,4 @@
-## Exercise 3
+# Exercise 3
 
 ## Objective
    * Restore the version of files at some point in the Git history

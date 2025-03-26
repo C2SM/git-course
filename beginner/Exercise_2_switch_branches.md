@@ -1,4 +1,4 @@
-## Exercise 2
+# Exercise 2
 
 ## Objective
    * Learn how to work with branches and switch between them using `git switch`.
