@@ -1,4 +1,4 @@
-## Exercise 7
+# Exercise 7
 
 ## Objective
 * Access code from a Git web interface
@@ -17,12 +17,15 @@ _**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced wi
 
 ### Initialization
 
+**Note:** You don't need to do the following, if everything is still set up from the last exercise, but you can jump to the exercise directly.
 
+If the `pwd` command returns something like `/home/juckerj/git-course/beginner`, everything is fine:
 ```bash
-# check current directory with "pwd"
-
-# in case you are in the wrong directory, navigate to Exercise_7 using "cd"
-
+pwd
+```
+If it returns something like `/home/juckerj`, change to the correct directory:
+```bash
+cd <path to git-course directory>/beginner
 ```
 
 **To initialize the exercise properly, run this code at the very beginning. Check the Helper Functions section above for more explanation.**
@@ -30,7 +33,7 @@ _**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced wi
 
 ```bash
 # source the helpers.sh file to be able to use its functions
-source ../helpers.sh
+source helpers.sh
 # init exercise
 init_exercise
 ```
@@ -68,76 +71,31 @@ However, we strongly recommend that you create an SSH key for GitHub if you plan
 
 ![Forked_Repo_view.png](../images/Forked_Repo_view.png)
 
-We don't want the repository in our _git-course_ repository. So make sure you are in the _beginners_git_ directory instead. Use the [Basic Unix Commands](../Unix_Commands.ipynb) we provided to navigate there in case you are in the wrong directory.
+We don't want the repository in our _git-course_ repository. So make sure you are in the _beginners_git_ directory instead. Use the [Basic Unix Commands](Unix_Commands.md) we provided to navigate there in case you are in the wrong directory.
 
+1. Navigate into beginners_git repo if not there already.
 
-```bash
-# Navigate into beginners_git repo if not there
+2. Use `git clone <path_to_repository>` to download your forked repository.
 
-```
-
-
-```bash
-# use "git clone <path_to_repository>" to download your forked repository
-
-```
-
-
-```bash
-# use "cd" to enter the repository
-
-```
+3. Navigate into the cloned repository.
 
 ### Examine the repository
 Let's examine the repository.  Does it have any remotes?  What branches are in it?  
 
-
-```bash
-# use "git remote -v", "git branch -a", and "git status" to examine the repository
-
-```
+1. Use `git remote -v`, `git branch -a`, and `git status` to examine the repository.
 
 You should have noticed that your local repository has a remote called "origin" pointing to your fork on GitHub.  This is the default behavior when you use `git clone` to copy a repository.
 
 ### Add to local repository
 Next, let's create a new branch and add a commit to it.
 
-
-```bash
-# use "git switch -c <branch_name>" to make a new branch
-
-```
-
-Make a change to your local repository.
-Remember to make all changes to the schedules directly in Jupyter Notebooks.
-   * Go to the *git-example* folder (It should be in the parent directory of the _git-course_)
-   * Open *schedule_day1.txt*
-   * Add more information to your schedule, i.e., workshops, talks, poster sessions, etc.
-   
-**Don't forget to save your changes before coming back!**
-
-
-```bash
-# add and commit your changes
-
-
-```
+1. Use `git switch -c <branch_name>` to create a new branch.
+2. Make a change in *schedule_day1.txt* and commit the change to your new branch.
 
 ### Send local information to GitHub
 
 Now, let's send our new branch to our GitHub fork.
-
-
-```bash
-# find out current directory; make sure you are in the beginners_git/git-example directory
-
-```
-
-
-```bash
-# push your local changes to the remote repository using git push origin <branch_name>
-
-```
+1. Push your local changes to the remote repository using `git push origin <branch_name>`
 
 ### Examine the GitHub repository
 
@@ -157,27 +115,15 @@ Let's use the web interface to examine the repository. Try the following things 
 
 Now, let's get the commit we made on GitHub into our local repository.   
 
+1. Use `git fetch origin` to download the new commit from your fork.
+2. Check the status of your Git repository.
 
-```bash
-# use "git fetch origin" to download the new commit from your fork
-
-```
-
-
-```bash
-# use "git status" to examine your repository
-
-```
-
-Our new commit has been downloaded into a remote branch, but is not yet available in our local branch. Let's use ```git merge``` to update our local branch.
+Our new commit has been downloaded into a remote branch, but is not yet available in our local branch.
 
 
-```bash
-# use "git merge <remote_name>/<branch_name> -m '<commit_message>'" to sync up your local branch with the remote one 
+3. Use `git merge <remote_name>/<branch_name> -m '<commit_message>'` to sync up your local branch with the remote one.
 
-```
-
-### Update local repository using git pull
+### Update local repository using `git pull`
 
 Let's examine the difference between `git fetch` and `git pull`. We just used `git fetch` to get a commit from our remote repository, and then we used `git merge` to merge it into our local branch.  
 
@@ -185,10 +131,5 @@ First, go back to the web interface and use it to make a new commit by editing a
 
 Next, let's merge that commit into our repository.
 
-
-```bash
-# use "git pull origin" to download the new commit from your fork
-
-```
-
-Take a look at your local branch. You should see that the commit you made has already been merged into your local branch automatically, because `git pull` does both `git fetch` AND `git merge` automatically.
+1. Use `git pull origin` to download the new commit from your fork.
+2. Take a look at your local branch. You should see that the commit you made has already been merged into your local branch automatically, because `git pull` does both `git fetch` AND `git merge` automatically.
