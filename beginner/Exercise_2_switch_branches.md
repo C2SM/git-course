@@ -87,8 +87,6 @@ git switch -c <meaningful_branch_name A>
 ```
 
 2. Open *schedule_day1.txt* (you should find it in *< parent path to Git repository>/beginners_git/conference_planning*) and add more information to the schedule, such as planned talks, poster sessions, lunch, etc.
-   
-**Remember to save your changes before you come back!**
 
 3. After saving, we run `git status` to see if Git has tracked our changes.
 

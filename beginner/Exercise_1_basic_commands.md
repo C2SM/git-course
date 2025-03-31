@@ -63,7 +63,7 @@ reset
 ### Global Git configuration settings
 Before we start using Git, we should set some global configurations. This only needs to be done once, and will be saved for all your future sessions.
 
-First of all, we need to tell Git who we are.
+1. First of all, we need to tell Git who we are.
 To do this, run the following lines with your credentials:
 ```
 git config --global user.name "<John Doe>"
@@ -75,9 +75,8 @@ At the end of this course, you will learn something about repository managers li
 
 **Note:** See the official Git documentation (https://git-scm.com/docs/git-init#Documentation/git-init.txt--bltbranch-namegt).
 
-
+2. Set *main* as the default branch name:
 ```bash
-# set 'main' as the default branch name
 git config --global init.defaultBranch main
 ```
 

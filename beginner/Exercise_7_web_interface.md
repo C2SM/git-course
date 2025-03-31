@@ -57,7 +57,7 @@ First, we'll create a fork of the repository so that you can have your own copy 
 
 **Use the web interface to make a fork:**
 
-![Fork.png](../images/Fork.png)
+![Fork.png](images/Fork.png)
 
 ### Clone the fork
 
@@ -69,7 +69,7 @@ Now copy the forked repository to your local workspace using the link (right arr
 > **Note about HTTPS**: If you clone the repository with HTTPS, you will not be able to exchange any information with the remote repository without setting up a token (`git push`, `git pull` and `git fetch` will NOT work). Follow the instructions in [Create a user token to use HTTPS for working with remote repositories](../token.ipynb) to do so.
 However, we strongly recommend that you create an SSH key for GitHub if you plan to work with it in the future. It will make things much easier!
 
-![Forked_Repo_view.png](../images/Forked_Repo_view.png)
+![Forked_Repo_view.png](images/Forked_Repo_view.png)
 
 We don't want the repository in our _git-course_ repository. So make sure you are in the _beginners_git_ directory instead. Use the [Basic Unix Commands](Unix_Commands.md) we provided to navigate there in case you are in the wrong directory.
 
@@ -107,7 +107,7 @@ Let's use the web interface to examine the repository. Try the following things 
 
 2. Change a file and use the web interface to make a new commit to a new branch and automatically create a pull request.
 
-![Edit_file_PR.png](../images/Edit_file_PR.png)
+![Edit_file_PR.png](images/Edit_file_PR.png)
 
 3. Find the pull request and take a look at it.
 
