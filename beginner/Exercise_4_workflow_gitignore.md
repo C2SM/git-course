@@ -60,18 +60,6 @@ reset
 ***
 ## Exercise
 
-### Practice typical Git workflow
-
-First, we will set up a simple Git repository for you using one of the helper functions. It will create the directory *conference_planning* and the empty schedule *conference_schedule.txt* in and navigate you to the folder.
-
-```bash
-init_repo_empty_schedule
-```
-
-1. Init the folder as a Git repository
-
-2. Execute `ls -a` to also see the hidden Git folder.
-
 ### Understanding *.gitignore*
 
 The *.gitignore* file is an essential and commonly used feature in Git. It specifies intentionally untracked files that Git should ignore. It's particularly useful for excluding files generated during execution or build processes—like log files, compiled code, or local configuration files—that don't need to be shared within the repository. Creating a *.gitignore* file and listing the file patterns to exclude achieves this.
@@ -88,25 +76,37 @@ Remember, the *.gitignore* file should be committed into your repository, so it 
 
 **Practical Application:**
 
-Now that you have seen and understood the concept of the *.gitignore* file, you can proceed with your exercises. At a certain point, after you run `git status`, you might notice a file named *.ipynb_checkpoints*. This is created by Jupyter Notebooks to save checkpoint files and it's exactly the type of content we aim to exclude from our Git repository, as it is specific to your local Jupyter Notebook environment. It thus presents a perfect opportunity to apply what you've just learned. Follow these steps to create a *.gitignore* and specify the patterns. Remember to add and commit your *.gitignore* after creating it. 
+1. Navigate to the root of your *git-course* repository.
 
-
-
-
-```bash
-# Create `.gitignore` and add the `.ipynb_checkpoints pattern` (Note: make sure you are in the conference_planning directory when running the following command)
-echo ".ipynb_checkpoints/" >> .gitignore
-
-```
-
+2. Run the *check_requirements.sh* file (as you should have done as preparation for the course):
 
 ```bash
-# Add and commit your .gitignore
-
-
+./check_requirements.sh
 ```
 
-### Go on with your Exercise
+3. Check the status of your Git repository. You should now see the log file from running the requirement check.
+
+Log files are typically generated for debugging and monitoring purposes but are not meant to be part of the Git repository. Since they change frequently and can grow large, they are usually added to the *.gitignore* file to keep the repository clean and prevent unnecessary clutter.
+
+4. Add a wildcart to the *.gitignore* file to exclude all log files.
+
+5. Check the status of *git-course* repository. Does the log file still show up?
+
+Use *.gitignore* whenever files clutter your Git repository, but shouldn't be committed.
+
+### Set up simple Git repository
+
+1. First, we will set up a simple Git repository for you using one of the helper functions. It will create the directory *conference_planning* and the empty schedule *conference_schedule.txt* in and navigate you to the folder.
+
+```bash
+init_repo_empty_schedule
+```
+
+2. Init the folder as a Git repository
+
+3. Execute `ls -a` to also see the hidden Git folder.
+
+### Practice typical Git workflow
 
 The following changes should be done in the *conference_planning.txt* file.
 

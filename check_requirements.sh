@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Define the log file
+LOG_FILE="check_requirements.log"
+
+# Redirect all output to both the terminal and the log file
+exec > >(tee -a "$LOG_FILE") 2>&1
+
 # Check if git is installed
 if command -v git >/dev/null 2>&1; then
     echo "Git is installed."
