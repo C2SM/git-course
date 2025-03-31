@@ -19,8 +19,6 @@ For this exercise, we will use the following functions from this file:
 ## Remarks
 _**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
 
-_**Reminder:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise Git may try to open the Git editor, which does not work on jupyter notebook and will break your current session._
-
 ### Initialization
 
 **Note:** You don't need to do the following, if everything is still set up from the last exercise, but you can jump to the exercise directly.
