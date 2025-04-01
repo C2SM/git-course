@@ -45,18 +45,18 @@ source helpers.sh
 init_exercise
 ```
 
-***
-### Optional: restart exercise repo
-**In case you messed up your notebook completely, execute** ***reset*** **in the following cell. Check the Helper Functions section above for more explanation.**
+---
 
+### Optional: restart exercise repo
+
+⚠️ **In case you messed up somehow, execute the `reset` function. Check the [Helper Functions](#helper-functions) section above for more explanation.**
 
 ```bash
-## only execute in case of (serious) trouble ##
+## only execute this in case of (serious) trouble ##
 ## it will delete your entire beginners_git directory ##
 reset
 ```
 
-***
 ## Exercise
 
 In this exercise we are going to use a repository together with a remote repository containing the file _schedule_day1.txt_. Let's initialize it with our helper function.
