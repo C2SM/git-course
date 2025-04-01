@@ -39,7 +39,7 @@ The *.gitignore* file is an essential and commonly used feature in Git. It speci
 
 Once your *.gitignore* is created, you can specify:
 
-- **Patterns**: Direct patterns such as *my_file_to_ignore.txt* to exclude specific files or *my_directory_to_ignore/* to exclude specific directories. For example, *.ipynb_checkpoints/* is often added to the *.gitignore* when working with Jupyter Notebooks to ignore checkpoint folders created during development.
+- **Patterns**: Direct patterns such as *my_file_to_ignore.txt* to exclude specific files or *my_directory_to_ignore/* to exclude specific directories. 
 - **Wildcards**: Broad patterns like `*.log` to exclude all log files created across the project.
 - **Exceptions**: If you've used a wildcard but want to track specific files, precede the exception with `!`. For instance, *!important_log.log* ensures this file is tracked despite the `*.log` exclusion.
 
