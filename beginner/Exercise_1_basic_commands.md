@@ -1,14 +1,17 @@
 # Exercise 1
 
 ## Objective
+
 * Create a Git repository from scratch
 * Track changes to files using `git add`, `git status`, and `git commit`
 * Know the state of the Git repository using `git diff` and `git log`
 
 ## Structure
+
 This exercise consists of short descriptions of specific Git commands, followed by a hands-on part where you will be able to execute the corresponding Git commands.
 
 ## Helper Functions
+
 The following helper functions in the file *helpers.sh* are written by C2SM and are **NOT** **part of Git**. They will set up simple repositories for you that have a short Git history, so that you have something to work with.
 
 For this exercise, we will use the following functions from this file:
@@ -22,10 +25,8 @@ For this exercise, we will use the following functions from this file:
 
 > **Note:** The exercises require you to use basic Unix commands. If you are not familiar with Unix systems, we have listed all the necessary commands in the file [Basic Unix Commands](Unix_Commands.md)._
 
+## Global Git configuration settings
 
-## Initialization
-
-### Global Git configuration settings
 Before we start using Git, we should set some global configurations. This only needs to be done once, and will be saved for all your future sessions.
 
 1. First of all, we need to tell Git who we are.
@@ -45,7 +46,7 @@ At the end of this course, you will learn something about repository managers li
 git config --global init.defaultBranch main
 ```
 
-### Clone the `git-course` repository
+## Clone the `git-course` repository
 
 Now, we are ready to clone the `git-course` repository, which 
 we need for all exercises in this course.
@@ -78,10 +79,12 @@ The `ls` command will show you that a `git-course` folder has been created.
 ls
 ```
 
+## Initialization
+
 Let's switch into the `beginners` folder of our repository:
 
-```
-cd git-course/beginners
+```bash
+cd ~/git-course/beginners
 ```
 
 ---

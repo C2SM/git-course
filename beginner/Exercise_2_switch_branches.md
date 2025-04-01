@@ -1,14 +1,17 @@
 # Exercise 2
 
 ## Objective
+
    * Learn how to work with branches and switch between them using `git switch`.
    * Note: `git checkout` can be used as an alternative to `git switch`. However, it has different features that have caused confusion among users in the past. So we won't use it here, but show the alternative commands in brackets, as some older Git versions don't have this option yet.
 
 ## Structure
+
 In this exercise, we will work on scheduling a two-day conference using two files that contain the schedules for day 1 and day 2 (*schedule_day1.txt* and *schedule_day2.txt*). To add events to the schedules (e.g., talks, poster sessions, etc.), we will work on separate branches so as not to mix things up.
 Again, this exercise will consist of short descriptions of specific Git commands, followed by a hands-on part where you will be able to execute the corresponding Git commands.
 
 ## Helper Functions
+
 The following helper functions in the file *helpers.sh* are written by C2SM and are **NOT** **part of Git**. They will set up simple repositories for you that have a short Git history, so that you have something to work with.
 
 For this exercise, we will use the following functions from this file:
@@ -16,43 +19,14 @@ For this exercise, we will use the following functions from this file:
    * `reset`: This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
    * `init_simple_repo`: This will set up a Git repository containing a first version of *schedule_day1.txt* and *schedule_day2.txt* on the *main* branch.
 
-## Remarks
-_**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
+## Remarks   
 
-### Initialization
+> **Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
 
-**Note:** You don't need to do the following, if everything is still set up from the last exercise, but you can jump to the exercise directly.
+> **Note:** The exercises require you to use basic Unix commands. If you are not familiar with Unix systems, we have listed all the necessary commands in the file [Basic Unix Commands](Unix_Commands.md)._
 
-If the `pwd` command returns something like `/home/juckerj/git-course/beginner`, everything is fine:
-```bash
-pwd
-```
-If it returns something like `/home/juckerj`, change to the correct directory:
-```bash
-cd <path to git-course directory>/beginner
-```
-
-**To initialize the exercise properly, run this code at the very beginning. Check the Helper Functions section above for more explanation.**
-
-
-```bash
-# source the helpers.sh file to be able to use its functions
-source helpers.sh
-# init exercise
-init_exercise
-```
-
----
-
-### Optional: restart exercise repo
-
-⚠️ **In case you messed up somehow, execute the `reset` function. Check the [Helper Functions](#helper-functions) section above for more explanation.**
-
-```bash
-## only execute this in case of (serious) trouble ##
-## it will delete your entire beginners_git directory ##
-reset
-```
+If everything is still set up from the last exercise, can continue with [this exercise](#exercise) directly.
+Otherwise, please refer to the [Initialization from Exercise 1](Exercise_1_basic_commands.md#initialization).
 
 ## Exercise
 
