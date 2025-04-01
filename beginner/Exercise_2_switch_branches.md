@@ -56,8 +56,8 @@ To keep things organized, we will do this in two different Git branches, one for
 **Let's get started!**
 1. Create a new branch for planning day 1:
 ```bash
-git switch -c <meaningful_branch_name A>
-# (Alternative: "git checkout -b <meaningful_branch_name A>")
+git switch -c <meaningful_branch_name_A>
+# (Alternative: "git checkout -b <meaningful_branch_name_A>")
 ```
 
 2. Open *schedule_day1.txt* (you should find it in *< parent path to Git repository>/beginners_git/conference_planning*) and add more information to the schedule, such as planned talks, poster sessions, lunch, etc.

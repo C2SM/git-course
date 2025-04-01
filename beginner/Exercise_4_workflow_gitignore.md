@@ -20,45 +20,15 @@ For this exercise, we will use the following functions from this file:
    * `reset`: This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
    * `init_repo_empty_schedule`: This will create the directory *conference_planning* and a file *conference_schedule.txt* with an empty schedule.
 
-## Remarks
-_**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
+## Remarks   
 
-### Initialization
+> **Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
 
-**Note:** You don't need to do the following, if everything is still set up from the last exercise, but you can jump to the exercise directly.
+> **Note:** The exercises require you to use basic Unix commands. If you are not familiar with Unix systems, we have listed all the necessary commands in the file [Basic Unix Commands](Unix_Commands.md).
 
-If the `pwd` command returns something like `/home/juckerj/git-course/beginner`, everything is fine:
-```bash
-pwd
-```
-If it returns something like `/home/juckerj`, change to the correct directory:
-```bash
-cd <path to git-course directory>/beginner
-```
+If everything is still set up from the last exercise, can continue with [this exercise](#exercise) directly.
+Otherwise, please refer to the [Initialization from Exercise 1](Exercise_1_basic_commands.md#initialization).
 
-**To initialize the exercise properly, run this code at the very beginning. Check the Helper Functions section above for more explanation.**
-
-
-```bash
-# source the helpers.sh file to be able to use its functions
-source helpers.sh
-# init exercise
-init_exercise
-```
-
----
-
-### Optional: restart exercise repo
-
-⚠️ **In case you messed up somehow, execute the `reset` function. Check the [Helper Functions](#helper-functions) section above for more explanation.**
-
-```bash
-## only execute this in case of (serious) trouble ##
-## it will delete your entire beginners_git directory ##
-reset
-```
-
-## Exerc
 ## Exercise
 
 ### Understanding *.gitignore*

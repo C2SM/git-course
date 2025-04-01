@@ -25,7 +25,7 @@ For this exercise, we will use the following functions from this file:
 
 > **Note:** The exercises require you to use basic Unix commands. If you are not familiar with Unix systems, we have listed all the necessary commands in the file [Basic Unix Commands](Unix_Commands.md).
 
-## Global Git configuration settings
+## Global Git Configuration Settings
 
 Before we start using Git, we should set some global configurations. This only needs to be done once, and will be saved for all your future sessions.
 
@@ -46,7 +46,7 @@ At the end of this course, you will learn something about repository managers li
 git config --global init.defaultBranch main
 ```
 
-## Clone the `git-course` repository
+## Clone the `git-course` Repository
 
 Now, we are ready to clone the `git-course` repository, which 
 we need for all exercises in this course.
@@ -186,7 +186,6 @@ git commit -m "<meaningful message>"
 
 **Congrats!**  
 Your files are included in the Git repository.
-
 
 
 ### Know state of Git repository using `git diff` and `git log`
