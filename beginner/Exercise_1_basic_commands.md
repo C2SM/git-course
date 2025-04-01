@@ -69,7 +69,7 @@ To do this, run the following lines with your credentials:
 git config --global user.name "<John Doe>"
 git config --global user.email "<my_name@some.domain>"
 ```
-**Note:** The email should be the same as the one used for your GitHub account, otherwise your commits will have different authors.
+**Note:** Use your real first and last name as your username and set the same email as your GitHub account. Also, ensure your actual name is set on GitHub; otherwise, your commits will appear under different authors.
 
 At the end of this course, you will learn something about repository managers like GitHub. Recently, they changed their naming policy for the initial branch from *master* to *main*. So we want to tell Git to set our default branch name to *main* as well. 
 
