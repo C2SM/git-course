@@ -1,4 +1,4 @@
-## Exercise 6
+# Exercise 6
 
 ## Objective
    * Learn how to deal with merge conflicts:
@@ -19,43 +19,15 @@ For this exercise, we will use the following functions from this file:
    * `init_repo_remote`: This will set up a Git repository with a first version of *schedule_day1.txt* and a remote repository containing the same version of *schedule_day1.txt* on a different branch called *updated_schedules*.
    * `commit_to_remote_by_third_party`: This will make a commit to the remote Git repository to create an artificial merge conflict when pulling.
 
-## Remarks
-_**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
+## Remarks   
 
-_**Reminder:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise Git may try to open the Git editor, which does not work on jupyter notebook and will break your current session._
+> **Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
 
-### Initialization
+> **Note:** Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](Unix_Commands.md) for a list of all necessary commands.
 
+If everything is still set up from the last exercise, you can continue with [this exercise](#exercise) directly.
+Otherwise, please refer to the [Initialization from Exercise 1](Exercise_1_basic_commands.md#initialization).
 
-```bash
-# check current directory with "pwd"
-
-# in case you are in the wrong directory, navigate to Exercise_6 using "cd"
-
-```
-
-**To initialize the exercise properly, run this code at the very beginning. Check the Helper Functions section above for more explanation.**
-
-
-```bash
-# source the helpers.sh file to be able to use its functions
-source ../helpers.sh
-# init exercise
-init_exercise
-```
-
-***
-### Optional: clear notebook and restart
-**In case you messed up your notebook completely, execute** ***reset*** **in the following cell. Check the Helper Functions section above for more explanation.**
-
-
-```bash
-## only execute in case of (serious) trouble ##
-## it will delete your entire beginners_git directory ##
-reset
-```
-
-***
 ## Exercise
 
 In this exercise we are going to use a repository together with a remote repository containing the file _schedule_day1.txt_. Let's initialize it with our helper function.
@@ -66,18 +38,11 @@ In this exercise we are going to use a repository together with a remote reposit
 init_repo_remote
 ```
 
-### Now let's make a change in the schedule and commit it
-Remember to do all modifications of the schedules directly via Jupyter Notebooks:
-   * Go to folder *beginners_git/conference_planning*
-   * Open _schedule_day1.txt_
-   * Change the workshop to a second poster session
+Let's make a change in the schedule and commit it.
 
+1. Change the workshop to a poster session in *schedule_day1.txt*.
 
-```bash
-# Change the workshop to a poster session and commit
-
-
-```
+2. Add and commit the file.
 
 ### Add a remote repository
 
@@ -89,59 +54,24 @@ The setup script has already created one for you at:
 
 Use the above line as the *remote_path* to the remote repository.
 
+1. Add the remote to your repository (`git remote add <some_remote_name> <remote_path>`)
 
-```bash
-# use "git remote add <some_remote_name> <remote_path>" to add the remote 
+2. Get information from remote branch with `git fetch <my_remote>`.
 
-```
-
-
-```bash
-# Get information from remote branch with "git fetch <my_remote>"
-
-```
-
-
-```bash
-# Check which branches are available
-
-```
+3. Check which branches are available on the remote (`git branch -a`).
 
 ### Now make a different change in the same file on the _updated_schedules_ branch
-  * Switch to the *updated_schedules* branch
-  * Change the workshop to a talk in *beginners_git/conference_planning/schedule_day1.txt*
-  * Commit your changes
 
+1. Switch to the *updated_schedules* branch.
+2. Change the workshop to a talk in *schedule_day1.txt*.
+3. Add and commit your changes.
 
-```bash
-# Switch to updated_schedules
-
-```
-
-
-```bash
-# Change workshop to talk and commit
-
-
-```
 
 ### Merge the *updated_schedules* branch into the *main* branch
 We have decided to use the schedule on the *updated_schedules* branch. So we want to merge that branch into the *main* branch.
-* Switch to *main* branch
-* Merge *updated_schedules* into *main* branch
 
-
-```bash
-# Go to the main branch
-
-```
-
-
-```bash
-# Merge the updated_schedules branch into the main branch
-# make sure to always add a commit message when merging with "-m <my commit message>"
-
-```
+1. Switch to *main* branch.
+2. Merge the *updated_schedules* branch into the *main* branch.
 
 ### Solve merge conflict
 If you've done everything "right", something went "wrong" and the output should look like this:
@@ -170,8 +100,6 @@ Here are two ways to resolve a merge conflict:
 1. **Adjust the file directly:**
 
     * Edit the file to resolve the conflict: You can adjust the file directly and delete the lines, which were added by the merge conflict except the lines you want to keep. Now the merge conflict is resolved.
-
-    * Save your changes: After you've resolved all conflicts in the file, don't forget to save your changes.
 
     * Add your changes: Use `git add` to stage the resolved changes within _schedule_day1.txt_.
 
@@ -206,128 +134,47 @@ Let's deal with the merge conflict!
 
 ### Abort merge
 
+1. Abort the merge.
 
-```bash
-# Abort the merge commit and check if the file is set back to its previous version
+### Adjust the file directly to resolve conflict
+1. Create the same merge conflict again by trying to merge the *updated_schedules* branch into the *main* branch.
 
-```
+2. Now go to the file and select the version you want. To do this, remove all of the conflict markers from the file (*<<<<<<< HEAD, =======*, *>>>>>>> updated_schedules*) and the lines belonging to *HEAD* or the merging branch (*updated_schedules*) depending on which solution you want to keep.
 
-### 1) Edit file directly to resolve conflict
-Create the same merge conflict again by trying to merge the *updated_schedules* branch into the *main* branch.
+3. Stage the file with `git add` to tell Git that the conflicts have been resolved. Note that Git does not check the file for conflict tags; it trusts you that you to have removed them all, so you need to be sure.
 
+4. Finalize the merge by running `git commit`.
 
-```bash
-# Merge again
-
-```
-
-Now go to the file and select the version you want. To do this, remove all of the conflict markers from the file (<<<<<<< HEAD, =======, >>>>>>> updated_schedules) and the lines belonging to *HEAD* or the merging branch (*updated_schedules*) depending on which solution you want to keep.
-
-Stage the file once you have resolved the conflict with `git add`. Staging the file tells Git that the conflicts have been resolved. Note that Git does not check the file for conflict tags; it trusts you that you to have removed them all, so you need to be sure.
-* Go to the conflicting file and delete the appropriate lines (don't forget saving)
-* Stage the adapted file
-* Commit merge
-
-
-```bash
-# Stage schedule_day1.txt
-
-```
-
-
-```bash
-# Finalize merge commit by running "git commit" (don't forget to add a commit message)
-
-```
-
-### 2) Restore preferred version from command line
+### Restore preferred version from command line
 First, we need to create a new conflict. To do this, go to the *main* and *updated_schedules* branches, respectively, and make different changes on the SAME line. Don't forget to commit the changes before switching between the branches.
 
-
-```bash
-# Make a change to the schedule and commit it to the main branch
-
-
-```
-
-
-```bash
-# Switch to the updated_schedules branch
-
-```
-
-
-```bash
-# Make a change at the SAME line and commit
-
-
-```
-
-
-```bash
-# Go back to the main branch and try to merge the updated_schedules branch
-
-
-```
-
-Now try to solve the merge conflict with ```git restore schedule_day1.txt --theirs/ours```.
-
-
-```bash
-# Restore the version of your favorite branch
-
-```
-
-
-```bash
-# Add and commit your favorite solution
-
-
-```
+1. Switch to the *updated_schedules* branch and make a change to the file.
+2. Add and commit the change and switch back to the *main* branch.
+3. Make a change to the SAME line of the file as you did on the *updated_schedules* branch.
+4. Add and commit your changes.
+5. Try to merge the *updated_schedules* branch into the *main* branch.
+6. Solve the merge conflict with `git restore schedule_day1.txt --theirs/ours` (choose your preferred version).
+7. Add your solution to the merge.
+8. Finalize merge by committing.
 
 ### Merge conflict when trying to pull remote branch
 We will now learn how to deal with another type of merge conflict that can easily occur when working with remote branches that other people are working on at the same time.
 
 To clean things up, let's first switch to the *updated_schedules* branch and push our latest commits to the remote branch.
 
-
-```bash
-# Switch to updated_schedules
-
-```
-
+1. Switch to the *updated_schedules* branch.
 As you can see from the Git message, we are ahead of the remote branch. So before we continue, we want to push our local changes.
-
-
-```bash
-# Push changes to remote branch
-
-```
-
-Now change the first event to "Introduction talk" in _/conference_planning/schedule_day1.txt_ and commit.
-
-
-```bash
-# Change the first event to "Introduction" and commit your changes
-
-
-```
+2. Push changes to the remote branch with `git push`.
+3. Now change the first event to "Introduction talk" in *schedule_day1.txt* and commit the change.
 
 What we didn't realize is that someone changed something on the remote branch while we were working on the file. If we now try to pull the remote branch, we will run into a merge conflict.
 
-To mimic a person making changes to the same file at the same time, we use another helper function.
-
-
+4. To mimic a person making changes to the same file at the same time, we use another helper function. Run the following to do so:
 ```bash
-# Run helper function to commit to the same file remotely
 commit_to_remote_by_third_party
 ```
 
-
-```bash
-# Make sure you are on the updated_schedules branch and try to pull with "git pull"
-
-```
+5. Now make sure you are on the *updated_schedules* branch and try to pull with `git pull`.
 
 Unless you already set how to pull in your Git config, you will get a message like this:
 ```
@@ -352,21 +199,6 @@ Read the hints and the explanations below carefully and choose your preferred se
 
 `# fast-forward only`: This option will only do a merge in case there are no conflicts, otherwise nothing will be done (we do not recommend this option, to undo it, you need to run `git config pull.ff false`)
 
+6. Choose and set your preferred way of pulling.
 
-```bash
-# Choose your preferred way of pulling
-
-```
-
-
-```bash
-# Now pull again
-
-```
-
-Again, you ran into a merge conflict. You are now ready to solve the conflict yourself!
-
-
-```bash
-
-```
+7. Try to pull again and solve the merge conflict in your preferred way.

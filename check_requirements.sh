@@ -1,11 +1,19 @@
 #!/bin/bash
 
+# Define the log file
+LOG_FILE="check_requirements.log"
+
+# Redirect all output to both the terminal and the log file
+exec > >(tee -a "$LOG_FILE") 2>&1
+
 # Check if git is installed
 if command -v git >/dev/null 2>&1; then
     echo "Git is installed."
     # Check git version
     git_version=$(git --version | awk '{print $3}')
-    if [[ $(echo "$git_version 2.28" | awk '{print ($1 >= $2)}') -ne 1 ]]; then
+    major_version=$(echo "$git_version" | cut -d. -f1)
+    minor_version=$(echo "$git_version" | cut -d. -f2)
+    if [[ "$major_version" -lt 2 || ( "$major_version" -eq 2 && "$minor_version" -lt 28 ) ]]; then
         echo "Git version is less than 2.28. Please update Git."
     else
         echo "Git version is 2.28 or higher."

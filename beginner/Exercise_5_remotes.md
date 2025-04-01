@@ -1,4 +1,4 @@
-## Exercise 5
+# Exercise 5
 
 ## Objective
 * Add a remote repository
@@ -16,50 +16,31 @@ For this exercise, we will use the following functions from this file:
    * `reset`: This will delete the *beginners_git* directory and allows you a clean restart of the exercise in case you messed it up completely.
    * `init_simple_repo_remote`: This will create the same simple repository as before, along with a second repository to be used as a remote.
 
-## Remarks
-_**Reminder:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
+## Remarks   
 
-_**Reminder:** Always run `git commit` and `git merge` with a git message `-m <meaningful_message>`. Otherwise Git may try to open the Git editor, which does not work on jupyter notebook and will break your current session._
+> **Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
 
-### Initialization
+> **Note:** Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](Unix_Commands.md) for a list of all necessary commands.
 
+If everything is still set up from the last exercise, you can continue with [this exercise](#exercise) directly.
+Otherwise, please refer to the [Initialization from Exercise 1](Exercise_1_basic_commands.md#initialization).
 
-```bash
-# check current directory with "pwd"
+### Optional: restart exercise repo
 
-# in case you are in the wrong directory, navigate to Exercise_5 using "cd"
-
-```
-
-**To initialize the exercise properly, run this code at the very beginning. Check the Helper Functions section above for more explanation.**
-
+⚠️ **In case you messed up somehow, execute the `reset` function. Check the [Helper Functions](#helper-functions) section above for more explanation.**
 
 ```bash
-# source the helpers.sh file to be able to use its functions
-source ../helpers.sh
-# init exercise
-init_exercise
-```
-
-***
-### Optional: clear notebook and restart
-**In case you messed up your notebook completely, execute** ***reset*** **in the following cell. Check the Helper Functions section above for more explanation.**
-
-
-```bash
-## only execute in case of (serious) trouble ##
+## only execute this in case of (serious) trouble ##
 ## it will delete your entire beginners_git directory ##
 reset
 ```
 
-***
 ## Exercise
 
-In this exercise, we will use the same simple repository that we used before, along with a remote repository. Let's initialize it with our helper function.
+In this exercise, we will use the same simple repository that we used before, along with a remote repository. Let's initialize it with our helper function. The following will set up a simple Git repository along with a remote Git repository
 
 
 ```bash
-# this line sets up a simple Git repository along with a remote Git repository
 init_simple_repo_remote
 ```
 
@@ -69,21 +50,15 @@ Let's add a remote repository to our local repository.
 
 The setup script has already created one for you to use, which you can find here: 
 
-**../conference_planning_remote**
+**../conference_planning_remote** (imagine this path to be the path to a repository on GitHub or GitLab)
 
-Use the above line as the *remote_path* to the remote repository.
-
-
-```bash
-# use "git remote add <remote_name> <remote_path>" to add the remote 
-
-```
-
+1. Use the above line as the *remote_path* to the remote repository and choose a name for your remote repository:
 
 ```bash
-# use "git remote -v" to check that the remote was added correctly
-
+git remote add <remote_name> <remote_path>
 ```
+
+2. Use `git remote -v` to check that the remote was added correctly.
 
 The output should look something like this:
 ```
@@ -95,17 +70,9 @@ my_remote  ../conference_planning_remote (push)
 
 So far we have only given our local repository the location of the remote repository. Now, we want to get the information from the remote repository.
 
+1. Use `git fetch <remote_name>` to get information from the remote.
 
-```bash
-# use "git fetch <remote_name>" to get information from the remote
-
-```
-
-
-```bash
-# use "git branch -a" to view ALL of the branches in your local repository
-
-```
+2. Use `git branch -a` to view ALL of the branches in your local repository.
 
 The output should look like this:
 ```
@@ -115,16 +82,13 @@ The output should look like this:
 ```
 
 You can see that you now have a local branch (*main*), and remote branches (*remotes/\<remote_name>/\<branch_name>*).
+
 ### Add remote branch to local repository and make changes
 
 The remote repository has a branch called *updated_schedules*.
 Let's check out this branch to work on it.  
 
-
-```bash
-# use "git switch updated_schedules"
-
-```
+1. Switch to branch *updated_schedules*.
 
 The output should look like this:
 ```
@@ -134,26 +98,9 @@ Switched to a new branch 'updated_schedules'
 
 Git has automatically created a local branch in our local repository that tracks the remote branch from the remote repository.
 
-Now let's make a change to the *updated_schedules* branch.
-Remember to make all changes to the schedules directly in Jupyter Notebooks:
-   * Go to folder *beginners_git/conference_planning*
-   * Open *schedule_day1.txt*
-   * Add more information to your schedule, i.e. talks, workshops, etc.
-
-**Don't forget to save your changes before you come back!**
-
-
-```bash
-# add and commit your changes
-
-
-```
-
-
-```bash
-# check the status of your repository
-
-```
+2. Let's make a change to the *updated_schedules* branch.
+3. Add and commit your changes.
+4. Check the status of your repository.
 
 The output should look like this:
 ```
@@ -168,11 +115,7 @@ nothing to commit, working tree clean
 
 Finally, we want to commit our changes back to the remote repository. To commit to a remote repository, use the `git push` command.
 
-
-```bash
-# use "git push"  
-
-```
+1. Push commited changes to remote branch.
 
 The output should look something like this:
 ```
