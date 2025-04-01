@@ -60,7 +60,7 @@ git switch -c <meaningful_branch_name_A>
 # (Alternative: "git checkout -b <meaningful_branch_name_A>")
 ```
 
-2. Open *schedule_day1.txt* (you should find it in *< parent path to Git repository>/beginners_git/conference_planning*) and add more information to the schedule, such as planned talks, poster sessions, lunch, etc.
+2. Open *schedule_day1.txt* (you should find it in *<parent_path_to_git_repo>/beginners_git/conference_planning*) and add more information to the schedule, such as planned talks, poster sessions, lunch, etc.
 
 3. After saving, we run `git status` to see if Git has tracked our changes.
 
@@ -75,11 +75,11 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-4. Add and commit the changes.
+4. Add your changes to the staging area and commit them.
 
 For the planning of the other day, we want to use another Git branch.
 To keep track of all the different branches, Git provides the `git branch` command to see all branches of a repository.
-The * indicates our current branch.
+The * indicates our current branch. Hit the `q` key to exit the branch view.
 
 ```bash
 git branch
