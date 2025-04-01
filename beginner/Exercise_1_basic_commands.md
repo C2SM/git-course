@@ -17,48 +17,13 @@ For this exercise, we will use the following functions from this file:
 
 
 ## Remarks   
-_**Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
 
-_**Note:** The exercises require you to use basic Unix commands. If you are not familiar with Unix systems, we have listed all the necessary commands in the file [Basic Unix Commands](Unix_Commands.md)._
+> **Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word._
 
-
-### Initialization
-
-**Start exercises in correct folder:**
-This exercise (and all the exercises that follow) assume that the shell is already in the folder where the exercise notebooks are located. For some reason, the notebook may not switch to the notebook folder by default. In this case, you will need to manually change the directory in order to complete the exercises.
-
-If the `pwd` command returns something like `/home/juckerj/git-course/beginner`, everything is fine:
-```bash
-pwd
-```
-If it returns something like `/home/juckerj`, change to the correct directory:
-```bash
-cd <path to git-course directory>/beginner
-```
-
-**To initialize the exercise properly, run this code at the very beginning. Check the Helper Functions section above for more explanation.**
+> **Note:** The exercises require you to use basic Unix commands. If you are not familiar with Unix systems, we have listed all the necessary commands in the file [Basic Unix Commands](Unix_Commands.md)._
 
 
-```bash
-# source the helpers.sh file to be able to use its functions
-source helpers.sh
-# init exercise
-init_exercise
-```
-
-***
-### Optional: clear notebook and restart
-**In case you messed up your notebook completely, execute** ***reset*** **in the following cell. Check the Helper Functions section above for more explanation.**
-
-
-```bash
-## only execute in case of (serious) trouble ##
-## it will delete your entire beginners_git directory ##
-reset
-```
-
-***
-## Exercise
+## Initialization
 
 ### Global Git configuration settings
 Before we start using Git, we should set some global configurations. This only needs to be done once, and will be saved for all your future sessions.
@@ -69,16 +34,84 @@ To do this, run the following lines with your credentials:
 git config --global user.name "<John Doe>"
 git config --global user.email "<my_name@some.domain>"
 ```
-**Note:** Use your real first and last name as your username and set the same email as your GitHub account. Also, ensure your actual name is set on GitHub; otherwise, your commits will appear under different authors.
+> **Note:** Use your real first and last name as your username and set the same email as your GitHub account. Also, ensure your actual name is set on GitHub; otherwise, your commits will appear under different authors.
 
 At the end of this course, you will learn something about repository managers like GitHub. Recently, they changed their naming policy for the initial branch from *master* to *main*. So we want to tell Git to set our default branch name to *main* as well. 
 
-**Note:** See the official Git documentation (https://git-scm.com/docs/git-init#Documentation/git-init.txt--bltbranch-namegt).
+> **Note:** Refer to the official Git documentation (https://git-scm.com/docs/git-init#Documentation/git-init.txt--bltbranch-namegt).
 
 2. Set *main* as the default branch name:
 ```bash
 git config --global init.defaultBranch main
 ```
+
+### Clone the `git-course` repository
+
+Now, we are ready to clone the `git-course` repository, which 
+we need for all exercises in this course.
+
+Open your terminal and check if you are in your home directory. Type:
+
+```bash
+pwd
+```
+
+If the `pwd` command returns something like `/home/username`,
+everything is fine.
+
+If you are in another directory, you can easily switch to your home
+directory:
+
+```bash
+cd ~
+```
+
+Now we use our first Git command to clone the repository:
+
+```bash
+git clone git@github.com:C2SM/git-course.git 
+```
+
+The `ls` command will show you that a `git-course` folder has been created.
+
+```bash
+ls
+```
+
+Let's switch into the `beginners` folder of our repository:
+
+```
+cd git-course/beginners
+```
+
+---
+
+> **To initialize the exercise properly, run this code at the very beginning. Check the [Helper Functions](#helper-functions) section above for more explanation.**
+
+```bash
+# source the helpers.sh file to be able to use its functions
+source helpers.sh
+# init exercise
+init_exercise
+```
+
+Note that the `init_exercise` function will move you out of the `git-course`
+repository! You can check this with the `pwd` command.
+
+---
+
+### Optional: clear notebook and restart
+
+⚠️ **In case you messed up somehow, execute the `reset` function. Check the [Helper Functions](#helper-functions) section above for more explanation.**
+
+```bash
+## only execute this in case of (serious) trouble ##
+## it will delete your entire beginners_git directory ##
+reset
+```
+
+## Exercise
+
 
 ### Create a Git repository from scratch
 > Hint: check the [Basic Unix Commands](Unix_Commands.md) if you don't know how to do the following.

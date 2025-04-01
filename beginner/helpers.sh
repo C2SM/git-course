@@ -7,9 +7,10 @@ else
 fi
 
 reset () {
-    echo "Go back to $dir_at_startup and restore clean working directory"
+    echo "Going back to $dir_at_startup and restore clean working directory"
     init_exercise &> /dev/null
     echo "Here we go again!"
+    pwd
 }
 
 # determine main or master for default branch name
