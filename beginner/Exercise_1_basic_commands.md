@@ -100,7 +100,7 @@ repository! You can check this with the `pwd` command.
 
 ---
 
-### Optional: clear notebook and restart
+### Optional: restart exercise repo
 
 ⚠️ **In case you messed up somehow, execute the `reset` function. Check the [Helper Functions](#helper-functions) section above for more explanation.**
 

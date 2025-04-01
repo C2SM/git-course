@@ -45,7 +45,7 @@ init_exercise
 ```
 
 ***
-### Optional: clear notebook and restart
+### Optional: restart exercise repo
 **In case you messed up your notebook completely, execute** ***reset*** **in the following cell. Check the Helper Functions section above for more explanation.**
 
 
