@@ -50,16 +50,15 @@ Having a GitHub account allows you to collaborate on open-source projects and st
 #### Instructions
 
 - [Create your own GitHub account](https://github.com/) (if not yet available)
-- [Generate an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
-- [Add your SSH key to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
-
+- [Generate an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- [Add your SSH key to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
 ### 3. Installing Python
 
 To install Python, we recommend the [instructions from Real Python](https://realpython.com/installing-python/),
 but of course many other instructions will do as well.
 
-### 5. Final check
+### 4. Final check
 Check if everything is set up correctly by following the steps below from a Linux shell.
 
 - Step 1: Download the file [check_requirements.sh](https://github.com/C2SM/git-course/blob/main/check_requirements.sh).
@@ -74,6 +73,5 @@ chmod +x ./check_requirements.sh
 ```
 ./check_requirements.sh
 ```
-
 
 **Have fun!**
