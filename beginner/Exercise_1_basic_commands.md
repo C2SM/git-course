@@ -129,14 +129,14 @@ Initialized empty Git repository in <parent-dir-of-git-course>/beginners_git/git
 ### Make and track changes in files using `git add`, `git commit` and `git status`
 
 In a next step you will add some files to your repository.  
-To do this, we will use the *echo* command in combination with the `>` operator to direct its
+To do this, we will use the `echo` command in combination with the `>` operator to direct its
 output to a file.
 
-1. Create a text file using the echo-command
+1. Create a text file using the `echo` command
 ```bash
 echo "<my text for file>" > first_file.txt
 ```
-2. Use echo and ">" again to create a second text file
+2. Use `echo` and `>` again to create a second text file
 3. Check the status of your Git repository with `git status`
 
 You should now get an output similar to:
