@@ -10,8 +10,6 @@ In this exercise, we won't be learning any new Git commands. Rather, we will rev
 
 In addition to that, we will explore a crucial aspect of Git: the *.gitignore* file. We'll learn how to create and configure this file to manage the files that Git should ignore, enhancing our typical workflow.
 
-
-
 ## Helper Functions
 The following helper functions in the file *helpers.sh* are written by C2SM and are **NOT** **part of Git**. They will set up simple repositories for you that have a short Git history, so that you have something to work with.
 
@@ -26,7 +24,7 @@ For this exercise, we will use the following functions from this file:
 
 > **Note:** The exercises require you to use basic Unix commands. If you are not familiar with Unix systems, we have listed all the necessary commands in the file [Basic Unix Commands](Unix_Commands.md).
 
-If everything is still set up from the last exercise, can continue with [this exercise](#exercise) directly.
+If everything is still set up from the last exercise, you can continue with [this exercise](#exercise) directly.
 Otherwise, please refer to the [Initialization from Exercise 1](Exercise_1_basic_commands.md#initialization).
 
 ## Exercise

@@ -51,40 +51,36 @@ git config --global init.defaultBranch main
 Now, we are ready to clone the `git-course` repository, which 
 we need for all exercises in this course.
 
-Open your terminal and check if you are in your home directory. Type:
+Open your terminal and navigate to the directory where you want to work on the Git course. Use the following command to verify your current location:
 
 ```bash
 pwd
 ```
 
-If the `pwd` command returns something like `/home/username`,
-everything is fine.
-
-If you are in another directory, you can easily switch to your home
-directory:
+If you would like to work on the Git course in your home directory, you can navigate there using the following command:
 
 ```bash
 cd ~
 ```
 
-Now we use our first Git command to clone the repository:
+If you are satisfied with your current directory, use the following command to clone the repository containing the course material:
 
 ```bash
 git clone git@github.com:C2SM/git-course.git 
 ```
 
-The `ls` command will show you that a `git-course` folder has been created.
+You can now navigate into it with
 
 ```bash
-ls
+cd git-course
 ```
 
 ## Initialization
 
-Let's switch into the `beginners` folder of our repository:
+Let's switch into the `beginner` folder of our repository:
 
 ```bash
-cd ~/git-course/beginners
+cd beginner
 ```
 
 ---
