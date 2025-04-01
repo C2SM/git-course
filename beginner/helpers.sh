@@ -15,7 +15,7 @@ reset () {
 # determine main or master for default branch name
 get_default_branch_name() {
     # Attempt to identify the default branch by querying the remote repository
-    default_branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+    default_branch=$(git symbolic-ref refs/heads/HEAD | sed 's@^refs/heads/@@')
 
     # Check if the default branch was found; if not, check local references for main, i.e., master branch
     if [ -z "$default_branch" ]; then
@@ -33,16 +33,13 @@ get_default_branch_name() {
 }
 
 init_exercise () {
-    # Save the name of the current directory
-    current_dir_name=$(basename "$(pwd)")
-
     cd $dir_at_startup
     mkdir -p ../../beginners_git
     rm -rf ../../beginners_git
     mkdir -p ../../beginners_git
     cd ../../beginners_git
     echo -e "Working directory prepared."
-    echo -e "\033[31m\033[1mYou've been moved to the 'beginners_git' directory. This is where you'll start your ${current_dir_name}.\033[0m"
+    echo -e "\033[31m\033[1mYou've been moved to the 'beginners_git' directory. This is where you start your exercise.\033[0m"
 }
 
 
@@ -51,16 +48,19 @@ init_repo_empty_schedule () {
     mkdir -p ../../beginners_git/conference_planning
     cd ../../beginners_git/conference_planning
     cp ../../git-course/beginner/examples/schedule_day1.txt conference_schedule.txt
+    echo -e "Working directory prepared."
+    echo -e "\033[31m\033[1mYou've been moved to the 'conference_planning' directory within the 'beginners_git' directory. This is where you start your exercise.\033[0m"
 }
 
 init_simple_repo () {
     cd $dir_at_startup
-    mkdir -p ../../beginners_git/conference_planning
+    rm -rf ../../beginners_git/conference_planning
+    mkdir ../../beginners_git/conference_planning
     cd ../../beginners_git/conference_planning
     git init
 
     # Dynamically get the default branch name and switch to it
-    default_branch=$(get_default_branch_name)
+    default_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
     git checkout "$default_branch"
 
     cp ../../git-course/beginner/examples/schedule_day1.txt .
@@ -86,6 +86,8 @@ init_simple_repo () {
     echo "Your schedules:"
     echo""
     ls
+
+    echo -e "\033[31m\033[1mYou've been moved to the 'conference_planning' directory within the 'beginners_git' directory. This is where you start your exercise.\033[0m"
 }
 
 init_simple_repo_remote () {
@@ -104,13 +106,6 @@ init_simple_repo_remote () {
 
     cd ../conference_planning
 
-    echo""
-    echo -e "\033[31m\033[1mYou've been automatically moved to the 'conference_planning' directory, where the 'Conference Planning' repository is ready for you to go on with your exercise.\033[0m"
-
-    echo""
-    echo "Your schedules:"
-    echo""
-    ls
 }
 
 init_repo () {
@@ -137,16 +132,19 @@ init_repo () {
     echo "Your schedules:"
     echo""
     ls
+
+    echo -e "\033[31m\033[1mYou've been moved to the 'conference_planning' directory within the 'beginners_git' directory. This is where you start your exercise.\033[0m"
 }
 
 init_repo_remote () {
     cd $dir_at_startup
-    mkdir -p ../../beginners_git/conference_planning
+    rm -rf ../../beginners_git/conference_planning
+    mkdir ../../beginners_git/conference_planning
     cd ../../beginners_git/conference_planning
     git init
 
     # Dynamically get the default branch name and switch to it
-    default_branch=$(get_default_branch_name)
+    default_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
     git checkout "$default_branch"
 
     cp ../../git-course/beginner/examples/schedule_day1.txt .
@@ -188,12 +186,11 @@ init_repo_remote () {
     cd conference_planning
 
     echo""
-    echo -e "\033[31m\033[1mYou've been automatically moved to the 'conference_planning' directory, where the 'Conference Planning' repository is ready for you to go on with your exercise.\033[0m"
-
-    echo""
     echo "Your schedules:"
     echo""
     ls
+
+    echo -e "\033[31m\033[1mYou've been moved to the 'conference_planning' directory within the 'beginners_git' directory. This is where you start your exercise.\033[0m"
 }
 
 commit_to_remote_by_third_party() {

@@ -78,23 +78,25 @@ Remember, the *.gitignore* file should be committed into your repository, so it 
 
 1. Navigate to the root of your *git-course* repository.
 
-2. Run the *check_requirements.sh* file (as you should have done as preparation for the course):
+2. Execute `ls -a` to also see the hidden Git folder. You should see the *.gitignore* file. Have a look into it.
+
+3. Run the *check_requirements.sh* file (as you should have done as preparation for the course):
 
 ```bash
 ./check_requirements.sh
 ```
 
-3. Check the status of your Git repository. You should now see the log file from running the requirement check.
+4. Check the status of your Git repository. You should now see the log file from running the requirement check.
 
 Log files are typically generated for debugging and monitoring purposes but are not meant to be part of the Git repository. Since they change frequently and can grow large, they are usually added to the *.gitignore* file to keep the repository clean and prevent unnecessary clutter.
 
-4. Add a wildcart to the *.gitignore* file to exclude all log files.
+5. Add a wildcart to the *.gitignore* file to exclude all log files.
 
-5. Check the status of *git-course* repository. Does the log file still show up?
+6. Check the status of *git-course* repository. Does the log file still show up?
 
 Use *.gitignore* whenever files clutter your Git repository, but shouldn't be committed.
 
-### Set up simple Git repository
+### Practice typical Git workflow
 
 1. First, we will set up a simple Git repository for you using one of the helper functions. It will create the directory *conference_planning* and the empty schedule *conference_schedule.txt* in and navigate you to the folder.
 
@@ -102,26 +104,20 @@ Use *.gitignore* whenever files clutter your Git repository, but shouldn't be co
 init_repo_empty_schedule
 ```
 
-2. Init the folder as a Git repository
-
-3. Execute `ls -a` to also see the hidden Git folder.
-
-### Practice typical Git workflow
-
-The following changes should be done in the *conference_planning.txt* file.
-
-1. Add a talk, coffee break, workshop to your schedule.
-2. Add and commit your changes.
-3. The workshop has been canceled and we will have a poster session instead. Adjust your document accordingly.
-4. Add and commit the changes.
+2. Initialise the folder as a Git repository.
+3. Add and commit the *conference_schedule.txt* file.
+4. Add a talk, coffee break, workshop to your schedule.
+5. Add and commit your changes.
+6. The workshop has been canceled and we will have a poster session instead. Adjust your document accordingly.
+7. Add and commit the changes.
 We continue to plan.
-5. Add a lunch break, another talk and a second poster session to the schedule and commit your changes.
-6. Check if all of your changes are really tracked by Git by checking the status und the history.
+8. Add a lunch break, another talk and a second poster session to the schedule and commit your changes.
+9. Check if all of your changes are really tracked by Git by checking the status und the history.
 
 If you don't have any untracked changes in your repository, proceed to the next part of this exercise.
 
 
-**It is late at night and your concentration is not very high...**
+### It is late at night and your concentration is not very high...
 
 1. By accident you delete all of your existing files...
 
@@ -136,7 +132,7 @@ Thanks to Git we can easily restore files, even if they are deleted.
 2. Check the Git status.
 3. Restore the deleted files
 
-**As a next step we will make changes on a different branch**
+### As a next step we will make changes on a different branch
 
 1. Create a new branch.
 2. We are not sure yet if Professor X will accept the talk in the morning, therefore change the talk to a workhop on this branch as an alternative schedule.
