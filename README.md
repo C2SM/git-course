@@ -14,7 +14,7 @@ To run this course on your computer, the following things need to be set up:
 1. [Git](#1-installing-git-on-your-computer)
 2. [SSH key linked to your GitHub account](#2-creating-a-github-account-and-ssh-key)
 3. [Python](#3-installing-python) 
-4. [Final check](#5-final-check)
+4. [Final check](#4-final-check)
 
 
 ### 1. Installing Git on your Computer
