@@ -69,6 +69,8 @@ If you are satisfied with your current directory, use the following command to c
 git clone git@github.com:C2SM/git-course.git 
 ```
 
+> **Note:** If you did not set up an SSH key linked to your GitHub account, you will have to use `https://github.com/C2SM/git-course.git` instead for cloning the repository.
+
 You can now navigate into it with
 
 ```bash
