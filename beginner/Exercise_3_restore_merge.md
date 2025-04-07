@@ -78,7 +78,7 @@ Each *commit hash* is unique, so you can always go to any version of the tracked
 
 Your output should look similar to:
 ```
-b7bd111 (HEAD -> main) Remove workshop on day1
+b7bd111 (HEAD -> main) Remove workshop on day 1
 f6c3f04 Change talks back to poster sessions
 5889296 Change poster sessions to talks
 464fc92 Add workshop
@@ -86,11 +86,6 @@ e53b1e0 Add coffee break
 f1b23c1 Add poster sessions in the morning
 f636890 Add schedule_day2
 206f724 Add schedule_day1
-1c1e740 Changed poster sessions to talks
-154f0dc Add coffee break
-a98abe7 Add poster sessions in the morning
-ca117ca Add schedule_day2
-b82e094 Add schedule_day1
 ```
 
 
@@ -104,7 +99,7 @@ There are two sections in *schedule_day1.txt*, which we will change on separate 
 
 1. Switch to a new branch for the evening activity.
 
-2. Open the schedules add evening activities.
+2. Open the schedules and add evening activities.
 
 3. Add and commit the changes.
 
@@ -156,16 +151,16 @@ For this merge, Git performs what is called a **3-way merge**, because the path 
 Your Git log looks like the following:
 ```
 c0d0459 (HEAD -> main) Merge daily_program
-b1be3b4 (daily_program) Add talk
-4d93eac (evening_activity) Add evening activity
-dd09add No more workshop
-cc345c6 Revert poster sessions
-ebc8d06 Change poster sessions to talks
-56c65e8 Add workshops
-e0ced97 Add coffee break
-90b9b5e Add poster sessions in the morning
-2a00ec0 Add schedule_day2
-20be4d2 Add schedule_day1
+b1be3b4 (daily_program) Add talks
+4d93eac Add evening activities
+b7bd111 Remove workshop on day 1
+f6c3f04 Change talks back to poster sessions
+5889296 Change poster sessions to talks
+464fc92 Add workshop
+e53b1e0 Add coffee break
+f1b23c1 Add poster sessions in the morning
+f636890 Add schedule_day2
+206f724 Add schedule_day1
 ```
 
 13. Again, make sure to delete the branch you just merged.
