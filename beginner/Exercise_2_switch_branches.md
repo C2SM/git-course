@@ -86,7 +86,7 @@ git branch
 ```
 
 We can easily switch between these branches using the `git switch` command.
-Don't worry -> Git will keep all your work done on that branch.
+Don't worry -> Git will keep all your committed work on that branch.
 
 5. Switch back to *main* branch:
 ```bash
