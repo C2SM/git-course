@@ -35,7 +35,6 @@ get_default_branch_name() {
 
 init_exercise () {
     cd $dir_at_startup
-    mkdir -p ../../beginners_git
     rm -rf ../../beginners_git
     mkdir -p ../../beginners_git
     cd ../../beginners_git
