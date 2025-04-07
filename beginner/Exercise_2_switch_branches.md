@@ -3,7 +3,7 @@
 ## Objective
 
    * Learn how to work with branches and switch between them using `git switch`.
-   * Note: `git checkout` can be used as an alternative to `git switch`. However, it has different features that have caused confusion among users in the past. So we won't use it here, but show the alternative commands in brackets, as some older Git versions don't have this option yet.
+   > **Note**: `git checkout` can be used as an alternative to `git switch`. However, it has different features that have caused confusion among users in the past. So we won't use it here, but show the alternative commands in brackets, as some older Git versions don't have this option yet.
 
 ## Structure
 
@@ -86,7 +86,7 @@ git branch
 ```
 
 We can easily switch between these branches using the `git switch` command.
-Don't worry -> Git will keep all your work done on that branch.
+Don't worry -> Git will keep all your committed work on that branch.
 
 5. Switch back to *main* branch:
 ```bash

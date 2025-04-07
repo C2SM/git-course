@@ -59,7 +59,7 @@ Remember, the *.gitignore* file should be committed into your repository, so it 
 
 Log files are typically generated for debugging and monitoring purposes but are not meant to be part of the Git repository. Since they change frequently and can grow large, they are usually added to the *.gitignore* file to keep the repository clean and prevent unnecessary clutter.
 
-5. Add a wildcart to the *.gitignore* file to exclude all log files.
+5. Add a wildcard to the *.gitignore* file to exclude all log files.
 
 6. Check the status of *git-course* repository. Does the log file still show up?
 
@@ -81,7 +81,7 @@ init_repo_empty_schedule
 7. Add and commit the changes.
 We continue to plan.
 8. Add a lunch break, another talk and a second poster session to the schedule and commit your changes.
-9. Check if all of your changes are really tracked by Git by checking the status und the history.
+9. Check if all of your changes are really tracked by Git by checking the status and the history.
 
 If you don't have any untracked changes in your repository, proceed to the next part of this exercise.
 
@@ -106,7 +106,7 @@ Thanks to Git we can easily restore files, even if they are deleted.
 1. Create a new branch.
 2. We are not sure yet if Professor X will accept the talk in the morning, therefore change the talk to a workhop on this branch as an alternative schedule.
 3. Add and commit your changes.
-4. No switch back to branch *main* and create another branch on top of it.
+4. Now switch back to branch *main* and create another branch on top of it.
 
 We want to plan an evening activity but are not sure what it will be. Therefore, we create two branches with different activities.
 
@@ -141,6 +141,7 @@ Decide which one you prefer.
 12. Delete the merge branch.
 
 There is one unused branch left in our repository.
+
 13. We want to keep the repository clean and nice. So please delete the unmerged branch as well.
 
 **Remark:** Since we did not merge the remaining branch, it has to be done differently before. But don't worry, Git will tell you what to do.

@@ -35,7 +35,6 @@ get_default_branch_name() {
 
 init_exercise () {
     cd $dir_at_startup
-    mkdir -p ../../beginners_git
     rm -rf ../../beginners_git
     mkdir -p ../../beginners_git
     cd ../../beginners_git
@@ -56,7 +55,7 @@ init_repo_empty_schedule () {
 init_simple_repo () {
     cd $dir_at_startup
     rm -rf ../../beginners_git/conference_planning
-    mkdir ../../beginners_git/conference_planning
+    mkdir -p ../../beginners_git/conference_planning
     cd ../../beginners_git/conference_planning
     git init
 
@@ -140,7 +139,7 @@ init_repo () {
 init_repo_remote () {
     cd $dir_at_startup
     rm -rf ../../beginners_git/conference_planning
-    mkdir ../../beginners_git/conference_planning
+    mkdir -p ../../beginners_git/conference_planning
     cd ../../beginners_git/conference_planning
     git init
 
