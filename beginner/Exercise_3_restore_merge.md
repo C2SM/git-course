@@ -53,7 +53,7 @@ We can use `git restore` to get any version of a file along its Git history.
 
 Just run `git restore -s <specific_commit_hash> <your_schedule>`.
 
-**Note**: 
+> **Note**:
 For simplicity, we've used the `-s` option in the `git restore` command. Note that `-s` is a shorthand for `--source`, which you can also use interchangeably. The primary difference lies in the syntax: use `-s <commit_hash>` for a shorter command, or `--source=<commit_hash>` if you prefer a more explicit approach. Both options perform the same function: specifying the source from which to restore. Whether you prefer `-s` for brevity or `--source` for clarity is up to you.
 
 2. Undo "Change poster sessions to talks" by restoring the *schedule_day1.txt* to the commit before the change.
@@ -100,7 +100,7 @@ There are two sections in *schedule_day1.txt*, which we will change on separate 
    * *daily_program*
    * *evening_activity*
    
-Note: Try to avoid merge conflicts by not changing the same part of a file in two branches you want to merge (usually the *main* branch and a branch you want to merge into the *main* branch). There are, of course, ways to deal with merge conflicts, and we will learn how to deal with them later in this course, but for now we will try to avoid them. If you follow the descriptions below, you should not run into a merge conflict.
+> **Note**: Try to avoid merge conflicts by not changing the same part of a file in two branches you want to merge (usually the *main* branch and a branch you want to merge into the *main* branch). There are, of course, ways to deal with merge conflicts, and we will learn how to deal with them later in this course, but for now we will try to avoid them. If you follow the descriptions below, you should not run into a merge conflict.
 
 1. Switch to a new branch for the evening activity.
 
