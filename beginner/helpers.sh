@@ -55,7 +55,7 @@ init_repo_empty_schedule () {
 init_simple_repo () {
     cd $dir_at_startup
     rm -rf ../../beginners_git/conference_planning
-    mkdir ../../beginners_git/conference_planning
+    mkdir -p ../../beginners_git/conference_planning
     cd ../../beginners_git/conference_planning
     git init
 
@@ -139,7 +139,7 @@ init_repo () {
 init_repo_remote () {
     cd $dir_at_startup
     rm -rf ../../beginners_git/conference_planning
-    mkdir ../../beginners_git/conference_planning
+    mkdir -p ../../beginners_git/conference_planning
     cd ../../beginners_git/conference_planning
     git init
 
