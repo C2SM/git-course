@@ -90,6 +90,7 @@ init_simple_repo () {
 init_simple_repo_remote () {
     init_simple_repo &> /dev/null
     cd ..
+    rm -rf conference_planning_remote
     git clone conference_planning conference_planning_remote
     cd conference_planning_remote
     git checkout -b "updated_schedules"
