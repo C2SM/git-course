@@ -45,6 +45,7 @@ init_exercise () {
 
 init_repo_empty_schedule () {
     cd $dir_at_startup
+    rm -rf ../../beginners_git/conference_planning
     mkdir -p ../../beginners_git/conference_planning
     cd ../../beginners_git/conference_planning
     cp ../../git-course/beginner/examples/schedule_day1.txt conference_schedule.txt
@@ -59,14 +60,10 @@ init_simple_repo () {
     cd ../../beginners_git/conference_planning
     git init
 
-    # Dynamically get the default branch name and switch to it
-    default_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
-    git checkout "$default_branch"
-
     cp ../../git-course/beginner/examples/schedule_day1.txt .
     cp ../../git-course/beginner/examples/schedule_day2.txt .
 
-    git add schedule_day1.txt .gitignore && git commit -m "Add schedule_day1"
+    git add schedule_day1.txt && git commit -m "Add schedule_day1"
     git add schedule_day2.txt && git commit -m "Add schedule_day2"
 
     printf "/program/\na\n09:00-11:00: Poster session\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
@@ -143,13 +140,9 @@ init_repo_remote () {
     cd ../../beginners_git/conference_planning
     git init
 
-    # Dynamically get the default branch name and switch to it
-    default_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
-    git checkout "$default_branch"
-
     cp ../../git-course/beginner/examples/schedule_day1.txt .
 
-    git add schedule_day1.txt .gitignore && git commit -m "Add schedule_day1"
+    git add schedule_day1.txt && git commit -m "Add schedule_day1"
 
     # Edit schedule_day1.txt
     printf "/program/\na\n09:00-11:00: Poster session\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
