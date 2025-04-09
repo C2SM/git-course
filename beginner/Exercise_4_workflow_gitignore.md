@@ -106,22 +106,22 @@ Thanks to Git we can easily restore files, even if they are deleted.
 1. Create a new branch.
 2. We are not sure yet if Professor X will accept the talk in the morning, therefore change the talk to a workhop on this branch as an alternative schedule.
 3. Add and commit your changes.
-4. Now switch back to branch *main* and create another branch on top of it.
+4. Now switch back to branch *main*.
 
-We want to plan an evening activity but are not sure what it will be. Therefore, we create two branches with different activities.
+We want to plan an evening activity, but we are not sure what it will be. Therefore, we create two branches with different activities.
 
 5. Create a new branch and add an evening activity.
 6. Add and commit the change.
 
-7. Switch to branch *main* and create another branch on top of it, to add an alternative evening activity.
+7. Switch to branch *main* and create another branch on top of it to add an alternative evening activity.
 
 It's time to get an overview of what we just did.
 
 Our repository should currently have four branches (names may be different for your case):
    * *main* (base version of all subsequent branches)
    * *alternative_talk* (workshop instead of talk)
-   * *evening_activity* (First planned activity)
-   * *evening_activity_alternative* (Alternative activity)
+   * *evening_activity* (first planned activity)
+   * *evening_activity_alternative* (alternative activity)
    
 8. Ensure your repository contains the same amount of different branches by displaying the available branches.
 
