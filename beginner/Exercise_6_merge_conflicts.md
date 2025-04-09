@@ -48,15 +48,12 @@ Let's make a change in the schedule and commit it.
 
 Let's add the remote repository to our local repository as we did in the previous exercise.
 
-The setup script has already created one for you at: 
+The setup script has already created one for you at. It is located at `../conference_planning_remote`.
+Use this location as the *remote_path* to the remote repository:
 
-**../conference_planning_remote**
+1. Add the remote to your repository (`git remote add <my_remote_name> <remote_path>`)
 
-Use the above line as the *remote_path* to the remote repository.
-
-1. Add the remote to your repository (`git remote add <some_remote_name> <remote_path>`)
-
-2. Get information from remote branch with `git fetch <my_remote>`.
+2. Get information from the remote branch with `git fetch <my_remote_name>`.
 
 3. Check which branches are available on the remote (`git branch -a`).
 
@@ -73,7 +70,6 @@ We have decided to use the schedule on the *updated_schedules* branch. So we wan
 1. Switch to *main* branch.
 2. Merge the *updated_schedules* branch into the *main* branch.
 
-### Solve merge conflict
 If you've done everything "right", something went "wrong" and the output should look like this:
 
 ```
@@ -81,7 +77,18 @@ CONFLICT (content): Merge conflict in schedule_day1.txt
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-It looks like we ran into a merge conflict. This happened because we made changes on the *main* branch and the *updated_schedules* branch at the same part of the file. Git doesn't know which changes it should accept. Let's see how to fix this. 
+It looks like we ran into a merge conflict. This happened because we made changes on the *main* branch and the *updated_schedules* branch at the same part of the file. Git doesn't know which changes it should accept. In principle, we have two options: 1) Abort the merge conflict and go back to the original state or 2) Solve the merge conflict. Let's first have a look how to abort a merge conflict.
+
+### Abort merge conflict
+
+If you are afraid that everything is screwed up and you don't know what to do, let's abort the merge and everything will be back to where it was before you tried to merge.
+
+1. Abort the merge with `git merge --abort`.
+2. Check the status of your repository and the content of the *schedule_day1.txt* file.
+
+### Solve merge conflict
+
+1. Create the same merge conflict again by trying to merge the *updated_schedules* branch into the *main* branch.
 
 Have a look at the file *schedule_day1.txt*. You will see something like this:
 
@@ -95,67 +102,36 @@ Have a look at the file *schedule_day1.txt*. You will see something like this:
 
 The top line is the HEAD, referring to the branch you are currently on (here *main*), and the second line refers to the branch you wanted to merge (here *updated_schedules*).
 
-Here are two ways to resolve a merge conflict:
+In the following, there are two ways to resolve a merge conflict. Read through them first and then decide how you want to solve the merge conflict.
 
-1. **Adjust the file directly:**
+#### 1. Adjust the file directly
 
-    * Edit the file to resolve the conflict: You can adjust the file directly and delete the lines, which were added by the merge conflict except the lines you want to keep. Now the merge conflict is resolved.
+* Edit the file to resolve the conflict: You can adjust the file directly and delete the lines, which were added by the merge conflict except the lines you want to keep. Now the merge conflict is resolved.
 
-    * Add your changes: Use `git add` to stage the resolved changes within _schedule_day1.txt_.
+* Add your changes: Use `git add` to stage the resolved changes within _schedule_day1.txt_.
 
-    * Commit your changes:  Commiting your changes will finalize the merge process that was interrupted by the conflict.
+* Commit your changes:  Commiting your changes will finalize the merge process that was interrupted by the conflict.
 
-2. **Simplifying Conflict Resolution with `git restore`**
+#### 2. Simplifying Conflict Resolution with `git restore`
 
-   Sometimes, you'll find that the entire version of the file from one branch is preferred over the other. In such cases, you can bypass manual edits by leveraging `git restore` to quickly choose between the version on your current branch (HEAD, referred to as _ours_) and the version from the branch you're merging from (_theirs_).
+Sometimes, you'll find that the entire version of the file from one branch is preferred over the other. In such cases, you can bypass manual edits by leveraging `git restore` to quickly choose between the version on your current branch (HEAD, referred to as _ours_) and the version from the branch you're merging from (_theirs_).
 
-   * To adopt the version from your current branch (HEAD), use the command:  
-     ```git restore schedule_day1.txt --ours```
-     
-   * Conversely, to accept the version from the merging branch, switch to:  
-     ```git restore schedule_day1.txt --theirs```
-    
-    These commands replace the conflicted file in your working directory with the selected version. It's important to understand that `git restore` directly overwrites the file content, so use it when you're certain of wanting to keep only one branch's changes.
+* To adopt the version from your current branch (HEAD), use the command:  
+  ```git restore schedule_day1.txt --ours```
+  
+* Conversely, to accept the version from the merging branch, switch to:  
+  ```git restore schedule_day1.txt --theirs```
 
-   After restoring the file:
+These commands replace the conflicted file in your working directory with the selected version. It's important to understand that `git restore` directly overwrites the file content, so use it when you're certain of wanting to keep only one branch's changes.
 
-     * Add your changes: Use `git add` to stage the resolved file within _schedule_day1.txt_.
+After restoring the file:
 
-     * Commit your changes:  Commiting your changes will finalize the merge process that was interrupted by the conflict.
+  * Add your changes: Use `git add` to stage the resolved file within _schedule_day1.txt_.
+
+  * Commit your changes:  Commiting your changes will finalize the merge process that was interrupted by the conflict.
 
 
-**Important note when dealing with merge conflicts**: After resolving the conflict, **no new merge command is required**. The original merge operation was paused, not stopped, when the conflict was detected. By resolving the conflict and committing the changes, you are completing the paused merge process.
-
-**Abort merge**:
-
-If you're afraid that everything is screwed up and you don't know what to do, just run ```git merge --abort``` and everything will be back to where it was before you tried to merge.
-
-Let's deal with the merge conflict!
-
-### Abort merge
-
-1. Abort the merge.
-
-### Adjust the file directly to resolve conflict
-1. Create the same merge conflict again by trying to merge the *updated_schedules* branch into the *main* branch.
-
-2. Now go to the file and select the version you want. To do this, remove all of the conflict markers from the file (*<<<<<<< HEAD, =======*, *>>>>>>> updated_schedules*) and the lines belonging to *HEAD* or the merging branch (*updated_schedules*) depending on which solution you want to keep.
-
-3. Stage the file with `git add` to tell Git that the conflicts have been resolved. Note that Git does not check the file for conflict tags; it trusts you that you to have removed them all, so you need to be sure.
-
-4. Finalize the merge by running `git commit`.
-
-### Restore preferred version from command line
-First, we need to create a new conflict. To do this, go to the *main* and *updated_schedules* branches, respectively, and make different changes on the SAME line. Don't forget to commit the changes before switching between the branches.
-
-1. Switch to the *updated_schedules* branch and make a change to the file.
-2. Add and commit the change and switch back to the *main* branch.
-3. Make a change to the SAME line of the file as you did on the *updated_schedules* branch.
-4. Add and commit your changes.
-5. Try to merge the *updated_schedules* branch into the *main* branch.
-6. Solve the merge conflict with `git restore schedule_day1.txt --theirs/ours` (choose your preferred version).
-7. Add your solution to the merge.
-8. Finalize merge by committing.
+ > **Important note when dealing with merge conflicts**: After resolving the conflict, **no new merge command is required**. The original merge operation was paused, not stopped, when the conflict was detected. By resolving the conflict and committing the changes, you are completing the paused merge process.
 
 ### Merge conflict when trying to pull remote branch
 We will now learn how to deal with another type of merge conflict that can easily occur when working with remote branches that other people are working on at the same time.
