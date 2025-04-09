@@ -16,7 +16,7 @@ reset () {
 # determine main or master for default branch name
 get_default_branch_name() {
     # Attempt to identify the default branch by querying the remote repository
-    default_branch=$(git symbolic-ref refs/heads/HEAD | sed 's@^refs/heads/@@')
+    default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
 
     # Check if the default branch was found; if not, check local references for main, i.e., master branch
     if [ -z "$default_branch" ]; then
