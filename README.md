@@ -52,7 +52,7 @@ Having a GitHub account allows you to collaborate on open-source projects and st
 Only the section under the corresponding header is relevant to you in the following links.
 
 - [Create your own GitHub account](https://github.com/signup) (if not yet available)
-- [Generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux#generating-a-new-ssh-key)
+- [Generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux#generating-a-new-ssh-key) (leave the passphrase emtpy)
 - [Adding a new SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=linux#adding-a-new-ssh-key-to-your-account)
 
 ### 3. Installing Python
