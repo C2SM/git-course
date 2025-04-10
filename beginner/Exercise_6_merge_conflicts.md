@@ -102,7 +102,7 @@ Have a look at the file *schedule_day1.txt*. You will see something like this:
 
 The top line is the HEAD, referring to the branch you are currently on (here *main*), and the second line refers to the branch you wanted to merge (here *updated_schedules*).
 
-In the following, there are two ways to resolve a merge conflict. Read through them first and then decide how you want to solve the merge conflict.
+2. In the following, there are two ways to resolve a merge conflict. Read through them first and then decide how you want to solve the merge conflict.
 
 #### 1. Adjust the file directly
 
@@ -132,6 +132,12 @@ After restoring the file:
 
 
  > **Important note when dealing with merge conflicts**: After resolving the conflict, **no new merge command is required**. The original merge operation was paused, not stopped, when the conflict was detected. By resolving the conflict and committing the changes, you are completing the paused merge process.
+
+### Solve merge conflict with second option
+1. Create a new merge conflict: Go to the *main* and *updated_schedules* branches, respectively, and make different changes on the SAME line. Don't forget to commit the changes before switching between the branches.
+
+2. Now resolve the merge conflict using the alternative method you haven't tried yet.
+
 
 ### Merge conflict when trying to pull remote branch
 We will now learn how to deal with another type of merge conflict that can easily occur when working with remote branches that other people are working on at the same time.
