@@ -16,7 +16,7 @@ reset () {
 # determine main or master for default branch name
 get_default_branch_name() {
     # Attempt to identify the default branch by querying the remote repository
-    default_branch=$(git symbolic-ref refs/heads/HEAD | sed 's@^refs/heads/@@')
+    default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
 
     # Check if the default branch was found; if not, check local references for main, i.e., master branch
     if [ -z "$default_branch" ]; then
@@ -45,6 +45,7 @@ init_exercise () {
 
 init_repo_empty_schedule () {
     cd $dir_at_startup
+    rm -rf ../../beginners_git/conference_planning
     mkdir -p ../../beginners_git/conference_planning
     cd ../../beginners_git/conference_planning
     cp ../../git-course/beginner/examples/schedule_day1.txt conference_schedule.txt
@@ -59,14 +60,10 @@ init_simple_repo () {
     cd ../../beginners_git/conference_planning
     git init
 
-    # Dynamically get the default branch name and switch to it
-    default_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
-    git checkout "$default_branch"
-
     cp ../../git-course/beginner/examples/schedule_day1.txt .
     cp ../../git-course/beginner/examples/schedule_day2.txt .
 
-    git add schedule_day1.txt .gitignore && git commit -m "Add schedule_day1"
+    git add schedule_day1.txt && git commit -m "Add schedule_day1"
     git add schedule_day2.txt && git commit -m "Add schedule_day2"
 
     printf "/program/\na\n09:00-11:00: Poster session\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
@@ -93,6 +90,7 @@ init_simple_repo () {
 init_simple_repo_remote () {
     init_simple_repo &> /dev/null
     cd ..
+    rm -rf conference_planning_remote
     git clone conference_planning conference_planning_remote
     cd conference_planning_remote
     git checkout -b "updated_schedules"
@@ -143,13 +141,9 @@ init_repo_remote () {
     cd ../../beginners_git/conference_planning
     git init
 
-    # Dynamically get the default branch name and switch to it
-    default_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
-    git checkout "$default_branch"
-
     cp ../../git-course/beginner/examples/schedule_day1.txt .
 
-    git add schedule_day1.txt .gitignore && git commit -m "Add schedule_day1"
+    git add schedule_day1.txt && git commit -m "Add schedule_day1"
 
     # Edit schedule_day1.txt
     printf "/program/\na\n09:00-11:00: Poster session\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
