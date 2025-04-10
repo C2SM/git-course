@@ -49,10 +49,11 @@ Having a GitHub account allows you to collaborate on open-source projects and st
 
 #### Instructions
 
-- [Create your own GitHub account](https://github.com/) (if not yet available)
-- [Generate an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-- [Add your SSH key to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+In the following links, switch the tab at the top of the page to match your system, if you are not using Windows. Only the section under the corresponding header is relevant to you.
 
+- [Create your own GitHub account](https://github.com/) (if not yet available)
+- [Generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
+- [Adding a new SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows#adding-a-new-ssh-key-to-your-account)
 ### 3. Installing Python
 
 To install Python, we recommend the [instructions from Real Python](https://realpython.com/installing-python/),
