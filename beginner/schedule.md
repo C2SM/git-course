@@ -4,17 +4,17 @@
 
 | Description               | Presenter | Extent          | Time est. | Time needed ('22, '23, '24) | Start time | End time |
 | ------------------------- | --------- | --------------- | --------- | --------------------------- | ---------- | -------- |
-| Part 1 - Slides           | AL        | 15 slides       | 20'       | 13', 20', 20', 11'          | 09:30      | 09:50    |
-| Part 1 - Exercise         | -         | 299 lines       | 35'       | 26', 33', 45'               | 09:50      | 10:25    |
-| Part 2 - Slides           | AL        | 5 slides        | 5'        | 1', 4', 5'                  | 10:25      | 10:30    |
-| Part 2 - Exercise         | -         | 211 lines       | 25'       | 25', 17', 20'               | 10:30      | 10:55    |
-| Coffee break              | -         | 1 coffee        | 15'       | 10', 15', 17'               | 10:55      | 11:10    |
-| Part 3 + 4 - Slides       | AL        | 12 slides       | 5'        | 4', 6', 11'                 | 11:10      | 11:15    |
-| Part 3 + 4 Exercises      | -         | 312 + 321 lines | 45'       | 26', 26', 34'               | 11:15      | 12:00    |
+| Part 1 - Slides           | AL        | 15 slides       | 20'       | 13', 20', 20', 11'          | 09:33      | 09:44    |
+| Part 1 - Exercise         | -         | 299 lines       | 35'       | 26', 33', 45', 46           | 09:44      | 10:20    |
+| Part 2 - Slides           | AL        | 5 slides        | 5'        | 1', 4', 5', 5'              | 10:20      | 10:25    |
+| Part 2 - Exercise         | -         | 211 lines       | 25'       | 25', 17', 20', 44'          | 10:25      | 11:09    |
+| Coffee break              | -         | 1 coffee        | 15'       | 10', 15', 17', 16'          | 11:09      | 11:25    |
+| Part 3 + 4 - Slides       | MS        | 12 slides       | 5'        | 4', 6', 11', 13'            | 11:25      | 11:38    |
+| Part 3 + 4 Exercises      | -         | 312 + 321 lines | 45'       | 26', 26', 34', 24'          | 11:38      | 12:00    |
 | Lunch break               | -         | 1 meal          | 60'       | -, -, 68'                   | 12:00      | 13:00    |
-| Part 5 - Slides           | AL        | 8 slides        | 10'       | 10', 6', 5'                 | 13:00      | 13:10    |
-| Part 5 - Exercise         | -         | 189 lines       | 30'       | 13', 27', 17'               | 13:10      | 13:40    |
-| Part 6 - Slides           | AL        | 6 slides        | 5'        | 6', 5', 4'                  | 13:40      | 13:45    |
+| Part 5 - Slides           | MS        | 8 slides        | 10'       | 10', 6', 5'                 | 13:00      | 13:      |
+| Part 5 - Exercise         | -         | 189 lines       | 30'       | 13', 27', 17'               | 13:      | 13:40    |
+| Part 6 - Slides           | MJ        | 6 slides        | 5'        | 6', 5', 4'                  | 13:40      | 13:45    |
 | Part 6 - Exercise         | -         | 372 lines       | 25'       | 23', 22' (n/f), 41'         | 13:45      | 14:10    |
 | Part 7 - Slides           | MJ        | 6 slides        | 10'       | 11', 7', 10'                | 14:10      | 14:20    |
 | Part 7 - Exercise         | -         | 194 lines       | 40'       | 32', 29', 35'               | 14:20      | 15:00    |
