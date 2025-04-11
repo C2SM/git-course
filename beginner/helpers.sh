@@ -66,16 +66,12 @@ init_simple_repo () {
     git add schedule_day1.txt && git commit -m "Add schedule_day1"
     git add schedule_day2.txt && git commit -m "Add schedule_day2"
 
-    #printf "/program/\na\n09:00-11:00: Poster session\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
-    #printf "/program/\na\n09:00-11:00: Poster session\n.\nw\nq\n" | ed -s schedule_day2.txt > /dev/null
     sed -i '/program/a 09:00-11:00: Poster session' schedule_day1.txt > /dev/null
     sed -i '/program/a 09:00-11:00: Poster session' schedule_day2.txt > /dev/null
     git add * && git commit -m "Add poster sessions in the morning"
 
     sed -i '/session/a 11:00-11:15: Coffee break' schedule_day1.txt > /dev/null
     sed -i '/session/a 11:00-11:15: Coffee break' schedule_day2.txt > /dev/null
-    #printf "/session/\na\n11:00-11:15: Coffee break\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
-    #printf "/session/\na\n11:00-11:15: Coffee break\n.\nw\nq\n" | ed -s schedule_day2.txt > /dev/null
     git add * && git commit -m "Add coffee break"
 
     echo ""
@@ -100,8 +96,6 @@ init_simple_repo_remote () {
     git checkout -b "updated_schedules"
     sed -i '/break/a 11:15-12:15: Talk professor A.' schedule_day1.txt > /dev/null
     sed -i '/break/a 11:15-12:15: Talk professor B.' schedule_day2.txt > /dev/null
-    #printf "/break/\na\n11:15-12:15: Talk professor A.\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
-    #printf "/break/\na\n11:15-12:15: Talk professor B.\n.\nw\nq\n" | ed -s schedule_day2.txt > /dev/null
     git add * && git commit -m "update schedules"
 
     # Dynamically get the default branch name and switch to it
@@ -117,8 +111,6 @@ init_repo () {
 
     sed -i '/break/a 11:15-12:15: Workshop ice crystal formation' schedule_day1.txt > /dev/null
     sed -i '/break/a 11:15-12:15: Workshop secondary ice' schedule_day2.txt > /dev/null
-    #printf "/break/\na\n11:15-12:15: Workshop ice crystal formation\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
-    #printf "/break/\na\n11:15-12:15: Workshop secondary ice\n.\nw\nq\n" | ed -s schedule_day2.txt > /dev/null
     git add * && git commit -m "Add workshops"
 
     sed  's/Poster session/Talk professor C./g' schedule_day1.txt > schedule_day1_tmp.txt
@@ -155,15 +147,12 @@ init_repo_remote () {
 
     # Edit schedule_day1.txt
     sed -i '/program/a 09:00-11:00: Poster session' schedule_day1.txt > /dev/null
-    #printf "/program/\na\n09:00-11:00: Poster session\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
     git add * && git commit -m "Add poster sessions in the morning"
 
     sed -i '/session/a 11:00-11:15: Coffee break' schedule_day1.txt > /dev/null
-    #printf "/session/\na\n11:00-11:15: Coffee break\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
     git add * && git commit -m "Add coffee breaks"
 
     sed -i "/break/a 11:15-12:15: Talk professor A.\n12:15-13:30: Lunch\n13:30-15:00: Workshop\n15:00-16:00: Talk professor B." schedule_day1.txt > /dev/null
-    #printf "/break/\na\n11:15-12:15: Talk professor A.\n12:15-13:30: Lunch\n13:30-15:00: Workshop\n15:00-16:00: Talk professor B.\n.\nw\nq\n" | ed -s schedule_day1.txt > /dev/null
     git add * && git commit -m "Add rest of daily program"
 
     cd ..
