@@ -12,12 +12,13 @@
 | Part 3 + 4 - Slides       | MS        | 12 slides       | 5'        | 4', 6', 11', 13'            | 11:25      | 11:38    |
 | Part 3 + 4 Exercises      | -         | 312 + 321 lines | 45'       | 26', 26', 34', 24'          | 11:38      | 12:00    |
 | Lunch break               | -         | 1 meal          | 60'       | -, -, 68'                   | 12:00      | 13:00    |
-| Part 5 - Slides           | MS        | 8 slides        | 10'       | 10', 6', 5'                 | 13:00      | 13:      |
-| Part 5 - Exercise         | -         | 189 lines       | 30'       | 13', 27', 17'               | 13:      | 13:40    |
-| Part 6 - Slides           | MJ        | 6 slides        | 5'        | 6', 5', 4'                  | 13:40      | 13:45    |
-| Part 6 - Exercise         | -         | 372 lines       | 25'       | 23', 22' (n/f), 41'         | 13:45      | 14:10    |
-| Part 7 - Slides           | MJ        | 6 slides        | 10'       | 11', 7', 10'                | 14:10      | 14:20    |
-| Part 7 - Exercise         | -         | 194 lines       | 40'       | 32', 29', 35'               | 14:20      | 15:00    |
+| Part 3 + 4 Exercises continue | -     | 312 + 321 lines | 45'       | 26', 26', 34', 24'          | 13:00      | 13:18    |
+| Part 5 - Slides           | MS        | 8 slides        | 10'       | 10', 6', 5'                 | 13:18      | 13:27    |
+| Part 5 - Exercise         | -         | 189 lines       | 30'       | 13', 27', 17'               | 13:27      | 13:51    |
+| Part 6 - Slides           | MJ        | 6 slides        | 5'        | 6', 5', 4'                  | 13:51      | 13:57    |
+| Part 6 - Exercise         | -         | 372 lines       | 25'       | 23', 22' (n/f), 41'         | 13:57      | 14:25    |
+| Part 7 - Slides           | MJ        | 6 slides        | 10'       | 11', 7', 10'                | 14:25      | 14:36    |
+| Part 7 - Exercise         | -         | 194 lines       | 40'       | 32', 29', 35'               | 14:36      | 15:00    |
 
 
 
