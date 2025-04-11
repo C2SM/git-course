@@ -4,7 +4,7 @@
 
 | Description               | Presenter | Extent          | Time est. | Time needed ('22, '23, '24) | Start time | End time |
 | ------------------------- | --------- | --------------- | --------- | --------------------------- | ---------- | -------- |
-| Part 1 - Slides           | MJ        | 15 slides       | 20'       | 13', 20', 20'               | 09:30      | 09:50    |
+| Part 1 - Slides           | AL        | 15 slides       | 20'       | 13', 20', 20', 11'          | 09:30      | 09:50    |
 | Part 1 - Exercise         | -         | 299 lines       | 35'       | 26', 33', 45'               | 09:50      | 10:25    |
 | Part 2 - Slides           | AL        | 5 slides        | 5'        | 1', 4', 5'                  | 10:25      | 10:30    |
 | Part 2 - Exercise         | -         | 211 lines       | 25'       | 25', 17', 20'               | 10:30      | 10:55    |
