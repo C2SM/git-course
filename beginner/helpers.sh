@@ -158,6 +158,7 @@ init_repo_remote () {
     cd ..
 
     # Clone non-bare remote repository
+    rm -rf conference_planning_remote_tmp
     git clone conference_planning conference_planning_remote_tmp
 
     # Navigate into the cloned repository directory and create update_schedules branch
@@ -174,6 +175,7 @@ init_repo_remote () {
     cd ../
 
     # Clone bare remote repository and remove non-bare repository
+    rm -rf conference_planning_remote
     git clone --bare conference_planning_remote_tmp conference_planning_remote
     rm -fr conference_planning_remote_tmp
 
@@ -191,6 +193,7 @@ commit_to_remote_by_third_party() {
     cd $dir_at_startup
     cd ../../beginners_git
 
+    rm -rf conference_planning_remote_tmp
     git clone conference_planning_remote conference_planning_remote_tmp
 
     cd conference_planning_remote_tmp
@@ -207,7 +210,7 @@ commit_to_remote_by_third_party() {
     git checkout "$default_branch"
 
     cd ..
-    rm -fr conference_planning_remote
+    rm -rf conference_planning_remote
     git clone --bare conference_planning_remote_tmp conference_planning_remote
     rm -rf conference_planning_remote_tmp
 
