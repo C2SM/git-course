@@ -129,7 +129,7 @@ The default behavior of `git diff` is to show all uncommited changes since the l
 git diff
 ```
 
-Now, let's add and commit the change you made. Remember to write a meaningful commit message. Note that the `-a` option to the `git commit` command allows us to add any changed files to the staging area without having to use the `git add` command separately.
+Now, let's add and commit the change you made. Remember to write a meaningful commit message. Note that the `-a` option to the `git commit` command allows us to add all changed files to the staging area without having to use the `git add` command separately.
 
 ```plaintext
 git commit -am "Type your commit message here"
@@ -147,7 +147,7 @@ You can also output the difference between a given file in two different branche
 git diff main difftest ./README.md
 ```
 
-Now let's use `git diff` to compare the difference between two commits. Use `git log` to get two commit IDs, and then pass the two commit IDs as arguments to `git diff`.
+Now let's use `git diff` to compare the difference between two commits. Use `git log` (or `git lg` if you created a useful alias before) to get two commit IDs, and then pass the two commit IDs as arguments to `git diff`.
 
 ```plaintext
 git log
@@ -177,8 +177,7 @@ Choose one of the tools installed on your system, and try `git difftool`. Use th
 git difftool -t vimdiff 8eb59b37 f435db79
 ```
 
-This command allows you to step through all the files that were changed between the two commits, one at a time, and get a clearer picture of how the files were changed.
-
+This command allows you to step through all the files that were changed between the two commits, one at a time, and get a clearer picture of how the files were changed. If you are unfamiliar with using Vim, you can refer to the [Basic Unix and Vim Commands](../Unix_Commands.md) file for guidance on with with the newly opened windows.
 #### Git web interface
 
 Git web interfaces, such as GitHub and GitLab, also have built-in wrappers that help to visualize the output for `git diff`.
@@ -186,16 +185,13 @@ Git web interfaces, such as GitHub and GitLab, also have built-in wrappers that 
 Let's take a look at the Git course repository on GitHub. You can find it here:
 https://github.com/C2SM/git-course
 
-You can access the `git diff` wrapper by adding `/compare` to any GitHub repository URL. So have a look at:
-https://github.com/C2SM/git-course/compare
-
-This will open up a comparison interface in your web browser. Here you can use the GUI provided to compare the code between branches and forks. You can also specify exact comparisons by changing the URL. For example, to compare the same two commits that we compared with `git diff` and `git difftool`, you can use the following URL:
+You can access the `git diff` wrapper by adding `/compare` to any GitHub repository URL. So have a look at https://github.com/C2SM/git-course/compare. This will open up a comparison interface in your web browser. Here you can use the GUI provided to compare the code between branches and forks. You can also specify exact comparisons by changing the URL. For example, to compare the same two commits that we compared with `git diff` and `git difftool`, you can use the following URL:
 
 https://github.com/C2SM/git-course/compare/8eb59b37..f435db79
 
-You can find more information about using the GitHub compare tool [here](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits).
+You can find more information about using the GitHub compare tool in the GitHub Docs under [Comparing commits](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits).
 
-Note: You may have noticed that the comparison we did included some binary (.png) files. Since these are binary files, you cannot get an exact difference between them, but the fact that they showed up in the `git diff` output means that the files have changed between the two commits. This can sometimes be useful information. Keep in mind that it's best practice to try to avoid committing binaries to Git repositories if possible. If it is necessary, try to keep the size of the files as small as possible to keep working with your Git repository fast and easy.
+> Note: You may have noticed that the comparison we did included some binary (.png) files. Since these are binary files, you cannot get an exact difference between them, but the fact that they showed up in the `git diff` output means that the files have changed between the two commits. This can sometimes be useful information. Keep in mind that it's best practice to try to avoid committing binaries to Git repositories if possible. If it is necessary, try to keep the size of the files as small as possible to keep working with your Git repository fast and easy.
 
 ## Use `git show` <a name="show"></a>
 
