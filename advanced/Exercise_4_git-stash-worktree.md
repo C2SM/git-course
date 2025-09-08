@@ -10,11 +10,7 @@ In this exercise we cover the following:
 
 ## Stash your changes <a name="stash"></a>
 
-Let's make a change to the repository by adding a conference breakfast to the schedule on day 1. The following command is an example of how to use the `sed` command line tool, which was tested on **Linux** but may not work on other platforms, i.e. **MacOS**. It will add '08:30-09:00: Conference breakfast' after the line containing the word 'Daily' in *schedule_day1.txt*. If this does not work on your platform, simply open the file in a file editor to make the change.
-
-```plaintext
-sed -i '/Daily/ a 08:30-09:00: Conference breakfast' schedule_day1.txt
-```
+- Let's make a change to the repository by adding a conference breakfast to the schedule on day 1. Therefore, use a file editor (e.g. [Vim](../Unix_Commands.md#basic-vim-commands)) to open *schedule_day1.txt* in the *conference_planning* folder your are currently in and add a conference breakfast from 08:30-09:00 to the schedule.
 
 Now let's suppose that you decide that you aren't ready to commit this change, but you don't want to discard it either. Use `git stash` to store the change and revert the repository back to the last commit.
 
@@ -48,7 +44,7 @@ You can use `git worktree` to check out multiple instances of a Git repository a
 Here's how to set up `git worktree` in the way we find most useful:
 
 First, create a new folder, *conference_worktree*, where you will store the repository folders for the different branches.
-Then clone the *conference_planning* repository inta a folder called *main*, which will be used for the `main` branch.
+Then clone the *conference_planning* repository into a folder called *main*, which will be used for the `main` branch.
 
 ```plaintext
 cd ..
