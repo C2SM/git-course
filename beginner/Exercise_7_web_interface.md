@@ -16,7 +16,7 @@ For this exercise, we will use the following functions from this file:
 
 > **Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
 
-> **Note:** Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](Unix_Commands.md) for a list of all necessary commands.
+> **Note:** Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
 
 If everything is still set up from the last exercise, you can continue with [this exercise](#exercise) directly.
 Otherwise, please refer to the [Initialization from Exercise 1](Exercise_1_basic_commands.md#initialization).
@@ -43,7 +43,7 @@ However, we strongly recommend that you create an SSH key for GitHub if you plan
 
 ![Forked_Repo_view.png](images/Forked_Repo_view.png)
 
-We don't want the repository in our _git-course_ repository. So make sure you are in the _beginners_git_ directory instead. Use the [Basic Unix Commands](Unix_Commands.md) we provided to navigate there in case you are in the wrong directory.
+We don't want the repository in our _git-course_ repository. So make sure you are in the _beginners_git_ directory instead. Use the [Basic Unix Commands](../Unix_Commands.md) we provided to navigate there in case you are in the wrong directory.
 
 1. Navigate into beginners_git repo if not there already.
 
