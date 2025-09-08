@@ -8,15 +8,12 @@ https://www.atlassian.com/git/tutorials/saving-changes/git-diff
 
 These tutorials provide a more comprehensive overview of the useful features of `git log` and `git diff` than is presented here, so keep them in mind for future reference.
 
-* [Clone the Git repository](#initialization)
-
-* [Use `git log`](#log)
-
-* [Use `git blame`](#blame)
-
-* [Use `git diff`](#diff)
-
-* [Use `git show`](#show)
+In this exercise we cover the following:
+- [Clone the Git repository](#initialization)
+- [Use `git log`](#log)
+- [Use `git blame`](#blame)
+- [Use `git diff`](#diff)
+- [Use `git show`](#show)
 
 ## Clone the Git repository <a name="initialization"></a>
 
