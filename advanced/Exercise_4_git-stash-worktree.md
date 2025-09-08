@@ -4,9 +4,9 @@ In this exercise, you will learn how to use `git stash` to store changes that ar
 
 This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3_gitignore.md#initialize) section of Exercise 3.
 
-* [Stash your changes](#stash)
-
-* [Use `git worktree` for parallel development](#worktree)
+In this exercise we cover the following:
+- [Stash your changes](#stash)
+- [Use `git worktree` for parallel development](#worktree)
 
 ## Stash your changes <a name="stash"></a>
 
