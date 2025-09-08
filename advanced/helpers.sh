@@ -23,4 +23,7 @@ init_advanced_repo () {
     git add * && git commit -m "Add coffee break"
     git branch -m main
 
+    echo -e "Working directory prepared."
+    echo -e "\033[31m\033[1mYou have been moved to the 'conference_planning' directory within the 'advanced_git' directory. This is where you start your exercise.\033[0m"
+
 }

@@ -60,7 +60,7 @@ Only the section under the corresponding header is relevant to you in the follow
 To install Python, we recommend the [instructions from Real Python](https://realpython.com/installing-python/),
 but of course many other instructions will do as well.
 
-### 4. Final check
+### 4. Final Check
 Check if everything is set up correctly by following the steps below from a Linux shell.
 
 - Step 1: Download the file [check_requirements.sh](https://github.com/C2SM/git-course/blob/main/check_requirements.sh).
