@@ -12,14 +12,15 @@ This document describes **ALL** commands needed below.
    * `echo`: display a line of text
    * `>`: redirect ouput to file/device after `>`, overwrites already existing file
    * `>>`: redirect output to file/device after `>>`, appends and does not delete already existing file
-   * `mkdir`: create directory/folder, e.g. `mkdir test` will create directory 'test' 
+   * `mkdir`: create directory/folder, e.g. `mkdir test` will create directory 'test'
+   * `rm my_file`: remove file "my_file"
 
 ## Basic Vim Commands
 
 In some Git commands (e.g. writing commit messages), the editor **vim** may open by default.
 Here are the very basic commands you need to know:
 
-   * `vim "my_file"`: opens a new or an existing file with the name "my_file"
+   * `vim my_file`: opens a new or an existing file with the name "my_file"
    * `i`: switch to *insert mode* so you can type and edit text
    * `Esc`: leave insert mode and return to *command mode*
    * `:w`: save (write) the file
