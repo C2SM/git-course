@@ -13,6 +13,7 @@ This document describes **ALL** commands needed below.
    * `>`: redirect ouput to file/device after `>`, overwrites already existing file
    * `>>`: redirect output to file/device after `>>`, appends and does not delete already existing file
    * `mkdir`: create directory/folder, e.g. `mkdir test` will create directory 'test'
+   * `touch my_file`: creates the file "my_file"
    * `rm my_file`: remove file "my_file"
 
 ## Basic Vim Commands
