@@ -10,7 +10,7 @@ In this exercise we cover the following:
 
 ## Stash your changes <a name="stash"></a>
 
-- Let's make a change to the repository by adding a conference breakfast to the schedule on day 1. Therefore, use a file editor (e.g. [Vim](../Unix_Commands.md#basic-vim-commands)) to open *schedule_day1.txt* in the *conference_planning* folder your are currently in and add a conference breakfast from 08:30-09:00 to the schedule.
+- Let's make a change to the repository by adding a conference breakfast to the schedule on day 1. To this end, use a file editor (e.g. [Vim](../Unix_Commands.md#basic-vim-commands)) to open *schedule_day1.txt* in the *conference_planning* folder your are currently in and add a conference breakfast from 08:30-09:00 to the schedule.
 
 Now let's suppose that you decide that you aren't ready to commit this change, but you don't want to discard it either. Use `git stash` to store the change and revert the repository back to the last commit.
 
