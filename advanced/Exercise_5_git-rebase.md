@@ -101,7 +101,7 @@ Now you are ready to incorporate the changes you made on your feature branch int
 git rebase main rebase_feature
 ```
 
-Examine the repository status and log. Git has switched us to the `rebase_feature` branch and played the commit from the `main` branch here, without creating a merge commit.
+Examine the repository status and log. Git has switched us to the `rebase_feature` branch and applied the commit from the `main` branch here, without creating a merge commit.
 
 Now, switch to the `main` branch and sync it with the `rebase_feature` branch.
 
