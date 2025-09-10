@@ -177,7 +177,7 @@ Choose one of the tools installed on your system, and try `git difftool`. Use th
 git difftool -t vimdiff 8eb59b37 f435db79
 ```
 
-This command allows you to step through all the files that were changed between the two commits, one at a time, and get a clearer picture of how the files were changed. If you are unfamiliar with using Vim, you can refer to the [Basic Unix and Vim Commands](../Unix_Commands.md) file for guidance on with with the newly opened windows.
+This command allows you to step through all the files that were changed between the two commits, one at a time, and get a clearer picture of how the files were changed. If you are unfamiliar with using Vim, you can refer to the [Basic Unix and Vim Commands](../Unix_Commands.md) file for guidance.
 #### Git web interface
 
 Git web interfaces, such as GitHub and GitLab, also have built-in wrappers that help to visualize the output for `git diff`.
