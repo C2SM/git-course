@@ -20,7 +20,7 @@ git switch -c cherry_feature
 
 Let's add a couple of commits to this branch.
 
-- Add a keynote speech to the schedule for day 1. Therefore, use a file editor (e.g. [Vim](../Unix_Commands.md#basic-vim-commands)) to open *schedule_day1.txt* in the *conference_planning* folder your are currently in and add a keynote speech from 08:00-09:00 to the schedule.
+- Add a keynote speech to the schedule for day 1. To this end, use a file editor (e.g. [Vim](../Unix_Commands.md#basic-vim-commands)) to open *schedule_day1.txt* in the *conference_planning* folder your are currently in and add a keynote speech from 08:00-09:00 to the schedule.
 
 Add and commit this change. Remember to use a meaningful commit message:
 
