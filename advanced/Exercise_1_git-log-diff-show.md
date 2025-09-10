@@ -129,7 +129,7 @@ The default behavior of `git diff` is to show all uncommited changes since the l
 git diff
 ```
 
-Now, let's add and commit the change you made. Remember to write a meaningful commit message. Note that the `-a` option to the `git commit` command allows us to add all changed files to the staging area without having to use the `git add` command separately.
+Now, let's add and commit the change you made. Remember to write a meaningful commit message. Note that the `-a` option to the `git commit` command allows us to add all changed files to the staging area (note that newly created files won't be considered/staged though) without having to use the `git add` command separately.
 
 ```plaintext
 git commit -am "Type your commit message here"
