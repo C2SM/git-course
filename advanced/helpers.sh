@@ -14,16 +14,18 @@ init_advanced_repo () {
     git add schedule_day1.txt && git commit -m "Add schedule_day1"
     git add schedule_day2.txt && git commit -m "Add schedule_day2"
 
-    ed -s schedule_day1.txt  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
-    ed -s schedule_day2.txt  <<< $'/program/\na\n09:00-11:00: Poster session\n.\nw\nq' > /dev/null
+    # Insert "09:00-11:00: Poster session" after the line matching "program"
+    sed -i '/program/a 09:00-11:00: Poster session' schedule_day1.txt
+    sed -i '/program/a 09:00-11:00: Poster session' schedule_day2.txt
     git add * && git commit -m "Add poster sessions in the morning"
 
-    ed -s schedule_day1.txt  <<< $'/session/\na\n11:00-11:15: Coffee break\n.\nw\nq' > /dev/null
-    ed -s schedule_day2.txt  <<< $'/session/\na\n11:00-11:15: Coffee break\n.\nw\nq' > /dev/null
+    # Insert "11:00-11:15: Coffee break" after the line matching "session"
+    sed -i '/session/a 11:00-11:15: Coffee break' schedule_day1.txt
+    sed -i '/session/a 11:00-11:15: Coffee break' schedule_day2.txt
     git add * && git commit -m "Add coffee break"
+
     git branch -m main
 
     echo -e "Working directory prepared."
     echo -e "\033[31m\033[1mYou have been moved to the 'conference_planning' directory within the 'advanced_git' directory. This is where you start your exercise.\033[0m"
-
 }
