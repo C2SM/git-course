@@ -54,7 +54,7 @@ Create a *README.md* file in the *conference_planning* folder.
 touch README.md
 ```
 
-Put some content in the *README* file using a file editor, e.g. [Vim](../Unix_Commands.md). Good *README* file content could include the title of the project, a description of the project, how to use the project, and/or the contributors to the project. The *.md* file extension we have used indicates that the *README* file will be written using the Markdown language, which is a common format for *README* files because it displays well in web browsers. [Here](https://www.markdownguide.org/basic-syntax/) are some tips for using the Markdown language.
+Put some content in the *README* file using a file editor, e.g. [Vim](../Unix_Commands.md). Good *README* file content could include the title of the project, a description of the project, how to use the project, and/or the contributors to the project. The *.md* file extension we have used indicates that the *README* file will be written using the Markdown language, which is a common format for *README* files as it displays well in web browsers. [Here](https://www.markdownguide.org/basic-syntax/) are some tips for using the Markdown language.
 
 Now commit the *README* file to the repository.
 
