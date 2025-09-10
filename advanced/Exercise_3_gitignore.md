@@ -38,7 +38,7 @@ source helpers.sh
 ```
 Run the *init_advanced_repo* function. This will create a folder at the same level as the *git-course* repository containing a simple Git repository called *conference_planning*.
 
-> The command you'll run here is NOT part of Git itself. Instead it's a helper fucntion we created to give you a starting point for practicing this exercise.
+> The command you'll run here is NOT part of Git itself. Instead it's a helper function we created to give you a starting point for practicing this exercise.
 
 ```plaintext
 init_advanced_repo
