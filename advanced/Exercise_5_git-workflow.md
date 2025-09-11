@@ -3,7 +3,7 @@
 In this exercise, you will practice a common Git workflow. First, you will make changes in a branch. Then, you will push the changes to GitHub and open a pull request. Finally, one of your fellow participants will review the pull request and merge it in the *main* branch.
 
 ## Fork or use the repository directly
-For some projects, you work on a fork; for others, you work directly on the main repository.  
+In GitHub (and also GitLab) you can either work directly on the main repository or work on a fork and then merge your changes back to the main repository via a pull request (PR). Usually, you work on a fork when you don't have direct write permission to the main repository, since you can always open a PR to get your changes merged.
 For this exercise, you can choose one of the following options:
 
 - **Fork** the repository [git-workflow-practice](https://github.com/C2SM/git-workflow-practice) into your own GitHub account,  
