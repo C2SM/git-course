@@ -8,7 +8,7 @@ For this exercise, you can choose one of the following options:
 
 - **Fork** the repository [git-workflow-practice](https://github.com/C2SM/git-workflow-practice) into your own GitHub account,  
 **or**
-- **Work directly** in the repository directory if that is how the course is set up.
+- **Work directly** in the repository on your personal branch.
 
 ## Work on the repository locally
 Please replace everything within the brackets (including the brackets) in the following.
