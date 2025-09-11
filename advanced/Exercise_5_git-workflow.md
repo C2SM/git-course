@@ -11,7 +11,7 @@ For this exercise, you can choose one of the following options:
 - **Work directly** in the repository on your personal branch.
 
 ## Work on the repository locally
-Please replace everything within the brackets (including the brackets) in the following.
+> Note: Please replace everything within the angle brackets (including the brackets `<>`) in the following.
 
 Make a local copy (clone) of the repository:
 
