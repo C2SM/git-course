@@ -1,6 +1,6 @@
 # Exercise 5 - Practice a Git workflow
 
-In this exercise, you will practice a common Git workflow. First, you will make changes in a branch. Then, you will push the changes to GitHub and open a pull request. One of your fellow participants will review the pull request.
+In this exercise, you will practice a common Git workflow. First, you will make changes in a branch. Then, you will push the changes to GitHub and open a pull request. Finally, one of your fellow participants will review the pull request and merge it in the *main* branch.
 
 ## Fork or use the repository directly
 For some projects, you work on a fork; for others, you work directly on the main repository.  
