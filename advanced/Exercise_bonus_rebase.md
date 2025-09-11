@@ -1,12 +1,12 @@
-# Exercise 5 - Using `git rebase`
+# Exercise bonus - Using `git rebase`
 
 In this exercise, we will learn how to use `git rebase` to rewrite the history of a feature branch in order to keep the history of the `main` branch cleaner by avoiding merge commits. First, we will use the merge strategy to add a feature to a `main` branch that is being simultaneously developed. Then we will use the rebase strategy to do the same thing and compare the differences.
 
 This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3_gitignore.md#initialize) section of Exercise 3.
 
-* [Use the merge strategy to incorporate a change into a moving main branch](#merge)
-
-* [Use the rebase strategy to incorporate a change into a moving main branch](#rebase)
+In this exercise we cover the following:
+- [Use the merge strategy to incorporate a change into a moving main branch](#merge)
+- [Use the rebase strategy to incorporate a change into a moving main branch](#rebase)
 
 ## Use the merge strategy to incorporate a change into a moving main branch <a name="merge"></a>
 
@@ -101,7 +101,7 @@ Now you are ready to incorporate the changes you made on your feature branch int
 git rebase main rebase_feature
 ```
 
-Examine the repository status and log. Git has switched us to the `rebase_feature` branch and played the commit from the `main` branch here, without creating a merge commit.
+Examine the repository status and log. Git has switched us to the `rebase_feature` branch and applied the commit from the `main` branch here, without creating a merge commit.
 
 Now, switch to the `main` branch and sync it with the `rebase_feature` branch.
 

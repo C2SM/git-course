@@ -23,7 +23,7 @@ For this exercise, we will use the following functions from this file:
 
 > **Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
 
-> **Note:** Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](Unix_Commands.md) for a list of all necessary commands.
+> **Note:** Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
 
 ## Global Git Configuration Settings
 
@@ -115,7 +115,7 @@ reset
 
 
 ### Create a Git repository from scratch
-> Hint: check the [Basic Unix Commands](Unix_Commands.md) if you don't know how to do the following.
+> Hint: check the [Basic Unix Commands](../Unix_Commands.md) if you don't know how to do the following.
 
 1. Create a new folder (e.g. *git_repo*) and navigate to it
 2. Use the command `git init` to initiate your first Git repository

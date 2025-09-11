@@ -1,14 +1,12 @@
 # Exercise 3 - Ignoring files
 
-In this exercise, you will first use a provided script to generate a simple Git repository containing materials for planning a conference. You will then create a *README* file for the so-called *conference_planning* repository using the Markdown language. Then you will generate an HTML *README* file, and finally create a *.gitignore* file for the repository. This exercise is closely adapted from the [OESA Git Workshop](https://oesa.pages.ufz.de/git-exercises/exercise-5.html).
+In this exercise, you will first use a provided script to generate a simple Git repository containing materials for planning a conference. You will then create a *README* file for the so-called *conference_planning* repository, using the Markdown language. Then, you will generate an HTML *README* file, and finally create a *.gitignore* file for the repository. This exercise is closely adapted from the [OESA Git Workshop](https://oesa.pages.ufz.de/git-exercises/exercise-5.html).
 
-* [Initialize the Git repository](#initialize)
-
-* [Create a *README* file](#readme)
-
-* [Generate the *README* file in HTML](#html)
-
-* [Create a *.gitignore* file](#gitignore)
+In this exercise we cover the following:
+- [Initialize the Git repository](#initialize)
+- [Create a *README* file](#readme)
+- [Generate the *README* file in HTML](#html)
+- [Create a *.gitignore* file](#gitignore)
 
 ## Initialize the Git repository <a name="initialize"></a>
 
@@ -26,19 +24,21 @@ Navigate into the repository.
 cd git-course
 ```
 
-Set the name of the default branch in any Git repository you create to be `main`.
+In older versions of Git, the default branch was named `master`. For consistency with modern conventions and to ensure that our *helpers.sh* script works correctly, your default branch should be called `main`. The following configuration ensures that Git always uses `main` as the default branch when you create new repositories.
 
 ```plaintext
 git config --global init.defaultBranch main
 ```
 
-Source the file containing the helper functions: *helpers.sh
+Source the file containing the helper functions:
 
 ```plaintext
 cd advanced
 source helpers.sh
 ```
 Run the *init_advanced_repo* function. This will create a folder at the same level as the *git-course* repository containing a simple Git repository called *conference_planning*.
+
+> The command you'll run here is NOT part of Git itself. Instead it's a helper function we created to give you a starting point for practicing this exercise.
 
 ```plaintext
 init_advanced_repo
@@ -54,7 +54,7 @@ Create a *README.md* file in the *conference_planning* folder.
 touch README.md
 ```
 
-Put some content in the *README* file using a file editor. Good *README* file content could include the title of the project, a description of the project, how to use the project, and/or the contributors to the project. The *.md* file extension we have used indicates that the *README* file will be written using the Markdown language, which is a common format for *README* files because it displays well in web browsers. [Here](https://www.markdownguide.org/basic-syntax/) are some tips for using the Markdown language.
+Put some content in the *README* file using a file editor, e.g. [Vim](../Unix_Commands.md). Good *README* file content could include the title of the project, a description of the project, how to use the project, and/or the contributors to the project. The *.md* file extension we have used indicates that the *README* file will be written using the Markdown language, which is a common format for *README* files as it displays well in web browsers. [Here](https://www.markdownguide.org/basic-syntax/) are some tips for using the Markdown language.
 
 Now commit the *README* file to the repository.
 

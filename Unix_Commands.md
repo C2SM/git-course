@@ -1,0 +1,30 @@
+# Basic Unix and Vim Commands
+
+## Basic Unix Commands
+
+In this Git course some very basic Unix commands will be used.
+This document describes **ALL** commands needed below.
+
+   * `ls`: list all files/folders in current directory
+   * `cd`: change directory, e.g. `cd test` will go to folder 'test'. To go one directory up, type `cd ..` 
+   * `cat`: concatenate files, in our case we only use it to display the content of text file, e.g. `cat my_file.txt` prints the content of *my_file.txt* to the terminal
+   * `source`: run script in the current shell, this means that all variables and functions defined in that file will be available in the current shell
+   * `echo`: display a line of text
+   * `>`: redirect ouput to file/device after `>`, overwrites already existing file
+   * `>>`: redirect output to file/device after `>>`, appends and does not delete already existing file
+   * `mkdir`: create directory/folder, e.g. `mkdir test` will create directory 'test'
+   * `touch my_file`: creates the file "my_file"
+   * `rm my_file`: remove file "my_file"
+
+## Basic Vim Commands
+
+In some Git commands (e.g. writing commit messages), the editor **vim** may open by default.
+Here are the very basic commands you need to know:
+
+   * `vim my_file`: opens a new or an existing file with the name "my_file"
+   * `i`: switch to *insert mode* so you can type and edit text
+   * `Esc`: leave insert mode and return to *command mode*
+   * `:w`: save (write) the file
+   * `:q`: quit vim
+   * `:wq`: save and quit
+   * `:q!`: quit without saving

@@ -4,15 +4,12 @@ In this exercise, you will practice implementing a pre-commit hook in the *confe
 
 This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3_gitignore.md#initialize) section of Exercise 3.
 
-* [Implement Pre-Commit Hook for Trailing Whitespace](#whitespace)
-
-* [Test the Hook](#test)
-
-* [Add Another Custom Hook](#another)
-
-* [Local Testing with the `pre-commit` Tool](#pre-commit)
-
-* [Conclusion](#conclusion)
+In this exercise we cover the following:
+- [Implement Pre-Commit Hook for Trailing Whitespace](#whitespace)
+- [Test the Hook](#test)
+- [Add Another Custom Hook](#another)
+- [Local Testing with the `pre-commit` Tool](#pre-commit)
+- [Conclusion](#conclusion)
 
 ## Implement Pre-Commit Hook for Trailing Whitespace <a name="whitespace"></a>
 

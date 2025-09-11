@@ -4,13 +4,11 @@ In this exercise, we will learn to use `git submodule` to nest a Git repository 
 
 This exercise uses the same Git repository that was created in Exercise 3. If you have not already done so, you can create it by following the instructions in the [Initialize the Git repository](./Exercise_3_gitignore.md#initialize) section of Exercise 3.
 
-* [Fork a repository on GitHub and add it as a submodule](#submodule)
-
-* [Examine how Git deals with changes to both repositories](#examine)
-
-* [Create new content locally and update the sub-repository](#push)
-
-* [Create new content in the sub-repository and update the local repository](#pull)
+In this exercise we cover the following:
+- [Fork a repository on GitHub and add it as a submodule](#submodule)
+- [Examine how Git deals with changes to both repositories](#examine)
+- [Create new content locally and update the sub-repository](#push)
+- [Create new content in the sub-repository and update the local repository](#pull)
 
 ## Fork a repository on GitHub and add it as a submodule <a name="submodule"></a>
 
@@ -138,7 +136,7 @@ Finally, let's learn how to pull changes from the submodule into our host reposi
 
 Navigate back to your fork of the *posters* repository on GitHub, and make a change to the schedule file, and commit it. You can do this directly in the web interface by simply selecting the file and using the edit button.
 
-Once you have done this, navigate back to the root of the *conference_planning* folder and use `git submodule update` to get the main repository to fetch the new commit from the *posters* repository.
+Once you have done this, navigate back to the root of the *conference_submodule* folder and use `git submodule update` to get the main repository to fetch the new commit from the *posters* repository.
 
 ```plaintext
 cd ..
