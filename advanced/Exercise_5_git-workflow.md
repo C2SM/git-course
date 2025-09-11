@@ -51,7 +51,7 @@ git checkout my-feature-branch
 git merge main
 ```
 
-> If you work with a fork, you will have to update the fork with the original repository.
+> Note: If you work with a fork, you will have to update the fork with the original repository.
 
 - If you encounter merge conflicts, you need to solve them before you can continue.
 If you are not sure how to solve merge conflicts, refer to the [exercise on merge conflicts](../beginner/Exercise_6_merge_conflicts.md) in the beginners Git course.
