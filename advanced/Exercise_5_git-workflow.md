@@ -22,7 +22,7 @@ cd <repository-directory>
 
 Create a new branch for your changes and set the upstream correctly:
 ```bash
-git checkout -b <my-branch>
+git switch -c <my-branch>
 git branch --set-upstream-to=origin/<my-branch> <my-branch>
 
 - Make a small change, for example, add a new file or edit an existing file.
@@ -45,9 +45,9 @@ Open the pull request and assign one of your fellow participants as the reviewer
 
 In the whole process, please make sure your branch is up to date with the `main` branch. If the `main` branch has been updated in the meantime, merge the newest version into your branch:
 ```bash
-git checkout main
+git switch main
 git pull origin main
-git checkout my-feature-branch
+git switch my-feature-branch
 git merge main
 ```
 
