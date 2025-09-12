@@ -23,7 +23,7 @@ cd <repository-directory>
 Create a new branch for your changes and set the upstream correctly:
 ```bash
 git switch -c <my-branch>
-git branch --set-upstream-to=origin/<my-branch> <my-branch>
+git push -u origin <my-branch>
 ```
 - Make a small change, for example, add a new file or edit an existing file.
 
