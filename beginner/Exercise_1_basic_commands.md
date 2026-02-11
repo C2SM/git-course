@@ -35,9 +35,9 @@ To do this, run the following lines with your credentials:
 git config --global user.name "<John Doe>"
 git config --global user.email "<my_name@some.domain>"
 ```
-> **Note:** Use your real first and last name as your username and set the same email as your GitHub account. Also, ensure your actual name is set on GitHub; otherwise, your commits will appear under different authors.
+> **Note:** Use your real first and last name as your username and set the same email as used in your GitHub account. Also, ensure your actual name is set on GitHub (and GitLab); otherwise, your commits will appear under different authors.
 
-At the end of this course, you will learn something about repository managers like GitHub. Recently, they changed their naming policy for the initial branch from *master* to *main*. So we want to tell Git to set our default branch name to *main* as well. 
+At the end of this course, you will learn something about repository managers like GitHub. A few years ago, they changed their naming policy for the initial branch from *master* to *main*. So we want to tell Git to set our default branch name to *main* as well.
 
 > **Note:** Refer to the official Git documentation (https://git-scm.com/docs/git-init#Documentation/git-init.txt--bltbranch-namegt).
 
@@ -139,7 +139,6 @@ echo "<my text for file>" > first_file.txt
 
 You should now get an output similar to:
 
-
 ```
 On branch main
 
@@ -229,15 +228,13 @@ The "+" indicates that we have a new line in our file.
 
 Let's modify the second file as well.
 
-4. Add a new line in the second file
+4. Add a new line in the second file.
 
-The next lecture is starting soon, so let's add and commit our changes for safety reasons.
+5. Add the two modified files with `git add <file name>`.
 
-5. Add the two modified files with `git add`
+6. Use `git status` to check if your action was successful.
 
-6. Use `git status` to check if your action was successful
-
-7. Now commit your changes with a meaningful commit message
+7. Now commit your changes with a meaningful commit message.
 
 **Congrats!**   
 But how many commits do you already have in this repository?
