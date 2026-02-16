@@ -145,7 +145,6 @@ echo "<my text for file>" > first_file.txt
 
 You should now get an output similar to:
 
-
 ```
 On branch main
 
@@ -235,15 +234,13 @@ The "+" indicates that we have a new line in our file.
 
 Let's modify the second file as well.
 
-4. Add a new line in the second file
+4. Add a new line in the second file.
 
-The next lecture is starting soon, so let's add and commit our changes for safety reasons.
+5. Add the two modified files with `git add <file name>`.
 
-5. Add the two modified files with `git add`
+6. Use `git status` to check if your action was successful.
 
-6. Use `git status` to check if your action was successful
-
-7. Now commit your changes with a meaningful commit message
+7. Now commit your changes with a meaningful commit message.
 
 **Congrats!**   
 But how many commits do you already have in this repository?
