@@ -46,7 +46,8 @@ Before we start using Git, we should set some global configurations. This only n
 
     At the end of this course, you will learn something about repository managers like GitHub. Recently, they changed their naming policy for the initial branch from *master* to *main*. So we want to tell Git to set our default branch name to *main* as well. 
 
-  > [!TIP] Refer to the official Git documentation (https://git-scm.com/docs/git-init#Documentation/git-init.txt--bltbranch-namegt).
+  > [!TIP]
+  > Refer to the official Git documentation (https://git-scm.com/docs/git-init#Documentation/git-init.txt--bltbranch-namegt).
 
 2. Set *main* as the default branch name:
 
