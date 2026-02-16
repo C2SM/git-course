@@ -31,29 +31,32 @@ For this exercise, we will use the following functions from this file:
 
 Before we start using Git, we should set some global configurations. This only needs to be done once, and will be saved for all your future sessions.
 
-1. First of all, we need to tell Git who we are.
+### 1. Set User Credentials
 
-    To do this, run the following lines and replace your name and email address
-    between the quotes ("") with your credentials:
+First of all, we need to tell Git who we are. To do this, run the following lines and replace your name and email address
+between the quotes ("") with your credentials:
 
-    ```
-    git config --global user.name "<John Doe>"
-    git config --global user.email "<my_name@some.domain>"
-    ```
+```
+git config --global user.name "<John Doe>"
+git config --global user.email "<my_name@some.domain>"
+```
 
-  > [!IMPORTANT]
-  > Use your real first and last name as your username and set the same email as your GitHub account. Also, ensure your actual name is set on GitHub; otherwise, your commits will appear under different authors.
+> [!IMPORTANT]
+> Use your real first and last name as your username and set the same email as your GitHub account. Also, ensure your actual name is set on GitHub; otherwise, your commits will appear under different authors.
 
-    At the end of this course, you will learn something about repository managers like GitHub. Recently, they changed their naming policy for the initial branch from *master* to *main*. So we want to tell Git to set our default branch name to *main* as well. 
+At the end of this course, you will learn something about repository managers like GitHub. 
 
-  > [!TIP]
-  > Refer to the official Git documentation (https://git-scm.com/docs/git-init#Documentation/git-init.txt--bltbranch-namegt).
 
-2. Set *main* as the default branch name:
+### 2. Set *main* as the default branch name:
 
-    ```bash
-    git config --global init.defaultBranch main
-    ```
+Recently, they changed their naming policy for the initial branch from *master* to *main*. So we want to tell Git to set our default branch name to *main* as well. 
+
+```bash
+git config --global init.defaultBranch main
+```
+	
+> [!TIP]
+> Refer to the official Git documentation (https://git-scm.com/docs/git-init#Documentation/git-init.txt--bltbranch-namegt).
 
 ## Clone the `git-course` Repository
 
