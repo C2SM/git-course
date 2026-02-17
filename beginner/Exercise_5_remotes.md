@@ -77,6 +77,7 @@ So far we have only given our local repository the location of the remote reposi
 The output should look like this:
 ```
 * main
+  remotes/origin/HEAD -> origin/main
   remotes/my_remote/main
   remotes/my_remote/updated_schedules
 ```
@@ -85,8 +86,7 @@ You can see that you now have a local branch (*main*), and remote branches (*rem
 
 ### Add remote branch to local repository and make changes
 
-The remote repository has a branch called *updated_schedules*.
-Let's check out this branch to work on it.  
+The remote repository has a branch called *updated_schedules*. If there is no local branch with the same name, Git will automatically add the remote branch to your local repository when you switch to it.
 
 1. Switch to branch *updated_schedules*.
 
@@ -115,7 +115,7 @@ nothing to commit, working tree clean
 
 Finally, we want to commit our changes back to the remote repository. To commit to a remote repository, use the `git push` command.
 
-1. Push commited changes to remote branch.
+1. Push committed changes to remote branch.
 
 The output should look something like this:
 ```
@@ -129,4 +129,4 @@ To ../conference_planning_remote
    1dacf13..80e64e8  updated_schedules -> updated_schedules
 ```
 
-**Congrats, you now also know the most essential Git commands for the _remote_ use of Git.**
+**Congrats, you now know the most essential Git commands for the _remote_ use of Git.**
