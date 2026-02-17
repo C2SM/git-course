@@ -31,7 +31,7 @@ Otherwise, please refer to the [Initialization from Exercise 1](Exercise_1_basic
 
 ### Understanding *.gitignore*
 
-The *.gitignore* file is an essential and commonly used feature in Git. It specifies intentionally untracked files that Git should ignore. It's particularly useful for excluding files generated during execution or build processes—like log files, compiled code, or local configuration files—that don't need to be shared within the repository. Creating a *.gitignore* file and listing the file patterns to exclude achieves this.
+The *.gitignore* file is an essential and commonly used feature in Git. It specifies intentionally untracked files that Git should ignore. It's particularly useful for excluding files generated during execution or build processes —  like log files, compiled code, or local configuration files — that don't need to be shared within the repository. Creating a *.gitignore* file and listing the file patterns to exclude achieves this.
 
 **Typical Ingredients of *.gitignore*:**
 
