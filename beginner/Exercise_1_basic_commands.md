@@ -42,7 +42,7 @@ git config --global user.email "<my_name@some.domain>"
 ```
 
 > [!IMPORTANT]
-> Use your real first and last name as your username and set the same email as your GitHub account. Also, ensure your actual name is set on GitHub; otherwise, your commits will appear under different authors.
+> Use your real first and last name as your username, and use the same email address as you have on your GitHub account. Also, make sure that your real name is set on GitHub; otherwise, your commits will appear under different authors.
 
 At the end of this course, you will learn something about repository managers like GitHub. 
 
