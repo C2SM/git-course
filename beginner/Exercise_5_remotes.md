@@ -19,7 +19,7 @@ For this exercise, we will use the following functions from this file:
 ## Remarks   
 
 > [!NOTE]
-> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
 
 > [!NOTE]
 > Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.

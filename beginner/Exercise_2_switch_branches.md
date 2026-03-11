@@ -23,7 +23,7 @@ For this exercise, we will use the following functions from this file:
 ## Remarks   
 
 > [!NOTE]
-> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
 
 > [!NOTE]
 > Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
@@ -58,6 +58,10 @@ To keep things organized, we will do this in two different Git branches, one for
 
 **Let's get started!**
 1. Create a new branch for planning day 1:
+
+> [!NOTE]
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
+
 ```bash
 git switch -c <meaningful_branch_name_A>
 # (Alternative: "git checkout -b <meaningful_branch_name_A>")

@@ -22,7 +22,7 @@ For this exercise, we will use the following functions from this file:
 ## Remarks   
 
 > [!NOTE] 
-> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
 
 > [!TIP] 
 > Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
@@ -35,6 +35,9 @@ Before we start using Git, we should set some global configurations. This only n
 
 First of all, we need to tell Git who we are. To do this, run the following lines and replace your name and email address
 between the quotes ("") with your credentials:
+
+> [!NOTE] 
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
 
 ```
 git config --global user.name "<John Doe>"
@@ -190,6 +193,10 @@ Changes to be committed:
 ```
 
 6. The last thing to do is to commit these files together with a commit message:
+
+> [!NOTE] 
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
+
 ```bash
 git commit -m "<meaningful message>"
 ```
