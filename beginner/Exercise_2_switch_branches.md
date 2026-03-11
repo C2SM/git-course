@@ -86,14 +86,14 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 For the planning of the other day, we want to use another Git branch.
 To keep track of all the different branches, Git provides the `git branch` command to see all branches of a repository.
-The * indicates our current branch. Hit the `q` key to exit the branch view.
+The `*` indicates our current branch. Hit the `q` key to exit the branch view.
 
 ```bash
 git branch
 ```
 
 We can easily switch between these branches using the `git switch` command.
-Don't worry -> Git will keep all your committed work on that branch.
+Don't worry -> Git will keep all your **committed** work on that branch.
 
 5. Switch back to *main* branch:
 ```bash
