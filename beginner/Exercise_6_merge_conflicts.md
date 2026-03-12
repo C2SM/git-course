@@ -133,7 +133,8 @@ After restoring the file:
   * Commit your changes:  Commiting your changes will finalize the merge process that was interrupted by the conflict.
 
 
- > **Important note when dealing with merge conflicts**: After resolving the conflict, **no new merge command is required**. The original merge operation was paused, not stopped, when the conflict was detected. By resolving the conflict and committing the changes, you are completing the paused merge process.
+ > [!NOTE]
+ > After resolving the conflict, **no new merge command is required**. The original merge operation was paused, not stopped, when the conflict was detected. By resolving the conflict and committing the changes, you are completing the paused merge process.
 
 ### Solve merge conflict with second option
 1. Create a new merge conflict: Go to the *main* and *updated_schedules* branches, respectively, and make different changes on the SAME line. Don't forget to commit the changes before switching between the branches.
@@ -177,11 +178,11 @@ hint: invocation.
 ```
 Read the hints and the explanations below carefully and choose your preferred setting.
 
-`# merge`: This option will handle pull requests the same way as when merging a branch, i.e., the merge will not be automatically committed.
+`# merge`: This option merges the remote branch into the current branch. If there are no conflicts, Git automatically creates a merge commit. If conflicts occur, you must resolve them, stage the files, and run git commit to finish the merge.
 
-`# rebase`: This option will commit a merge directly in case there are no conflicts. Otherwise you will have to solve the conflicts before continuing (Git will tell you all necessary steps)
+`# rebase`: This option rebases your local commits on top of the remote branch. Git temporarily removes your local commits, updates the branch with the remote changes, and then reapplies your commits one by one. If conflicts occur, you must resolve them, stage the files, and run git rebase --continue.
 
-`# fast-forward only`: This option will only do a merge in case there are no conflicts, otherwise nothing will be done (we do not recommend this option, to undo it, you need to run `git config pull.ff false`)
+`# fast-forward only`: This option allows `git pull` only if the local branch can be fast-forwarded to the remote branch (i.e., you have no local commits that diverge). If the branches have diverged, Git aborts the pull with an error and no changes are made. When successful, no merge commit is created because the branch pointer simply moves forward.
 
 6. Choose and set your preferred way of pulling.
 
