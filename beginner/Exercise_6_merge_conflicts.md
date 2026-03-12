@@ -178,8 +178,8 @@ As you can see from the Git message, we are ahead of the remote branch. So befor
    ```
    Read the hints and the explanations below carefully and choose your preferred setting.
 
-   - `# merge`: This option merges the remote branch into the current branch. If there are no conflicts, Git automatically creates a merge commit. If conflicts occur, you must resolve them, stage the files, and run git commit to finish the merge.
-   - `# rebase`: This option rebases your local commits on top of the remote branch. Git temporarily removes your local commits, updates the branch with the remote changes, and then reapplies your commits one by one. If conflicts occur, you must resolve them, stage the files, and run git rebase --continue.
+   - `# merge`: This option merges the remote branch into the current branch. If there are no conflicts, Git automatically creates a merge commit. If conflicts occur, you must resolve them, stage the files, and run `git commit` to finish the merge.
+   - `# rebase`: This option rebases your local commits on top of the remote branch. Git temporarily removes your local commits, updates the branch with the remote changes, and then reapplies your commits one by one. If conflicts occur, you must resolve them, stage the files, and run `git rebase --continue`.
    - `# fast-forward only`: This option allows `git pull` only if the local branch can be fast-forwarded to the remote branch (i.e., you have no local commits that diverge). If the branches have diverged, Git aborts the pull with an error and no changes are made. When successful, no merge commit is created because the branch pointer simply moves forward.
 
 6. Choose and set your preferred way of pulling.
