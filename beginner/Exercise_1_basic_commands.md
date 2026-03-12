@@ -103,7 +103,8 @@ cd beginner
 
 ---
 
-> **To initialize the exercise properly, run this code at the very beginning. Check the [Helper Functions](#helper-functions) section above for more explanation.**
+> [!IMPORTANT]
+> To initialize the exercise properly, run this code at the very beginning. Check the [Helper Functions](#helper-functions) section above for more explanation.
 
 ```bash
 # source the helpers.sh file to be able to use its functions
@@ -131,7 +132,8 @@ repository! You can check this with the `pwd` command.
 ## Exercise
 
 ### Create a Git repository from scratch
-> Hint: check the [Basic Unix Commands](../Unix_Commands.md) if you don't know how to do the following.
+> [!TIP]
+> Check the [Basic Unix Commands](../Unix_Commands.md) if you don't know how to do the following.
 
 1. Create a new folder (e.g. *git_repo*) and navigate to it
 2. Use the command `git init` to initiate your first Git repository
