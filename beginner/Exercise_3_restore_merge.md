@@ -97,7 +97,7 @@ There are two sections in *schedule_day1.txt*, which we will change on separate 
    * *daily_program*
    * *evening_activity*
 
-#### Fast-forward merge
+#### Preparing our branches
 1. Create and switch to a new branch for the evening activity.
 
 2. Open *schedule_day1.txt* and add evening activities only in the evening_activity section (e.g., add a dinner or social event).
