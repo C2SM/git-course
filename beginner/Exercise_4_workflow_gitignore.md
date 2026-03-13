@@ -105,7 +105,7 @@ Thanks to Git we can easily restore files, even if they are deleted.
 
 ### As a next step we will make changes on a different branch
 
-1. Create a new branch.
+1. Create and switch to a new branch.
 2. We are not sure yet if Professor X will accept the talk in the morning, therefore change the talk to a workhop on this branch as an alternative schedule.
 3. Add and commit your changes.
 4. Now switch back to branch *main*.
@@ -131,7 +131,8 @@ The talk in the morning has finally been cancelled.
 
 9. Merge the branch containing the workshop instead of the talk into the *main* branch.
 
-**Remark:** Make sure you are in the *main* branch before starting the merge, because Git always merges a branch **into** your current branch.
+> [!NOTE]
+> Make sure you are in the *main* branch before starting the merge, because Git always merges a branch **into** your current branch.
 
 10. Follow good practice and delete the merged branch.
 
@@ -140,12 +141,16 @@ Decide which one you prefer.
 
 11. Merge your preferred evening activity into the *main* branch.
 
+> [!IMPORTANT]
+> If you just type "git merge <my_branch>" for a 3-way merge, Git will automatically open the default editor since a commit message is expected. For most Linux systems, the `vi` editor is opened. In this case, you can save and close the file by tying `:wq` and hit Enter.
+
 12. Delete the merge branch.
 
 There is one unused branch left in our repository.
 
 13. We want to keep the repository clean and nice. So please delete the unmerged branch as well.
 
-**Remark:** Since we did not merge the remaining branch, it has to be done differently before. But don't worry, Git will tell you what to do.
+> [!NOTE]
+> Since we did not merge the remaining branch, it has to be done differently. But don't worry, Git will tell you what to do.
 
 **Congrats, you already know the most essential Git commands for the local use of Git.**
