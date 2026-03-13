@@ -97,7 +97,7 @@ There are two sections in *schedule_day1.txt*, which we will change on separate 
    * *daily_program*
    * *evening_activity*
 
-#### Preparing our branches
+#### Preparing your branches
 1. Create and switch to a new branch for the evening activity.
 
 2. Open *schedule_day1.txt* and add evening activities only in the "Evening activity" section (e.g., add a dinner or social event).
@@ -112,7 +112,7 @@ There are two sections in *schedule_day1.txt*, which we will change on separate 
 
 7. Add and commit your changes.
 
-8. Switch back to the *main* branch. Check your branches - it should look like that:
+8. Switch back to the *main* branch. Check your branches; they should look like this:
 
 ```bash
   daily_program
@@ -122,25 +122,24 @@ There are two sections in *schedule_day1.txt*, which we will change on separate 
 
 #### Fast-forward merge
 
-9. Merge the *evening_activity* branch into *main*. To merge all modifications from a branch into the current branch, we type `git merge <branch-to-be-merged>`.
+9. Merge the *evening_activity* branch into *main*. To merge all modifications from a branch into the current branch, type `git merge <branch-to-be-merged>`.
 
 10. Check the history of your *main* branch. It should now include the commit from the *evening_activity* branch.
 
-11. It is good practice to delete branches that have been merged: `git branch -d <branch-to-be-deleted>`.
+11. It is good practice to delete branches that have already been merged: `git branch -d <branch-to-be-deleted>`.
 
 #### 3-way merge
 
-In our branch for the evening activitiy, we only changed the "Evening activity" section in our file. In the branch for daily program, we only changed the "Daily program" section, respectively. This will enusre a merge without a merge conflict in the end.
+In your branch for the evening activity, you only changed the "Evening activity" section in your file. In the branch for daily program, you only changed the "Daily program" section, respectively. This will ensure a merge without a merge conflict in the end.
 
-Since we merged *evening_activity* into *main*, the *main* branch has now a diverging history compared to the *daily_program* branch.
-Thus, when merging *daily_program* into *main*, Git must create a merge commit (3-way merge).
+Since you merged *evening_activity* into *main*, the *main* branch now has a diverging history compared to the *daily_program* branch.
+Therefore, when you merge *daily_program* into *main*, Git will create a merge commit (3-way merge).
 
+12. Merge the *daily_program* branch into *main*. This time, you need to set a commit message: `git merge <branch_name> -m "Merge daily_program"`
 
-12. Merge the *daily_program* branch into *main*. This time, we have to set a commit message: `git merge <branch_name> -m "Merge daily_program"`
+13. Check the history and the contents of the schedules. The *main* branch should now contain both sets of changes: daily program and evening activity.
 
-13. Check the history and the contents of the schedules. The *main* branch should now contain both changes (daily program and evening activity).
-
-Your Git log should look like the following:
+Your Git log should look like this:
 ```
 c0d0459 (HEAD -> main) Merge daily_program
 b1be3b4 (daily_program) Add talks
