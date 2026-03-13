@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Parse options
+BEGINNER_MODE=false
+for arg in "$@"; do
+    if [[ "$arg" == "--beginner" ]]; then
+        BEGINNER_MODE=true
+    fi
+done
+
 # Define the log file
 LOG_FILE="check_requirements.log"
 
@@ -22,11 +30,13 @@ else
     echo "Git is not installed. Please install Git."
 fi
 
-# Check if python is installed
-if command -v python >/dev/null 2>&1 || command -v python3 >/dev/null 2>&1; then
-    echo "Python is installed."
-else
-    echo "Python is not installed. Please install Python."
+# Check if python is installed (skip if --beginner)
+if ! $BEGINNER_MODE; then
+    if command -v python >/dev/null 2>&1 || command -v python3 >/dev/null 2>&1; then
+        echo "Python is installed."
+    else
+        echo "Python is not installed. Please install Python."
+    fi
 fi
 
 # Check GitHub account and SSH key by trying to clone a repository

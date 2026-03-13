@@ -72,9 +72,22 @@ curl -O https://raw.githubusercontent.com/C2SM/git-course/main/check_requirement
 chmod +x ./check_requirements.sh
 ```
 - Step 3: Run the script from a Linux shell.
+
+#### Beginners Course
+
+For the Beginners course, Python is not required for the exercises in the _beginner_ folder.
+
+```
+./check_requirements.sh --beginner
+```
+
+#### Advanced Course
+For the Advanced course, there is an additional check if Python is installed.
+
 ```
 ./check_requirements.sh
 ```
-If the check is successful, everything is set up correctly. Note that Python is not required for the exercises in the _beginner_ folder.
+
+If the check is successful, everything is set up correctly. 
 
 **Have fun!**
