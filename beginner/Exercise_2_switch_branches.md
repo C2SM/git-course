@@ -86,7 +86,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 For the planning of the other day, we want to use another Git branch.
 To keep track of all the different branches, Git provides the `git branch` command to see all branches of a repository.
-The `*` indicates our current branch. Hit the `q` key to exit the branch view.
+The `*` indicates our current branch. If a branch view has been opened, you can close it with by pressing the `q` key.
 
 ```bash
 git branch
