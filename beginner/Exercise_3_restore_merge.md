@@ -100,7 +100,7 @@ There are two sections in *schedule_day1.txt*, which we will change on separate 
 #### Preparing our branches
 1. Create and switch to a new branch for the evening activity.
 
-2. Open *schedule_day1.txt* and add evening activities only in the evening_activity section (e.g., add a dinner or social event).
+2. Open *schedule_day1.txt* and add evening activities only in the "Evening activity" section (e.g., add a dinner or social event).
 
 3. Add and commit the changes.
 
@@ -108,7 +108,7 @@ There are two sections in *schedule_day1.txt*, which we will change on separate 
 
 5. Create another branch to add more to the daily program.
 
-6. Open *schedule_day1.txt* and add at least one more event only in the daily_program section (e.g., add a new talk or session).
+6. Open *schedule_day1.txt* and add at least one more event only in the "Daily program" section (e.g., add a new talk or session).
 
 7. Add and commit your changes.
 
