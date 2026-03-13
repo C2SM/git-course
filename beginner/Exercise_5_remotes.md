@@ -79,14 +79,14 @@ So far we have only given our local repository the location of the remote reposi
 The output should look like this:
 ```
 * main
-  remotes/origin/HEAD -> origin/main
+  remotes/my_remote/HEAD -> my_remote/main
   remotes/my_remote/main
   remotes/my_remote/updated_schedules
 ```
 
 Here is what these branches mean:
 - `main`: This is your current local branch.
-- `remotes/origin/HEAD -> origin/main`: This shows the default branch (HEAD) of the remote named `origin`, which points to its `main` branch. `origin` is usually the default remote.
+- `remotes/my_remote/HEAD -> my_remote/main`: This shows the default branch (HEAD) of the remote named `my_remote`, which points to its `main` branch. This line is not shown by all Git versions.
 - `remotes/my_remote/main`: This is the `main` branch on the remote repository you just added (named `my_remote`).
 - `remotes/my_remote/updated_schedules`: This is the `updated_schedules` branch on the remote repository `my_remote`.
 

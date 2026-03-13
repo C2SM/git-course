@@ -54,7 +54,7 @@ Remember, the *.gitignore* file should be committed into your repository, so it 
 3. Run the *check_requirements.sh* file (as you should have done as preparation for the course):
 
 ```bash
-./check_requirements.sh
+./check_requirements.sh --beginner
 ```
 
 4. Check the status of your Git repository. You should now see the log file from running the requirement check.
@@ -144,7 +144,7 @@ Decide which one you prefer.
 > [!IMPORTANT]
 > If you just type "git merge <my_branch>" for a 3-way merge, Git will automatically open the default editor since a commit message is expected. For most Linux systems, the `vi` editor is opened. In this case, you can save and close the file by tying `:wq` and hit Enter.
 
-12. Delete the merge branch.
+12. Delete the merged branch.
 
 There is one unused branch left in our repository.
 
