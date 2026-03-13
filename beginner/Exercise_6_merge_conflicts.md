@@ -82,8 +82,8 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 It looks like we ran into a merge conflict. This happened because we made changes on the *main* branch and the *updated_schedules* branch at the same part of the file. Git doesn't know which changes it should accept. In principle, we have two options:
 
-1) Abort the merge conflict and go back to the original state or 
-2) Solve the merge conflict. 
+1. Abort the merge conflict and go back to the original state or 
+2. Solve the merge conflict. 
 
 Let's first have a look how to abort a merge conflict.
 
