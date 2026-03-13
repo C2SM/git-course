@@ -84,7 +84,13 @@ The output should look like this:
   remotes/my_remote/updated_schedules
 ```
 
-You can see that you now have a local branch (*main*), and remote branches (*remotes/\<remote_name>/\<branch_name>*).
+Here is what these branches mean:
+- `main`: This is your current local branch.
+- `remotes/origin/HEAD -> origin/main`: This shows the default branch (HEAD) of the remote named `origin`, which points to its `main` branch. `origin` is usually the default remote.
+- `remotes/my_remote/main`: This is the `main` branch on the remote repository you just added (named `my_remote`).
+- `remotes/my_remote/updated_schedules`: This is the `updated_schedules` branch on the remote repository `my_remote`.
+
+Remote branches (those prefixed with `remotes/`) are references to branches in remote repositories. They allow you to see what branches exist on the remote and what their latest commits are. You cannot edit these branches directly; instead, you can create a local branch that tracks a remote branch, make changes, and then push your changes back to the remote.
 
 ### Add remote branch to local repository and make changes
 
