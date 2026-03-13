@@ -75,6 +75,7 @@ We have decided to use the schedule on the *updated_schedules* branch. So we wan
 If you've done everything "right", something went "wrong" and the output should look like this:
 
 ```
+Auto-merging schedule_day1.txt
 CONFLICT (content): Merge conflict in schedule_day1.txt
 Automatic merge failed; fix conflicts and then commit the result.
 ```
