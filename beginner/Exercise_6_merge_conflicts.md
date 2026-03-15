@@ -21,9 +21,11 @@ For this exercise, we will use the following functions from this file:
 
 ## Remarks   
 
-> **Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
+> [!NOTE]
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
 
-> **Note:** Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
+> [!TIP]
+> Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
 
 If everything is still set up from the last exercise, you can continue with [this exercise](#exercise) directly.
 Otherwise, please refer to the [Initialization from Exercise 1](Exercise_1_basic_commands.md#initialization).
@@ -70,14 +72,20 @@ We have decided to use the schedule on the *updated_schedules* branch. So we wan
 1. Switch to *main* branch.
 2. Merge the *updated_schedules* branch into the *main* branch.
 
-If you've done everything "right", something went "wrong" and the output should look like this:
+If you have done everything "right", something went "wrong" and the output should look like this:
 
 ```
+Auto-merging schedule_day1.txt
 CONFLICT (content): Merge conflict in schedule_day1.txt
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-It looks like we ran into a merge conflict. This happened because we made changes on the *main* branch and the *updated_schedules* branch at the same part of the file. Git doesn't know which changes it should accept. In principle, we have two options: 1) Abort the merge conflict and go back to the original state or 2) Solve the merge conflict. Let's first have a look how to abort a merge conflict.
+It looks like we ran into a merge conflict. This happened because we made changes on the *main* branch and the *updated_schedules* branch at the same part of the file. Git doesn't know which changes it should accept. In principle, we have two options:
+
+1. Abort the merge conflict and go back to the original state or 
+2. Solve the merge conflict. 
+
+Let's first have a look how to abort a merge conflict.
 
 ### Abort merge conflict
 
@@ -131,7 +139,8 @@ After restoring the file:
   * Commit your changes:  Commiting your changes will finalize the merge process that was interrupted by the conflict.
 
 
- > **Important note when dealing with merge conflicts**: After resolving the conflict, **no new merge command is required**. The original merge operation was paused, not stopped, when the conflict was detected. By resolving the conflict and committing the changes, you are completing the paused merge process.
+ > [!NOTE]
+ > After resolving the conflict, **no new merge command is required**. The original merge operation was paused, not stopped, when the conflict was detected. By resolving the conflict and committing the changes, you are completing the paused merge process.
 
 ### Solve merge conflict with second option
 1. Create a new merge conflict: Go to the *main* and *updated_schedules* branches, respectively, and make different changes on the SAME line. Don't forget to commit the changes before switching between the branches.
@@ -149,37 +158,35 @@ As you can see from the Git message, we are ahead of the remote branch. So befor
 2. Push changes to the remote branch with `git push`.
 3. Now change the first event to "Introduction talk" in *schedule_day1.txt* and commit the change.
 
-What we didn't realize is that someone changed something on the remote branch while we were working on the file. If we now try to pull the remote branch, we will run into a merge conflict.
+   What we didn't realize is that someone changed something on the remote branch while we were working on the file. If we now try to pull the remote branch, we will run into a merge conflict.
 
 4. To mimic a person making changes to the same file at the same time, we use another helper function. Run the following to do so:
-```bash
-commit_to_remote_by_third_party
-```
+   ```bash
+   commit_to_remote_by_third_party
+   ```
 
 5. Now make sure you are on the *updated_schedules* branch and try to pull with `git pull`.
 
-Unless you already set how to pull in your Git config, you will get a message like this:
-```
-hint: You have divergent branches and need to specify how to reconcile them.
-hint: You can do so by running one of the following commands sometime before
-hint: your next pull:
-hint: 
-hint:   git config pull.rebase false  # merge
-hint:   git config pull.rebase true   # rebase
-hint:   git config pull.ff only       # fast-forward only
-hint: 
-hint: You can replace "git config" with "git config --global" to set a default
-hint: preference for all repositories. You can also pass --rebase, --no-rebase,
-hint: or --ff-only on the command line to override the configured default per
-hint: invocation.
-```
-Read the hints and the explanations below carefully and choose your preferred setting.
+   Unless you already set how to pull in your Git config, you will get a message like this:
+   ```
+   hint: You have divergent branches and need to specify how to reconcile them.
+   hint: You can do so by running one of the following commands sometime before
+   hint: your next pull:
+   hint: 
+   hint:   git config pull.rebase false  # merge
+   hint:   git config pull.rebase true   # rebase
+   hint:   git config pull.ff only       # fast-forward only
+   hint: 
+   hint: You can replace "git config" with "git config --global" to set a default
+   hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+   hint: or --ff-only on the command line to override the configured default per
+   hint: invocation.
+   ```
+   Read the hints and the explanations below carefully and choose your preferred setting.
 
-`# merge`: This option will handle pull requests the same way as when merging a branch, i.e., the merge will not be automatically committed.
-
-`# rebase`: This option will commit a merge directly in case there are no conflicts. Otherwise you will have to solve the conflicts before continuing (Git will tell you all necessary steps)
-
-`# fast-forward only`: This option will only do a merge in case there are no conflicts, otherwise nothing will be done (we do not recommend this option, to undo it, you need to run `git config pull.ff false`)
+   - `# merge`: This option merges the remote branch into the current branch. If there are no conflicts, Git automatically creates a merge commit. If conflicts occur, you must resolve them, stage the files, and run `git commit` to finish the merge.
+   - `# rebase`: This option rebases your local commits on top of the remote branch. Git temporarily removes your local commits, updates the branch with the remote changes, and then reapplies your commits one by one. If conflicts occur, you must resolve them, stage the files, and run `git rebase --continue`.
+   - `# fast-forward only`: This option allows `git pull` only if the local branch can be fast-forwarded to the remote branch (i.e., you have no local commits that diverge). If the branches have diverged, Git aborts the pull with an error and no changes are made. When successful, no merge commit is created because the branch pointer simply moves forward.
 
 6. Choose and set your preferred way of pulling.
 

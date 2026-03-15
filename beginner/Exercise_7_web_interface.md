@@ -14,9 +14,11 @@ For this exercise, we will use the following functions from this file:
 
 ## Remarks   
 
-> **Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
+> [!NOTE]
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
 
-> **Note:** Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
+> [!TIP]
+> Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
 
 If everything is still set up from the last exercise, you can continue with [this exercise](#exercise) directly.
 Otherwise, please refer to the [Initialization from Exercise 1](Exercise_1_basic_commands.md#initialization).
@@ -38,7 +40,8 @@ GitHub will indicate at the top left that this repository has been forked (left 
 
 Now copy the forked repository to your local workspace using the link (right arrow, dropdown from `Code`). If you have an SSH key on GitHub that connects your local Git to GitHub, use the SSH link to clone, otherwise use HTTPS.
 
-> **Note about HTTPS**: If you clone the repository with HTTPS, you will not be able to exchange any information with the remote repository without setting up a token (`git push`, `git pull` and `git fetch` will NOT work). Follow the instructions in [Create a user token to use HTTPS for working with remote repositories](token.md) to do so.
+> [!NOTE]
+> If you clone the repository with HTTPS, you will not be able to exchange any information with the remote repository without setting up a token (`git push`, `git pull` and `git fetch` will NOT work). Follow the instructions in [Create a user token to use HTTPS for working with remote repositories](token.md) to do so.
 However, we strongly recommend that you create an SSH key for GitHub if you plan to work with it in the future. It will make things much easier!
 
 ![Forked_Repo_view.png](images/Forked_Repo_view.png)
@@ -67,7 +70,7 @@ Next, let's create a new branch and add a commit to it.
 ### Send local information to GitHub
 
 Now, let's send our new branch to our GitHub fork.
-1. Push your local changes to the remote repository using `git push origin <branch_name>`
+1. Push your local changes to the remote repository and set the upstream using `git push -u origin <branch_name>`. Note that you only need to set the upstream (using `-u`) once, for subsequent pushes you must omit the `-u`.
 
 ### Examine the GitHub repository
 

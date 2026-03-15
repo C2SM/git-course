@@ -66,12 +66,14 @@ init_simple_repo () {
     git add schedule_day1.txt && git commit -m "Add schedule_day1"
     git add schedule_day2.txt && git commit -m "Add schedule_day2"
 
-    sed -i '/program/a 09:00-11:00: Poster session' schedule_day1.txt > /dev/null
-    sed -i '/program/a 09:00-11:00: Poster session' schedule_day2.txt > /dev/null
+    tmp=$(mktemp)
+    sed '/program/a\'$'\n''09:00-11:00: Poster session' schedule_day1.txt > "$tmp" && mv "$tmp" schedule_day1.txt
+    sed '/program/a\'$'\n''09:00-11:00: Poster session' schedule_day2.txt > "$tmp" && mv "$tmp" schedule_day2.txt
+
     git add * && git commit -m "Add poster sessions in the morning"
 
-    sed -i '/session/a 11:00-11:15: Coffee break' schedule_day1.txt > /dev/null
-    sed -i '/session/a 11:00-11:15: Coffee break' schedule_day2.txt > /dev/null
+    sed '/session/a\'$'\n''11:00-11:15: Coffee break' schedule_day1.txt > "$tmp" && mv "$tmp" schedule_day1.txt
+    sed '/session/a\'$'\n''11:00-11:15: Coffee break' schedule_day2.txt > "$tmp" && mv "$tmp" schedule_day2.txt
     git add * && git commit -m "Add coffee break"
 
     echo ""
@@ -94,8 +96,10 @@ init_simple_repo_remote () {
     git clone conference_planning conference_planning_remote
     cd conference_planning_remote
     git checkout -b "updated_schedules"
-    sed -i '/break/a 11:15-12:15: Talk professor A.' schedule_day1.txt > /dev/null
-    sed -i '/break/a 11:15-12:15: Talk professor B.' schedule_day2.txt > /dev/null
+
+    tmp=$(mktemp)
+    sed '/break/a\'$'\n''11:15-12:15: Talk Ice Nucleation' schedule_day1.txt > "$tmp" && mv "$tmp" schedule_day1.txt
+    sed '/break/a\'$'\n''11:15-12:15: Talk Mixed-Phase Clouds' schedule_day2.txt > "$tmp" && mv "$tmp" schedule_day2.txt
     git add * && git commit -m "update schedules"
 
     # Dynamically get the default branch name and switch to it
@@ -104,13 +108,15 @@ init_simple_repo_remote () {
 
     cd ../conference_planning
 
+    echo -e "\033[31m\033[1mYou've been moved to the 'conference_planning' directory within the 'beginners_git' directory. This is where you start your exercise.\033[0m"
 }
 
 init_repo () {
     init_simple_repo &> /dev/null
 
-    sed -i '/break/a 11:15-12:15: Workshop ice crystal formation' schedule_day1.txt > /dev/null
-    sed -i '/break/a 11:15-12:15: Workshop secondary ice' schedule_day2.txt > /dev/null
+    tmp=$(mktemp)
+    sed '/break/a\'$'\n''11:15-12:15: Workshop Ice Crystal Formation' schedule_day1.txt > "$tmp" && mv "$tmp" schedule_day1.txt
+    sed '/break/a\'$'\n''11:15-12:15: Workshop Secondary Ice Production' schedule_day2.txt > "$tmp" && mv "$tmp" schedule_day2.txt
     git add * && git commit -m "Add workshops"
 
     sed  's/Poster session/Talk professor C./g' schedule_day1.txt > schedule_day1_tmp.txt
@@ -146,13 +152,17 @@ init_repo_remote () {
     git add schedule_day1.txt && git commit -m "Add schedule_day1"
 
     # Edit schedule_day1.txt
-    sed -i '/program/a 09:00-11:00: Poster session' schedule_day1.txt > /dev/null
+    tmp=$(mktemp)
+    sed '/program/a\'$'\n''09:00-11:00: Poster session' schedule_day1.txt > "$tmp" && mv "$tmp" schedule_day1.txt
     git add * && git commit -m "Add poster sessions in the morning"
 
-    sed -i '/session/a 11:00-11:15: Coffee break' schedule_day1.txt > /dev/null
+    sed '/session/a\'$'\n''11:00-11:15: Coffee break' schedule_day1.txt > "$tmp" && mv "$tmp" schedule_day1.txt
     git add * && git commit -m "Add coffee breaks"
 
-    sed -i "/break/a 11:15-12:15: Talk professor A.\n12:15-13:30: Lunch\n13:30-15:00: Workshop\n15:00-16:00: Talk professor B." schedule_day1.txt > /dev/null
+    sed '/break/a\'$'\n''11:15-12:15: Talk Quantum Physics' schedule_day1.txt > "$tmp" && mv "$tmp" schedule_day1.txt
+    sed '/Physics/a\'$'\n''12:15-13:30: Lunch' schedule_day1.txt > "$tmp" && mv "$tmp" schedule_day1.txt
+    sed '/Lunch/a\'$'\n''13:30-15:00: Workshop' schedule_day1.txt > "$tmp" && mv "$tmp" schedule_day1.txt
+    sed '/Workshop/a\'$'\n''15:00-16:00: Talk TBA' schedule_day1.txt > "$tmp" && mv "$tmp" schedule_day1.txt
     git add * && git commit -m "Add rest of daily program"
 
     cd ..

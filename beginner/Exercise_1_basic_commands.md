@@ -21,30 +21,45 @@ For this exercise, we will use the following functions from this file:
 
 ## Remarks   
 
-> **Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
+> [!NOTE] 
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
 
-> **Note:** Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
+> [!TIP] 
+> Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
 
 ## Global Git Configuration Settings
 
 Before we start using Git, we should set some global configurations. This only needs to be done once, and will be saved for all your future sessions.
 
-1. First of all, we need to tell Git who we are.
-To do this, run the following lines with your credentials:
+### 1. Set User Credentials
+
+First of all, we need to tell Git who we are. To do this, run the following lines and replace your name and email address
+between the quotes ("") with your credentials:
+
+> [!NOTE] 
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
+
 ```
 git config --global user.name "<John Doe>"
 git config --global user.email "<my_name@some.domain>"
 ```
-> **Note:** Use your real first and last name as your username and set the same email as your GitHub account. Also, ensure your actual name is set on GitHub; otherwise, your commits will appear under different authors.
 
-At the end of this course, you will learn something about repository managers like GitHub. Recently, they changed their naming policy for the initial branch from *master* to *main*. So we want to tell Git to set our default branch name to *main* as well. 
+> [!IMPORTANT]
+> Use your real first and last name as your username, and use the same email address as you have on your GitHub account. Also, make sure that your real name is set on GitHub; otherwise, your commits will appear under different authors.
 
-> **Note:** Refer to the official Git documentation (https://git-scm.com/docs/git-init#Documentation/git-init.txt--bltbranch-namegt).
+At the end of this course, you will learn something about repository managers like GitHub. 
 
-2. Set *main* as the default branch name:
+
+### 2. Set *main* as the default branch name:
+
+Recently, they changed their naming policy for the initial branch from *master* to *main*. So we want to tell Git to set our default branch name to *main* as well. 
+
 ```bash
 git config --global init.defaultBranch main
 ```
+	
+> [!TIP]
+> Refer to the official Git documentation (https://git-scm.com/docs/git-init#Documentation/git-init.txt--bltbranch-namegt).
 
 ## Clone the `git-course` Repository
 
@@ -69,7 +84,8 @@ If you are satisfied with your current directory, use the following command to c
 git clone git@github.com:C2SM/git-course.git 
 ```
 
-> **Note:** If you did not set up an SSH key linked to your GitHub account, you will have to use `https://github.com/C2SM/git-course.git` instead for cloning the repository.
+> [!IMPORTANT]
+> If you did not set up an SSH key linked to your GitHub account, you will have to use `https://github.com/C2SM/git-course.git` instead for cloning the repository.
 
 You can now navigate into it with
 
@@ -87,7 +103,8 @@ cd beginner
 
 ---
 
-> **To initialize the exercise properly, run this code at the very beginning. Check the [Helper Functions](#helper-functions) section above for more explanation.**
+> [!IMPORTANT]
+> To initialize the exercise properly, run this code at the very beginning. Check the [Helper Functions](#helper-functions) section above for more explanation.
 
 ```bash
 # source the helpers.sh file to be able to use its functions
@@ -103,19 +120,20 @@ repository! You can check this with the `pwd` command.
 
 ### Optional: restart exercise repo
 
-⚠️ **In case you messed up somehow, execute the `reset` function. Check the [Helper Functions](#helper-functions) section above for more explanation.**
-
-```bash
-## only execute this in case of (serious) trouble ##
-## it will delete your entire beginners_git directory ##
-reset
-```
+> [!IMPORTANT]
+> **In case you messed up somehow, execute the `reset` function. Check the [Helper Functions](#helper-functions) section above for more explanation.**
+>
+>```bash
+>## only execute this in case of (serious) trouble ##
+>## it will delete your entire beginners_git directory ##
+>reset
+>```
 
 ## Exercise
 
-
 ### Create a Git repository from scratch
-> Hint: check the [Basic Unix Commands](../Unix_Commands.md) if you don't know how to do the following.
+> [!TIP]
+> Check the [Basic Unix Commands](../Unix_Commands.md) if you don't know how to do the following.
 
 1. Create a new folder (e.g. *git_repo*) and navigate to it
 2. Use the command `git init` to initiate your first Git repository
@@ -138,7 +156,6 @@ echo "<my text for file>" > first_file.txt
 3. Check the status of your Git repository with `git status`
 
 You should now get an output similar to:
-
 
 ```
 On branch main
@@ -178,6 +195,10 @@ Changes to be committed:
 ```
 
 6. The last thing to do is to commit these files together with a commit message:
+
+> [!NOTE] 
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
+
 ```bash
 git commit -m "<meaningful message>"
 ```
@@ -229,15 +250,13 @@ The "+" indicates that we have a new line in our file.
 
 Let's modify the second file as well.
 
-4. Add a new line in the second file
+4. Add a new line in the second file.
 
-The next lecture is starting soon, so let's add and commit our changes for safety reasons.
+5. Add the two modified files with `git add <file name>`.
 
-5. Add the two modified files with `git add`
+6. Use `git status` to check if your action was successful.
 
-6. Use `git status` to check if your action was successful
-
-7. Now commit your changes with a meaningful commit message
+7. Now commit your changes with a meaningful commit message.
 
 **Congrats!**   
 But how many commits do you already have in this repository?

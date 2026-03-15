@@ -13,7 +13,7 @@ The folder [advanced](advanced) contains the exercises for the C2SM Git Workshop
 To run this course on your computer, the following things need to be set up:
 1. [Git](#1-installing-git-on-your-computer)
 2. [SSH key linked to your GitHub account](#2-creating-a-github-account-and-ssh-key)
-3. [Python](#3-installing-python) 
+3. [Python](#3-installing-python) (only advanced)
 4. [Final check](#4-final-check)
 
 
@@ -72,8 +72,22 @@ curl -O https://raw.githubusercontent.com/C2SM/git-course/main/check_requirement
 chmod +x ./check_requirements.sh
 ```
 - Step 3: Run the script from a Linux shell.
+
+#### Beginners Course
+
+For the Beginners course, Python is not required for the exercises in the _beginner_ folder.
+
+```
+./check_requirements.sh --beginner
+```
+
+#### Advanced Course
+For the Advanced course, there is an additional check if Python is installed.
+
 ```
 ./check_requirements.sh
 ```
+
+If the check is successful, everything is set up correctly. 
 
 **Have fun!**

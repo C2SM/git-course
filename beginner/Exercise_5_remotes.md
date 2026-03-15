@@ -18,9 +18,11 @@ For this exercise, we will use the following functions from this file:
 
 ## Remarks   
 
-> **Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
+> [!NOTE]
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
 
-> **Note:** Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
+> [!TIP]
+> Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
 
 If everything is still set up from the last exercise, you can continue with [this exercise](#exercise) directly.
 Otherwise, please refer to the [Initialization from Exercise 1](Exercise_1_basic_commands.md#initialization).
@@ -77,16 +79,22 @@ So far we have only given our local repository the location of the remote reposi
 The output should look like this:
 ```
 * main
+  remotes/my_remote/HEAD -> my_remote/main
   remotes/my_remote/main
   remotes/my_remote/updated_schedules
 ```
 
-You can see that you now have a local branch (*main*), and remote branches (*remotes/\<remote_name>/\<branch_name>*).
+Here is what these branches mean:
+- `main`: This is your current local branch.
+- `remotes/my_remote/HEAD -> my_remote/main`: This shows the default branch (HEAD) of the remote named `my_remote`, which points to its `main` branch. This line is not shown by all Git versions.
+- `remotes/my_remote/main`: This is the `main` branch on the remote repository you just added (named `my_remote`).
+- `remotes/my_remote/updated_schedules`: This is the `updated_schedules` branch on the remote repository `my_remote`.
+
+Remote branches (those prefixed with `remotes/`) are references to branches in remote repositories. They allow you to see what branches exist on the remote and what their latest commits are. You cannot edit these branches directly; instead, you can create a local branch that tracks a remote branch, make changes, and then push your changes back to the remote.
 
 ### Add remote branch to local repository and make changes
 
-The remote repository has a branch called *updated_schedules*.
-Let's check out this branch to work on it.  
+The remote repository has a branch called *updated_schedules*. If there is no local branch with the same name, Git will automatically add the remote branch to your local repository when you switch to it.
 
 1. Switch to branch *updated_schedules*.
 
@@ -115,7 +123,7 @@ nothing to commit, working tree clean
 
 Finally, we want to commit our changes back to the remote repository. To commit to a remote repository, use the `git push` command.
 
-1. Push commited changes to remote branch.
+1. Push committed changes to remote branch.
 
 The output should look something like this:
 ```
@@ -129,4 +137,4 @@ To ../conference_planning_remote
    1dacf13..80e64e8  updated_schedules -> updated_schedules
 ```
 
-**Congrats, you now also know the most essential Git commands for the _remote_ use of Git.**
+**Congrats, you now know the most essential Git commands for the _remote_ use of Git.**

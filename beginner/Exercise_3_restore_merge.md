@@ -20,9 +20,11 @@ For this exercise, we will use the following functions from this file:
 
 ## Remarks   
 
-> **Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
+> [!NOTE]
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
 
-> **Note:** Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
+> [!TIP]
+> Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
 
 If everything is still set up from the last exercise, you can continue with [this exercise](#exercise) directly.
 Otherwise, please refer to the [Initialization from Exercise 1](Exercise_1_basic_commands.md#initialization).
@@ -51,10 +53,10 @@ To avoid doing the same work twice, we want to reuse the old schedules that we d
 
 We can use `git restore` to get any version of a file along its Git history.
 
-Just run `git restore -s <specific_commit_hash> <your_schedule>`.
+Just run `git restore -s <specific_commit_hash> <your_file(s)>`.
 
-> **Note**:
-For simplicity, we've used the `-s` option in the `git restore` command. Note that `-s` is a shorthand for `--source`, which you can also use interchangeably. The primary difference lies in the syntax: use `-s <commit_hash>` for a shorter command, or `--source=<commit_hash>` if you prefer a more explicit approach. Both options perform the same function: specifying the source from which to restore. Whether you prefer `-s` for brevity or `--source` for clarity is up to you.
+> [!NOTE]
+> For simplicity, we've used the `-s` option in the `git restore` command. Note that `-s` is a shorthand for `--source`, which you can also use interchangeably. The primary difference lies in the syntax: use `-s <commit_hash>` for a shorter command, or `--source=<commit_hash>` if you prefer a more explicit approach. Both options perform the same function: specifying the source from which to restore. Whether you prefer `-s` for brevity or `--source` for clarity is up to you.
 
 2. Undo "Change poster sessions to talks" by restoring the *schedule_day1.txt* to the commit before the change.
 
@@ -81,7 +83,7 @@ Your output should look similar to:
 b7bd111 (HEAD -> main) Remove workshop on day 1
 f6c3f04 Change talks back to poster sessions
 5889296 Change poster sessions to talks
-464fc92 Add workshop
+464fc92 Add workshops
 e53b1e0 Add coffee break
 f1b23c1 Add poster sessions in the morning
 f636890 Add schedule_day2
@@ -94,61 +96,50 @@ In this part of the exercise, we will continue working on *schedule_day1.txt*.
 There are two sections in *schedule_day1.txt*, which we will change on separate branches:
    * *daily_program*
    * *evening_activity*
-   
-> **Note**: Try to avoid merge conflicts by not changing the same part of a file in two branches you want to merge (usually the *main* branch and a branch you want to merge into the *main* branch). There are, of course, ways to deal with merge conflicts, and we will learn how to deal with them later in this course, but for now we will try to avoid them. If you follow the descriptions below, you should not run into a merge conflict.
 
-1. Switch to a new branch for the evening activity.
+#### Preparing your branches
+1. Create and switch to a new branch for the evening activity.
 
-2. Open the schedules and add evening activities.
+2. Open *schedule_day1.txt* and add evening activities only in the "Evening activity" section (e.g., add a dinner or social event).
 
 3. Add and commit the changes.
 
-4. Go back to the *main* branch using `git switch` (if you don't go back to the *main* branch but create a new branch, it will be based on the current branch and not the *main* branch).
+4. Switch back to the *main* branch.
 
-5. Now create another branch to add more to the daily program. Add at least one more event to the daily program.
+5. Create another branch to add more to the daily program.
 
-6. Add and commit your changes
+6. Open *schedule_day1.txt* and add at least one more event only in the "Daily program" section (e.g., add a new talk or session).
 
-7. Now switch back to branch *main* and run `git branch`
+7. Add and commit your changes.
 
-The output should look like:
-```
+8. Switch back to the *main* branch. Check your branches; they should look like this:
+
+```bash
+  daily_program
   evening_activity
 * main
-  daily_program
 ```
 
-Let's put the pieces of the schedules together. For that we use the `git merge` functionality.  
-It allows us to merge files with different text from different branches.
+#### Fast-forward merge
 
+9. Merge the *evening_activity* branch into *main*. To merge all modifications from a branch into the current branch, type `git merge <branch-to-be-merged>`.
 
-To merge all modifications from a branch into the current branch, we type `git merge <branch-to-be-merged>`
+10. Check the history of your *main* branch. It should now include the commit from the *evening_activity* branch.
 
-8. Merge evening activity into the *main* branch (make sure you are on the main branch for that).
+11. It is good practice to delete branches that have already been merged: `git branch -d <branch-to-be-deleted>`.
 
-Git just performed a so-called **fast-forward merge**. This means that there is a linear path
-between the two merged branches. See the slides for more detailed information about it. 
+#### 3-way merge
 
-**Most important:**  
-Git does **NOT** create an additional commit to perform the merge. It only appends the commit from the branch *evening_activity* to the HEAD.
+In your branch for the evening activity, you only changed the "Evening activity" section in your file. In the branch for daily program, you only changed the "Daily program" section, respectively. This will ensure a merge without a merge conflict in the end.
 
-9. Check Git history to see the added commit.
+Since you merged *evening_activity* into *main*, the *main* branch now has a diverging history compared to the *daily_program* branch.
+Therefore, when you merge *daily_program* into *main*, Git will create a merge commit (3-way merge).
 
-Check the contents of the schedules.
+12. Merge the *daily_program* branch into *main*. This time, you need to set a commit message: `git merge <branch_name> -m "Merge daily_program"`
 
-As you can see, we successfully merged our changes from the *evening_activity* branch into the *main* branch. After merging a branch, it is always good practice to delete it.
+13. Check the history and the contents of the schedules. The *main* branch should now contain both sets of changes: daily program and evening activity.
 
-10. Delete the branch for the evening activities with `git branch -d <evening activities branch>`.
-
-Let's do the same, but for the changes in the branch for the daily program.
-
-11. Merge the branch for the daily program into the *main* branch.
-
-For this merge, Git performs what is called a **3-way merge**, because the path between the two branches is no longer linear due to the merge of the branch for planning the evening activities. So Git creates a **merge commit** to merge the two histories together.
-
-12. Take a look at the schedules and see what they look like. Then check out the new history of your current branch.
-
-Your Git log looks like the following:
+Your Git log should look like this:
 ```
 c0d0459 (HEAD -> main) Merge daily_program
 b1be3b4 (daily_program) Add talks
@@ -156,13 +147,13 @@ b1be3b4 (daily_program) Add talks
 b7bd111 Remove workshop on day 1
 f6c3f04 Change talks back to poster sessions
 5889296 Change poster sessions to talks
-464fc92 Add workshop
+464fc92 Add workshops
 e53b1e0 Add coffee break
 f1b23c1 Add poster sessions in the morning
 f636890 Add schedule_day2
 206f724 Add schedule_day1
 ```
 
-13. Again, make sure to delete the branch you just merged.
+14. Delete the branch you just merged.
 
 **Congrats, your Git skills are getting better and better!**

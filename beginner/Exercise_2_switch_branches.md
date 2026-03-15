@@ -3,7 +3,8 @@
 ## Objective
 
    * Learn how to work with branches and switch between them using `git switch`.
-   > **Note**: `git checkout` can be used as an alternative to `git switch`. However, it has different features that have caused confusion among users in the past. So we won't use it here, but show the alternative commands in brackets, as some older Git versions don't have this option yet.
+   > [!NOTE]
+   > `git checkout` can be used as an alternative to `git switch`. However, it has different features that have caused confusion among users in the past. So we won't use it here, but show the alternative commands in brackets, as some older Git versions don't have this option yet.
 
 ## Structure
 
@@ -21,9 +22,11 @@ For this exercise, we will use the following functions from this file:
 
 ## Remarks   
 
-> **Note:** Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word.
+> [!NOTE]
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
 
-> **Note:** Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
+> [!TIP]
+> Some exercises may require the use of basic Unix commands. If you are unfamiliar with Unix systems, refer to the file [Basic Unix Commands](../Unix_Commands.md) for a list of all necessary commands.
 
 If everything is still set up from the last exercise, you can continue with [this exercise](#exercise) directly.
 Otherwise, please refer to the [Initialization from Exercise 1](Exercise_1_basic_commands.md#initialization).
@@ -55,6 +58,10 @@ To keep things organized, we will do this in two different Git branches, one for
 
 **Let's get started!**
 1. Create a new branch for planning day 1:
+
+> [!NOTE]
+> Any text enclosed in `<>` denotes a placeholder to be replaced with a specific string appropriate to your context, i.e. delete `<>` and replace it with the appropriate word/sentence.
+
 ```bash
 git switch -c <meaningful_branch_name_A>
 # (Alternative: "git checkout -b <meaningful_branch_name_A>")
@@ -79,14 +86,14 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 For the planning of the other day, we want to use another Git branch.
 To keep track of all the different branches, Git provides the `git branch` command to see all branches of a repository.
-The * indicates our current branch. Hit the `q` key to exit the branch view.
+The `*` indicates our current branch. If a branch view has been opened, you can close it with by pressing the `q` key.
 
 ```bash
 git branch
 ```
 
 We can easily switch between these branches using the `git switch` command.
-Don't worry -> Git will keep all your committed work on that branch.
+Don't worry -> Git will keep all your **committed** work on that branch.
 
 5. Switch back to *main* branch:
 ```bash
