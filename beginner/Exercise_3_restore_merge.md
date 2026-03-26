@@ -47,48 +47,48 @@ Originally we planned poster sessions in the morning, but the invited professors
 
 2. Check the Git history for the commit that changed the poster sessions to talks.
 
-The professors have now canceled their talks and we want to have the poster sessions in the morning again.
+   The professors have now canceled their talks and we want to have the poster sessions in the morning again.
 
-To avoid doing the same work twice, we want to reuse the old schedules that we designed in the first place.
+   To avoid doing the same work twice, we want to reuse the old schedules that we designed in the first place.
 
-We can use `git restore` to get any version of a file along its Git history.
+   We can use `git restore` to get any version of a file along its Git history.
 
-Just run `git restore -s <specific_commit_hash> <your_file(s)>`.
+   Just run `git restore -s <specific_commit_hash> <your_file(s)>`.
 
-> [!NOTE]
-> For simplicity, we've used the `-s` option in the `git restore` command. Note that `-s` is a shorthand for `--source`, which you can also use interchangeably. The primary difference lies in the syntax: use `-s <commit_hash>` for a shorter command, or `--source=<commit_hash>` if you prefer a more explicit approach. Both options perform the same function: specifying the source from which to restore. Whether you prefer `-s` for brevity or `--source` for clarity is up to you.
+   > [!NOTE]
+   > For simplicity, we've used the `-s` option in the `git restore` command. Note that `-s` is a shorthand for `--source`, which you can also use interchangeably. The primary difference lies in the syntax: use `-s <commit_hash>` for a shorter command, or `--source=<commit_hash>` if you prefer a more explicit approach. Both options perform the same function: specifying the source from which to restore. Whether you prefer `-s` for brevity or `--source` for clarity is up to you.
 
-2. Undo "Change poster sessions to talks" by restoring the *schedule_day1.txt* to the commit before the change.
+3. Undo "Change poster sessions to talks" by restoring the *schedule_day1.txt* to the commit before the change.
 
-3. Review *schedule_day1.txt* to see if the talk has been changed back to a poster session.
+4. Review *schedule_day1.txt* to see if the talk has been changed back to a poster session.
 
-4. Do exactly the same for *schedule_day2.txt*.
+5. Do exactly the same for *schedule_day2.txt*.
 
-5. Check if Git tracked the changes.
+6. Check if Git tracked the changes.
 
-6. Add and commit your updated schedules
+7. Add and commit your updated schedules
 
-7. Now check the Git history
+8. Now check the Git history
 
-Each *commit hash* is unique, so you can always go to any version of the tracked files, *even* across different branches.
+   Each *commit hash* is unique, so you can always go to any version of the tracked files, *even* across different branches.
 
-8. You decide to not have the workshop on day 1 anymore. So restore *schedule_day1.txt* before the "Add workshops" commit.
+9. You decide to not have the workshop on day 1 anymore. So restore *schedule_day1.txt* before the "Add workshops" commit.
 
-9. Add and commit *schedule_day1.txt*.
+10. Add and commit *schedule_day1.txt*.
 
-10. Check the Git history with `git log --oneline` for a short summary.
+11. Check the Git history with `git log --oneline` for a short summary.
 
-Your output should look similar to:
-```
-b7bd111 (HEAD -> main) Remove workshop on day 1
-f6c3f04 Change talks back to poster sessions
-5889296 Change poster sessions to talks
-464fc92 Add workshops
-e53b1e0 Add coffee break
-f1b23c1 Add poster sessions in the morning
-f636890 Add schedule_day2
-206f724 Add schedule_day1
-```
+    Your output should look similar to:
+    ```
+    b7bd111 (HEAD -> main) Remove workshop on day 1
+    f6c3f04 Change talks back to poster sessions
+    5889296 Change poster sessions to talks
+    464fc92 Add workshops
+    e53b1e0 Add coffee break
+    f1b23c1 Add poster sessions in the morning
+    f636890 Add schedule_day2
+    206f724 Add schedule_day1
+    ```
 
 
 ### Merge two branches (without merge conflicts)
