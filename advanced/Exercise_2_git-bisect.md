@@ -123,6 +123,9 @@ We can also automate this process to make it easier. We just need a testing scri
   else:
       sys.exit(1)
   ```
+
+  Note: To use this script you need to have the [`numpy`](https://numpy.org/install/) package installed. 
+
 </details>
 
 Now that we have a script to check the code, let's use `git bisect run` to quickly find the bad commit in our repository.
