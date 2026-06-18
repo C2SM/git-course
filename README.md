@@ -1,5 +1,3 @@
-Test
-
 # C2SM Git Courses
 
 ## Git Course for Beginners

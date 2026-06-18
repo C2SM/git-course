@@ -125,7 +125,6 @@ We can also automate this process to make it easier. We just need a testing scri
   else:
       sys.exit(1)
   ```
-
 </details>
 
 Now that we have a script to check the code, let's use `git bisect run` to quickly find the bad commit in our repository.
