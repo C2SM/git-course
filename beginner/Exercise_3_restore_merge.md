@@ -41,9 +41,9 @@ init_repo
 
 1. Review the schedules for the two days in the files *schedule_day1.txt* and *schedule_day2.txt*.
 
-The schedules for both days start with talks.
+   The schedules for both days start with talks.
 
-Originally we planned poster sessions in the morning, but the invited professors only had time in the morning to give their talks, so we changed the poster sessions to talks.
+   Originally we planned poster sessions in the morning, but the invited professors only had time in the morning to give their talks, so we changed the poster sessions to talks.
 
 2. Check the Git history for the commit that changed the poster sessions to talks.
 
@@ -55,8 +55,8 @@ Originally we planned poster sessions in the morning, but the invited professors
 
    Just run `git restore -s <specific_commit_hash> <your_file(s)>`.
 
-   > [!NOTE]
-   > For simplicity, we've used the `-s` option in the `git restore` command. Note that `-s` is a shorthand for `--source`, which you can also use interchangeably. The primary difference lies in the syntax: use `-s <commit_hash>` for a shorter command, or `--source=<commit_hash>` if you prefer a more explicit approach. Both options perform the same function: specifying the source from which to restore. Whether you prefer `-s` for brevity or `--source` for clarity is up to you.
+> [!NOTE]
+> For simplicity, we've used the `-s` option in the `git restore` command. Note that `-s` is a shorthand for `--source`, which you can also use interchangeably. The primary difference lies in the syntax: use `-s <commit_hash>` for a shorter command, or `--source=<commit_hash>` if you prefer a more explicit approach. Both options perform the same function: specifying the source from which to restore. Whether you prefer `-s` for brevity or `--source` for clarity is up to you.
 
 3. Undo "Change poster sessions to talks" by restoring the *schedule_day1.txt* to the commit before the change.
 
@@ -114,11 +114,11 @@ There are two sections in *schedule_day1.txt*, which we will change on separate 
 
 8. Switch back to the *main* branch. Check your branches; they should look like this:
 
-```bash
-  daily_program
-  evening_activity
-* main
-```
+   ```bash
+     daily_program
+     evening_activity
+   * main
+   ```
 
 #### Fast-forward merge
 
@@ -139,20 +139,20 @@ Therefore, when you merge *daily_program* into *main*, Git will create a merge c
 
 13. Check the history and the contents of the schedules. The *main* branch should now contain both sets of changes: daily program and evening activity.
 
-Your Git log should look like this:
-```
-c0d0459 (HEAD -> main) Merge daily_program
-b1be3b4 (daily_program) Add talks
-4d93eac Add evening activities
-b7bd111 Remove workshop on day 1
-f6c3f04 Change talks back to poster sessions
-5889296 Change poster sessions to talks
-464fc92 Add workshops
-e53b1e0 Add coffee break
-f1b23c1 Add poster sessions in the morning
-f636890 Add schedule_day2
-206f724 Add schedule_day1
-```
+    Your Git log should look like this:
+    ```
+    c0d0459 (HEAD -> main) Merge daily_program
+    b1be3b4 (daily_program) Add talks
+    4d93eac Add evening activities
+    b7bd111 Remove workshop on day 1
+    f6c3f04 Change talks back to poster sessions
+    5889296 Change poster sessions to talks
+    464fc92 Add workshops
+    e53b1e0 Add coffee break
+    f1b23c1 Add poster sessions in the morning
+    f636890 Add schedule_day2
+    206f724 Add schedule_day1
+    ```
 
 14. Delete the branch you just merged.
 
