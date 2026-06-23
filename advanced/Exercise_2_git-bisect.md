@@ -110,7 +110,8 @@ We can also automate this process to make it easier. We just need a testing scri
 <details>
   <summary>Click here to see contents of the code checking script</summary>
 
-  _Note_: To use this script you need to have the [`numpy`](https://numpy.org/install/) package installed.
+> [!NOTE]
+> To use this script you need to have the [`numpy`](https://numpy.org/install/) package installed.
 
   ```plaintext
   import subprocess
