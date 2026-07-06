@@ -1,0 +1,107 @@
+/* @theme c2sm */
+@import 'default';
+
+:root {
+  --c2sm-blue: #134f7c;
+  --c2sm-light: #e9f2f7;
+  --c2sm-gray: #444;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 60px 70px 60px 70px;
+  background: white;
+  font-size: 27px;
+  position: relative;
+}
+h1 {
+  color: var(--c2sm-blue);
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+img { 
+  max-height: 430px; 
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+img.no-center {
+  margin-left: 0;
+  margin-right: 0;
+}
+/* List items */
+li {
+  margin: 0.25em 0; 
+}
+code {
+  background: #f2f4f7;
+  padding: 0.05em 0.28em;
+  border-radius: 4px;
+}
+footer {
+  background: var(--c2sm-blue);
+  color: var(--c2sm-light);
+  font-size: 17px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  text-indent: 50px;
+}
+/* Pagination */
+section::after {
+  color: var(--c2sm-light);
+  font-size: 17px;
+  right: 70px;
+  bottom: 0px;
+}
+
+/* c2sm Logo top right */
+section::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 160px;
+  height: 160px;
+  background-image: url("../../slides_template/images/C2SM_logo_cyan.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Title Slide */
+section.title {
+  background-image: url("../../slides_template/images/background_title_page_light.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center bottom 30px;
+}
+section.title h1 {
+  position: relative;
+  font-size: 48px;
+  max-width: 1000px;
+}
+
+/* Section Slides */
+section.section {
+  justify-content: center;
+  align-items: center;
+}
+section.section h1 {
+  font-size: 54px;
+}
+
+/* Image source text */
+section .img-ref {
+  font-size: 0.55em;
+  margin-top: 0.3em;
+  text-align: center;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
