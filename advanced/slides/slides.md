@@ -185,9 +185,18 @@ Source: <https://dev.to/mollynem/git-github--workflow-fundamentals-5496>
 
 ---
 
+<style scoped>
+ul > li {
+  margin-block: 1em;
+}
+ul ul > li {
+  margin-block: 0.1em;
+}
+</style>
+
 # Useful Commands
 
-<div class="no-bullets>
+<div class="no-bullets">
 
 - `git log`
   - shows the commits in a repository
@@ -198,7 +207,7 @@ Source: <https://dev.to/mollynem/git-github--workflow-fundamentals-5496>
 - `git diff`
   - shows changes between commits, commit and working tree, etc.
 
--`git show`
+- `git show`
   - shows both commit information AND commit diff
 
 </div>
