@@ -79,7 +79,7 @@ section {font-size: 24px;}
 - **11:40 – 12:10** Exercise 8
 - **12:10 – 12:30** Useful Tools demonstration
 
-<ul>
+</ul>
 
 </div>
 
