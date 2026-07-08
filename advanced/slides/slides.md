@@ -76,6 +76,7 @@ section {font-size: 24px;}
 </style>
 
 # Schedule
+
 <div class="no-bullets schedule-list">
 
 - **09:00 – 09:10** Welcome & Git Recap
@@ -185,7 +186,9 @@ Source: <https://dev.to/mollynem/git-github--workflow-fundamentals-5496>
 ---
 
 # Useful Commands
+
 <div class="no-bullets>
+
 - `git log`
   - shows the commits in a repository
 
@@ -197,6 +200,7 @@ Source: <https://dev.to/mollynem/git-github--workflow-fundamentals-5496>
 
 -`git show`
   - shows both commit information AND commit diff
+
 </div>
 
 These commands have many different options for customizing the output (explored in Exercise 1)
