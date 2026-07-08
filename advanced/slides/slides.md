@@ -185,33 +185,37 @@ Source: <https://dev.to/mollynem/git-github--workflow-fundamentals-5496>
 
 ---
 
-<style scoped>
-ul > li {
-  margin-block: 1em;
-}
-ul ul > li {
-  margin-block: 0.1em;
-}
-ul > li > ul {
-  margin-top: 0;
-}
-</style>
-
 # Useful Commands
 
 <div class="no-bullets">
 
+<div class="compact-lines">
+
 - `git log`
   - shows the commits in a repository
+
+</div>
+
+<div class="compact-lines">
 
 - `git blame`
   - shows when what part of file was changed last by which commit
 
+</div>
+
+<div class="compact-lines">
+
 - `git diff`
   - shows changes between commits, commit and working tree, etc.
 
+</div>
+
+<div class="compact-lines">
+
 - `git show`
   - shows both commit information AND commit diff
+
+</div>
 
 </div>
 
