@@ -185,13 +185,19 @@ Source: <https://dev.to/mollynem/git-github--workflow-fundamentals-5496>
 ---
 
 # Useful Commands
-`git log` shows the commits in a repository
+<div class="no-bullets>
+- `git log`
+  - shows the commits in a repository
 
-`git blame` shows when what part of file was changed last by which commit
+- `git blame`
+  - shows when what part of file was changed last by which commit
 
-`git diff` shows changes between commits, commit and working tree, etc.
+- `git diff`
+  - shows changes between commits, commit and working tree, etc.
 
-`git show` shows both commit information AND commit diff
+-`git show`
+  - shows both commit information AND commit diff
+</div>
 
 These commands have many different options for customizing the output (explored in Exercise 1)
 
