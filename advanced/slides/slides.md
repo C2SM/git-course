@@ -595,6 +595,9 @@ git gui focuses on commit generation and single file annotation and does not sho
 </div>
 <div>
 
+<div class="compact-columns">
+<div>
+
 ![w:300](images/git_rebase.png)
 
 </div>
@@ -602,6 +605,9 @@ git gui focuses on commit generation and single file annotation and does not sho
 
 ![w:80](images/achtung.gif)
 
+</div>
+
+</div>
 </div>
 </div>
 <div class="img-ref">
