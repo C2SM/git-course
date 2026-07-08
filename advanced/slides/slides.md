@@ -27,7 +27,7 @@ section {font-size: 24px;}
 <div class="columns">
 <div>
 
-<div class="no-bullets">
+<div class="no-bullets compact-lines">
 
 ### Part 0: Recap on Git
 - Why use Git?

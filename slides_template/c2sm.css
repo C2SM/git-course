@@ -32,6 +32,9 @@ img.no-center {
   margin-left: 0;
   margin-right: 0;
 }
+ul {
+  padding-left: 1em;
+}
 /* List items */
 li {
   margin: 0.25em 0; 
@@ -108,9 +111,10 @@ section .img-ref {
 
 .no-bullets ul {
   list-style-type: none;
+  padding-left: 1em;
 }
 
-.no-bullets li {
-  margin-top: 0;
-  margin-bottom: 0.1em;
+.compact-lines li,
+.compact-lines h3 {
+  margin-block: 0;
 }
