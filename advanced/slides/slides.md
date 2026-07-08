@@ -305,8 +305,11 @@ Add and commit your .gitignore file to the repository
 
 <div style="flex-grow: 1;"></div>
 
-> [!NOTE]
-> This is a convention that has developed, not an official Git feature like `.gitignore`
+<div class="note">
+
+**Note:** This is a convention that has developed, not an official Git feature like `.gitignore`.
+
+</div>
 
 <!-- Speaker notes:
 To avoid accidentally committing these, you can create a .gitignore file in the root directory of your repository

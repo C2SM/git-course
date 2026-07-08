@@ -134,3 +134,12 @@ section .img-ref {
 .compact-lines h3 {
   margin-block: 0;
 }
+
+/* Notes */
+.note {
+  background: #e9f2f7;
+  border-left: 6px solid #134f7c;
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  font-size: 0.8em;
+}
