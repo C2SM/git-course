@@ -298,13 +298,15 @@ Add and commit your .gitignore file to the repository
 ---
 
 # .gitkeep
-Git keeps track of files, not folders
 
-Put an empty `.gitkeep` file in any folder you would like to keep in the repository
+- Git keeps track of files, not folders
+- Put an empty `.gitkeep` file in any folder you would like to keep in the repository
+- Commit the `.gitkeep` file to the Git repository
 
-Commit the `.gitkeep` file to the Git repository
+<div style="flex-grow: 1;"></div>
 
- > _Note_: this is a convention that has developed, not an official Git feature like `.gitignore`
+> [!NOTE]
+> This is a convention that has developed, not an official Git feature like `.gitignore`
 
 <!-- Speaker notes:
 To avoid accidentally committing these, you can create a .gitignore file in the root directory of your repository
