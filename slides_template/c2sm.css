@@ -32,6 +32,25 @@ img.no-center {
   margin-left: 0;
   margin-right: 0;
 }
+
+/* Lists */
+ul {
+  list-style-type: square;
+  padding-left: 1em;
+}
+ul li::marker {
+  color: #0066cc;
+  font-size: 1em;
+}
+/* Sublists */
+ul ul {
+  list-style-type: square;
+}
+ul ul li::marker {
+  color: #99bde6;
+  font-size: 0.75em;
+}
+
 /* List items */
 li {
   margin: 0.25em 0; 
@@ -104,4 +123,42 @@ section .img-ref {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
+}
+
+.no-bullets ul {
+  list-style-type: none;
+  padding-left: 1.1em;
+}
+
+.compact-lines p,
+.compact-lines li,
+.compact-lines h3 {
+  margin-block: 0;
+}
+
+/* Notes */
+.note {
+  background: #99bde6;
+  border-left: 6px solid #0066cc;
+  padding: 0.5em 0.5em;
+  border-radius: 8px;
+  font-size: 27px;
+  margin-top: auto;
+}
+.note p {
+  margin: 0;
+}
+
+.compact-columns {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0;
+}
+.compact-columns > div:first-child img {
+  margin-left: auto;
+  margin-right: 0;
+}
+.compact-columns > div:last-child img {
+  margin-left: 0;
+  margin-right: auto;
 }
