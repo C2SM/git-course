@@ -96,11 +96,21 @@ section {font-size: 24px;}
   width: 78%;
   margin: 0 auto;
 }
+.comparison-column {
+  text-align: center;
+}
 .comparison-box {
+  width: 80%;
+  margin: 0 auto;
   padding: 5px 2px;
   border-radius: 24px;
   font-size: 18px;
   line-height: 1.25;
+  text-align: center;
+}
+.comparison-box ul {
+  display: inline-block;
+  text-align: left;
 }
 .comparison-box.orange {
   background: #ffbd0b;
