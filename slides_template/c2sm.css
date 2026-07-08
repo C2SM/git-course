@@ -32,9 +32,25 @@ img.no-center {
   margin-left: 0;
   margin-right: 0;
 }
+
+/* Lists */
 ul {
+  list-style-type: square;
   padding-left: 1em;
 }
+ul li::marker {
+  color: #0066cc;
+  font-size: 1em;
+}
+/* Sublists */
+ul ul {
+  list-style-type: square;
+}
+ul ul li::marker {
+  color: #99bde6;
+  font-size: 0.75em;
+}
+
 /* List items */
 li {
   margin: 0.25em 0; 
@@ -111,7 +127,7 @@ section .img-ref {
 
 .no-bullets ul {
   list-style-type: none;
-  padding-left: 1em;
+  padding-left: 1.1em;
 }
 
 .compact-lines li,

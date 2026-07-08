@@ -27,7 +27,7 @@ section {font-size: 24px;}
 <div class="columns">
 <div>
 
-<div class="no-bullets compact-lines">
+<div class="compact-lines">
 
 ### Part 0: Recap on Git
 - Why use Git?
@@ -49,7 +49,7 @@ section {font-size: 24px;}
 </div>
 <div>
 
-<div class="no-bullets">
+<div class="compact-lines">
 
 ### Part 3: Nesting Git Repositories
 - Using Git submodules
@@ -67,6 +67,7 @@ section {font-size: 24px;}
 ---
 
 # Schedule
+<div class="no-bullets">
 - **09:00 – 09:10** Welcome & Git Recap
 - **09:10 – 10:00** Exercise 1 – 2
 - **10:00 – 11:00** Exercise 3 – 5
@@ -74,6 +75,7 @@ section {font-size: 24px;}
 - **11:20 – 11:40** Exercise 6 – 7
 - **11:40 – 12:10** Exercise 8
 - **12:10 – 12:30** Useful Tools demonstration
+</div>
 
 ---
 
@@ -107,7 +109,7 @@ section {font-size: 24px;}
 </style>
 
 # Why Use Git?
-Tracks file changes in a documented way
+- Tracks file changes in a documented way
 
 <div class="comparison-columns">
 <div class="comparison-column">
@@ -134,12 +136,11 @@ With versioning
 </div>
 </div>
 
-Allows us to work simultaneously on the same code (when using remote server)
-- Alone (on different computers)
-- Multiple people in a collaboration
-
-Maintain several parallel versions of the same code in a systematic way.
-Many tools available (web-based services, graphical interfaces, etc.)
+-Allows us to work simultaneously on the same code (when using remote server)
+  - Alone (on different computers)
+  - Multiple people in a collaboration
+- Maintain several parallel versions of the same code in a systematic way.
+- Many tools available (web-based services, graphical interfaces, etc.)
 
 ---
 
