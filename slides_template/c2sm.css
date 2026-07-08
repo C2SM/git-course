@@ -144,3 +144,6 @@ section .img-ref {
   font-size: 27px;
   margin-top: auto;
 }
+.note p {
+  margin: 0;
+}
