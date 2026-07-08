@@ -105,3 +105,13 @@ section .img-ref {
   grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
+
+.no-bullets ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.no-bullets li {
+  margin-top: 0;
+  margin-bottom: 0.3em;
+}

@@ -27,24 +27,29 @@ section {font-size: 24px;}
 <div class="columns">
 <div>
 
-### Part 0: Recap on Git
--Why use Git?
--Practical example
--Local Git workflow
-### Part 1: Examining a Git Repository
--Useful commands to examine Git repositories
--Exercises 1-2
-### Part 2: Git Workflow
--Web interface workflow
--Web interface demonstration
--Useful workflow commands
+<div class="no-bullets">
+
+  ### Part 0: Recap on Git
+  -Why use Git?
+  -Practical example
+  -Local Git workflow
+  ### Part 1: Examining a Git Repository
+  -Useful commands to examine Git repositories
+  -Exercises 1-2
+  ### Part 2: Git Workflow
+  -Web interface workflow
+  -Web interface demonstration
+  -Useful workflow commands
+  -Git cherry-pick
+  -Custom Git Hooks
+  -Exercises 3-7
+
+</div>
 
 </div>
 <div>
 
--Git cherry-pick
--Custom Git Hooks
--Exercises 3-7
+<div class="no-bullets">
 
 ### Part 3: Nesting Git Repositories
 -Using Git submodules
@@ -53,6 +58,8 @@ section {font-size: 24px;}
 -External Git tools
 -Git resources
 -Git in VS Code demonstration
+
+</div>
 
 </div>
 </div>
