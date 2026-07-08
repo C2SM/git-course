@@ -137,9 +137,10 @@ section .img-ref {
 
 /* Notes */
 .note {
-  background: #e9f2f7;
-  border-left: 6px solid #134f7c;
-  padding: 0.5em 1em;
+  background: #99bde6;
+  border-left: 6px solid #0066cc;
+  padding: 0.5em 0.5em;
   border-radius: 8px;
-  font-size: 0.8em;
+  font-size: 27px;
+  margin-top: auto;
 }
