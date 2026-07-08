@@ -102,7 +102,7 @@ section {font-size: 24px;}
 .comparison-box {
   width: 80%;
   margin: 0 auto;
-  padding: 0.5em 0.25em;
+  padding: 1em 0.5em;
   border-radius: 24px;
   font-size: 18px;
   line-height: 1.25;
