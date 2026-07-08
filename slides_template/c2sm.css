@@ -108,10 +108,9 @@ section .img-ref {
 
 .no-bullets ul {
   list-style-type: none;
-  padding-left: 0;
 }
 
 .no-bullets li {
   margin-top: 0;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.1em;
 }
