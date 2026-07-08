@@ -219,6 +219,8 @@ Source: <https://dev.to/mollynem/git-github--workflow-fundamentals-5496>
 
 </div>
 
+<br>
+
 These commands have many different options for customizing the output (explored in Exercise 1)
 
 ---
