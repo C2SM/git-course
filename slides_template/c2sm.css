@@ -130,6 +130,7 @@ section .img-ref {
   padding-left: 1.1em;
 }
 
+.compact-lines p,
 .compact-lines li,
 .compact-lines h3 {
   margin-block: 0;
