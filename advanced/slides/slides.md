@@ -590,7 +590,7 @@ git gui focuses on commit generation and single file annotation and does not sho
 <div class="columns">
 <div>
 
-![w:700](images/git_merge.png)
+![w:550](images/git_merge.png)
 
 </div>
 <div>
@@ -598,7 +598,7 @@ git gui focuses on commit generation and single file annotation and does not sho
 <div class="compact-columns">
 <div>
 
-![w:700](images/git_rebase.png)
+![w:550](images/git_rebase.png)
 
 </div>
 <div>
@@ -616,8 +616,6 @@ git gui focuses on commit generation and single file annotation and does not sho
 Source: <https://dzone.com/articles/merging-vs-rebasing>
 
 </div>
-
-<br>
 
 - Commits are replayed in a different order
 - Advantage: keep cleaner commit history
