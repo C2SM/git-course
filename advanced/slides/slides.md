@@ -188,7 +188,6 @@ Source: <https://dev.to/mollynem/git-github--workflow-fundamentals-5496>
 # Useful Commands
 
 <div class="no-bullets">
-
 <div class="compact-lines">
 
 - `git log`
@@ -216,7 +215,6 @@ Source: <https://dev.to/mollynem/git-github--workflow-fundamentals-5496>
   - shows both commit information AND commit diff
 
 </div>
-
 </div>
 
 <br>
@@ -362,11 +360,9 @@ Source: <https://www.gitkraken.com/learn/git/git-worktree>
 
 # Git Workflow - Exercises
 
-Exercise 3: `.gitignore`
-
-Exercise 4: `git stash` and `git worktree`
-
-Exercise 5: practice the git workflow
+- Exercise 3: `.gitignore`
+- Exercise 4: `git stash` and `git worktree`
+- Exercise 5: practice the git workflow
 
 ---
 
@@ -382,12 +378,12 @@ Exercise 5: practice the git workflow
 <div class="columns">
 <div>
 
-![w:100](images/achtung.gif)
+![w:750](images/git_cherry_pick.jpg)
 
 </div>
 <div>
 
-![w:750](images/git_cherry_pick.jpg)
+![w:90](images/achtung.gif)
 
 </div>
 </div>
@@ -410,29 +406,24 @@ Cherrypicking also rewrites history and therefore should be used with caution
 ---
 
 # Custom Git Hooks
-Scripts to automate / enforce certain actions
 
-Triggered when certain (pre-defined) events occur
-
-Stored in `.git/hooks`
-
-Named after the event they are associated with (e.g., `pre-commit`, `post-merge`, etc.)
-
-Can be used for
-- enforcing coding standards
-- preventing accidental commits of sensitive data
-- triggering automatic tests
-- updating documentation
-
-Samples already present!
+- Scripts to automate / enforce certain actions
+- Triggered when certain (pre-defined) events occur
+- Stored in `.git/hooks`
+- Named after the event they are associated with (e.g., `pre-commit`, `post-merge`, etc.)
+- Can be used for
+  - enforcing coding standards
+  - preventing accidental commits of sensitive data
+  - triggering automatic tests
+  - updating documentation
+- Samples already present!
 
 ---
 
 # Git Workflow - Exercises
 
-Exercise 6: `git cherry-pick`
-
-Exercise 7: Custom Git Hooks
+- Exercise 6: `git cherry-pick`
+- Exercise 7: Custom Git Hooks
 
 ---
 
@@ -445,17 +436,24 @@ Exercise 7: Custom Git Hooks
 
 # Nested Repositories
 
-![w:260](images/nested_repo.png)
+![w:300](images/nested_repo.png)
 
-Why use it?
+<div class="compact-lines">
 
-- **Modularity**: Break project into smaller, manageable pieces.
-- **Version Control**: Each submodule has its own Git history and version tracking
-- **Collaboration**: Multiple teams can work on submodules independently
+- Why use it?
+  - **Modularity**: Break project into smaller, manageable pieces.
+  - **Version Control**: Each submodule has its own Git history and version tracking
+  - **Collaboration**: Multiple teams can work on submodules independently
 
-Options:
-- **Git Submodules**: Git's built-in mechanism
-- **Git Subtrees**: Alternative approach
+</div>
+
+<div class="compact-lines">
+
+- Options:
+  - **Git Submodules**: Git's built-in mechanism
+  - **Git Subtrees**: Alternative approach
+
+</div>
 
 ---
 
@@ -466,11 +464,29 @@ Options:
 ---
 
 # Cloning a Repository with Submodules
-`git clone`: By default, Git does NOT clone contents of submodules
 
-`git clone --recurse-submodules`: Check out contents of any submodules when cloning parent repo
+<div class="no-bullets">
+<div class="compact-lines">
 
-`git submodule update --init`: Get contents of submodules after cloning
+- `git clone`
+  - By default, Git does NOT clone contents of submodules
+
+</div>
+
+<div class="compact-lines">
+
+- `git clone --recurse-submodules`
+  - Check out contents of any submodules when cloning parent repo
+
+</div>
+
+<div class="compact-lines">
+
+- `git submodule update --init`
+  - Get contents of submodules after cloning
+
+</div>
+</div>
 
 ---
 
@@ -486,7 +502,8 @@ For tools and models of the C2SM community, submodules are used quite often
 ---
 
 # Nesting Git Repositories – Exercises
-Exercise 8: `git submodule`
+
+- Exercise 8: `git submodule`
 
 ---
 
@@ -502,9 +519,15 @@ Exercise 8: `git submodule`
 <div class="columns">
 <div>
 
+<div class="compact-lines">
+
 Text editor plugins:
 - [magit](https://magit.vc/) (Emacs): Wrapper for git commands
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter) (vim): Improved git diff viewing
+
+</div>
+
+<div class="compact-lines">
 
 Integrated development environment (IDE) integration:
 - [Visual Studio Code](https://code.visualstudio.com/)
@@ -512,18 +535,32 @@ Integrated development environment (IDE) integration:
 - [Eclipse](https://www.eclipse.org/downloads/)
 
 </div>
+
+</div>
 <div>
+
+<div class="compact-lines">
 
 Official Git tools:
 - [git-gui](https://git-scm.com/docs/git-gui): Focuses on commit generation
 - [gitk](https://git-scm.com/docs/gitk): Focuses on displaying diffs
 
+</div>
+
+<div class="compact-lines">
+
 Terminal prompt changer
 - [fancy-git](https://github.com/diogocavilha/fancy-git)
+
+</div>
+
+<div class="compact-lines">
 
 [Git GUIs](https://git-scm.com/downloads/guis):
 - [Git for Windows](https://gitforwindows.org/): Git BASH command line
 - [TortoiseGit](https://tortoisegit.org/): Windows Shell Interface to Git
+
+</div>
 
 </div>
 </div>
@@ -536,11 +573,10 @@ git gui focuses on commit generation and single file annotation and does not sho
 ---
 
 # Git Resources
-<http://git-scm.com/>: Official Git manual
 
-<https://docs.github.com>: GitHub manual
-
-<https://education.github.com/git-cheat-sheet-education.pdf>: Cheat sheet with useful GitHub commands for quick reference
+- Official Git manual: <http://git-scm.com/>
+- GitHub manual: <https://docs.github.com>
+- Cheat sheet with useful GitHub commands for quick reference: <https://education.github.com/git-cheat-sheet-education.pdf>
 
 ---
 
@@ -552,32 +588,34 @@ git gui focuses on commit generation and single file annotation and does not sho
 
 # git rebase: Alternative to git merge
 
-![w:40](images/achtung.gif)
-
 <div class="columns">
 <div>
 
 ![w:300](images/git_merge.png)
 
 </div>
-
 <div>
 
 ![w:300](images/git_rebase.png)
 
 </div>
+<div>
+
+![w:80](images/achtung.gif)
 
 </div>
-
-Commits are replayed in a different order
-Advantage: keep cleaner commit history
-Should NEVER be used in a shared branch
-
+</div>
 <div class="img-ref">
 
 Source: <https://dzone.com/articles/merging-vs-rebasing>
 
 </div>
+
+<br>
+
+- Commits are replayed in a different order
+- Advantage: keep cleaner commit history
+- Should NEVER be used in a shared branch
 
 <!-- Speaker notes:
 git rebase is an alternative to git merge
