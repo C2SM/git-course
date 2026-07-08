@@ -76,11 +76,15 @@ Integrate another *pre-commit* hook from the above repository into your workflow
 
 # This is the main pre-commit hook script.
 
+status=0
+
 # Run the whitespace check script.
-.git/hooks/pre-commit-whitespace
+.git/hooks/pre-commit-whitespace || status=1
 
 # Run the name and email verification script.
-.git/hooks/pre-commit-verify-name-and-email
+.git/hooks/pre-commit-verify-name-and-email || status=1
+
+exit $status
 ```
 
 > **Hint:** Don't forget that all scripts need to be executable! 
