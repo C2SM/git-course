@@ -320,10 +320,11 @@ Add and commit your .gitignore file to the repository
 ---
 
 # git stash
-Allows you to save bits of work without committing them and reuse them late
-Useful when:
-- you need to pull changes, but have uncommitted changes
-- you need to switch branch, but have uncommitted changes
+
+- Allows you to save bits of work without committing them and reuse them late
+- Useful when:
+  - you need to pull changes, but have uncommitted changes
+  - you need to switch branch, but have uncommitted changes
 
 ![w:750](images/git_stash_pop.png)
 
@@ -336,13 +337,12 @@ Source: <https://www.scaler.com/topics/git/git-stash-pop/>
 ---
 
 # git worktree
-Can checkout and work with multiple branches of a repository with a single clone
-Worktrees share a single `.git` directory, which:
 
-- **saves memory and time** compared to multiple clones
-- keeps the git configuration **centralized**
-
-Can build/test multiple branches simultaneously
+- Can checkout and work with multiple branches of a repository with a single clone
+- Worktrees share a single `.git` directory, which:
+  - **saves memory and time** compared to multiple clones
+  - keeps the git configuration **centralized**
+- Can build/test multiple branches simultaneously
 
 ![w:550](images/worktree.png)
 
@@ -379,9 +379,18 @@ Exercise 5: practice the git workflow
 
 # git cherry-pick: Snagging one Commit
 
-![w:42](images/achtung.gif)
+<div class="columns">
+<div>
+
+![w:100](images/achtung.gif)
+
+</div>
+<div>
 
 ![w:750](images/git_cherry_pick.jpg)
+
+</div>
+</div>
 
 - Grabs one commit and puts it at the head of another branch.
 - Uses a different commit ID for the same file changes.
