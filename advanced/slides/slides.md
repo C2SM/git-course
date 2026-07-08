@@ -67,7 +67,9 @@ section {font-size: 24px;}
 ---
 
 # Schedule
-<div class="no-bullets" style="font-size: 48px;">
+<div class="no-bullets">
+
+<ul style="font-size: 32px;">
 
 - **09:00 – 09:10** Welcome & Git Recap
 - **09:10 – 10:00** Exercise 1 – 2
@@ -76,6 +78,8 @@ section {font-size: 24px;}
 - **11:20 – 11:40** Exercise 6 – 7
 - **11:40 – 12:10** Exercise 8
 - **12:10 – 12:30** Useful Tools demonstration
+
+<ul>
 
 </div>
 
