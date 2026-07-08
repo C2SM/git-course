@@ -590,7 +590,7 @@ git gui focuses on commit generation and single file annotation and does not sho
 <div class="columns">
 <div>
 
-![w:300](images/git_merge.png)
+![w:700](images/git_merge.png)
 
 </div>
 <div>
@@ -598,7 +598,7 @@ git gui focuses on commit generation and single file annotation and does not sho
 <div class="compact-columns">
 <div>
 
-![w:300](images/git_rebase.png)
+![w:700](images/git_rebase.png)
 
 </div>
 <div>
@@ -608,6 +608,7 @@ git gui focuses on commit generation and single file annotation and does not sho
 </div>
 
 </div>
+
 </div>
 </div>
 <div class="img-ref">
