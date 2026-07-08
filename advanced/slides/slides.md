@@ -68,7 +68,7 @@ section {font-size: 24px;}
 
 <style scoped>
 .schedule-list {
-  font-size: 32px;
+  font-size: 38px;
 }
 </style>
 
