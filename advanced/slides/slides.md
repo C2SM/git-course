@@ -520,16 +520,15 @@ For tools and models of the C2SM community, submodules are used quite often
 <div>
 <div class="compact-lines">
 
-Text editor plugins:
+**Text editor plugins:**
 - [magit](https://magit.vc/) (Emacs): Wrapper for git commands
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter) (vim): Improved git diff viewing
 
 </div>
 <br>
-<br>
 <div class="compact-lines">
 
-Integrated development environment (IDE) integration:
+**Integrated development environment (IDE) integration:**
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [RStudio](https://posit.co/download/rstudio-desktop/)
 - [Eclipse](https://www.eclipse.org/downloads/)
@@ -541,24 +540,22 @@ Integrated development environment (IDE) integration:
 
 <div class="compact-lines">
 
-Official Git tools:
+**Official Git tools:**
 - [git-gui](https://git-scm.com/docs/git-gui): Focuses on commit generation
 - [gitk](https://git-scm.com/docs/gitk): Focuses on displaying diffs
 
 </div>
 <br>
-<br>
 <div class="compact-lines">
 
-Terminal prompt changer
+**Terminal prompt changer**
 - [fancy-git](https://github.com/diogocavilha/fancy-git)
 
 </div>
 <br>
-<br>
 <div class="compact-lines">
 
-[Git GUIs](https://git-scm.com/downloads/guis):
+**[Git GUIs](https://git-scm.com/downloads/guis):**
 - [Git for Windows](https://gitforwindows.org/): Git BASH command line
 - [TortoiseGit](https://tortoisegit.org/): Windows Shell Interface to Git
 

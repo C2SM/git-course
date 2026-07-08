@@ -154,3 +154,7 @@ section .img-ref {
   grid-template-columns: auto auto;
   gap: 5px;
 }
+.compact-columns img {
+  margin-left: 0;
+  margin-right: 0;
+}
