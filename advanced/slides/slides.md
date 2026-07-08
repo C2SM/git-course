@@ -274,14 +274,16 @@ Source: <https://developer.wordpress.org/block-editor/contributors/code/git-work
 
 # .gitignore
 
-Tell Git to disregard files you don’t want committed.
-Best practice is to ignore binaries, intermediate files, files that can be generated from files in your repository, etc:
+- Tell Git to disregard files you don’t want committed.
+- Best practice is to ignore binaries, intermediate files, files that can be generated from files in your repository, etc:
 
-- `*~`
-- `*.exe`
-- `netcdf-*`
-- `bin`
-- `!bin/gen_info.sh`
+```
+*~
+*.exe
+netcdf-*
+bin
+!bin/gen_info.sh
+```
 
 ![w:850](images/gitignore.png)
 
