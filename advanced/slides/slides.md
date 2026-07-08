@@ -67,7 +67,7 @@ section {font-size: 24px;}
 ---
 
 # Schedule
-<div class="no-bullets">
+<div class="no-bullets" style="font-size: 32px;">
 
 - **09:00 – 09:10** Welcome & Git Recap
 - **09:10 – 10:00** Exercise 1 – 2
@@ -102,7 +102,7 @@ section {font-size: 24px;}
 .comparison-box {
   width: 80%;
   margin: 0 auto;
-  padding: 1em 0.5em;
+  padding: 0.75em 0.35em;
   border-radius: 24px;
   font-size: 18px;
   line-height: 1.25;
