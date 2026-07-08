@@ -192,6 +192,9 @@ ul > li {
 ul ul > li {
   margin-block: 0.1em;
 }
+ul > li > ul {
+  margin-top: 0;
+}
 </style>
 
 # Useful Commands
