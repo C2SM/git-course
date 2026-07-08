@@ -70,6 +70,9 @@ section {font-size: 24px;}
 .schedule-list {
   font-size: 38px;
 }
+.schedule-list li {
+  margin-block: 20px;
+}
 </style>
 
 # Schedule
