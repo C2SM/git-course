@@ -242,8 +242,8 @@ Git bisect requires a linear history to work correctly
 # Examining a Git Repository: Exercises
 - Exercise 1: `git log`, `git blame`, `git diff`, and `git show`
 - Exercise 2: `git bisect`
-- Exercises can be found at:
-<https://github.com/C2SM/git-course/tree/main/advanced>
+
+Exercises can be found at: <https://github.com/C2SM/git-course/tree/main/advanced>
 
 ---
 
