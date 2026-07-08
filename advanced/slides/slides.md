@@ -518,7 +518,6 @@ For tools and models of the C2SM community, submodules are used quite often
 
 <div class="columns">
 <div>
-
 <div class="compact-lines">
 
 Text editor plugins:
@@ -526,7 +525,8 @@ Text editor plugins:
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter) (vim): Improved git diff viewing
 
 </div>
-
+<br>
+<br>
 <div class="compact-lines">
 
 Integrated development environment (IDE) integration:
@@ -546,14 +546,16 @@ Official Git tools:
 - [gitk](https://git-scm.com/docs/gitk): Focuses on displaying diffs
 
 </div>
-
+<br>
+<br>
 <div class="compact-lines">
 
 Terminal prompt changer
 - [fancy-git](https://github.com/diogocavilha/fancy-git)
 
 </div>
-
+<br>
+<br>
 <div class="compact-lines">
 
 [Git GUIs](https://git-scm.com/downloads/guis):
