@@ -152,9 +152,13 @@ section .img-ref {
 .compact-columns {
   display: grid;
   grid-template-columns: auto auto;
-  gap: 5px;
+  gap: 0;
 }
-.compact-columns img {
-  margin-left: 0;
+.compact-columns > div:first-child img {
+  margin-left: auto;
   margin-right: 0;
+}
+.compact-columns > div:last-child img {
+  margin-left: 0;
+  margin-right: auto;
 }
