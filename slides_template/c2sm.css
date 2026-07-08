@@ -148,3 +148,9 @@ section .img-ref {
 .note p {
   margin: 0;
 }
+
+.compact-columns {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 5px;
+}

@@ -375,7 +375,7 @@ Source: <https://www.gitkraken.com/learn/git/git-worktree>
 
 # git cherry-pick: Snagging one Commit
 
-<div class="columns">
+<div class="compact-columns">
 <div>
 
 ![w:750](images/git_cherry_pick.jpg)
