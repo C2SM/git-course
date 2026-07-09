@@ -4,7 +4,7 @@ on:
   pull_request:
     paths:
       - "advanced/slides/**"
-      - "slides_template/**"
+      - "slides_theme/**"
       - ".github/workflows/build_advanced_slides.yml"
       - "!advanced/slides/slides_advanced.pdf"
 
@@ -31,7 +31,7 @@ jobs:
       - name: Build PDF
         run: |
           npx @marp-team/marp-cli@latest advanced/slides/slides.md \
-            --theme slides_template/c2sm.css \
+            --theme slides_theme/c2sm.css \
             --pdf \
             --allow-local-files \
             -o advanced/slides/slides_advanced.pdf
