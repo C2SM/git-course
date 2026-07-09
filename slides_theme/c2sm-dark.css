@@ -1,10 +1,14 @@
-/* @theme c2sm */
+/* @theme c2sm-dark */
 @import 'default';
 
 :root {
   --c2sm-blue: #134f7c;
+  --c2sm-accent: #5ba8d9;
   --c2sm-light: #e9f2f7;
-  --c2sm-gray: #444;
+  --c2sm-dark-bg: #1a2433;
+  --c2sm-dark-surface: #243041;
+  --c2sm-dark-text: #e8edf2;
+  --c2sm-gray: #aab4be;
 }
 section {
   display: flex;
@@ -12,14 +16,18 @@ section {
   justify-content: flex-start;
   font-family: Arial, Helvetica, sans-serif;
   padding: 60px 70px 60px 70px;
-  background: white;
+  background: var(--c2sm-dark-bg);
+  color: var(--c2sm-dark-text);
   font-size: 27px;
   position: relative;
 }
 h1 {
-  color: var(--c2sm-blue);
+  color: var(--c2sm-accent);
   font-size: 42px;
   margin-bottom: 10px;
+}
+h2, h3 {
+  color: var(--c2sm-light);
 }
 img { 
   max-height: 430px; 
@@ -39,7 +47,7 @@ ul {
   padding-left: 1em;
 }
 ul li::marker {
-  color: #0066cc;
+  color: var(--c2sm-accent);
   font-size: 1em;
 }
 /* Sublists */
@@ -47,7 +55,7 @@ ul ul {
   list-style-type: square;
 }
 ul ul li::marker {
-  color: #99bde6;
+  color: #4a7fa8;
   font-size: 0.75em;
 }
 
@@ -56,12 +64,20 @@ li {
   margin: 0.25em 0; 
 }
 code {
-  background: #f2f4f7;
+  background: var(--c2sm-dark-surface);
+  color: #a8d4f0;
   padding: 0.05em 0.28em;
   border-radius: 4px;
 }
+pre {
+  background: var(--c2sm-dark-surface);
+}
+pre code {
+  background: transparent;
+  color: var(--c2sm-dark-text);
+}
 footer {
-  background: var(--c2sm-blue);
+  background: #0d1929;
   color: var(--c2sm-light);
   font-size: 17px;
   left: 0px;
@@ -101,15 +117,21 @@ section.title h1 {
   position: relative;
   font-size: 48px;
   max-width: 1000px;
+  color: var(--c2sm-light);
+}
+section.title p {
+  color: var(--c2sm-gray);
 }
 
 /* Section Slides */
 section.section {
   justify-content: center;
   align-items: center;
+  background: linear-gradient(135deg, #0d1929 0%, #1a3a5c 100%);
 }
 section.section h1 {
   font-size: 54px;
+  color: var(--c2sm-light);
 }
 
 /* Image source text */
@@ -117,6 +139,7 @@ section .img-ref {
   font-size: 0.55em;
   margin-top: 0.3em;
   text-align: center;
+  color: var(--c2sm-gray);
 }
 
 .columns {
@@ -138,12 +161,13 @@ section .img-ref {
 
 /* Notes */
 .note {
-  background: #99bde6;
-  border-left: 6px solid #0066cc;
+  background: #1e3a52;
+  border-left: 6px solid var(--c2sm-accent);
   padding: 0.5em 0.5em;
   border-radius: 8px;
   font-size: 27px;
   margin-top: auto;
+  color: var(--c2sm-dark-text);
 }
 .note p {
   margin: 0;

@@ -1,10 +1,9 @@
 ---
 marp: true
-theme: c2sm
+theme: c2sm-dark
 paginate: true
 size: 16:9
 footer: "C2SM, ETH Zurich · Git for Advanced · 12 September 2025"
-
 ---
 
 <!-- _class: title -->
