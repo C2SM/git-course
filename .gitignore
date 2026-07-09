@@ -2,4 +2,4 @@
 */work
 .DS_Store
 git-course_env/
-.vscode/
+.vscode/*.log

@@ -1,0 +1,7 @@
+{
+  "markdown.marp.themes": [
+    "./slides_theme/c2sm.css",
+    "./slides_theme/c2sm-light.css",
+    "./slides_theme/c2sm-dark.css"
+  ]
+}
