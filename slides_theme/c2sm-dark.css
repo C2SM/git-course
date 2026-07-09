@@ -127,7 +127,7 @@ section::before {
   right: 20px;
   width: 160px;
   height: 160px;
-  background-image: url("../../slides_theme/images/C2SM_logo_cyan.svg");
+  background-image: url("../../slides_theme/images/c2sm_logo_dark.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
