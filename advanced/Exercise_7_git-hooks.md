@@ -76,6 +76,9 @@ Integrate another *pre-commit* hook from the above repository into your workflow
 
 # This is the main pre-commit hook script.
 
+# Track whether any hook fails.
+# 0: all checks have passed so far; 
+# 1: at least one check failed.
 status=0
 
 # Run the whitespace check script.
