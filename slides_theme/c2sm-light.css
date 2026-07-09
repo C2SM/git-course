@@ -28,7 +28,7 @@
 }
 
 :root {
-  --c2sm-blue: #134f7c;
+  --c2sm-blue: #007b96;
   --c2sm-light: #e9f2f7;
   --c2sm-gray: #444;
 }
@@ -65,7 +65,7 @@ ul {
   padding-left: 1em;
 }
 ul li::marker {
-  color: #0066cc;
+  color: #007b96;
   font-size: 1em;
 }
 /* Sublists */
@@ -73,7 +73,7 @@ ul ul {
   list-style-type: square;
 }
 ul ul li::marker {
-  color: #99bde6;
+  color: #66c9de;
   font-size: 0.75em;
 }
 
@@ -164,8 +164,8 @@ section .img-ref {
 
 /* Notes */
 .note {
-  background: #99bde6;
-  border-left: 6px solid #0066cc;
+  background: #cce8ed;
+  border-left: 6px solid #007b96;
   padding: 0.5em 0.5em;
   border-radius: 8px;
   font-size: 27px;

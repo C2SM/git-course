@@ -29,7 +29,7 @@
 
 :root {
   --c2sm-blue: #134f7c;
-  --c2sm-accent: #5ba8d9;
+  --c2sm-accent: #56abdf;
   --c2sm-light: #e9f2f7;
   --c2sm-dark-bg: #1a2433;
   --c2sm-dark-surface: #243041;
@@ -81,13 +81,21 @@ ul ul {
   list-style-type: square;
 }
 ul ul li::marker {
-  color: #4a7fa8;
+  color: #3388b8;
   font-size: 0.75em;
 }
 
 /* List items */
 li {
   margin: 0.25em 0; 
+}
+/* Hyperlinks */
+a {
+  color: #56d9a8;
+  text-decoration: underline;
+}
+a:hover {
+  color: #7ee8bc;
 }
 code {
   background: var(--c2sm-dark-surface);
