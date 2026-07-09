@@ -85,14 +85,14 @@ section::before {
   right: 20px;
   width: 160px;
   height: 160px;
-  background-image: url("../../slides_template/images/C2SM_logo_cyan.svg");
+  background-image: url("../../slides_theme/images/C2SM_logo_cyan.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 /* Title Slide */
 section.title {
-  background-image: url("../../slides_template/images/background_title_page_light.png");
+  background-image: url("../../slides_theme/images/background_title_page_light.png");
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: center bottom 30px;
