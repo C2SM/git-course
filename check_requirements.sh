@@ -30,12 +30,15 @@ else
     echo "Git is not installed. Please install Git."
 fi
 
-# Check if python is installed (skip if --beginner)
+# Check if git-lfs is installed (skip if --beginner). Only Exercise 7 of the
+# advanced course needs it.
 if ! $BEGINNER_MODE; then
-    if command -v python >/dev/null 2>&1 || command -v python3 >/dev/null 2>&1; then
-        echo "Python is installed."
+    if git lfs version >/dev/null 2>&1; then
+        echo "Git LFS is installed."
     else
-        echo "Python is not installed. Please install Python."
+        echo "Git LFS is not installed. It ships with Git for Windows; on macOS use"
+        echo "'brew install git-lfs', on Debian/Ubuntu 'sudo apt install git-lfs'."
+        echo "See https://git-lfs.com for other systems."
     fi
 fi
 
