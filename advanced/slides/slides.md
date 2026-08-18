@@ -3,22 +3,22 @@ marp: true
 theme: c2sm-dark
 paginate: true
 size: 16:9
-footer: "C2SM, ETH Zurich · Git for Advanced · 1 October 2026"
+footer: "C2SM, ETH Zurich · Git: Next Steps · 1 October 2026"
 ---
 
 <!-- _class: title -->
 <!-- _paginate: false -->
 <!-- _footer: "" -->
 
-# C2SM Git for Advanced Workshop 2026
+# Git: Next Steps
 
-1 October 2026
-Michael Jähn, Mikael Stellio, Alitzel Macias Infante
+C2SM Git Series · 1 October 2026
+Michael Jähn, Mikael Stellio, Alitzel Macías Infante
 
 ---
 
 <style scoped>
-section {font-size: 24px;}
+section {font-size: 25px;}
 </style>
 
 # Outline
@@ -28,20 +28,15 @@ section {font-size: 24px;}
 
 <div class="compact-lines">
 
-### Part 0: Recap on Git
-- Why use Git?
-- Practical example
-- Local Git workflow
-### Part 1: Examining a Git Repository
-- Useful commands to examine Git repositories
-- Exercises 1-2
-### Part 2: Git Workflow
-- Web interface workflow
-- Web interface demonstration
-- Useful workflow commands
-- Git cherry-pick
-- Custom Git Hooks
-- Exercises 3-7
+### Part 1: Your Git Toolbox
+- Examining history: `log`, `blame`, `diff`, `show`
+- Nesting repositories with submodules
+- Ignoring files
+- `git cherry-pick` and `git rebase`
+- `git stash` and `git worktree`
+- Custom Git hooks
+- Large files with `git lfs`
+- Exercises 1 – 7
 
 </div>
 
@@ -50,27 +45,34 @@ section {font-size: 24px;}
 
 <div class="compact-lines">
 
-### Part 3: Nesting Git Repositories
-- Using Git submodules
+### Part 2: Working Together on GitHub
+- Why a shared workflow
+- A real example: the C2SM User Landing Page
+- Issues, forks and branches
+- Pull requests, checks and review
+- Keeping your fork in sync
+- GitHub and GitLab side by side
 - Exercise 8
-### Part 4: Useful Tools and Resources
-- External Git tools
-- Git resources
-- Git in VS Code demonstration
 
 </div>
 
 </div>
+</div>
+
+<div class="note">
+
+You only need the **Git basics** for this course: `add`, `commit`, `push`, `pull`, `branch`.
+
 </div>
 
 ---
 
 <style scoped>
 .schedule-list {
-  font-size: 38px;
+  font-size: 34px;
 }
 .schedule-list li {
-  margin-block: 20px;
+  margin-block: 14px;
 }
 </style>
 
@@ -78,100 +80,13 @@ section {font-size: 24px;}
 
 <div class="no-bullets schedule-list">
 
-- **09:00 – 09:10** Welcome & Git Recap
-- **09:10 – 10:00** Exercise 1 – 2
-- **10:00 – 11:00** Exercise 3 – 5
-- **11:00 – 11:20** Coffee Break
-- **11:20 – 11:40** Exercise 6 – 7
-- **11:40 – 12:10** Exercise 8
-- **12:10 – 12:30** Useful Tools demonstration
-
-</div>
-
----
-
-<!-- _class: section -->
-
-# Part 0:
-# Git Recap
-
----
-
-<style scoped>
-.comparison-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 90px;
-  width: 78%;
-  margin: 0 auto;
-}
-.comparison-column {
-  text-align: center;
-}
-.comparison-box {
-  width: 80%;
-  margin: 0 auto;
-  padding: 0.75em 0.35em;
-  border-radius: 24px;
-  font-size: 18px;
-  line-height: 1.25;
-  text-align: center;
-}
-.comparison-box ul {
-  display: inline-block;
-  text-align: left;
-}
-.comparison-box.orange {
-  background: #ffbd0b;
-}
-.comparison-box.green {
-  background: #92d050;
-}
-</style>
-
-# Why Use Git?
-- Tracks file changes in a documented way
-
-<div class="comparison-columns">
-<div class="comparison-column">
-Without versioning
-<div class="comparison-box orange">
-
-- conference_schedule_v0.txt
-- conference_schedule_v1.txt
-- conference_schedule_v2.txt
-- conference_schedule_v2_dj.txt
-- conference_schedule_v2_orch.txt
-- conference_schedule_v3.txt
-
-</div>
-</div>
-<div class="comparison-column">
-With versioning
-<div class="comparison-box green">
-
-- conference_schedule.txt
-- .git (file, which contains information of all changes including reasons for changes, if well documented)
-
-</div>
-</div>
-</div>
-
-- Allows us to work simultaneously on the same code (when using remote server)
-  - Alone (on different computers)
-  - Multiple people in a collaboration
-- Maintain several parallel versions of the same code in a systematic way.
-- Many tools available (web-based services, graphical interfaces, etc.)
-
----
-
-# Local Workflow Recap
-
-![w:850](images/workflow_fundamentals.png)
-
-<div class="img-ref">
-
-Source: <https://dev.to/mollynem/git-github--workflow-fundamentals-5496>
+- **09:00 – 09:10** Welcome and overview
+- **09:10 – 10:00** Part 1 · history and submodules → Exercises 1 – 2
+- **10:00 – 11:00** Part 1 · ignoring, moving, parallel work → Exercises 3 – 5
+- **11:00 – 11:20** Coffee break
+- **11:20 – 12:00** Part 1 · hooks and large files → Exercises 6 – 7
+- **12:00 – 12:20** Part 2 · slides and live demonstration
+- **12:20 – 12:30** Part 2 · Exercise 8 and wrap-up
 
 </div>
 
@@ -180,188 +95,391 @@ Source: <https://dev.to/mollynem/git-github--workflow-fundamentals-5496>
 <!-- _class: section -->
 
 # Part 1:
-# Examining a Git Repository
+# Your Git Toolbox
 
 ---
 
-# Useful Commands
+# Recap: the Local Workflow
+
+![w:1000](images/local-workflow.svg)
+
+- Everything up to `git commit` happens **on your machine**
+- Only `git push` and `git fetch` talk to the server
+
+---
+
+# Examining History: Four Commands
 
 <div class="no-bullets">
 <div class="compact-lines">
 
 - `git log`
-  - shows the commits in a repository
+  - which commits exist, by whom, and in what order
 
 </div>
 
 <div class="compact-lines">
 
 - `git blame`
-  - shows when what part of file was changed last by which commit
+  - which commit last changed each **line** of a file
 
 </div>
 
 <div class="compact-lines">
 
 - `git diff`
-  - shows changes between commits, commit and working tree, etc.
+  - what changed between two points in the repository
 
 </div>
 
 <div class="compact-lines">
 
 - `git show`
-  - shows both commit information AND commit diff
+  - a single commit: message **and** its diff
 
 </div>
 </div>
 
 <br>
 
-These commands have many different options for customizing the output (explored in Exercise 1)
+Each takes many options. Exercise 1 explores the ones worth remembering.
 
 ---
 
-# git bisect
+<style scoped>
+table {font-size: 20px;}
+</style>
 
-![w:850](images/git_bisect.png)
+# `git log`: Shaping and Filtering
 
-- Iteratively locate the commit where a change occurred
-- Requires a linear history to work correctly
+| Option | What it does |
+| --- | --- |
+| `--oneline` | one line per commit |
+| `--graph --decorate --all` | the branch structure of the whole repository |
+| `--stat` | which files each commit touched |
+| `-3` | only the last three commits |
+| `--author="Lauber"` | only commits by a given author |
+| `-- path/to/file` | only commits touching that file |
+| `-S "Have fun!"` | commits that **add or remove** that text |
+| `-G "regex"` | commits whose diff matches a regular expression |
 
-<!-- Speaker notes:
-Git bisect uses a binary search algorithm to help you iteratively locate the commit where a change happened (bug was introduced, performance got worse, etc.)
-Git bisect requires a linear history to work correctly
--->
+<div class="note">
 
----
-
-# Examining a Git Repository: Exercises
-- Exercise 1: `git log`, `git blame`, `git diff`, and `git show`
-- Exercise 2: `git bisect`
-
-Exercises can be found at: <https://github.com/C2SM/git-course/tree/main/advanced>
-
----
-
-<!-- _class: section -->
-
-# Part 2:
-# Git Workflow
-
----
-
-# Web Interface Workflow – Repository Level
-
-![w:850](images/git_workflow.png)
-
-<div class="img-ref">
-
-Source: <https://developer.wordpress.org/block-editor/contributors/code/git-workflow/>
+Found a combination you like? Save it: `git config --global alias.lg "log --oneline --graph --decorate --all"`
 
 </div>
 
 ---
 
-# Web Interface Workflow - Branch Level
+# `git diff`: Choosing Two Points
 
-![w:850](images/workflow_branch_level.png)
+<div class="no-bullets">
+<div class="compact-lines">
+
+- `git diff`
+  - working directory vs. staging area
+
+</div>
+
+<div class="compact-lines">
+
+- `git diff --staged`
+  - staging area vs. last commit (what `git commit` would record)
+
+</div>
+
+<div class="compact-lines">
+
+- `git diff main my-branch`
+  - one branch against another
+
+</div>
+
+<div class="compact-lines">
+
+- `git diff HEAD~10 HEAD~5 -- README.md`
+  - two commits, restricted to one file
+
+</div>
+</div>
+
+<br>
+
+Hard to read in a terminal? Use `git difftool --tool-help` to see what your system offers, or the web interface: add `/compare` to any GitHub repository URL.
 
 ---
 
-# .gitignore
+# Part 1 · Exercise 1
 
-- Tell Git to disregard files you don’t want committed.
-- Best practice is to ignore binaries, intermediate files, files that can be generated from files in your repository, etc.
+### `git log`, `git blame`, `git diff` and `git show`
+
+<div class="note">
+
+**Where you work:** the `git-course` repository itself — we examine its real history.
+All exercises: <https://github.com/C2SM/git-course/tree/main/advanced>
+
+</div>
+
+---
+
+# Nesting Repositories
+
+- **Why?**
+  - **Modularity** — break a large project into pieces that stand alone
+  - **Independent history** — each piece keeps its own commits and releases
+  - **Collaboration** — separate teams own separate pieces
+
+<br>
+
+- **Two mechanisms**
+  - **Submodules** — Git's built-in approach, and the one C2SM models use
+  - **Subtrees** — an alternative that copies content into the parent instead
+
+---
+
+# A Submodule Is a Pointer to One Commit
+
+![w:1000](images/submodule-pointer.svg)
+
+The parent repository records **one exact commit** of the submodule, not "the latest".
+
+---
+
+# Working With Submodules
+
+<div class="no-bullets">
+<div class="compact-lines">
+
+- `git submodule add <url> <path>`
+  - adds the submodule and creates `.gitmodules`
+
+</div>
+
+<div class="compact-lines">
+
+- `git clone --recurse-submodules`
+  - clones the parent **and** fills in the submodules
+
+</div>
+
+<div class="compact-lines">
+
+- `git submodule update --init`
+  - fills them in after an ordinary `git clone`
+
+</div>
+
+<div class="compact-lines">
+
+- `git submodule update --remote --merge`
+  - moves the pointer forward to the submodule's latest commit
+
+</div>
+</div>
+
+<div class="warning">
+
+A plain `git clone` gives you **empty** submodule directories. This surprises everybody once.
+
+</div>
+
+---
+
+<style scoped>
+section {font-size: 24px;}
+</style>
+
+# Submodules Divide Opinion
+
+<div class="columns">
+<div>
+
+**In their favour**
+
+- Built into Git, nothing to install
+- The parent records an exact, reproducible commit
+- The submodule stays a normal repository
+
+</div>
+<div>
+
+**Against**
+
+- Every clone needs an extra step
+- Easy to commit a pointer you never pushed
+- Detached `HEAD` inside the submodule confuses people
+- Branch operations do not recurse by default
+
+</div>
+</div>
+
+<div class="note">
+
+C2SM models and tools use submodules a lot, so the cost is worth paying here. Learn the two or three commands that matter and the pain mostly disappears.
+
+</div>
+
+---
+
+# Part 1 · Exercise 2
+
+### `git submodule`
+
+<div class="note">
+
+**Where you work:** `advanced_git/conference_submodule`
+You will need a fork of <https://github.com/C2SM/c2sm-git-example> — the same one you use in Exercise 8.
+
+</div>
+
+---
+
+# Ignoring Files
+
+- Tell Git to leave alone what should never be committed
+- Build products, binaries, editor droppings, secrets, large data
 
 ```
 *~
 *.exe
 netcdf-*
-bin
-!bin/gen_info.sh
+build/
+!build/keep_this.sh
 ```
 
-<br>
-
-![w:850](images/gitignore.png)
-
-<!-- Speaker notes:
-To avoid accidentally committing these, you can create a .gitignore file in the root directory of your repository
-List all of the files you want git to ignore in the .gitignore file.  You can use wildcards to indicate file extensions
-Add and commit your .gitignore file to the repository
--->
+- Patterns are matched per directory; `!` re-includes something
+- `git check-ignore -v <file>` tells you **which line** ignored a file
 
 ---
 
-# .gitkeep
+# Ignoring Files: the States
 
-- Git keeps track of files, not folders
-- Put an empty `.gitkeep` file in any folder you would like to keep in the repository
-- Commit the `.gitkeep` file to the Git repository
+![w:1000](images/file-states.svg)
+
+<div class="warning">
+
+`.gitignore` only affects **untracked** files. A file already committed keeps being tracked until you run `git rm --cached <file>`.
+
+</div>
+
+---
+
+# `.gitkeep`
+
+- Git tracks **files**, never directories
+- An empty directory simply will not be committed
+- Convention: put an empty `.gitkeep` file inside it and commit that
 
 <div style="flex-grow: 1;"></div>
 
 <div class="note">
 
-**Note:** This is a convention that has developed, not an official Git feature like `.gitignore`.
-
-</div>
-
-<!-- Speaker notes:
-To avoid accidentally committing these, you can create a .gitignore file in the root directory of your repository
-List all of the files you want git to ignore in the .gitignore file.  You can use wildcards to indicate file extensions
-Add and commit your .gitignore file to the repository
--->
-
----
-
-# git stash
-
-- Allows you to save bits of work without committing them and reuse them late
-- Useful when:
-  - you need to pull changes, but have uncommitted changes
-  - you need to switch branch, but have uncommitted changes
-
-![w:750](images/git_stash_pop.png)
-
-<div class="img-ref">
-
-Source: <https://www.scaler.com/topics/git/git-stash-pop/>
+**Note:** `.gitkeep` is a community convention, not a Git feature. The name has no special meaning — any file would do.
 
 </div>
 
 ---
 
-# git worktree
+# Part 1 · Exercise 3
 
-- Can checkout and work with multiple branches of a repository with a single clone
-- Worktrees share a single `.git` directory, which:
-  - **saves memory and time** compared to multiple clones
-  - keeps the git configuration **centralized**
-- Can build/test multiple branches simultaneously
+### `.gitignore` and `.gitkeep`
 
-![w:550](images/worktree.png)
+<div class="note">
 
-<div class="img-ref">
-
-Source: <https://www.gitkraken.com/learn/git/git-worktree>
+**Where you work:** `advanced_git/conference_planning`
+Stuck? `reset_advanced_repo` gives you a clean start at any time.
 
 </div>
 
 ---
-<!-- _class: section -->
 
-# GitHub Web Interface Demonstration
-<https://github.com/C2SM/git-workflow-practice>
+# `git cherry-pick`: One Commit, Copied
+
+![w:750](images/cherry-pick.svg)
+
+- Takes a single commit and replays it on your current branch
+- The copy gets a **new commit ID** — same content, different identity
+
+<div class="warning">
+
+Because the ID differs, do not later merge the branch you picked from: you would get the same change twice.
+
+</div>
 
 ---
 
-# Git Workflow - Exercises
+# `git rebase`: an Alternative to `git merge`
 
-- Exercise 3: `.gitignore`
-- Exercise 4: `git stash` and `git worktree`
-- Exercise 5: practice the git workflow
+<div class="columns">
+<div>
+
+**Merge** — keeps both histories, adds a merge commit
+
+![w:420](images/merge.svg)
+
+</div>
+<div>
+
+**Rebase** — replays your commits on top, no merge commit
+
+![w:420](images/rebase.svg)
+
+</div>
+</div>
+
+<div class="warning">
+
+Rebasing **rewrites history**. Never rebase a branch other people have already pulled.
+
+</div>
+
+---
+
+# Part 1 · Exercise 4
+
+### `git cherry-pick` and `git rebase`
+
+<div class="note">
+
+**Where you work:** `advanced_git/conference_planning`
+Stuck? `reset_advanced_repo` gives you a clean start at any time.
+
+</div>
+
+---
+
+# `git stash`: Park Your Work
+
+![w:900](images/stash.svg)
+
+- For when you must switch branch or pull, but are not ready to commit
+- `git stash push -m "message"`, then `git stash list`, then `git stash pop`
+- `-u` also stashes untracked files
+- Stashes are **local only** — they never reach a remote
+
+---
+
+# `git worktree`: Several Branches at Once
+
+![w:400](images/worktree.svg)
+
+- Multiple working directories sharing **one** `.git`
+- Cheaper than a second clone, and the configuration stays in one place
+- Especially useful when switching branches means recompiling
+
+`git worktree add ../conference_planning-feature feature`
+
+---
+
+# Part 1 · Exercise 5
+
+### `git stash` and `git worktree`
+
+<div class="note">
+
+**Where you work:** `advanced_git/conference_planning`, plus the worktree it creates next to it.
+
+</div>
 
 ---
 
@@ -372,261 +490,365 @@ Source: <https://www.gitkraken.com/learn/git/git-worktree>
 
 ---
 
-# git cherry-pick: Snagging one Commit
-
-<div class="compact-columns">
-<div>
-
-![w:750](images/git_cherry_pick.jpg)
-
-</div>
-<div>
-
-![w:90](images/achtung.gif)
-
-</div>
-</div>
-
-- Grabs one commit and puts it at the head of another branch.
-- Uses a different commit ID for the same file changes.
-
-<!-- Speaker notes:
-Git cherrypick grabs one commit from one branch and puts it at the head of another branch, with a different SHA
-Git rebase sometimes uses git cherrypick
-Cherrypicking also rewrites history and therefore should be used with caution
--->
-
----
-
-<!-- _class: section -->
-
 # Custom Git Hooks
 
----
+- Scripts Git runs automatically when a certain event happens
+- Live in `.git/hooks`, named after their event, must be **executable**
+- A non-zero exit status from a `pre-` hook **cancels** the operation
+- `.git/hooks` is **not** part of the repository, so hooks are not shared by cloning
+- Git ships `.sample` files for every hook — rename one to activate it
 
-# Custom Git Hooks
+<div class="note">
 
-- Scripts to automate / enforce certain actions
-- Triggered when certain (pre-defined) events occur
-- Stored in `.git/hooks`
-- Named after the event they are associated with (e.g., `pre-commit`, `post-merge`, etc.)
-- Can be used for
-  - enforcing coding standards
-  - preventing accidental commits of sensitive data
-  - triggering automatic tests
-  - updating documentation
-- Samples already present!
-
----
-
-# Git Workflow - Exercises
-
-- Exercise 6: `git cherry-pick`
-- Exercise 7: Custom Git Hooks
-
----
-
-<!-- _class: section -->
-
-# Part 3:
-# Nesting Git Repositories
-
----
-
-# Nested Repositories
-
-![w:300](images/nested_repo.png)
-
-<div class="compact-lines">
-
-- Why use it?
-  - **Modularity**: Break project into smaller, manageable pieces.
-  - **Version Control**: Each submodule has its own Git history and version tracking
-  - **Collaboration**: Multiple teams can work on submodules independently
-
-</div>
-
-<div class="compact-lines">
-
-- Options:
-  - **Git Submodules**: Git's built-in mechanism
-  - **Git Subtrees**: Alternative approach
+Want hooks that everybody gets? Commit them to a folder and point Git at it with `git config core.hooksPath <folder>`, or use the [pre-commit](https://pre-commit.com/) framework.
 
 </div>
 
 ---
 
-# Parent repository stores reference to external repositories
+# When Each Hook Fires
 
-![w:1200](images/parent_repos.png)
+![w:1100](images/hooks-timeline.svg)
+
+Typical uses: reject trailing whitespace, run a formatter, enforce a commit-message
+format, block commits of secrets, run fast tests before a push.
 
 ---
 
-# Cloning a Repository with Submodules
+# Part 1 · Exercise 6
+
+### Custom Git hooks
+
+<div class="note">
+
+**Where you work:** `advanced_git/conference_planning`
+Everything happens in its `.git/hooks` directory.
+
+</div>
+
+---
+
+# Large Files: `git lfs`
+
+- Git stores a **full copy of every version** of every file
+- That is perfect for text and terrible for a 500 MB NetCDF file
+- Git Large File Storage keeps a tiny **pointer** in the repository and the real bytes elsewhere
+
+![w:850](images/lfs-pointer.svg)
+
+---
+
+# Using `git lfs`
 
 <div class="no-bullets">
 <div class="compact-lines">
 
-- `git clone`
-  - By default, Git does NOT clone contents of submodules
+- `git lfs install`
+  - once per machine: registers the filters
 
 </div>
 
 <div class="compact-lines">
 
-- `git clone --recurse-submodules`
-  - Check out contents of any submodules when cloning parent repo
+- `git lfs track "*.nc"`
+  - records the pattern in `.gitattributes` — **commit that file**
 
 </div>
 
 <div class="compact-lines">
 
-- `git submodule update --init`
-  - Get contents of submodules after cloning
+- `git lfs ls-files`
+  - which files are handled by LFS
 
 </div>
+</div>
+
+<div class="warning">
+
+LFS is not free: hosts put quotas on storage and bandwidth, and rewriting LFS history is painful. Before reaching for it, ask whether the data belongs in a data archive instead.
+
 </div>
 
 ---
 
-# Git Submodules
+# Part 1 · Exercise 7
 
-![w:850](images/tweet.png)
+### `git lfs`
 
-<!-- Speaker notes:
-There are opinions
-For tools and models of the C2SM community, submodules are used quite often
--->
+<div class="note">
 
----
-
-# Nesting Git Repositories – Exercises
-
-- Exercise 8: `git submodule`
-
----
-
-<!-- _class: section -->
-
-# Part 4:
-# Useful Tools and Resources
-
----
-
-# Wide Range of Available Tools
-
-<div class="columns">
-<div>
-<div class="compact-lines">
-
-**Text editor plugins:**
-- [magit](https://magit.vc/) (Emacs): Wrapper for git commands
-- [vim-gitgutter](https://github.com/airblade/vim-gitgutter) (vim): Improved git diff viewing
+**Where you work:** `advanced_git/conference_planning`
+Entirely local — no remote and no LFS quota needed.
 
 </div>
-<br>
-<div class="compact-lines">
-
-**Integrated development environment (IDE) integration:**
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [RStudio](https://posit.co/download/rstudio-desktop/)
-- [Eclipse](https://www.eclipse.org/downloads/)
-
-</div>
-
-</div>
-<div>
-
-<div class="compact-lines">
-
-**Official Git tools:**
-- [git-gui](https://git-scm.com/docs/git-gui): Focuses on commit generation
-- [gitk](https://git-scm.com/docs/gitk): Focuses on displaying diffs
-
-</div>
-<br>
-<div class="compact-lines">
-
-**Terminal prompt changer**
-- [fancy-git](https://github.com/diogocavilha/fancy-git)
-
-</div>
-<br>
-<div class="compact-lines">
-
-**[Git GUIs](https://git-scm.com/downloads/guis):**
-- [Git for Windows](https://gitforwindows.org/): Git BASH command line
-- [TortoiseGit](https://tortoisegit.org/): Windows Shell Interface to Git
-
-</div>
-
-</div>
-</div>
-
-<!-- Speaker notes:
-Gitk: Repository Browser
-git gui focuses on commit generation and single file annotation and does not show project history
--->
-
----
-
-# Git Resources
-
-- Official Git manual: <http://git-scm.com/>
-- GitHub manual: <https://docs.github.com>
-- Cheat sheet with useful GitHub commands for quick reference: <https://education.github.com/git-cheat-sheet-education.pdf>
 
 ---
 
 <!-- _class: section -->
 
-# Bonus Part
+# Part 2:
+# Working Together on GitHub
 
 ---
 
-# git rebase: Alternative to git merge
+# Why a Shared Workflow?
+
+Three problems appear the moment a second person joins:
+
+<div class="compact-lines">
+
+- **Access** — nobody can push to a protected `main`, so "just push it" is not an option
+- **Traceability** — a change needs a visible record of *why*, not only *what*
+- **Review** — somebody should look at a change **before** it reaches everyone else
+
+</div>
+
+<br>
+
+A web interface solves all three with the same object: the **pull request**.
+
+<div class="note">
+
+The Git commands you already know do not change. What follows is a convention layered on top of them.
+
+</div>
+
+---
+
+# A Real Example: the C2SM User Landing Page
+
+<https://github.com/C2SM/c2sm.github.io> → <https://c2sm.github.io>
+
+<div class="compact-lines">
+
+- Documentation for models, tools, datasets and HPC systems used across C2SM
+- Written as plain Markdown, built into a website automatically
+- Maintained by the core team, but **anyone in the group can contribute**
+- Every pull request gets a **preview website** before anything is merged
+
+</div>
+
+<br>
+
+We will walk through a real change to this repository, then you will practise the same
+workflow on <https://github.com/C2SM/c2sm-git-example>.
+
+---
+
+# It Starts With an Issue
+
+- An issue describes **what is wrong or missing, and why** — before any code is written
+- It is the place to agree on an approach before someone spends a day on it
+- Labels, assignees and milestones make a backlog searchable months later
+
+<br>
+
+- Write `Fixes #12` in a pull request description and GitHub **closes issue 12 automatically** when it merges
+
+<div class="note">
+
+A good issue is reproducible: what you did, what you expected, what happened instead.
+
+</div>
+
+---
+
+# Fork and Branch
+
+![w:1000](images/fork-triangle.svg)
+
+**Fork** when you cannot push to the original. **Branch** when you can. Either way the change arrives as a pull request.
+
+---
+
+# The Pull Request
+
+<div class="compact-lines">
+
+- A request to merge one branch into another, plus the conversation around it
+- The **description** is the lasting record — say why, not just what
+- Open it **early** as a draft to show work in progress
+- Keep it small: a reviewer reads 200 lines carefully and 2000 lines not at all
+
+</div>
+
+![w:1050](images/pr-lifecycle.svg)
+
+---
+
+# Automated Checks
+
+- GitHub Actions run on every pull request, before a human looks at it
+- On the landing page repository they check that Markdown links resolve and that the site still builds
+- A failing check blocks the merge, so broken changes never reach `main`
+
+<br>
+
+- The same workflow deploys a **preview of the website for that pull request**:
+  `https://c2sm.github.io/pr-preview/pr-<number>/`
+
+<div class="note">
+
+Reviewers can look at the rendered page, not just the diff. This is the single biggest reason the landing-page workflow works well.
+
+</div>
+
+---
+
+# Code Review
 
 <div class="columns">
 <div>
 
-![w:400](images/git_merge.png)
+**As the author**
+
+- Small, focused changes
+- Explain the reasoning
+- Reply to every comment
+- Push fixes as new commits
 
 </div>
 <div>
 
-<div class="compact-columns">
+**As the reviewer**
+
+- Comment, approve, or request changes
+- Use **suggestions** — the author can apply them with one click
+- Ask questions instead of issuing orders
+- Approve when it is good enough, not perfect
+
+</div>
+</div>
+
+<div class="note">
+
+Review is about the change, never the person. "This function could be clearer" beats "you wrote this badly".
+
+</div>
+
+---
+
+# Merging, and Staying in Sync
+
+- **Merge commit** — keeps every commit and records the merge
+- **Squash** — collapses the branch into one tidy commit (a common default)
+- **Rebase** — replays commits with no merge commit
+- Delete the branch afterwards; the pull request keeps the history
+
+![w:620](images/fork-sync.svg)
+
+---
+
+<style scoped>
+table {font-size: 19px;}
+section {font-size: 22px;}
+</style>
+
+# GitHub and GitLab Side by Side
+
+C2SM works on both `github.com` and `gitlab.ethz.ch`. The **local Git commands are identical** — only the website and the CI file differ.
+
+| Concept | GitHub | GitLab |
+| --- | --- | --- |
+| Proposed change | Pull request (PR) | **Merge request (MR)** |
+| Close an issue automatically | `Fixes #12` / `Closes #12` | `Closes #12` |
+| CI configuration | `.github/workflows/*.yml` | **`.gitlab-ci.yml`** |
+| Sign-off on a change | Approve / request changes | **Approvals**, a required count |
+| Static site hosting | GitHub Pages | GitLab Pages |
+| Preview of a change | PR preview via an Action | Review Apps |
+| Ownership rules | `CODEOWNERS` | `CODEOWNERS` |
+| Update a fork | "Sync fork" button or `upstream` remote | `upstream` remote |
+| Namespaces | User / organisation | User / **group**, nestable |
+
+---
+
+<!-- _class: section -->
+
+# Live Demonstration
+<https://github.com/C2SM/c2sm.github.io>
+
+---
+
+# Part 2 · Exercise 8
+
+### An issue, a fork, a pull request and a review
+
+<div class="note">
+
+**Where you work:** <https://github.com/C2SM/c2sm-git-example> in the browser, plus a clone of
+your fork anywhere outside `advanced_git`.
+
+</div>
+
+You will review each other's pull requests, so **work in pairs**.
+
+---
+
+# Useful Tools
+
+<div class="columns">
+<div>
+<div class="compact-lines">
+
+**In your editor**
+- [VS Code](https://code.visualstudio.com/) — built-in Git, GitLens
+- [magit](https://magit.vc/) (Emacs)
+- [vim-fugitive](https://github.com/tpope/vim-fugitive) (Vim)
+- [JetBrains IDEs](https://www.jetbrains.com/)
+
+</div>
+<br>
+<div class="compact-lines">
+
+**Better diffs**
+- [delta](https://github.com/dandavison/delta)
+- [difftastic](https://difftastic.wilfred.me.uk/)
+
+</div>
+
+</div>
 <div>
 
-![w:400](images/git_rebase.png)
+<div class="compact-lines">
+
+**In the terminal**
+- [gh](https://cli.github.com/) — pull requests and issues from the shell
+- [lazygit](https://github.com/jesseduffield/lazygit) — terminal interface
+- [tig](https://jonas.github.io/tig/) — history browser
 
 </div>
-<div>
+<br>
+<div class="compact-lines">
 
-![w:70](images/achtung.gif)
-
-</div>
-
-</div>
-
-</div>
-</div>
-<div class="img-ref">
-
-Source: <https://dzone.com/articles/merging-vs-rebasing>
+**Graphical**
+- [GitHub Desktop](https://desktop.github.com/)
+- [Git GUIs](https://git-scm.com/downloads/guis) — a long list
 
 </div>
 
-- Commits are replayed in a different order
-- Advantage: keep cleaner commit history
-- Should NEVER be used in a shared branch
+</div>
+</div>
 
-<!-- Speaker notes:
-git rebase is an alternative to git merge
-Instead of merging commits, it replays commits in a different order
-This allows you to keep a cleaner commit history and avoid unecessary merge commits
-THIS CHANGES the HISTORY!  Should NEVER be used in a branch that is shared.  Use with caution
-May require you to force push (git push –f) to a remote branch.  Use with caution.
--->
+---
+
+# Where to Look Things Up
+
+<div class="compact-lines">
+
+- The Git book, free and genuinely good: <https://git-scm.com/book>
+- Git reference: <https://git-scm.com/docs>
+- GitHub documentation: <https://docs.github.com>
+- GitHub cheat sheet: <https://education.github.com/git-cheat-sheet-education.pdf>
+- When something has gone wrong: <https://dangitgit.com>
+- Topics beyond this course: [Expert_Topics.md](https://github.com/C2SM/git-course/blob/main/Expert_Topics.md)
+
+</div>
+
+<div class="warning">
+
+Language models are often useful for Git because the documentation is so good. They also invent flags that do not exist. Check `git help <command>` before running anything you do not recognise — especially anything with `--force`.
+
+</div>
 
 ---
 
