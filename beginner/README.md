@@ -1,7 +1,7 @@
 # Git: First Steps
 
-This folder contains the exercises for **Git: First Steps**, the introductory course of the C2SM
-Git Series. Feel free to download the material to practice and enhance your Git skills.
+This folder contains the exercises for **Git: First Steps**, the introductory one of the two C2SM
+Git Courses. Feel free to download the material to practice and enhance your Git skills.
 
 Once you are comfortable with these, [Git: Next Steps](../advanced) continues from here.
 

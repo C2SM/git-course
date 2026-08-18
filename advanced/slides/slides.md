@@ -12,7 +12,7 @@ footer: "C2SM, ETH Zurich · Git: Next Steps · 1 October 2026"
 
 # Git: Next Steps
 
-C2SM Git Series · 1 October 2026
+C2SM Git Courses · 1 October 2026
 Michael Jähn, Mikael Stellio, Alitzel Macías Infante
 
 ---

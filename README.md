@@ -1,4 +1,4 @@
-# C2SM Git Series
+# C2SM Git Courses
 
 Two annual Git courses, run by [C2SM](https://c2sm.ethz.ch) as part of its technical training.
 
