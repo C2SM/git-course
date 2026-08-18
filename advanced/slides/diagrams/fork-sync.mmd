@@ -1,0 +1,18 @@
+flowchart TB
+    U["<b>upstream/main</b><br><small>the original repository,<br>moved on without you</small>"]
+    LF["<b>upstream/main</b><br><small>now known locally too</small>"]
+    L["<b>your local main</b><br><small>up to date</small>"]
+    O["<b>origin/main</b><br><small>your fork, up to date</small>"]
+    F["<b>your feature branch</b><br><small>up to date</small>"]
+
+    U -- "1. git fetch upstream" --> LF
+    LF -- "2. git switch main<br>git merge upstream/main" --> L
+    L -- "3. git push origin main" --> O
+    L -- "4. git switch my-feature<br>git merge main" --> F
+
+    classDef upstream fill:#134f7c,stroke:#ffbd0b,stroke-width:3px,color:#e8edf2
+    classDef local fill:#243041,stroke:#56abdf,stroke-width:2px,color:#e8edf2
+    classDef fork fill:#1e3a52,stroke:#92d050,stroke-width:2px,color:#e8edf2
+    class U,LF upstream
+    class L,F local
+    class O fork

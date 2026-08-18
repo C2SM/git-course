@@ -1,0 +1,17 @@
+flowchart LR
+    WD["Working<br>directory"]
+    SA["Staging area<br>(index)"]
+    LR["Local<br>repository"]
+    RR["Remote<br>repository"]
+
+    WD -- "git add" --> SA
+    SA -- "git commit" --> LR
+    LR -- "git push" --> RR
+    RR -- "git fetch" --> LR
+    LR -- "git checkout / switch" --> WD
+    RR -. "git pull = fetch + merge" .-> WD
+
+    classDef local fill:#243041,stroke:#56abdf,stroke-width:2px,color:#e8edf2
+    classDef remote fill:#134f7c,stroke:#56abdf,stroke-width:2px,color:#e8edf2
+    class WD,SA,LR local
+    class RR remote
