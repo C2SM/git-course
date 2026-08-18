@@ -38,6 +38,20 @@ for src in "$diagrams"/*.mmd; do
         && mv "$tmp" "$images/$name.svg"
 done
 
+# Unlike mermaid-cli, marp-cli does not ship a browser: it needs Chrome, Edge or
+# Firefox on the system. CI runners have one, many local machines (e.g. WSL) do not,
+# so fall back to the Chrome that puppeteer downloads into its own cache.
+have_browser=false
+for browser in google-chrome google-chrome-stable chromium chromium-browser microsoft-edge firefox; do
+    command -v "$browser" &> /dev/null && have_browser=true && break
+done
+
+if [[ -z "${CHROME_PATH:-}" ]] && [[ "$have_browser" == false ]]; then
+    echo "No system browser found, using puppeteer's Chrome..."
+    CHROME_PATH=$(npx -y @puppeteer/browsers install chrome@stable --path "${HOME}/.cache/puppeteer" | awk '{print $NF}')
+    export CHROME_PATH
+fi
+
 echo "Rendering slides to PDF..."
 npx -y @marp-team/marp-cli@latest advanced/slides/slides.md \
     --theme-set slides_theme/c2sm-light.css slides_theme/c2sm-dark.css \

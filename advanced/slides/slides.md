@@ -3,7 +3,7 @@ marp: true
 theme: c2sm-dark
 paginate: true
 size: 16:9
-footer: "C2SM, ETH Zurich · Git: Next Steps · 1 October 2026"
+footer: "C2SM, ETH Zurich · Git: Next Steps · 8 October 2026"
 ---
 
 <!-- _class: title -->
@@ -12,7 +12,7 @@ footer: "C2SM, ETH Zurich · Git: Next Steps · 1 October 2026"
 
 # Git: Next Steps
 
-C2SM Git Courses · 1 October 2026
+C2SM Git Courses · 8 October 2026
 Michael Jähn, Mikael Stellio, Alitzel Macías Infante
 
 ---
