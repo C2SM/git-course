@@ -1,0 +1,56 @@
+name: Test helper functions
+
+# The helper scripts bootstrap every exercise, so they have to work on every platform
+# the course is taught on: Linux, macOS and Git Bash for Windows. windows-latest ships
+# Git for Windows, and a step with `shell: bash` runs under its Git Bash - so this
+# actually exercises the platform that issue #147 was raised about, not a stand-in for it.
+
+on:
+  pull_request:
+    paths:
+      - "advanced/helpers.sh"
+      - "advanced/examples/**"
+      - "advanced/tests/**"
+      - "beginner/helpers.sh"
+      - "beginner/examples/**"
+      - "beginner/tests/**"
+      - ".github/workflows/test_helpers.yml"
+
+  workflow_dispatch:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    defaults:
+      run:
+        # windows-latest defaults to PowerShell; this makes every step below use the
+        # Git Bash that ships with Git for Windows instead, on all three platforms.
+        shell: bash
+
+    steps:
+      - name: Check out the course
+        uses: actions/checkout@v5
+        with:
+          path: git-course
+
+      - name: Report the Git version under test
+        run: git --version
+
+      - name: Set a Git identity
+        # Runners have no identity configured, and the helpers create commits.
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git config --global init.defaultBranch main
+
+      - name: Test the advanced helpers
+        run: bash git-course/advanced/tests/test_helpers.sh
+
+      - name: Test the beginner helpers
+        run: bash git-course/beginner/tests/test_helpers.sh
