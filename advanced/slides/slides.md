@@ -3,17 +3,17 @@ marp: true
 theme: c2sm-dark
 paginate: true
 size: 16:9
-footer: "C2SM, ETH Zurich · Git for Advanced · 12 September 2025"
+footer: "C2SM, ETH Zurich · Git for Advanced · 1 October 2026"
 ---
 
 <!-- _class: title -->
 <!-- _paginate: false -->
 <!-- _footer: "" -->
 
-# C2SM Git for Advanced Workshop 2025
+# C2SM Git for Advanced Workshop 2026
 
-12 September 2025
-Annika Lauber, Mikael Stellio
+1 October 2026
+Michael Jähn, Mikael Stellio, Alitzel Macias Infante
 
 ---
 
