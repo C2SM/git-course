@@ -205,3 +205,64 @@ section .img-ref {
   margin-left: 0;
   margin-right: auto;
 }
+
+/* Warning callout, replaces the old attention GIF */
+.warning {
+  background: #fff3cd;
+  border-left: 6px solid #e0a800;
+  padding: 0.5em 0.7em;
+  border-radius: 8px;
+  font-size: 24px;
+}
+.warning p {
+  margin: 0;
+}
+.warning::before {
+  content: "\26A0";
+  color: #e0a800;
+  font-size: 1.3em;
+  font-weight: bold;
+  float: left;
+  margin-right: 0.4em;
+  line-height: 1;
+}
+
+/* Pull quote with attribution */
+.quote {
+  border-left: 6px solid #007b96;
+  padding: 0.3em 0 0.3em 0.8em;
+  margin: 0.4em 0;
+  font-size: 26px;
+  font-style: italic;
+}
+.quote p {
+  margin: 0.1em 0;
+}
+.quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.72em;
+  color: #5a6570;
+  margin-top: 0.3em;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  margin: 0.3em auto;
+  font-size: 21px;
+}
+th {
+  background: #007b96;
+  color: white;
+  text-align: left;
+  padding: 0.3em 0.6em;
+  border: 1px solid #b9ccd4;
+}
+td {
+  padding: 0.3em 0.6em;
+  border: 1px solid #b9ccd4;
+}
+tr:nth-child(even) td {
+  background: #eef5f8;
+}

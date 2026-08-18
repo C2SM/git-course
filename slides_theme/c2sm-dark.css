@@ -233,3 +233,67 @@ section .img-ref {
   margin-left: 0;
   margin-right: auto;
 }
+
+/* Warning callout, replaces the old attention GIF */
+.warning {
+  background: #3d3117;
+  border-left: 6px solid #ffbd0b;
+  padding: 0.5em 0.7em;
+  border-radius: 8px;
+  font-size: 24px;
+  color: var(--c2sm-dark-text);
+}
+.warning p {
+  margin: 0;
+}
+.warning::before {
+  content: "\26A0";
+  color: #ffbd0b;
+  font-size: 1.3em;
+  font-weight: bold;
+  float: left;
+  margin-right: 0.4em;
+  line-height: 1;
+}
+
+/* Pull quote with attribution */
+.quote {
+  border-left: 6px solid var(--c2sm-accent);
+  padding: 0.3em 0 0.3em 0.8em;
+  margin: 0.4em 0;
+  font-size: 26px;
+  font-style: italic;
+  color: var(--c2sm-light);
+}
+.quote p {
+  margin: 0.1em 0;
+}
+.quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.72em;
+  color: var(--c2sm-gray);
+  margin-top: 0.3em;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  margin: 0.3em auto;
+  font-size: 21px;
+}
+th {
+  background: var(--c2sm-blue);
+  color: var(--c2sm-light);
+  text-align: left;
+  padding: 0.3em 0.6em;
+  border: 1px solid #3a4a5e;
+}
+td {
+  padding: 0.3em 0.6em;
+  border: 1px solid #3a4a5e;
+  background: var(--c2sm-dark-surface);
+}
+tr:nth-child(even) td {
+  background: #1f2a3a;
+}
