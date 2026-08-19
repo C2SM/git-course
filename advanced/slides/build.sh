@@ -53,10 +53,31 @@ if [[ -z "${CHROME_PATH:-}" ]] && [[ "$have_browser" == false ]]; then
 fi
 
 echo "Rendering slides to PDF..."
+pdf="advanced/slides/slides_advanced.pdf"
 npx -y @marp-team/marp-cli@latest advanced/slides/slides.md \
     --theme-set slides_theme/c2sm-light.css slides_theme/c2sm-dark.css \
     --pdf \
     --allow-local-files \
-    -o advanced/slides/slides_advanced.pdf
+    -o "$pdf"
 
-echo "Done: advanced/slides/slides_advanced.pdf"
+# Marp stamps the PDF's CreationDate/ModDate with the current time on every build,
+# which makes the file differ byte-for-byte even when nothing changed. That causes
+# CI to commit a "changed" PDF on every run. Pin both dates to the epoch to keep
+# the output reproducible.
+normalize_tmp=$(mktemp -d)
+npm install --no-audit --no-fund --silent --prefix "$normalize_tmp" pdf-lib@1
+NODE_PATH="$normalize_tmp/node_modules" node - "$pdf" <<'NODE'
+const fs = require("fs");
+const { PDFDocument } = require("pdf-lib");
+
+(async () => {
+    const path = process.argv[2];
+    const doc = await PDFDocument.load(fs.readFileSync(path));
+    doc.setCreationDate(new Date(0));
+    doc.setModificationDate(new Date(0));
+    fs.writeFileSync(path, await doc.save());
+})();
+NODE
+rm -rf "$normalize_tmp"
+
+echo "Done: $pdf"
