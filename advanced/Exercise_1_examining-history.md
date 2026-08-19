@@ -350,7 +350,7 @@ on essentially every system, including Git Bash on Windows:
 git difftool -t vimdiff HEAD~10 HEAD~5
 ```
 
-It steps through the changed files one at a time. Use `:qa` to leave each file, or `:cq` to quit
+It steps through the changed files one at a time. Use `:qa` to leave each file, or `Ctrl-C` to quit
 the whole session. If Vim is unfamiliar, see [Basic Unix and Vim Commands](../Unix_Commands.md).
 
 **In the web interface**, add `/compare` to any GitHub repository URL:
