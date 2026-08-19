@@ -1,6 +1,6 @@
 # Schedule
 
-Half-day course, 09:00 – 12:30.
+3/4-day course, 09:30 – 15:00, lunch break 12:30 – 13:30.
 
 > Notes:
 > - 2026: restructured from Parts 0-4 + Bonus into two parts (commands, then web workflow).
@@ -10,16 +10,17 @@ Half-day course, 09:00 – 12:30.
 
 | Description | Presenter | Extent | Time est. | Time needed ('24, '25, '26) | Start time | End time |
 | --- | --- | --- | --- | --- | --- | --- |
-| Welcome, outline, schedule | Michael | 3 slides | 10 min | 8 min, 8 min, - | 09:00 | 09:10 |
-| Part 1 - Slides: history, submodules | Michael | 9 slides | 20 min | -, -, - | 09:10 | 09:30 |
-| Part 1 - Exercises 1-2 | 💻 | | 30 min | 42 min, 42 min, - | 09:30 | 10:00 |
-| Part 1 - Slides: ignoring, cherry-pick, rebase, stash, worktree | Mikael | 9 slides | 20 min | -, -, - | 10:00 | 10:20 |
-| Part 1 - Exercises 3-5 | 💻 | | 40 min | 29 min, 40 min, - | 10:20 | 11:00 |
-| Coffee break | all | 1 coffee | 20 min | 23 min, 20 min, - | 11:00 | 11:20 |
-| Part 1 - Slides: hooks, git lfs | Alitzel | 6 slides | 10 min | -, -, - | 11:20 | 11:30 |
-| Part 1 - Exercises 6-7 | 💻 | | 30 min | 21 min, 21 min, - | 11:30 | 12:00 |
-| Part 2 - Slides + live demonstration | Michael | 12 slides | 20 min | 8 min, 8 min, - | 12:00 | 12:20 |
-| Part 2 - Exercise 8 + wrap-up | 💻 | | 10 min | -, -, - | 12:20 | 12:30 |
+| Welcome, outline, schedule | Michael | 3 slides | 10 min | 8 min, 8 min, - | 09:30 | 09:40 |
+| Part 1 - Slides: history, submodules | Michael | 9 slides | 20 min | -, -, - | 09:40 | 10:00 |
+| Part 1 - Exercises 1-2 | 💻 | | 30 min | 42 min, 42 min, - | 10:00 | 10:30 |
+| Part 1 - Slides: ignoring, cherry-pick, rebase, stash, worktree | Mikael | 9 slides | 20 min | -, -, - | 10:30 | 10:50 |
+| Part 1 - Exercises 3-5 | 💻 | | 40 min | 29 min, 40 min, - | 10:50 | 11:30 |
+| Coffee break | all | 1 coffee | 20 min | 23 min, 20 min, - | 11:30 | 11:50 |
+| Part 1 - Slides: hooks, git lfs | Alitzel | 6 slides | 10 min | -, -, - | 11:50 | 12:00 |
+| Part 1 - Exercises 6-7 | 💻 | | 30 min | 21 min, 21 min, - | 12:00 | 12:30 |
+| Lunch break | all | | 60 min | | 12:30 | 13:30 |
+| Part 2 - Slides + live demonstration | Michael | 12 slides | 60 min | 8 min, 8 min, - | 13:30 | 14:30 |
+| Part 2 - Exercise 8 + wrap-up | 💻 | | 30 min | -, -, - | 14:30 | 15:00 |
 
 ## Notes for the next run
 
@@ -30,8 +31,7 @@ Half-day course, 09:00 – 12:30.
   Part 1 so people fork once, early, rather than twice.
 - Exercise 7 needs `git lfs` installed. `check_requirements.sh` checks for it, but remind people
   in the joining instructions.
-- Exercise 8 is deliberately last and deliberately short in the schedule. It continues past the
-  end of the course for anyone who wants to finish it, and the pull requests can be reviewed
-  afterwards.
+- Exercise 8 is deliberately last in the schedule. It continues past the end of the course for
+  anyone who wants to finish it, and the pull requests can be reviewed afterwards.
 - `test_helpers.yml` covers Linux, macOS and Git Bash for Windows on every pull request, so a
   manual pre-course check of the helper scripts is no longer needed.

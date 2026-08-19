@@ -80,13 +80,14 @@ You only need the **Git basics** for this course: `add`, `commit`, `push`, `pull
 
 <div class="no-bullets schedule-list">
 
-- **09:00 – 09:10** Welcome and overview
-- **09:10 – 10:00** Part 1 · history and submodules → Exercises 1 – 2
-- **10:00 – 11:00** Part 1 · ignoring, moving, parallel work → Exercises 3 – 5
-- **11:00 – 11:20** Coffee break
-- **11:20 – 12:00** Part 1 · hooks and large files → Exercises 6 – 7
-- **12:00 – 12:20** Part 2 · slides and live demonstration
-- **12:20 – 12:30** Part 2 · Exercise 8 and wrap-up
+- **09:30 – 09:40** Welcome and overview
+- **09:40 – 10:30** Part 1 · history and submodules → Exercises 1 – 2
+- **10:30 – 11:30** Part 1 · ignoring, moving, parallel work → Exercises 3 – 5
+- **11:30 – 11:50** Coffee break
+- **11:50 – 12:30** Part 1 · hooks and large files → Exercises 6 – 7
+- **12:30 – 13:30** Lunch break
+- **13:30 – 14:30** Part 2 · slides and live demonstration
+- **14:30 – 15:00** Part 2 · Exercise 8 and wrap-up
 
 </div>
 
