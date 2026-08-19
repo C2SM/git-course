@@ -45,6 +45,8 @@ jobs:
           if git diff --cached --quiet; then
             echo "Diagrams and PDF are already up to date."
           else
-            git commit -m "Update advanced slides diagrams and PDF"
+            # [skip ci] stops GitHub from queuing new workflow runs for this commit,
+            # so fork PRs don't need a fresh manual approval after every auto-push.
+            git commit -m "Update advanced slides diagrams and PDF [skip ci]"
             git push origin HEAD:${{ github.head_ref }}
           fi
