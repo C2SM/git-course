@@ -1,0 +1,50 @@
+name: Build Marp Slides PDF
+
+on:
+  pull_request:
+    paths:
+      - "beginner/slides/**"
+      - "slides_theme/**"
+      - ".github/workflows/build_beginner_slides.yml"
+      - "!beginner/slides/slides_beginner.pdf"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out PR branch
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build PDF
+        run: |
+          npx @marp-team/marp-cli@latest beginner/slides/slides.md \
+            --theme-set slides_theme/c2sm-light.css slides_theme/c2sm-dark.css \
+            --pdf \
+            --allow-local-files \
+            -o beginner/slides/slides_beginner.pdf
+
+      - name: Commit updated PDF to PR branch
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+
+          git add beginner/slides/slides_beginner.pdf
+          if git diff --cached --quiet; then
+            echo "PDF is already up to date."
+          else
+            git commit -m "Update beginner slides PDF"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
