@@ -853,6 +853,22 @@ Language models are often useful for Git because the documentation is so good. T
 
 ---
 
+# References
+
+<div class="compact-lines">
+
+- Chacon, S. & Straub, B. *Pro Git*, 2nd ed. Apress, 2014. <https://git-scm.com/book>
+- Git Project. *Git Reference Documentation* - `git-log`, `git-diff`, `git-submodule`, `git-cherry-pick`, `git-rebase`, `git-stash`, `git-worktree`, `githooks`. <https://git-scm.com/docs>
+- Git LFS Project. *Git Large File Storage Documentation*. <https://git-lfs.com>
+- pre-commit. *A Framework for Managing Multi-Language Pre-Commit Hooks*. <https://pre-commit.com>
+- GitHub, Inc. *GitHub Docs*. <https://docs.github.com>
+- GitLab B.V. *GitLab Docs*. <https://docs.gitlab.com>
+- C2SM. *c2sm.github.io* - the User Landing Page used as the worked example. <https://github.com/C2SM/c2sm.github.io>
+
+</div>
+
+---
+
 <!-- _class: section -->
 
 # Questions? Comments?
