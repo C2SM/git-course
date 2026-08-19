@@ -25,4 +25,6 @@ jobs:
           # beginner/helpers.sh predates this workflow and is not part of this task's
           # scope; it has its own pre-existing style warnings (unquoted variables,
           # unchecked cd) that are a separate cleanup, not a regression to gate on here.
-          ignore_paths: beginner/helpers.sh
+          # A trailing single file cannot be excluded by name alone: the action's find
+          # walks from scandir "." and only matches "./beginner/helpers.sh" verbatim.
+          ignore_paths: ./beginner/helpers.sh
