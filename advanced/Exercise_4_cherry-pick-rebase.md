@@ -285,7 +285,7 @@ trade-off:
 >
 > The rule: rebase your own branch before sharing it. Never rebase `main`, or any branch someone
 > else is working on. If you rebase a branch you already pushed, you will need
-> `git push --force-with-lease` — which checks nobody else pushed in the meantime, unlike the
+> `git push --force-with-lease` - which checks nobody else pushed in the meantime, unlike the
 > blunt `--force`.
 
 ## Check yourself

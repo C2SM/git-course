@@ -33,7 +33,7 @@ Otherwise, please refer to the [Initialization from Exercise 1](Exercise_1_basic
 
 ### Understanding *.gitignore*
 
-The *.gitignore* file is an essential and commonly used feature in Git. It specifies intentionally untracked files that Git should ignore. It's particularly useful for excluding files generated during execution or build processes —  like log files, compiled code, or local configuration files — that don't need to be shared within the repository. Creating a *.gitignore* file and listing the file patterns to exclude achieves this.
+The *.gitignore* file is an essential and commonly used feature in Git. It specifies intentionally untracked files that Git should ignore. It's particularly useful for excluding files generated during execution or build processes -  like log files, compiled code, or local configuration files - that don't need to be shared within the repository. Creating a *.gitignore* file and listing the file patterns to exclude achieves this.
 
 **Typical Ingredients of *.gitignore*:**
 
@@ -75,7 +75,7 @@ Use *.gitignore* whenever files clutter your Git repository, but shouldn't be co
 init_repo_empty_schedule
 ```
 
-2. Initialise the folder as a Git repository.
+2. Initialize the folder as a Git repository.
 3. Add and commit the *conference_schedule.txt* file.
 4. Add a talk, coffee break, workshop to your schedule.
 5. Add and commit your changes.
@@ -127,7 +127,7 @@ Our repository should currently have four branches (names may be different for y
    
 8. Ensure your repository contains the same amount of different branches by displaying the available branches.
 
-The talk in the morning has finally been cancelled.
+The talk in the morning has finally been canceled.
 
 9. Merge the branch containing the workshop instead of the talk into the *main* branch.
 

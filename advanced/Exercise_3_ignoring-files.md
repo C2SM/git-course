@@ -138,7 +138,7 @@ netcdf-*        # anything starting with netcdf-
 ```
 
 The `!` prefix is the escape hatch: it re-includes something an earlier pattern excluded. Order
-matters, and a file inside an ignored **directory** cannot be re-included — you have to
+matters, and a file inside an ignored **directory** cannot be re-included - you have to
 un-ignore the directory first.
 
 > [!TIP]
@@ -173,7 +173,7 @@ When a file is being ignored and you cannot work out why, this answers it in one
 
 ## The already-tracked trap <a name="trap"></a>
 
-This is the behaviour that confuses nearly everyone at least once.
+This is the behavior that confuses nearly everyone at least once.
 
 **Task 7.** Create a file *notes.txt*, commit it, and *then* add `notes.txt` to *.gitignore*.
 Now modify *notes.txt* and run `git status`. What happens, and why?
@@ -226,7 +226,7 @@ git status
 
 > [!WARNING]
 > `git rm --cached` stops *future* tracking. The file and all its previous contents remain in the
-> repository history. If you committed a password by mistake, this is **not** enough — you have to
+> repository history. If you committed a password by mistake, this is **not** enough - you have to
 > rewrite history (and change the password). See [Expert_Topics.md](../Expert_Topics.md).
 
 ## Keeping an empty directory with `.gitkeep` <a name="gitkeep"></a>
@@ -248,7 +248,7 @@ mkdir output
 git status
 ```
 
-Nothing — Git does not see empty directories at all. So:
+Nothing - Git does not see empty directories at all. So:
 
 ```plaintext
 touch output/.gitkeep

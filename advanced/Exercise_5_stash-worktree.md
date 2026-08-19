@@ -37,7 +37,7 @@ directory is clean afterwards.
 
 <details><summary>Hint</summary>
 
-`git stash push -m "<message>"`. You may see `git stash save` in older tutorials — it does the
+`git stash push -m "<message>"`. You may see `git stash save` in older tutorials - it does the
 same thing but has been deprecated since Git 2.16, so use `push`.
 
 </details>
@@ -221,7 +221,7 @@ cd ../conference_planning
 git log --oneline --graph --decorate --all
 ```
 
-The commit is there. The two directories share one history — only the checked-out files differ.
+The commit is there. The two directories share one history - only the checked-out files differ.
 
 </details>
 

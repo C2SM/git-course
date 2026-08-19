@@ -34,7 +34,7 @@ ls .git/hooks
 ```
 
 Git created a sample for every hook it supports: *pre-commit.sample*, *commit-msg.sample*,
-*pre-push.sample* and a dozen more. They are inactive because of the `.sample` suffix — Git only
+*pre-push.sample* and a dozen more. They are inactive because of the `.sample` suffix - Git only
 runs a file named exactly after the event.
 
 </details>
@@ -71,7 +71,7 @@ chmod +x .git/hooks/pre-commit
 </details>
 
 **Task 4.** Put the following script in it. This one is given to you in full, because getting
-the check itself right is not the point of the exercise — understanding the structure is.
+the check itself right is not the point of the exercise - understanding the structure is.
 
 ```bash
 #!/bin/bash
@@ -181,7 +181,7 @@ fails if any of them fails. Make it executable.
 <details><summary>Hint</summary>
 
 `set -e` makes a shell script stop at the first command that fails, which is exactly the
-behaviour you want.
+behavior you want.
 
 </details>
 
@@ -214,7 +214,7 @@ verify both checks run.
 
 <details><summary>Hint</summary>
 
-Keep it simple — for example, reject staged files larger than 1 MB, or reject the word `TODO` in
+Keep it simple - for example, reject staged files larger than 1 MB, or reject the word `TODO` in
 staged content. Do not forget `chmod +x`.
 
 </details>
@@ -336,7 +336,7 @@ pre-commit install
 pre-commit run --all-files
 ```
 
-`pre-commit install` writes *.git/hooks/pre-commit* for you — note that this **overwrites** the
+`pre-commit install` writes *.git/hooks/pre-commit* for you - note that this **overwrites** the
 hook you wrote earlier.
 
 </details>

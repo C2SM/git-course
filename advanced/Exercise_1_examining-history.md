@@ -18,7 +18,7 @@ several hundred commits and many authors.
 > Confirm with `pwd` that you are inside *git-course*.
 
 > [!TIP]
-> Every task below has a **Hint** and a **Solution** you can unfold. Try the task first — you
+> Every task below has a **Hint** and a **Solution** you can unfold. Try the task first - you
 > will remember far more from one command you worked out than from ten you pasted.
 > If you get stuck on the exact syntax, `git help log` (or `git log -h` for the short version)
 > is faster than searching the internet.
@@ -26,7 +26,7 @@ several hundred commits and many authors.
 In this exercise we cover the following:
 - [Shaping the log output](#shape)
 - [Filtering the log](#filter)
-- [Saving a favourite view as an alias](#alias)
+- [Saving a favorite view as an alias](#alias)
 - [Finding who changed a line with `git blame`](#blame)
 - [Comparing with `git diff`](#diff)
 - [Inspecting one commit with `git show`](#show)
@@ -187,9 +187,9 @@ commit whose diff contains it, whether or not the number of occurrences changed.
 
 > [!NOTE]
 > `-S` answers a question that is otherwise very hard to answer: *when did this string enter the
-> code, and who put it there?* Remember it exists — it will save you an afternoon one day.
+> code, and who put it there?* Remember it exists - it will save you an afternoon one day.
 
-## Saving a favourite view as an alias <a name="alias"></a>
+## Saving a favorite view as an alias <a name="alias"></a>
 
 Typing `--oneline --graph --decorate --all` gets old quickly. Git lets you name any command.
 
@@ -268,7 +268,7 @@ git diff
 </details>
 
 **Task 12.** Stage the change with `git add README.md`, then run `git diff` again. The output is
-empty. Show the staged change instead — that is, what `git commit` would record right now.
+empty. Show the staged change instead - that is, what `git commit` would record right now.
 
 <details><summary>Hint</summary>
 
@@ -366,7 +366,7 @@ More detail in the GitHub documentation on
 
 > [!NOTE]
 > If a comparison includes image or other binary files, Git can only tell you *that* they
-> changed, not how. This is one reason to keep binaries out of repositories where you can — and
+> changed, not how. This is one reason to keep binaries out of repositories where you can - and
 > the reason `git lfs` exists for when you cannot. We come back to that in Exercise 7.
 
 ## Inspecting one commit with `git show` <a name="show"></a>

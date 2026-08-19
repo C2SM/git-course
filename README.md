@@ -18,8 +18,8 @@ interface (issues, forks, pull requests, review).
 
 ## Beyond both courses
 
-[Expert_Topics.md](Expert_Topics.md) collects the topics neither course covers — Git internals,
-history rewriting, recovery, large repositories, signing — as a reading list.
+[Expert_Topics.md](Expert_Topics.md) collects the topics neither course covers - Git internals,
+history rewriting, recovery, large repositories, signing - as a reading list.
 
 ## Getting Started
 
@@ -50,7 +50,7 @@ is all you need, and it is the quickest route.
 <summary>Alternative for Windows users: WSL2</summary>
 <br>
 
-If you would rather have a full Linux environment on Windows — useful well beyond this course —
+If you would rather have a full Linux environment on Windows - useful well beyond this course -
 install the **Windows Subsystem for Linux 2** (WSL2). It gives you a real Linux terminal, better
 compatibility with Linux-based workflows, and keeps your development environment separate from
 Windows.

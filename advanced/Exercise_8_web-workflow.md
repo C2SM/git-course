@@ -5,13 +5,13 @@ automated checks, a review by one of your fellow participants, a merge, and fina
 fork up to date.
 
 You will work on <https://github.com/C2SM/c2sm-git-example>, a small repository of Markdown pages
-about C2SM that exists purely so that people can practise on it. It is set up like the
+about C2SM that exists purely so that people can practice on it. It is set up like the
 [C2SM User Landing Page](https://github.com/C2SM/c2sm.github.io): issue templates, a pull request
 template, and Actions that check every pull request.
 
 > [!IMPORTANT]
 > **Where you work:** in your browser, and in a clone of **your fork** placed anywhere *outside*
-> `advanced_git` — for example next to the *git-course* directory. Do **not** put it inside
+> `advanced_git` - for example next to the *git-course* directory. Do **not** put it inside
 > another repository.
 
 > [!NOTE]
@@ -35,7 +35,7 @@ Work starts with a description of what needs doing, not with code.
 
 **Task 1.** On <https://github.com/C2SM/c2sm-git-example>, open the **Issues** tab and create a
 new issue from the *Content request* template, saying that you would like to add yourself to the
-participants list. Note the issue **number** — you need it later.
+participants list. Note the issue **number** - you need it later.
 
 <details><summary>What makes a good issue?</summary>
 
@@ -54,7 +54,7 @@ You have no write access to the C2SM repository, so you work on your own copy.
 **Task 2.** Fork the repository, then clone **your fork** and go into it.
 
 > [!TIP]
-> If you already forked *c2sm-git-example* for Exercise 2, use that same fork — do not make a
+> If you already forked *c2sm-git-example* for Exercise 2, use that same fork - do not make a
 > second one.
 
 <details><summary>Solution</summary>
@@ -168,7 +168,7 @@ can apply with a single click.
 <details><summary>Hint</summary>
 
 Use the `+` button on a line to comment. For a suggestion, use the ± button in the comment
-toolbar, which inserts a fenced block labelled `suggestion`.
+toolbar, which inserts a fenced block labeled `suggestion`.
 
 </details>
 
@@ -192,9 +192,9 @@ What is the difference?
 
 <details><summary>Solution</summary>
 
-- **Comment** — feedback with no verdict.
-- **Approve** — you are happy for this to be merged.
-- **Request changes** — this should not merge until something is addressed. On repositories with
+- **Comment** - feedback with no verdict.
+- **Approve** - you are happy for this to be merged.
+- **Request changes** - this should not merge until something is addressed. On repositories with
   branch protection this actively blocks the merge.
 
 </details>
@@ -220,12 +220,12 @@ does.
 
 <details><summary>Solution</summary>
 
-- **Create a merge commit** — keeps every commit on the branch plus a merge commit.
-- **Squash and merge** — collapses the whole branch into one commit on `main`. Common default,
+- **Create a merge commit** - keeps every commit on the branch plus a merge commit.
+- **Squash and merge** - collapses the whole branch into one commit on `main`. Common default,
   because a branch's intermediate commits are rarely interesting later.
-- **Rebase and merge** — replays the commits onto `main` with no merge commit.
+- **Rebase and merge** - replays the commits onto `main` with no merge commit.
 
-After merging, delete the branch — the pull request preserves the history.
+After merging, delete the branch - the pull request preserves the history.
 
 </details>
 
@@ -364,7 +364,7 @@ names and the CI file change. **The local Git commands are identical.**
 | Preview of a change | PR preview via an Action | Review Apps |
 | Ownership rules | `CODEOWNERS` | `CODEOWNERS` |
 | Update a fork | "Sync fork" button or `upstream` remote | `upstream` remote |
-| Namespaces | User / organisation | User / **group**, nestable |
+| Namespaces | User / organization | User / **group**, nestable |
 
 ## Check yourself
 

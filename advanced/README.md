@@ -6,9 +6,9 @@ the everyday basics: `add`, `commit`, `push`, `pull` and `branch`.
 
 The course has two parts:
 
-- **Part 1 · Your Git Toolbox** — the commands that go beyond the basics: reading history,
+- **Part 1 · Your Git Toolbox** - the commands that go beyond the basics: reading history,
   submodules, ignoring files, cherry-pick and rebase, stash and worktree, hooks, and large files.
-- **Part 2 · Working Together on GitHub** — how a change actually travels from an idea to the
+- **Part 2 · Working Together on GitHub** - how a change actually travels from an idea to the
   `main` branch of a shared project: issues, forks, pull requests, checks and review.
 
 The [slides](slides/slides_advanced.pdf) are built from [slides/slides.md](slides/slides.md).
@@ -45,11 +45,11 @@ init_advanced_repo
 
 > [!NOTE]
 > The functions in [helpers.sh](helpers.sh) are written by C2SM and are **not** part of Git. They
-> only exist to give you a repository with some history to practise on.
+> only exist to give you a repository with some history to practice on.
 >
 > - `init_advanced_repo` creates the sandbox and moves you into it.
 > - `reset_advanced_repo` throws it away and recreates it from scratch. Use it whenever an
->   exercise goes sideways — that is what it is for.
+>   exercise goes sideways - that is what it is for.
 > - `insert_after '<pattern>' '<text>' <file>` inserts a line after the first line matching the
 >   pattern, and works the same on Linux, macOS and Git Bash.
 
@@ -91,7 +91,7 @@ Where a command is not obvious, there is a **Hint** and a **Solution** you can u
 
 <details><summary>Solution</summary>
 
-Like this. Try the task first — you will remember much more from a command you worked out
+Like this. Try the task first - you will remember much more from a command you worked out
 yourself.
 
 </details>
@@ -103,4 +103,4 @@ point.
 ## Beyond this course
 
 [Expert_Topics.md](../Expert_Topics.md) collects the Git topics these two parts deliberately
-leave out — internals, history rewriting, recovery, large repositories, signing and more.
+leave out - internals, history rewriting, recovery, large repositories, signing and more.

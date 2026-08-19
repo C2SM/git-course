@@ -31,7 +31,7 @@ for src in "$diagrams"/*.mmd; do
     # Mermaid gives a gitGraph cherry-pick commit a randomly generated id, which ends
     # up in a CSS class name. It has no effect on how the diagram looks, but it makes
     # the SVG differ on every build, so CI would commit a "changed" file every run.
-    # Normalise it to keep the output reproducible.
+    # Normalize it to keep the output reproducible.
     # No sed -i here: BSD sed on macOS requires an argument to it.
     tmp=$(mktemp)
     sed -E 's/(class="commit [0-9]+)-[0-9a-f]{7}/\1/g' "$images/$name.svg" > "$tmp" \

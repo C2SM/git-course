@@ -39,7 +39,7 @@ cd conference_submodule
 ```
 
 **Task 1.** Add your fork of *c2sm-git-example* as a submodule in a directory called
-*c2sm-info*. Use the **SSH** address of *your fork*, not the C2SM original — you need to be able
+*c2sm-info*. Use the **SSH** address of *your fork*, not the C2SM original - you need to be able
 to push to it later.
 
 <details><summary>Hint</summary>
@@ -104,7 +104,7 @@ git submodule status
 ```
 
 The output starts with the commit ID of *c2sm-git-example* that the parent points at. That single
-ID is the entire link — the parent stores no file contents from the submodule.
+ID is the entire link - the parent stores no file contents from the submodule.
 
 </details>
 
@@ -249,7 +249,7 @@ recorded commit", the other says "merge it into the branch I am on".
 git submodule update --remote --merge
 ```
 
-Without `--remote`, `git submodule update` does the opposite — it resets the submodule back to
+Without `--remote`, `git submodule update` does the opposite - it resets the submodule back to
 the commit the parent has recorded. That is what you want after cloning, and not what you want
 here.
 

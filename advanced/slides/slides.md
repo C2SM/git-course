@@ -215,7 +215,7 @@ Hard to read in a terminal? Use `git difftool --tool-help` to see what your syst
 
 <div class="note">
 
-**Where you work:** the `git-course` repository itself — we examine its real history.
+**Where you work:** the `git-course` repository itself - we examine its real history.
 All exercises: <https://github.com/C2SM/git-course/tree/main/advanced>
 
 </div>
@@ -225,15 +225,15 @@ All exercises: <https://github.com/C2SM/git-course/tree/main/advanced>
 # Nesting Repositories
 
 - **Why?**
-  - **Modularity** — break a large project into pieces that stand alone
-  - **Independent history** — each piece keeps its own commits and releases
-  - **Collaboration** — separate teams own separate pieces
+  - **Modularity** - break a large project into pieces that stand alone
+  - **Independent history** - each piece keeps its own commits and releases
+  - **Collaboration** - separate teams own separate pieces
 
 <br>
 
 - **Two mechanisms**
-  - **Submodules** — Git's built-in approach, and the one C2SM models use
-  - **Subtrees** — an alternative that copies content into the parent instead
+  - **Submodules** - Git's built-in approach, and the one C2SM models use
+  - **Subtrees** - an alternative that copies content into the parent instead
 
 ---
 
@@ -294,7 +294,7 @@ section {font-size: 24px;}
 <div class="columns">
 <div>
 
-**In their favour**
+**In their favor**
 
 - Built into Git, nothing to install
 - The parent records an exact, reproducible commit
@@ -328,7 +328,7 @@ C2SM models and tools use submodules a lot, so the cost is worth paying here. Le
 <div class="note">
 
 **Where you work:** `advanced_git/conference_submodule`
-You will need a fork of <https://github.com/C2SM/c2sm-git-example> — the same one you use in Exercise 8.
+You will need a fork of <https://github.com/C2SM/c2sm-git-example> - the same one you use in Exercise 8.
 
 </div>
 
@@ -374,7 +374,7 @@ build/
 
 <div class="note">
 
-**Note:** `.gitkeep` is a community convention, not a Git feature. The name has no special meaning — any file would do.
+**Note:** `.gitkeep` is a community convention, not a Git feature. The name has no special meaning - any file would do.
 
 </div>
 
@@ -398,7 +398,7 @@ Stuck? `reset_advanced_repo` gives you a clean start at any time.
 ![w:750](images/cherry-pick.svg)
 
 - Takes a single commit and replays it on your current branch
-- The copy gets a **new commit ID** — same content, different identity
+- The copy gets a **new commit ID** - same content, different identity
 
 <div class="warning">
 
@@ -413,14 +413,14 @@ Because the ID differs, do not later merge the branch you picked from: you would
 <div class="columns">
 <div>
 
-**Merge** — keeps both histories, adds a merge commit
+**Merge** - keeps both histories, adds a merge commit
 
 ![w:420](images/merge.svg)
 
 </div>
 <div>
 
-**Rebase** — replays your commits on top, no merge commit
+**Rebase** - replays your commits on top, no merge commit
 
 ![w:420](images/rebase.svg)
 
@@ -455,7 +455,7 @@ Stuck? `reset_advanced_repo` gives you a clean start at any time.
 - For when you must switch branch or pull, but are not ready to commit
 - `git stash push -m "message"`, then `git stash list`, then `git stash pop`
 - `-u` also stashes untracked files
-- Stashes are **local only** — they never reach a remote
+- Stashes are **local only** - they never reach a remote
 
 ---
 
@@ -496,7 +496,7 @@ Stuck? `reset_advanced_repo` gives you a clean start at any time.
 - Live in `.git/hooks`, named after their event, must be **executable**
 - A non-zero exit status from a `pre-` hook **cancels** the operation
 - `.git/hooks` is **not** part of the repository, so hooks are not shared by cloning
-- Git ships `.sample` files for every hook — rename one to activate it
+- Git ships `.sample` files for every hook - rename one to activate it
 
 <div class="note">
 
@@ -551,7 +551,7 @@ Everything happens in its `.git/hooks` directory.
 <div class="compact-lines">
 
 - `git lfs track "*.nc"`
-  - records the pattern in `.gitattributes` — **commit that file**
+  - records the pattern in `.gitattributes` - **commit that file**
 
 </div>
 
@@ -578,7 +578,7 @@ LFS is not free: hosts put quotas on storage and bandwidth, and rewriting LFS hi
 <div class="note">
 
 **Where you work:** `advanced_git/conference_planning`
-Entirely local — no remote and no LFS quota needed.
+Entirely local - no remote and no LFS quota needed.
 
 </div>
 
@@ -597,9 +597,9 @@ Three problems appear the moment a second person joins:
 
 <div class="compact-lines">
 
-- **Access** — nobody can push to a protected `main`, so "just push it" is not an option
-- **Traceability** — a change needs a visible record of *why*, not only *what*
-- **Review** — somebody should look at a change **before** it reaches everyone else
+- **Access** - nobody can push to a protected `main`, so "just push it" is not an option
+- **Traceability** - a change needs a visible record of *why*, not only *what*
+- **Review** - somebody should look at a change **before** it reaches everyone else
 
 </div>
 
@@ -630,14 +630,14 @@ The Git commands you already know do not change. What follows is a convention la
 
 <br>
 
-We will walk through a real change to this repository, then you will practise the same
+We will walk through a real change to this repository, then you will practice the same
 workflow on <https://github.com/C2SM/c2sm-git-example>.
 
 ---
 
 # It Starts With an Issue
 
-- An issue describes **what is wrong or missing, and why** — before any code is written
+- An issue describes **what is wrong or missing, and why** - before any code is written
 - It is the place to agree on an approach before someone spends a day on it
 - Labels, assignees and milestones make a backlog searchable months later
 
@@ -666,7 +666,7 @@ A good issue is reproducible: what you did, what you expected, what happened ins
 <div class="compact-lines">
 
 - A request to merge one branch into another, plus the conversation around it
-- The **description** is the lasting record — say why, not just what
+- The **description** is the lasting record - say why, not just what
 - Open it **early** as a draft to show work in progress
 - Keep it small: a reviewer reads 200 lines carefully and 2000 lines not at all
 
@@ -713,7 +713,7 @@ Reviewers can look at the rendered page, not just the diff. This is the single b
 **As the reviewer**
 
 - Comment, approve, or request changes
-- Use **suggestions** — the author can apply them with one click
+- Use **suggestions** - the author can apply them with one click
 - Ask questions instead of issuing orders
 - Approve when it is good enough, not perfect
 
@@ -730,9 +730,9 @@ Review is about the change, never the person. "This function could be clearer" b
 
 # Merging, and Staying in Sync
 
-- **Merge commit** — keeps every commit and records the merge
-- **Squash** — collapses the branch into one tidy commit (a common default)
-- **Rebase** — replays commits with no merge commit
+- **Merge commit** - keeps every commit and records the merge
+- **Squash** - collapses the branch into one tidy commit (a common default)
+- **Rebase** - replays commits with no merge commit
 - Delete the branch afterwards; the pull request keeps the history
 
 ![w:620](images/fork-sync.svg)
@@ -746,7 +746,7 @@ section {font-size: 22px;}
 
 # GitHub and GitLab Side by Side
 
-C2SM works on both `github.com` and `gitlab.ethz.ch`. The **local Git commands are identical** — only the website and the CI file differ.
+C2SM works on both `github.com` and `gitlab.ethz.ch`. The **local Git commands are identical** - only the website and the CI file differ.
 
 | Concept | GitHub | GitLab |
 | --- | --- | --- |
@@ -758,7 +758,7 @@ C2SM works on both `github.com` and `gitlab.ethz.ch`. The **local Git commands a
 | Preview of a change | PR preview via an Action | Review Apps |
 | Ownership rules | `CODEOWNERS` | `CODEOWNERS` |
 | Update a fork | "Sync fork" button or `upstream` remote | `upstream` remote |
-| Namespaces | User / organisation | User / **group**, nestable |
+| Namespaces | User / organization | User / **group**, nestable |
 
 ---
 
@@ -791,7 +791,7 @@ You will review each other's pull requests, so **work in pairs**.
 <div class="compact-lines">
 
 **In your editor**
-- [VS Code](https://code.visualstudio.com/) — built-in Git, GitLens
+- [VS Code](https://code.visualstudio.com/) - built-in Git, GitLens
 - [magit](https://magit.vc/) (Emacs)
 - [vim-fugitive](https://github.com/tpope/vim-fugitive) (Vim)
 - [JetBrains IDEs](https://www.jetbrains.com/)
@@ -812,9 +812,9 @@ You will review each other's pull requests, so **work in pairs**.
 <div class="compact-lines">
 
 **In the terminal**
-- [gh](https://cli.github.com/) — pull requests and issues from the shell
-- [lazygit](https://github.com/jesseduffield/lazygit) — terminal interface
-- [tig](https://jonas.github.io/tig/) — history browser
+- [gh](https://cli.github.com/) - pull requests and issues from the shell
+- [lazygit](https://github.com/jesseduffield/lazygit) - terminal interface
+- [tig](https://jonas.github.io/tig/) - history browser
 
 </div>
 <br>
@@ -822,7 +822,7 @@ You will review each other's pull requests, so **work in pairs**.
 
 **Graphical**
 - [GitHub Desktop](https://desktop.github.com/)
-- [Git GUIs](https://git-scm.com/downloads/guis) — a long list
+- [Git GUIs](https://git-scm.com/downloads/guis) - a long list
 
 </div>
 
@@ -846,7 +846,7 @@ You will review each other's pull requests, so **work in pairs**.
 
 <div class="warning">
 
-Language models are often useful for Git because the documentation is so good. They also invent flags that do not exist. Check `git help <command>` before running anything you do not recognise — especially anything with `--force`.
+Language models are often useful for Git because the documentation is so good. They also invent flags that do not exist. Check `git help <command>` before running anything you do not recognize - especially anything with `--force`.
 
 </div>
 

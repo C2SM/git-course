@@ -49,7 +49,7 @@ git config --global --get-regexp filter.lfs
 ## Track a file pattern <a name="track"></a>
 
 **Task 2.** Tell LFS to handle every file ending in `.nc` (the NetCDF extension used across
-climate modelling).
+climate modeling).
 
 <details><summary>Hint</summary>
 
@@ -143,7 +143,7 @@ git commit -m "Add model output"
 </details>
 
 **Task 7.** Here is the interesting part. Look at what Git actually stored for that file in the
-commit — not what is in your working directory.
+commit - not what is in your working directory.
 
 <details><summary>Hint</summary>
 
@@ -246,11 +246,11 @@ LFS is not free, and reaching for it reflexively is a mistake.
 2. **LFS is unnecessary.** 5 MB committed once is fine. LFS adds a dependency for no real gain.
 3. **Not LFS.** Shared input data belongs on a data server or a shared filesystem, referenced by
    path or URL. Four copies in four repositories helps nobody.
-4. **Neither.** Build products should not be committed at all — that is what Exercise 3 was
+4. **Neither.** Build products should not be committed at all - that is what Exercise 3 was
    about. Add it to *.gitignore*.
 
 The honest summary: LFS is for binary files that genuinely belong *with* the source and change
-occasionally — reference images, test fixtures, small sample datasets. For real scientific data,
+occasionally - reference images, test fixtures, small sample datasets. For real scientific data,
 a data repository is almost always the better answer.
 
 </details>
