@@ -48,5 +48,15 @@ jobs:
             # [skip ci] stops GitHub from queuing new workflow runs for this commit,
             # so fork PRs don't need a fresh manual approval after every auto-push.
             git commit -m "Update beginner slides PDF [skip ci]"
-            git push origin HEAD:${{ github.head_ref }}
+
+            # The sibling advanced-slides workflow can push to this same branch at
+            # the same time (both trigger on shared slides_theme/** changes), so
+            # retry with a rebase if another push landed first.
+            for attempt in 1 2 3 4 5; do
+              git push origin HEAD:${{ github.head_ref }} && break
+              [[ $attempt -eq 5 ]] && { echo "::error::Push failed after $attempt attempts"; exit 1; }
+              echo "Push rejected, rebasing onto latest and retrying..."
+              git fetch origin ${{ github.head_ref }}
+              git rebase FETCH_HEAD
+            done
           fi
