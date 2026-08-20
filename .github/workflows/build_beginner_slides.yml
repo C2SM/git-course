@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: build-slides-${{ github.ref }}
+  group: build-beginner-slides-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
