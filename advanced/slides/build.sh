@@ -13,12 +13,36 @@ cd "$repo_root"
 
 diagrams="advanced/slides/diagrams"
 images="advanced/slides/images"
+hashes="$images/.diagram-hashes"
 
 mkdir -p "$images"
+touch "$hashes"
+
+# sha256sum is a GNU coreutils tool and isn't on macOS by default; shasum ships there instead.
+sha256() {
+    if command -v sha256sum &> /dev/null; then
+        sha256sum
+    else
+        shasum -a 256
+    fi
+}
 
 echo "Rendering Mermaid diagrams..."
+new_hashes=$(mktemp)
 for src in "$diagrams"/*.mmd; do
     name=$(basename "$src" .mmd)
+
+    # Hash the diagram together with the config, since a config change affects every
+    # diagram's output. Skip re-rendering (and re-launching a headless browser) when
+    # neither has changed since the last build and the SVG is already up to date.
+    hash=$(cat "$src" "$diagrams/mermaid-config.json" "$diagrams/puppeteer-config.json" | sha256 | awk '{print $1}')
+    echo "$name $hash" >> "$new_hashes"
+
+    if [[ -f "$images/$name.svg" ]] && grep -qx "$name $hash" "$hashes"; then
+        echo "  $name (unchanged, skipped)"
+        continue
+    fi
+
     echo "  $name"
     npx -y @mermaid-js/mermaid-cli@11 \
         --input "$src" \
@@ -37,6 +61,7 @@ for src in "$diagrams"/*.mmd; do
     sed -E 's/(class="commit [0-9]+)-[0-9a-f]{7}/\1/g' "$images/$name.svg" > "$tmp" \
         && mv "$tmp" "$images/$name.svg"
 done
+mv "$new_hashes" "$hashes"
 
 # Unlike mermaid-cli, marp-cli does not ship a browser: it needs Chrome, Edge or
 # Firefox on the system. CI runners have one, many local machines (e.g. WSL) do not,
