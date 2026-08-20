@@ -80,6 +80,7 @@ fi
 echo "Rendering slides to PDF..."
 pdf="advanced/slides/slides_advanced.pdf"
 npx -y @marp-team/marp-cli@latest advanced/slides/slides.md \
+    --config-file slides_theme/marprc.yml \
     --theme-set slides_theme/c2sm-light.css slides_theme/c2sm-dark.css \
     --pdf \
     --allow-local-files \

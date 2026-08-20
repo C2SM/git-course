@@ -27,6 +27,7 @@ fi
 echo "Rendering slides to PDF..."
 pdf="beginner/slides/slides_beginner.pdf"
 npx -y @marp-team/marp-cli@latest beginner/slides/slides.md \
+    --config-file slides_theme/marprc.yml \
     --theme-set slides_theme/c2sm-light.css slides_theme/c2sm-dark.css \
     --pdf \
     --allow-local-files \
