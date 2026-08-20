@@ -1,5 +1,8 @@
 # Exercise 2 - Nesting repositories with `git submodule`
 
+> [!NOTE]
+> **⏱️ Estimated working time:** 20-25 minutes
+
 A submodule lets one repository contain another one while both keep their own history. The
 parent does not copy the files: it records **one exact commit** of the other repository. Many
 C2SM models and tools are assembled this way.
@@ -42,14 +45,14 @@ cd conference_submodule
 *c2sm-info*. Use the **SSH** address of *your fork*, not the C2SM original - you need to be able
 to push to it later.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 The command is `git submodule add <url> <path>`. Get the URL from the green **Code** button on
 your fork.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git submodule add git@github.com:<your-github-username>/c2sm-git-example.git c2sm-info
@@ -59,13 +62,13 @@ git submodule add git@github.com:<your-github-username>/c2sm-git-example.git c2s
 
 **Task 2.** Look at what that did to the parent repository, then commit it.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `git status` shows two new entries, already staged.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git status
@@ -78,7 +81,7 @@ Two things were added: the directory *c2sm-info*, and a new file *.gitmodules*.
 
 **Task 3.** Read *.gitmodules* and explain what it stores.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 cat .gitmodules
@@ -91,13 +94,13 @@ file, which is how everyone who clones the parent learns where to fetch the subm
 
 **Task 4.** Find out **which commit** of the submodule the parent is currently recording.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 There is a `git submodule` subcommand for exactly this.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git submodule status
@@ -113,14 +116,14 @@ ID is the entire link - the parent stores no file contents from the submodule.
 **Task 5.** Make a change in the **parent**: add a lunch break to day 1 of the schedule. Open
 *schedule_day1.txt* in an editor and add a line, then check `git status`.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 If you would rather not open an editor, the course helper does it portably:
 `insert_after '^11:00' '12:00-13:00: Lunch break' schedule_day1.txt`
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git status
@@ -133,7 +136,7 @@ The modified *schedule_day1.txt* is listed as not staged for commit, exactly as 
 **Task 6.** Now go **into** the submodule and check its status. Before you run it, predict what
 you will see.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 cd c2sm-info
@@ -148,7 +151,7 @@ branches and its own history. The parent's modified file is invisible from here.
 **Task 7.** Still inside the submodule, add a line to *glossary.md*. Then check the status
 **both** inside the submodule and in the parent, and compare the two.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git status
@@ -172,13 +175,13 @@ contents.
 **Task 8.** Get onto the `main` branch inside the submodule, keeping the edit you made, then
 commit it.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `git switch main` moves you onto the branch. Your uncommitted change comes along.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 cd c2sm-info
@@ -190,7 +193,7 @@ git commit -am "Add a glossary entry"
 
 **Task 9.** Send that commit to your fork on GitHub, then check in the browser that it arrived.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git push origin main
@@ -202,13 +205,13 @@ The submodule is an ordinary repository, so this is an ordinary push.
 
 **Task 10.** The parent still points at the **old** commit. Update it and commit the new pointer.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 From the parent, stage the submodule directory itself as if it were a file.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 cd ..
@@ -236,14 +239,14 @@ editor, and commit directly to `main`. This plays the part of a colleague's chan
 **Task 12.** Back in your terminal, from the **parent** repository, bring that new commit into
 the submodule.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `git submodule update` has two options here: one says "look at the remote instead of the
 recorded commit", the other says "merge it into the branch I am on".
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git submodule update --remote --merge
@@ -257,7 +260,7 @@ here.
 
 **Task 13.** Record the new pointer in the parent.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git add c2sm-info
@@ -273,7 +276,7 @@ This is the part that catches people out, so it is worth seeing once.
 **Task 14.** Clone your *conference_submodule* repository into a new directory and look inside
 the submodule folder.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 cd ..
@@ -288,7 +291,7 @@ The directory is **empty**. A plain `git clone` does not fetch submodule content
 **Task 15.** Fix the clone you just made, then find the option that would have avoided the
 problem in the first place.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 To fix an existing clone:
 

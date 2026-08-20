@@ -1,5 +1,8 @@
 # Exercise 3 - Ignoring files
 
+> [!NOTE]
+> **⏱️ Estimated working time:** 10-15 minutes
+
 Not everything in a working directory belongs in a repository. Build products, compiled
 binaries, editor backup files, local configuration and anything containing a password should all
 stay out. `.gitignore` is how you tell Git which ones.
@@ -29,7 +32,7 @@ In this exercise we cover the following:
 A good README says what the project is, how to use it, and who is involved.
 [Markdown basics](https://www.markdownguide.org/basic-syntax/) if you need them.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 touch README.md
@@ -53,14 +56,14 @@ repository.
 **Task 2.** Produce such a file. Bundle the two schedule files into a compressed archive called
 *schedules.tar.gz*.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `tar` is available on Linux, macOS and Git Bash alike. The flags you want are "create",
 "gzip" and "file".
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 tar czf schedules.tar.gz schedule_day1.txt schedule_day2.txt
@@ -70,7 +73,7 @@ tar czf schedules.tar.gz schedule_day1.txt schedule_day2.txt
 
 **Task 3.** Check the repository status and confirm the archive shows up as untracked.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git status
@@ -84,14 +87,14 @@ git status
 
 **Task 4.** Make Git ignore the archive, and every other `.tar.gz` file, then confirm it worked.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 Create a file whose name begins with a dot, and put a pattern in it. `*` matches any sequence of
 characters.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 touch .gitignore
@@ -116,7 +119,7 @@ The archive is gone from the output, and *.gitignore* itself now appears as untr
 **Task 5.** *.gitignore* is itself a normal file. Commit it so that everyone working on the
 project ignores the same things.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git add .gitignore
@@ -153,14 +156,14 @@ several directories, "why on earth is this file not showing up" becomes a real q
 
 **Task 6.** Ask Git which pattern is responsible for ignoring *schedules.tar.gz*.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 The command name says exactly what it does, and the `-v` flag makes it verbose enough to be
 useful.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git check-ignore -v schedules.tar.gz
@@ -178,7 +181,7 @@ This is the behavior that confuses nearly everyone at least once.
 **Task 7.** Create a file *notes.txt*, commit it, and *then* add `notes.txt` to *.gitignore*.
 Now modify *notes.txt* and run `git status`. What happens, and why?
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 echo "Some private notes" > notes.txt
@@ -196,13 +199,13 @@ tracking a file, it keeps tracking it, and the ignore rule is simply not consult
 
 **Task 8.** Make Git actually stop tracking *notes.txt*, while keeping the file on your disk.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `git rm` normally deletes the file too. One option makes it remove the file only from the index.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git rm --cached notes.txt
@@ -235,13 +238,13 @@ Git tracks files, never directories. An empty directory simply cannot be committ
 
 **Task 9.** Create a directory *output/*, and get Git to record its existence.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 If Git only tracks files, put a file in it. By convention it is empty and named `.gitkeep`.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 mkdir output
@@ -277,13 +280,13 @@ in the project's *.gitignore*.
 
 **Task 10.** Set up a personal ignore file that applies to every repository on your machine.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 It is a `git config` setting pointing at a file of your choice.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git config --global core.excludesFile ~/.gitignore_global

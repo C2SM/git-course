@@ -1,5 +1,8 @@
 # Exercise 1 - Examining a repository's history
 
+> [!NOTE]
+> **⏱️ Estimated working time:** 25-30 minutes
+
 Every repository carries a record of how it got to be the way it is. This exercise is about
 reading that record: which commits exist (`git log`), who last touched a given line
 (`git blame`), what changed between two points (`git diff`), and what a single commit did
@@ -44,13 +47,13 @@ is presented.
 
 **Task 1.** Get a compact overview with **one line per commit**.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 The option is named after what it produces.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git log --oneline
@@ -60,13 +63,13 @@ git log --oneline
 
 **Task 2.** Show, for each commit, **which files it touched** and how many lines changed.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 You are asking for statistics about each commit.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git log --stat
@@ -77,14 +80,14 @@ git log --stat
 **Task 3.** Draw the **branch structure** of the repository, including all branches, with the
 branch and tag names shown. Combine it with the compact output from Task 1.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 Three options together: one draws the graph, one adds the names, one includes every branch
 rather than only the current one.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git log --oneline --graph --decorate --all
@@ -98,13 +101,13 @@ the difference between merging and rebasing.
 **Task 4.** Find out **who has contributed** to this repository, and how many commits each
 person made.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 This one is not an option to `git log` but a command of its own, a shortened log.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git shortlog -sn HEAD
@@ -123,7 +126,7 @@ Shaping decides *how* commits are shown, filtering decides *which* ones.
 
 **Task 5.** Show only the **three most recent** commits.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git log -3
@@ -133,13 +136,13 @@ git log -3
 
 **Task 6.** Show only commits written by a particular author. Pick a name you saw in Task 4.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 The option takes a pattern, not an exact name, so a surname is enough.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git log --oneline --author="Lauber"
@@ -149,14 +152,14 @@ git log --oneline --author="Lauber"
 
 **Task 7.** Show only the commits that changed the file *advanced/helpers.sh*.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 Give `git log` a path. The `--` separator makes it unambiguous that you mean a file and not a
 branch.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git log --oneline -- advanced/helpers.sh
@@ -167,14 +170,14 @@ git log --oneline -- advanced/helpers.sh
 **Task 8.** This is the powerful one. Find every commit that **added or removed** the text
 `Have fun!` anywhere in the repository.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 This is called the *pickaxe*. The option is a single capital letter, and it takes the string to
 search for.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git log --oneline -S 'Have fun!'
@@ -213,7 +216,7 @@ shows the commit that last touched it, the author and the date.
 
 **Task 9.** Find out who last changed each line of *README.md*.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git blame README.md
@@ -224,14 +227,14 @@ git blame README.md
 **Task 10.** Pick an interesting line from the output, take its commit ID, and read the full
 message of that commit to find out *why* the line was written.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 You already know a command that shows a commit's message. It is covered in the last section of
 this exercise.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git show <commit-id>
@@ -259,7 +262,7 @@ Now open *README.md* in an editor and change a line.
 
 **Task 11.** Show the change you just made, which is **not yet staged**.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git diff
@@ -270,14 +273,14 @@ git diff
 **Task 12.** Stage the change with `git add README.md`, then run `git diff` again. The output is
 empty. Show the staged change instead - that is, what `git commit` would record right now.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 The option names the area you are comparing against. `--cached` is an older synonym for the same
 thing.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git diff --staged
@@ -293,7 +296,7 @@ git commit -m "Describe your change here"
 
 **Task 13.** Show what differs between the `main` branch and your `difftest` branch.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git diff main difftest
@@ -303,7 +306,7 @@ git diff main difftest
 
 **Task 14.** Show the same comparison, but restricted to *README.md* only.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git diff main difftest -- README.md
@@ -314,13 +317,13 @@ git diff main difftest -- README.md
 **Task 15.** Compare two commits from the repository's own history: the state ten commits ago
 against the state five commits ago.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `HEAD~10` means "ten commits before HEAD". You do not need to look up any commit IDs.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git diff HEAD~10 HEAD~5
@@ -383,7 +386,7 @@ With no argument it shows `HEAD`, the commit you are currently on.
 **Task 16.** Show the commit that came *three before* the current one, and read both what it
 changed and why.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git show HEAD~3
@@ -394,13 +397,13 @@ git show HEAD~3
 **Task 17.** `git show` also works on things that are not commits. Show the contents of
 *README.md* **as it was** five commits ago, without changing anything in your working directory.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 The syntax is `<commit>:<path>`.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git show HEAD~5:README.md

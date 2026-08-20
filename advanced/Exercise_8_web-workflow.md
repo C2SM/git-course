@@ -1,5 +1,8 @@
 # Exercise 8 - A full workflow in the web interface
 
+> [!NOTE]
+> **⏱️ Estimated working time:** 30-40 minutes
+
 This is the exercise that pulls Part 2 together: an issue, a fork, a branch, a pull request,
 automated checks, a review by one of your fellow participants, a merge, and finally keeping your
 fork up to date.
@@ -57,7 +60,7 @@ You have no write access to the C2SM repository, so you work on your own copy.
 > If you already forked *c2sm-git-example* for Exercise 2, use that same fork - do not make a
 > second one.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 Press **Fork** on the repository page, then:
 
@@ -71,7 +74,7 @@ cd c2sm-git-example
 **Task 3.** Check which remotes your clone has. Which repository does `origin` point at, the
 C2SM one or yours?
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git remote -v
@@ -87,14 +90,14 @@ original is not configured yet. You add it in step 7.
 **Task 4.** Create a branch with a descriptive name, add a file `participants/<your-github-username>.md`
 with a couple of lines about yourself, and commit it.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `git switch -c <branch-name>`. Look at an existing file in *participants/* to see the expected
 format.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git switch -c add-<your-github-username>
@@ -111,13 +114,13 @@ git commit -m "Add <your name> to participants"
 
 **Task 5.** Push the branch to your fork and set its upstream so later pushes need no arguments.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 The `-u` flag is needed only the first time a branch is pushed.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git push -u origin add-<your-github-username>
@@ -130,14 +133,14 @@ git push -u origin add-<your-github-username>
 **Task 6.** Open a pull request from your branch to `main` of **C2SM/c2sm-git-example**. In the
 description, make GitHub close your issue automatically when the pull request merges.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 GitHub offers a banner with a **Compare & pull request** button after a push. The magic words in
 the description are a closing keyword followed by the issue number.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 Write `Fixes #12` in the description, using your own issue number. The keywords `Fixes`, `Closes`
 and `Resolves` all work. Check the issue afterwards: it now shows the pull request as linked.
@@ -147,7 +150,7 @@ and `Resolves` all work. Check the issue afterwards: it now shows the pull reque
 **Task 7.** Watch the **checks** run at the bottom of the pull request. What are they checking,
 and what happens to the merge button while they are running?
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 The workflow in *.github/workflows/checks.yml* verifies that Markdown links resolve and that no
 file has trailing whitespace. While they run the merge button is disabled; if a check fails the
@@ -165,14 +168,14 @@ This is the real value: the check runs before a human spends time on the review.
 one comment on a specific line, and make at least one of your comments a **suggestion** that they
 can apply with a single click.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 Use the `+` button on a line to comment. For a suggestion, use the ± button in the comment
 toolbar, which inserts a fenced block labeled `suggestion`.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 A suggestion looks like this in the comment box:
 
@@ -190,7 +193,7 @@ their terminal.
 **Task 10.** Finish the review by choosing one of **Comment**, **Approve** or **Request changes**.
 What is the difference?
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 - **Comment** - feedback with no verdict.
 - **Approve** - you are happy for this to be merged.
@@ -208,7 +211,7 @@ What is the difference?
 **Task 11.** Go back to your own pull request. Apply your partner's suggestion, and reply to their
 comments. If they requested changes, push a fix and re-request review.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 If you commit a suggestion in the web interface, your local branch is now behind. Bring it up to
 date with `git pull`.
@@ -218,7 +221,7 @@ date with `git pull`.
 **Task 12.** Once approved, merge it. Look at the three merge options offered and say what each
 does.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 - **Create a merge commit** - keeps every commit on the branch plus a merge commit.
 - **Squash and merge** - collapses the whole branch into one commit on `main`. Common default,
@@ -231,7 +234,7 @@ After merging, delete the branch - the pull request preserves the history.
 
 **Task 13.** Check your issue. What happened to it, and why?
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 It closed itself, because of the `Fixes #N` keyword in the pull request description.
 
@@ -244,7 +247,7 @@ Other participants have been merging their changes. Your fork knows nothing abou
 **Task 14.** Add the original C2SM repository as a second remote, conventionally called
 `upstream`.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git remote add upstream git@github.com:C2SM/c2sm-git-example.git
@@ -259,7 +262,7 @@ cannot).
 **Task 15.** Fetch what has happened upstream and see how far behind you are, without changing
 anything yet.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git fetch upstream
@@ -272,7 +275,7 @@ Every commit listed is one you do not have.
 
 **Task 16.** Bring your local `main` up to date, then update your fork on GitHub too.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git switch main
@@ -301,7 +304,7 @@ different.
 **Task 17.** On a new branch, add a term and its definition to *glossary.md*, in alphabetical
 order. Push it and open a pull request.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git switch -c glossary-<your-github-username>
@@ -319,13 +322,13 @@ git push -u origin glossary-<your-github-username>
 **Task 18.** Wait until somebody else's glossary pull request is merged first. Your pull request
 will now report a conflict. Resolve it locally.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 Get the new upstream `main`, merge it into your branch, fix the file, and push.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git fetch upstream

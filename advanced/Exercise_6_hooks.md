@@ -1,5 +1,8 @@
 # Exercise 6 - Custom Git hooks
 
+> [!NOTE]
+> **⏱️ Estimated working time:** 15-20 minutes
+
 A hook is a script Git runs automatically when something happens. Hooks let you enforce a rule
 once instead of remembering it every time: reject trailing whitespace, run a formatter, check a
 commit message, block a commit containing a password.
@@ -27,7 +30,7 @@ In this exercise we cover the following:
 
 **Task 1.** List the contents of the hooks directory of your repository.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 ls .git/hooks
@@ -41,7 +44,7 @@ runs a file named exactly after the event.
 
 **Task 2.** Read one of them to see what a real hook looks like.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 cat .git/hooks/pre-commit.sample
@@ -61,7 +64,7 @@ They cause noisy diffs, and nobody ever adds them on purpose.
 
 **Task 3.** Create the hook file and make it executable.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 touch .git/hooks/pre-commit
@@ -107,13 +110,13 @@ that returns non-zero when it finds a problem; `exit 1` then tells Git to abort.
 **Task 5.** Add a line with trailing whitespace to *schedule_day1.txt*, stage it, and try to
 commit. Predict what will happen first.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `printf` lets you put trailing spaces in reliably, where an editor might strip them.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 printf '19:00-21:00: Conference dinner   \n' >> schedule_day1.txt
@@ -127,7 +130,7 @@ The commit is refused and your message is printed. Nothing was committed.
 
 **Task 6.** Fix the line, stage it again, and commit successfully.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 Remove the trailing spaces in your editor, or redo the line:
 
@@ -143,13 +146,13 @@ git commit -m "Add conference dinner"
 
 **Task 7.** Sometimes you genuinely need to commit anyway. Find the option that skips hooks.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 The flag means "no verify".
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git commit --no-verify -m "message"
@@ -167,7 +170,7 @@ others.
 
 **Task 8.** Rename your existing hook so it becomes one check among several.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 mv .git/hooks/pre-commit .git/hooks/pre-commit-whitespace
@@ -178,14 +181,14 @@ mv .git/hooks/pre-commit .git/hooks/pre-commit-whitespace
 **Task 9.** Write a new *pre-commit* that acts as a dispatcher: it runs each check in turn and
 fails if any of them fails. Make it executable.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `set -e` makes a shell script stop at the first command that fails, which is exactly the
 behavior you want.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 touch .git/hooks/pre-commit
@@ -212,14 +215,14 @@ set -e
 whose message would be empty, or write something else useful. Wire it into the dispatcher and
 verify both checks run.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 Keep it simple - for example, reject staged files larger than 1 MB, or reject the word `TODO` in
 staged content. Do not forget `chmod +x`.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 An example that blocks accidentally committing a large file:
 
@@ -257,7 +260,7 @@ Here is the catch that makes all of the above much less useful than it looks.
 **Task 11.** Run `git status` in the repository. Do your hooks show up? Would a colleague who
 clones this repository get them?
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 No, and no. **`.git/hooks` is not part of the repository.** It is never committed, never pushed
 and never cloned. Every person has to install hooks themselves.
@@ -286,13 +289,13 @@ hook for you.
 
 **Task 12.** Install the tool and set it up in this repository.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 It is a Python application. Install it as a *tool*, not into a project environment.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 uv tool install pre-commit
@@ -317,7 +320,7 @@ pre-commit --version
 
 **Task 13.** Create a *.pre-commit-config.yaml* using ready-made checks, install it, and run it.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```yaml
 repos:

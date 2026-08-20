@@ -1,5 +1,8 @@
 # Exercise 4 - Moving commits with `git cherry-pick` and `git rebase`
 
+> [!NOTE]
+> **⏱️ Estimated working time:** 25-30 minutes
+
 Both commands take commits that exist in one place and replay them somewhere else.
 `git cherry-pick` moves **one** commit; `git rebase` moves **a whole branch**. Both create new
 commits with new IDs, which is what makes them powerful and what makes them dangerous.
@@ -32,7 +35,7 @@ In this exercise we cover the following:
 
 **Task 1.** Create a branch called `cherry_feature` and switch to it.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git switch -c cherry_feature
@@ -48,14 +51,14 @@ git switch -c cherry_feature
 
 Edit the files in your editor, or use the course helper `insert_after` if you prefer.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `insert_after '<pattern>' '<new line>' <file>` inserts a line after the first line matching the
 pattern. It comes from *helpers.sh* and is not part of Git.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 insert_after 'program' '08:00-09:00: Keynote speech' schedule_day1.txt
@@ -76,7 +79,7 @@ git commit -am "Extend the coffee break on day 1"
 **Task 3.** Look at the history and note the commit ID of the **last** commit, the coffee break
 one. You will need it in a moment.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git log --oneline --graph --decorate --all
@@ -91,13 +94,13 @@ was right. You want that one change on `main`, and you want to abandon the rest.
 
 **Task 4.** Switch to `main` and bring over **only** the coffee break commit.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `git cherry-pick <commit-id>`.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git switch main
@@ -109,7 +112,7 @@ git cherry-pick <commit-id-of-the-coffee-break-commit>
 **Task 5.** Compare the commit on `main` with the original on `cherry_feature`. What is the same
 and what is different?
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git log --oneline --graph --decorate --all
@@ -122,7 +125,7 @@ with the same content, not the same commit in two places.
 
 **Task 6.** Check the schedule files. Did the keynote and the excursion come along?
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 cat schedule_day1.txt
@@ -157,7 +160,7 @@ Now the same situation twice, once with merge and once with rebase, so you can c
 **Task 7.** Make sure your working directory is clean, then create a branch `merge_feature` and
 add a presentation session after the coffee break on day 2. Commit it.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git restore .
@@ -171,7 +174,7 @@ git commit -am "Add presentation session to day 2"
 **Task 8.** Meanwhile `main` moves on. Switch to `main` and add a dinner to day 2, then commit.
 This is the crucial setup: both branches now have commits the other does not.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git switch main
@@ -183,7 +186,7 @@ git commit -am "Add dinner to day 2"
 
 **Task 9.** Bring the feature branch into `main` with a merge, then look at the history.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git merge merge_feature
@@ -206,7 +209,7 @@ git branch -d merge_feature
 **Task 10.** Set up exactly the same situation again: a branch `rebase_feature` with a lunch
 break added to day 2, and a new commit on `main` adding an apero.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git switch -c rebase_feature
@@ -223,13 +226,13 @@ git commit -am "Add apero to day 2"
 **Task 11.** This time, instead of merging, **replay** the feature branch's commits on top of the
 current `main`.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `git rebase <branch-to-replay-onto> <branch-to-move>`.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git rebase main rebase_feature
@@ -243,7 +246,7 @@ apero commit. Note the commit ID: it has **changed**. The old commit is gone fro
 
 **Task 12.** Bring the rebased branch into `main` and look at the history again.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git switch main

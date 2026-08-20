@@ -1,5 +1,8 @@
 # Exercise 5 - Parallel work with `git stash` and `git worktree`
 
+> [!NOTE]
+> **⏱️ Estimated working time:** 15-20 minutes
+
 Both commands solve the same everyday problem: you are in the middle of something and need to be
 somewhere else. `git stash` puts your unfinished work aside for a moment. `git worktree` gives
 you a second directory so you never have to put it aside at all.
@@ -20,7 +23,7 @@ In this exercise we cover the following:
 **Task 1.** Add a conference breakfast from 08:30-09:00 to day 1, but **do not commit it**. Then
 confirm with `git status` that you have an unstaged change.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 insert_after 'Schedule for Day 1' '08:30-09:00: Breakfast' schedule_day1.txt
@@ -35,14 +38,14 @@ commit this, but you do not want to throw it away either.
 **Task 2.** Put the change aside, with a message describing it, and check that your working
 directory is clean afterwards.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `git stash push -m "<message>"`. You may see `git stash save` in older tutorials - it does the
 same thing but has been deprecated since Git 2.16, so use `push`.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git stash push -m "Add breakfast to day 1"
@@ -56,13 +59,13 @@ The working directory is clean and the change is nowhere in sight.
 **Task 3.** Confirm the change still exists somewhere, and look at what it contains without
 restoring it.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 There is a subcommand to list stashes and another to show one as a diff.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git stash list
@@ -75,13 +78,13 @@ Stashes are a stack: `stash@{0}` is the most recent.
 
 **Task 4.** Bring the change back and remove it from the stash in one step.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 Two options exist. One keeps the stash, the other discards it after applying.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git stash pop
@@ -98,7 +101,7 @@ when you want the same change on several branches.
 **Task 5.** Create a new file *venue_notes.txt* with some content. Stash your work again, then
 check whether the new file was stashed.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 echo "Room A has no projector" > venue_notes.txt
@@ -113,13 +116,13 @@ tracks.
 
 **Task 6.** Get the untracked file stashed as well.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 A short flag, the same letter used by `git clean` for the same concept.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git stash push -u -m "Work in progress including notes"
@@ -165,13 +168,13 @@ A **worktree** is a second working directory backed by the *same* repository. Bo
 **Task 7.** From inside *conference_planning*, create a worktree in a sibling directory called
 *conference_planning-feature*, checked out on a new branch called `feature`.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `git worktree add <path> <branch>`. If the branch does not exist yet, add `-b` to create it.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git worktree add -b feature ../conference_planning-feature
@@ -181,7 +184,7 @@ git worktree add -b feature ../conference_planning-feature
 
 **Task 8.** List the worktrees this repository has, and note which branch each one holds.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git worktree list
@@ -194,7 +197,7 @@ Two entries: the original directory on `main`, and the new one on `feature`.
 **Task 9.** Go into the new directory and confirm two things: that you are on the `feature`
 branch, and that there is no `.git` **directory** there.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 cd ../conference_planning-feature
@@ -210,7 +213,7 @@ real repository. That is why a worktree costs almost nothing.
 **Task 10.** Make a commit here on `feature`, then go back to the original directory and check
 whether the commit is visible from there.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 echo "Feature notes" > feature.txt
@@ -227,7 +230,7 @@ The commit is there. The two directories share one history - only the checked-ou
 
 **Task 11.** Try to check out the `feature` branch in the original directory. What happens?
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git switch feature
@@ -243,14 +246,14 @@ over it.
 
 **Task 12.** Remove the worktree properly, then confirm it is gone from the list.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 There is a `git worktree` subcommand for removal. Deleting the directory with `rm -rf` leaves a
 stale registration behind.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git worktree remove ../conference_planning-feature
@@ -262,7 +265,7 @@ git worktree list
 **Task 13.** If someone *had* deleted the directory by hand, the registration would still be
 there. Which command cleans up such leftovers?
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git worktree prune

@@ -1,5 +1,8 @@
 # Exercise 7 - Large files with `git lfs`
 
+> [!NOTE]
+> **⏱️ Estimated working time:** 10-15 minutes
+
 Git keeps a complete copy of every version of every file forever. For text that is cheap, because
 Git stores the differences efficiently. For a 500 MB NetCDF file it is a disaster: change it ten
 times and your repository is 5 GB, and every colleague downloads all of it on `git clone`.
@@ -31,7 +34,7 @@ In this exercise we cover the following:
 
 **Task 1.** Register the LFS filters with Git. This is a one-off per machine, not per repository.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git lfs install
@@ -51,14 +54,14 @@ git config --global --get-regexp filter.lfs
 **Task 2.** Tell LFS to handle every file ending in `.nc` (the NetCDF extension used across
 climate modeling).
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `git lfs track "<pattern>"`. Keep the quotes, or your shell will expand the `*` before Git sees
 it.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git lfs track "*.nc"
@@ -68,13 +71,13 @@ git lfs track "*.nc"
 
 **Task 3.** That command changed a file. Find out which one, read it, and explain what it says.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `git status` will show you.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git status
@@ -93,7 +96,7 @@ This tells Git to pass any `.nc` file through the LFS filter on the way in and o
 
 **Task 4.** Commit *.gitattributes*. Why does this file have to be committed?
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git add .gitattributes
@@ -116,13 +119,13 @@ what you were trying to avoid.
 **Task 5.** Create a file that pretends to be model output. Make it big enough to be obviously
 not text.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 `head -c` on `/dev/urandom` produces arbitrary bytes. 2 MB is plenty for a demonstration.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 head -c 2000000 /dev/urandom > model_output.nc
@@ -133,7 +136,7 @@ ls -lh model_output.nc
 
 **Task 6.** Add and commit it.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git add model_output.nc
@@ -145,13 +148,13 @@ git commit -m "Add model output"
 **Task 7.** Here is the interesting part. Look at what Git actually stored for that file in the
 commit - not what is in your working directory.
 
-<details><summary>Hint</summary>
+<details><summary>💡 Hint</summary>
 
 You met the `<commit>:<path>` syntax in Exercise 1.
 
 </details>
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git cat-file -p HEAD:model_output.nc
@@ -173,7 +176,7 @@ size 2000000
 
 **Task 8.** Confirm that your working directory still has the real file, not the pointer.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 ls -lh model_output.nc
@@ -189,7 +192,7 @@ hand.
 
 **Task 9.** List the files LFS is handling in this repository.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git lfs ls-files
@@ -201,7 +204,7 @@ It prints the object ID, a marker and the path.
 
 **Task 10.** Get a summary of the current LFS state, including anything staged.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 git lfs status
@@ -211,7 +214,7 @@ git lfs status
 
 **Task 11.** Check how much space the LFS objects take locally.
 
-<details><summary>Solution</summary>
+<details><summary>✅ Solution</summary>
 
 ```plaintext
 du -sh .git/lfs
