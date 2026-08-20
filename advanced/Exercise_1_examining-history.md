@@ -242,7 +242,8 @@ git show <commit-id>
 
 </details>
 
-The same view exists in the web interface: open any file on GitHub and click **Blame**.
+> [!TIP]
+> The same view exists in the web interface: open any file on GitHub and click **Blame**.
 
 > [!NOTE]
 > Despite the name, `git blame` is mostly used to find *context*, not culprits. The useful
