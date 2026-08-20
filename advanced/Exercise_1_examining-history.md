@@ -21,7 +21,7 @@ several hundred commits and many authors.
 > Confirm with `pwd` that you are inside *git-course*.
 
 > [!TIP]
-> Every task below has a **💡 Hint** and a **✅ Solution** you can unfold. Try the task first 
+> Every task below has a **💡 Hint** and a **✅ Solution** you can unfold. Try the task first
 > by yourself before you make use of those.
 > If you get stuck on the exact syntax, try `git help log` (or `git log -h` for the short version).
 

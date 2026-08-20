@@ -155,7 +155,9 @@ while IFS= read -r f; do
     # guaranteed to mean tab and can instead match a literal backslash or "t".
     hit=$(grep -nE '[[:blank:]]+$' "$f" | grep -vE '^[0-9]+:.*[^ ]  $')
     if [ -n "$hit" ]; then
-        fail "$f has trailing whitespace that is not a two-space hard break"
+        lines=$(cut -d: -f1 <<< "$hit" | paste -sd, -)
+        noun="line"; [[ "$lines" == *,* ]] && noun="lines"
+        fail "$f has trailing whitespace that is not a two-space hard break ($noun $lines)"
         missing=1
     fi
 done <<< "$scoped_files"

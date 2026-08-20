@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# Runs the same content consistency checks CI runs, so drift between slides,
+# exercises and diagrams is caught locally before it ever reaches a push.
+#
+# Not wired in by default: git only looks in .git/hooks, which isn't tracked.
+# Enable it once per clone with:
+#   git config core.hooksPath .githooks
+
+set -euo pipefail
+
+repo_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." &> /dev/null && pwd)
+cd "$repo_root"
+
+if ! bash advanced/tests/check_consistency.sh; then
+    echo ""
+    echo "Content consistency checks failed, commit aborted."
+    echo "Fix the issues above, or bypass this hook with 'git commit --no-verify'."
+    exit 1
+fi
