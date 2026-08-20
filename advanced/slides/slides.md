@@ -335,10 +335,11 @@ Everything stays local - the helper script builds a small stand-in repository to
 
 ---
 
-# Ignoring Files
+# The `.gitignore` file
 
 - Tell Git to leave alone what should never be committed
 - Build products, binaries, editor droppings, secrets, large data
+- Patterns live in a `.gitignore` file - commit it, so the everyone shares the same rules
 
 ```
 *~
