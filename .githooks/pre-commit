@@ -12,9 +12,21 @@ set -euo pipefail
 repo_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." &> /dev/null && pwd)
 cd "$repo_root"
 
-if ! bash advanced/tests/check_consistency.sh; then
+# Keep the per-check "n. ... / ok: ..." rundown quiet on a passing commit; show
+# it only when something actually failed, so it's there to diagnose but doesn't
+# scroll past on every commit.
+if output=$(bash advanced/tests/check_consistency.sh 2>&1); then
+    status=0
+else
+    status=$?
+fi
+
+if [ "$status" -ne 0 ]; then
+    echo "$output"
     echo ""
     echo "Content consistency checks failed, commit aborted."
     echo "Fix the issues above, or bypass this hook with 'git commit --no-verify'."
     exit 1
 fi
+
+echo "$output" | tail -n 1
