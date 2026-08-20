@@ -16,6 +16,19 @@ commands beyond the basics (reading history, submodules, cherry-pick and rebase,
 worktree, hooks, large files), and how a change travels through a shared project on a web
 interface (issues, forks, pull requests, review).
 
+## Slides
+
+Both decks are published at **<https://c2sm.github.io/git-course/>**, as HTML and as PDF.
+
+The HTML decks carry the presenter notes: press `p` while a deck is open for the presenter
+view, with the current slide, the next slide, the notes and a timer. The PDFs contain the
+slides only.
+
+The sources are [beginner/slides/slides.md](beginner/slides/slides.md) and
+[advanced/slides/slides.md](advanced/slides/slides.md). To build a deck locally, run its
+`build.sh` - it needs only Node.js and writes both the HTML and the PDF next to the source.
+Pushing to `main` republishes the site.
+
 ## Beyond both courses
 
 [Expert_Topics.md](Expert_Topics.md) collects the topics neither course covers - Git internals,

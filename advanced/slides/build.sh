@@ -1,8 +1,9 @@
 #!/bin/bash
 #
 # Builds the advanced course slides: renders every Mermaid diagram to SVG, then
-# renders the deck to PDF. The CI workflow runs this same script, so a local build
-# and the committed PDF cannot drift apart.
+# renders the deck to HTML and PDF. The CI workflows run this same script, so a
+# local build and the committed PDF cannot drift apart, and the site published to
+# GitHub Pages is built exactly the way authors build it locally.
 #
 # Requires Node.js. Everything else is fetched by npx on demand.
 
@@ -77,6 +78,17 @@ if [[ -z "${CHROME_PATH:-}" ]] && [[ "$have_browser" == false ]]; then
     export CHROME_PATH
 fi
 
+# The HTML deck carries the presenter notes: Marp turns every non-directive comment
+# in slides.md into a note, shown in the presenter view (press "p"). The PDF renderer
+# drops them, so the notes stay out of the handout.
+echo "Rendering slides to HTML..."
+html="advanced/slides/slides_advanced.html"
+npx -y @marp-team/marp-cli@latest advanced/slides/slides.md \
+    --config-file slides_theme/marprc.yml \
+    --theme-set slides_theme/c2sm-light.css slides_theme/c2sm-dark.css \
+    --allow-local-files \
+    -o "$html"
+
 echo "Rendering slides to PDF..."
 pdf="advanced/slides/slides_advanced.pdf"
 npx -y @marp-team/marp-cli@latest advanced/slides/slides.md \
@@ -106,4 +118,4 @@ const { PDFDocument } = require("pdf-lib");
 NODE
 rm -rf "$normalize_tmp"
 
-echo "Done: $pdf"
+echo "Done: $html, $pdf"

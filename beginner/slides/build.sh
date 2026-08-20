@@ -1,7 +1,8 @@
 #!/bin/bash
 #
-# Builds the beginner course slides deck to PDF. The CI workflow runs this same
-# script, so a local build and the committed PDF cannot drift apart.
+# Builds the beginner course slides deck to HTML and PDF. The CI workflows run this
+# same script, so a local build and the committed PDF cannot drift apart, and the
+# site published to GitHub Pages is built exactly the way authors build it locally.
 #
 # Requires Node.js. Everything else is fetched by npx on demand.
 
@@ -23,6 +24,17 @@ if [[ -z "${CHROME_PATH:-}" ]] && [[ "$have_browser" == false ]]; then
     CHROME_PATH=$(npx -y @puppeteer/browsers install chrome@stable --path "${HOME}/.cache/puppeteer" | awk '{print $NF}')
     export CHROME_PATH
 fi
+
+# The HTML deck carries the presenter notes: Marp turns every non-directive comment
+# in slides.md into a note, shown in the presenter view (press "p"). The PDF renderer
+# drops them, so the notes stay out of the handout.
+echo "Rendering slides to HTML..."
+html="beginner/slides/slides_beginner.html"
+npx -y @marp-team/marp-cli@latest beginner/slides/slides.md \
+    --config-file slides_theme/marprc.yml \
+    --theme-set slides_theme/c2sm-light.css slides_theme/c2sm-dark.css \
+    --allow-local-files \
+    -o "$html"
 
 echo "Rendering slides to PDF..."
 pdf="beginner/slides/slides_beginner.pdf"
@@ -53,4 +65,4 @@ const { PDFDocument } = require("pdf-lib");
 NODE
 rm -rf "$normalize_tmp"
 
-echo "Done: $pdf"
+echo "Done: $html, $pdf"

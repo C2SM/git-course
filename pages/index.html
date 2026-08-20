@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C2SM Git Courses</title>
+<link rel="icon" href="slides_theme/images/c2sm_logo_light.svg">
+<style>
+  :root {
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text: #16222e;
+    --muted: #5a6b7b;
+    --accent: #1a5c8f;
+    --border: #dbe3ea;
+    --shadow: 0 1px 3px rgba(22, 34, 46, .08), 0 8px 24px rgba(22, 34, 46, .06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1929;
+      --card: #14243a;
+      --text: #e8eef4;
+      --muted: #9db0c2;
+      --accent: #6db3e8;
+      --border: #24405e;
+      --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .3);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 3rem 1.25rem 4rem;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Jost', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  main { max-width: 52rem; margin: 0 auto; }
+
+  header { margin-bottom: 2.5rem; }
+  header img { height: 4rem; margin-bottom: 1.25rem; }
+  h1 { margin: 0 0 .35rem; font-size: 2.25rem; color: var(--accent); font-weight: 600; }
+  .tagline { margin: 0; color: var(--muted); font-size: 1.05rem; }
+
+  .deck {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .deck h2 { margin: 0 0 .25rem; font-size: 1.35rem; font-weight: 600; }
+  .deck p { margin: 0 0 1.1rem; color: var(--muted); }
+
+  .links { display: flex; flex-wrap: wrap; gap: .6rem; }
+  a.btn {
+    display: inline-block;
+    padding: .5rem 1.1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: .95rem;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    transition: background .15s ease, color .15s ease;
+  }
+  a.btn:hover { background: var(--accent); color: var(--card); }
+  a.btn.primary { background: var(--accent); color: var(--card); }
+  a.btn.primary:hover { filter: brightness(1.12); }
+
+  .tip {
+    border-left: 3px solid var(--accent);
+    padding: .1rem 0 .1rem 1rem;
+    margin: 2.5rem 0 0;
+    color: var(--muted);
+    font-size: .95rem;
+  }
+  .tip kbd {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .85em;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-bottom-width: 2px;
+    border-radius: 4px;
+    padding: .05em .4em;
+  }
+
+  footer {
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: .9rem;
+  }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <picture>
+      <source srcset="slides_theme/images/c2sm_logo_dark.svg" media="(prefers-color-scheme: dark)">
+      <img src="slides_theme/images/c2sm_logo_light.svg" alt="C2SM">
+    </picture>
+    <h1>C2SM Git Courses</h1>
+    <p class="tagline">Slides and exercises · Center for Climate Systems Modeling, ETH Zurich</p>
+  </header>
+
+  <section class="deck">
+    <h2>Git for Beginners</h2>
+    <p>Version control from scratch: commits, branches, remotes, merge conflicts and
+       the everyday workflow.</p>
+    <div class="links">
+      <a class="btn primary" href="beginner/slides/">Slides</a>
+      <a class="btn" href="beginner/slides/slides_beginner.pdf">PDF</a>
+      <a class="btn" href="https://github.com/C2SM/git-course/tree/main/beginner">Exercises</a>
+    </div>
+  </section>
+
+  <section class="deck">
+    <h2>Git: Next Steps</h2>
+    <p>Examining history, submodules, <code>.gitignore</code>, cherry-pick and rebase,
+       stash and worktree, hooks, Git LFS, and collaborating through pull requests.</p>
+    <div class="links">
+      <a class="btn primary" href="advanced/slides/">Slides</a>
+      <a class="btn" href="advanced/slides/slides_advanced.pdf">PDF</a>
+      <a class="btn" href="https://github.com/C2SM/git-course/tree/main/advanced">Exercises</a>
+    </div>
+  </section>
+
+  <p class="tip">
+    The HTML decks carry presenter notes. Press <kbd>P</kbd> while a deck is open to
+    get the presenter view, with the current slide, the next slide, the notes and a
+    timer. <kbd>F</kbd> goes fullscreen and <kbd>O</kbd> shows an overview of all
+    slides. The PDFs contain the slides only.
+  </p>
+
+  <footer>
+    Built from <a href="https://github.com/C2SM/git-course">C2SM/git-course</a>.
+    Spotted a mistake? Open an issue or a pull request.
+  </footer>
+
+</main>
+</body>
+</html>

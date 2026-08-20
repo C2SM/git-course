@@ -3,3 +3,8 @@
 .DS_Store
 git-course_env/
 .vscode/*.log
+
+# HTML decks are built on demand by build.sh and published from CI, not committed.
+advanced/slides/slides_advanced.html
+beginner/slides/slides_beginner.html
+_site/

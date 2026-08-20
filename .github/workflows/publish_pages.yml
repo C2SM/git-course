@@ -1,0 +1,84 @@
+name: Publish Slides to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "advanced/slides/**"
+      - "beginner/slides/**"
+      - "slides_theme/**"
+      - "pages/**"
+      - ".github/workflows/publish_pages.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never cancel a deployment half-way: let a running one finish before the next starts.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build both decks
+        # Same scripts authors run locally, so the published site cannot drift.
+        run: |
+          ./beginner/slides/build.sh
+          ./advanced/slides/build.sh
+
+      - name: Assemble site
+        # The theme stylesheets reference the C2SM logo and the title background as
+        # ../../slides_theme/images/..., relative to the deck. That only resolves if
+        # the site mirrors the repository layout, so keep the <course>/slides/ depth
+        # and ship slides_theme/images alongside.
+        run: |
+          mkdir -p _site/slides_theme _site/advanced _site/beginner
+
+          cp pages/index.html _site/index.html
+          cp -r slides_theme/images _site/slides_theme/
+
+          cp -r advanced/slides _site/advanced/
+          cp -r beginner/slides _site/beginner/
+
+          # Serve each deck at <course>/slides/ instead of a long file name.
+          mv _site/advanced/slides/slides_advanced.html _site/advanced/slides/index.html
+          mv _site/beginner/slides/slides_beginner.html _site/beginner/slides/index.html
+
+          # Sources and build inputs have no business on the published site.
+          rm -rf _site/*/slides/diagrams
+          rm -f _site/*/slides/slides.md _site/*/slides/build.sh
+          rm -f _site/*/slides/images/.diagram-hashes
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
