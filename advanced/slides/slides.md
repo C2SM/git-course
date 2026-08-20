@@ -329,7 +329,7 @@ C2SM models and tools use submodules a lot, so the cost is worth paying here. Le
 <div class="note">
 
 **Where you work:** `advanced_git/conference_submodule`
-You will need a fork of <https://github.com/C2SM/c2sm-git-example> - the same one you use in Exercise 8.
+Everything stays local - the helper script builds a small stand-in repository to point the submodule at.
 
 </div>
 

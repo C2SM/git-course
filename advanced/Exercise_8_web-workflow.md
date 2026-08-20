@@ -56,10 +56,6 @@ You have no write access to the C2SM repository, so you work on your own copy.
 
 **Task 2.** Fork the repository, then clone **your fork** and go into it.
 
-> [!TIP]
-> If you already forked *c2sm-git-example* for Exercise 2, use that same fork - do not make a
-> second one.
-
 <details><summary>✅ Solution</summary>
 
 Press **Fork** on the repository page, then:

@@ -16,12 +16,10 @@ move changes in both directions.
 > the [Setup section](README.md#setup) first.
 
 > [!NOTE]
-> You need a **fork of <https://github.com/C2SM/c2sm-git-example>** for this exercise. You will
-> use the same fork again in Exercise 8, so make it now if you have not already: open the
-> repository in your browser and press **Fork**.
->
-> Pushing to your fork requires an SSH key on your GitHub account. If you do not have one, follow
-> [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+> Everything in this exercise stays on your machine. A submodule needs a second repository to
+> point at, so the helper script builds a small local one, *glossary-tool*, that plays the part
+> of an external project you do not maintain yourself - the kind of thing a real submodule
+> usually points at. Exercise 8 covers the real equivalent, working with a fork on GitHub.
 
 In this exercise we cover the following:
 - [Add a submodule](#add)
@@ -33,29 +31,39 @@ In this exercise we cover the following:
 ## Add a submodule <a name="add"></a>
 
 We work on a copy so the sandbox stays usable for the later exercises. Go to the folder that
-*contains* *conference_planning* (so you are not inside a repository) and copy it:
+*contains* *conference_planning* (so you are not inside a repository). First create the local
+stand-in repository the submodule will point at, then copy the sandbox:
 
 ```plaintext
 cd ~/<path>/advanced_git
+init_submodule_remote
 cp -r conference_planning conference_submodule
 cd conference_submodule
 ```
 
-**Task 1.** Add your fork of *c2sm-git-example* as a submodule in a directory called
-*c2sm-info*. Use the **SSH** address of *your fork*, not the C2SM original - you need to be able
-to push to it later.
+> [!NOTE]
+> Modern Git refuses, by default, to let a submodule point at a plain filesystem path - a
+> protection against malicious repositories that try to make you clone something local and
+> sensitive. Real submodules point at `https://` or `git@` URLs, where this never comes up; ours
+> points at a path on disk, so allow it once:
+> ```plaintext
+> git config --global protocol.file.allow always
+> ```
+
+**Task 1.** Add *glossary-tool* as a submodule in a directory called *c2sm-info*.
 
 <details><summary>💡 Hint</summary>
 
-The command is `git submodule add <url> <path>`. Get the URL from the green **Code** button on
-your fork.
+The command is `git submodule add <url> <path>`. `init_submodule_remote` created the repository
+at `~/<path>/advanced_git/glossary-tool.git` - use that path as the URL. A local filesystem path
+works exactly like a GitHub URL here; Git does not care where a repository lives.
 
 </details>
 
 <details><summary>✅ Solution</summary>
 
 ```plaintext
-git submodule add git@github.com:<your-github-username>/c2sm-git-example.git c2sm-info
+git submodule add ~/<path>/advanced_git/glossary-tool.git c2sm-info
 ```
 
 </details>
@@ -106,7 +114,7 @@ There is a `git submodule` subcommand for exactly this.
 git submodule status
 ```
 
-The output starts with the commit ID of *c2sm-git-example* that the parent points at. That single
+The output starts with the commit ID of *glossary-tool* that the parent points at. That single
 ID is the entire link - the parent stores no file contents from the submodule.
 
 </details>
@@ -166,18 +174,22 @@ contents.
 </details>
 
 > [!NOTE]
-> Notice also that `git status` in the submodule probably says you are on a **detached HEAD**.
-> That is normal: the parent records a commit, not a branch, so Git checks out that exact commit.
-> To make commits you first have to get onto a branch, which is the next task.
+> Notice that `git status` in the submodule says `On branch main`. `git submodule add` leaves it
+> there, because the commit it just recorded is that branch's tip. This will not stay true: every
+> other way of putting a submodule at a specific commit - a fresh clone, or a plain
+> `git submodule update` - checks out that exact commit and leaves you on a **detached HEAD**
+> instead. You will see that for real in the last section of this exercise.
 
 ## Push a change from the submodule <a name="push"></a>
 
-**Task 8.** Get onto the `main` branch inside the submodule, keeping the edit you made, then
+**Task 8.** Make sure the submodule is on the `main` branch, keeping the edit you made, then
 commit it.
 
 <details><summary>💡 Hint</summary>
 
-`git switch main` moves you onto the branch. Your uncommitted change comes along.
+`git switch main` is a no-op here, since `git submodule add` already left you on `main`. Get in
+the habit anyway: it is not a no-op after a plain `git submodule update`, which always detaches
+HEAD, as you will see later in this exercise.
 
 </details>
 
@@ -191,15 +203,25 @@ git commit -am "Add a glossary entry"
 
 </details>
 
-**Task 9.** Send that commit to your fork on GitHub, then check in the browser that it arrived.
+**Task 9.** Send that commit to `glossary-tool`, then check that it actually arrived there -
+without going into the repository yourself.
+
+<details><summary>💡 Hint</summary>
+
+`git log` can point at any repository directly with `-C`, even one you are not currently inside.
+
+</details>
 
 <details><summary>✅ Solution</summary>
 
 ```plaintext
 git push origin main
+git -C ~/<path>/advanced_git/glossary-tool.git log --oneline -3
 ```
 
-The submodule is an ordinary repository, so this is an ordinary push.
+The submodule is an ordinary repository, so the push is an ordinary push. `glossary-tool.git` is
+what a GitHub fork would be in the real workflow: a repository elsewhere that now has the commit
+too.
 
 </details>
 
@@ -233,8 +255,17 @@ The ID reported by `git submodule status` is now the commit you just pushed.
 
 Now the other direction: someone else changes the sub-repository and you want that change.
 
-**Task 11.** Go to your fork of *c2sm-git-example* on GitHub, edit *glossary.md* in the web
-editor, and commit directly to `main`. This plays the part of a colleague's change.
+**Task 11.** A colleague changes *glossary.md* directly on `main` of `glossary-tool` while you are
+not looking. Run the helper to play their part:
+
+```plaintext
+commit_to_submodule_remote_by_colleague
+```
+
+> [!NOTE]
+> Behind the scenes this only clones `glossary-tool.git` into a temporary directory, edits
+> *glossary.md*, commits and pushes - exactly what a colleague would do from their own machine.
+> The point is what you do next, in Task 12, not how the change got there.
 
 **Task 12.** Back in your terminal, from the **parent** repository, bring that new commit into
 the submodule.
@@ -299,7 +330,12 @@ To fix an existing clone:
 cd clone_test
 git submodule update --init --recursive
 ls c2sm-info
+cd c2sm-info && git status && cd ..
 ```
+
+The last `git status` says `HEAD detached at <commit>`. This is the detached HEAD promised
+earlier: `git submodule update` checks out the exact commit the parent recorded, not a branch. If
+you wanted to make commits here, you would `git switch main` first, exactly as in Task 8.
 
 To get it right immediately:
 

@@ -37,6 +37,50 @@ init_advanced_repo () {
     echo -e "\033[31m\033[1mYou have been moved to the 'conference_planning' directory within the 'advanced_git' directory. This is where you start your exercise.\033[0m"
 }
 
+# Creates a local bare repository, glossary-tool.git, that stands in for a small
+# external project - the kind of thing Exercise 2's submodule points at. This
+# keeps the submodule exercise entirely local; Exercise 8 covers the real
+# equivalent, a fork on GitHub.
+init_submodule_remote () {
+    mkdir -p "$script_dir/../../advanced_git"
+    cd "$script_dir/../../advanced_git" || return 1
+    rm -rf glossary-tool.git glossary-tool_tmp
+    mkdir glossary-tool_tmp
+    cd glossary-tool_tmp || return 1
+    git init -b main -q
+
+    cat > README.md <<'EOF'
+# glossary-tool
+
+A tiny glossary of Git terms, used as a submodule in the C2SM Git course.
+EOF
+    cat > glossary.md <<'EOF'
+# Glossary
+
+- **Repository**: A project tracked by Git.
+- **Commit**: A snapshot of the project at a point in time.
+EOF
+    git add README.md glossary.md && git commit -q -m "Add glossary"
+
+    cd ..
+    git clone -q --bare glossary-tool_tmp glossary-tool.git
+    rm -rf glossary-tool_tmp
+}
+
+# Plays the part of a colleague who pushes a change straight to glossary-tool's
+# main branch while you are working in the submodule.
+commit_to_submodule_remote_by_colleague () {
+    cd "$script_dir/../../advanced_git" || return 1
+    rm -rf glossary-tool_colleague
+    git clone -q glossary-tool.git glossary-tool_colleague
+    cd glossary-tool_colleague || return 1
+    insert_after 'Commit' '- **Branch**: A movable pointer to a line of commits.' glossary.md
+    git commit -q -am "Add a glossary entry for branch"
+    git push -q origin main
+    cd ..
+    rm -rf glossary-tool_colleague
+}
+
 # Throw away everything and start the exercises over from a clean state.
 reset_advanced_repo () {
     echo "Restoring a clean working directory"
