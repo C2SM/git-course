@@ -91,7 +91,7 @@ You only need the **Git basics** for this course: `add`, `commit`, `push`, `pull
   font-size: 34px;
 }
 .schedule-list li {
-  margin-block: 14px;
+  margin-block: 10px;
 }
 </style>
 
@@ -134,7 +134,7 @@ You only need the **Git basics** for this course: `add`, `commit`, `push`, `pull
 
 ---
 
-# Recap: the Local Workflow
+# Recap: Typical Git Workflow
 
 ![w:1000](images/local-workflow.svg)
 
@@ -574,14 +574,14 @@ Stuck? `reset_advanced_repo` gives you a clean start at any time.
 
 # `git cherry-pick`: One Commit, Copied
 
-![w:750](images/cherry-pick.svg)
+![w:580](images/cherry-pick.svg)
 
 - Takes a single commit and replays it on your current branch
 - The copy gets a **new commit ID** - same content, different identity
 
 <div class="warning">
 
-Because the ID differs, do not later merge the branch you picked from: you would get the same change twice.
+Do not merge the branch you picked from later: the change would arrive twice.
 
 </div>
 
@@ -600,22 +600,9 @@ Because the ID differs, do not later merge the branch you picked from: you would
 
 # `git rebase`: an Alternative to `git merge`
 
-<div class="columns">
-<div>
+![w:655](images/merge-vs-rebase.svg)
 
-**Merge** - keeps both histories, adds a merge commit
-
-![w:420](images/merge.svg)
-
-</div>
-<div>
-
-**Rebase** - replays your commits on top, no merge commit
-
-![w:420](images/rebase.svg)
-
-</div>
-</div>
+**Merge** joins the lines with `M` - **rebase** replays `F G H` on top of `E` as new commits `F' G' H'`
 
 <div class="warning">
 
@@ -624,9 +611,11 @@ Rebasing **rewrites history**. Never rebase a branch other people have already p
 </div>
 
 <!--
-- Compare the two diagrams side by side rather than explaining them in sequence
+- Same starting point, two ways out of it: walk the top panel first, then each result
 - Merge: preserves what actually happened, cost = a merge commit and a history that forks and rejoins
 - Rebase: produces a straight line as if you started from the current tip, cost = every commit gets a new hash
+  - Point at the primes: `F'` has the same change as `F` but a different parent, so a different hash - a new commit, not a moved one
+  - Note `main` has not moved in the bottom panel: it is still at `E`, and merging now is a fast-forward with no merge commit
 - Say clearly: neither is correct in general - project convention, teams argue about it, consistency matters more than the choice
 - Golden rule (emphasise): rebase only what is still private
   - Once someone else has pulled your branch, rebasing forces them into a painful recovery
@@ -683,7 +672,7 @@ Stuck? `reset_advanced_repo` gives you a clean start at any time.
 
 # `git worktree`: Several Branches at Once
 
-![w:400](images/worktree.svg)
+![w:340](images/worktree.svg)
 
 - Multiple working directories sharing **one** `.git`
 - Cheaper than a second clone, and the configuration stays in one place
@@ -1125,12 +1114,21 @@ Review is about the change, never the person. "This function could be clearer" b
 
 # Merging, and Staying in Sync
 
+<div class="columns">
+<div>
+
 - **Merge commit** - keeps every commit and records the merge
 - **Squash** - collapses the branch into one tidy commit (a common default)
 - **Rebase** - replays commits with no merge commit
 - Delete the branch afterwards; the pull request keeps the history
 
-![w:620](images/fork-sync.svg)
+</div>
+<div>
+
+![w:300](images/fork-sync.svg)
+
+</div>
+</div>
 
 <!--
 - Point out: these three buttons are exactly merge, squash and rebase from this morning, now with a GUI - nothing new to learn
