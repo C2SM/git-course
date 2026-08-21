@@ -340,6 +340,7 @@ The parent repository records **one exact commit** of the submodule, not "the la
 - This is the slide that makes submodules click - slow down here
 - The parent repository does NOT contain the submodule's files
   - It stores only a path, a URL and one commit hash
+  - Both live in the same parent commit: `.gitmodules` says where to clone from, the recorded hash says which commit to check out
 - Consequences worth stating out loud (every submodule surprise follows from these):
   - Cloning the parent gives an empty directory until you ask for the content
   - The pointer doesn't move on its own - a colleague pushing to the submodule changes nothing for you until someone advances the pointer and commits that

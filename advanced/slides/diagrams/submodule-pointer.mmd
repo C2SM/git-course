@@ -1,26 +1,31 @@
 flowchart LR
     subgraph parent["Parent repository &nbsp;conference_planning"]
         direction TB
-        PC["commit a1b2c3<br><small>schedule_day1.txt<br>schedule_day2.txt</small>"]
-        GM[".gitmodules<br><small>path + URL</small>"]
-        GL["gitlink: posters @ 9f8e7d"]
+        PC["commit a1b2c3"]
+        F["schedule_day1.txt<br>schedule_day2.txt<br><small>ordinary tracked files</small>"]
+        GM[".gitmodules<br><small>[submodule &quot;posters&quot;]<br>path = posters<br>url = .../posters.git</small>"]
+        SUB["posters<br><b>9f8e7d</b><br><small>a commit hash, no files</small>"]
+        PC --- F
+        PC --- GM
+        PC --- SUB
     end
 
     subgraph child["Submodule repository &nbsp;posters"]
         direction TB
         C1["commit 4a5b6c"]
         C2["commit 9f8e7d"]
-        C3["commit e1f2a3<br><small>newer, not yet recorded</small>"]
+        C3["commit e1f2a3<br><small>newer, parent still points at 9f8e7d</small>"]
         C1 --> C2 --> C3
     end
 
-    PC --- GM
-    PC --- GL
-    GL -- "records one exact commit" --> C2
+    GM -. "where to clone it from" .-> child
+    SUB == "which exact commit" ==> C2
+
+    linkStyle 6 stroke:#ffbd0b,stroke-width:3px
 
     classDef box fill:#243041,stroke:#56abdf,stroke-width:2px,color:#e8edf2
     classDef ptr fill:#134f7c,stroke:#ffbd0b,stroke-width:3px,color:#e8edf2
     classDef ahead fill:#1e3a52,stroke:#aab4be,stroke-width:2px,color:#aab4be
-    class PC,GM,C1,C2 box
-    class GL ptr
+    class PC,F,GM,C1 box
+    class SUB,C2 ptr
     class C3 ahead
