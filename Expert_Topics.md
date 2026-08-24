@@ -8,10 +8,10 @@ tutorial - none of it is needed for the two existing courses.
 
 **What is already covered:**
 
-- **[Git: First Steps](beginner)** - `init`, `add`, `commit`, `status`, `log`, branches,
+- **[Git: The Basics](beginner)** - `init`, `add`, `commit`, `status`, `log`, branches,
   `switch`, `restore`, merging and merge conflicts, `.gitignore`, remotes, `push`, `pull`,
   `fetch`, and a first pull request.
-- **[Git: Next Steps](advanced)** - `log`/`blame`/`diff`/`show` in depth, submodules,
+- **[Git: Beyond the Basics](advanced)** - `log`/`blame`/`diff`/`show` in depth, submodules,
   `.gitignore` in depth, `cherry-pick`, `rebase`, `stash`, `worktree`, hooks, `git lfs`, and the
   issue → fork → pull request → review workflow.
 

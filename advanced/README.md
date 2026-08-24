@@ -1,7 +1,7 @@
-# Git: Next Steps
+# Git: Beyond the Basics
 
-This folder contains the exercises for **Git: Next Steps**, the second of the two C2SM Git
-Courses. It follows on from [Git: First Steps](../beginner), and the only knowledge it assumes is
+This folder contains the exercises for **Git: Beyond the Basics**, the second of the two C2SM Git
+Courses. It follows on from [Git: The Basics](../beginner), and the only knowledge it assumes is
 the everyday basics: `add`, `commit`, `push`, `pull` and `branch`.
 
 The course has two parts:

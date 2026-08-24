@@ -2,15 +2,15 @@
 
 Two annual Git courses, run by [C2SM](https://c2sm.ethz.ch) as part of its technical training.
 
-## Git: First Steps
+## Git: The Basics
 
-The folder [beginner](beginner) contains the exercises for **Git: First Steps**, an introduction
+The folder [beginner](beginner) contains the exercises for **Git: The Basics**, an introduction
 to Git for people who have never used it. It covers the everyday commands: making commits,
 working with branches, resolving merge conflicts, and pushing to a remote.
 
-## Git: Next Steps
+## Git: Beyond the Basics
 
-The folder [advanced](advanced) contains the exercises for **Git: Next Steps**. It picks up where
+The folder [advanced](advanced) contains the exercises for **Git: Beyond the Basics**. It picks up where
 the first course leaves off and needs nothing more than those basics. It has two parts: the
 commands beyond the basics (reading history, submodules, cherry-pick and rebase, stash and
 worktree, hooks, large files), and how a change travels through a shared project on a web
@@ -40,7 +40,7 @@ To follow either course on your computer, you need:
 
 1. [Git](#1-installing-git-on-your-computer)
 2. [An SSH key linked to your GitHub account](#2-creating-a-github-account-and-ssh-key)
-3. [Git LFS](#3-installing-git-lfs) (only for Git: Next Steps)
+3. [Git LFS](#3-installing-git-lfs) (only for Git: Beyond the Basics)
 4. [A final check](#4-final-check)
 
 ### 1. Installing Git on your Computer
@@ -91,7 +91,7 @@ Only the section under the corresponding heading in each link is relevant:
 
 ### 3. Installing Git LFS
 
-Only needed for Exercise 7 of **Git: Next Steps**.
+Only needed for Exercise 7 of **Git: Beyond the Basics**.
 
 - **Windows:** already included in Git for Windows, nothing to do.
 - **macOS:** `brew install git-lfs`
@@ -114,13 +114,13 @@ chmod +x ./check_requirements.sh
 ```
 - Step 3: run it.
 
-#### Git: First Steps
+#### Git: The Basics
 
 ```
 ./check_requirements.sh --beginner
 ```
 
-#### Git: Next Steps
+#### Git: Beyond the Basics
 
 This also checks for Git LFS.
 

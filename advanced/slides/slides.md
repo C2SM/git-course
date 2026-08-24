@@ -3,14 +3,14 @@ marp: true
 theme: c2sm-dark
 paginate: true
 size: 16:9
-footer: "C2SM, ETH Zurich · Git: Next Steps · 8 October 2026"
+footer: "C2SM, ETH Zurich · Git: Beyond the Basics · 8 October 2026"
 ---
 
 <!-- _class: title -->
 <!-- _paginate: false -->
 <!-- _footer: "" -->
 
-# Git: Next Steps
+# Git: Beyond the Basics
 
 C2SM Git Courses · 8 October 2026
 Michael Jähn, Mikael Stellio, Alitzel Macías Infante

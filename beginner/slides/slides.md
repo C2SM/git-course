@@ -3,16 +3,16 @@ marp: true
 theme: c2sm-light
 paginate: true
 size: 16:9
-footer: "C2SM, ETH Zurich · Git for Beginners · 26 March 2026"
+footer: "C2SM, ETH Zurich · Git: The Basics · 26 March 2026"
 ---
 
 <!-- _class: title -->
 <!-- _paginate: false -->
 <!-- _footer: "" -->
 
-# C2SM Git for Beginners Workshop 2026
+# Git: The Basics
 
-26 March 2026
+C2SM Git Courses · 26 March 2026
 
 Annika Lauber, Mikael Stellio, Michael Jähn
 

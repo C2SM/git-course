@@ -1,9 +1,9 @@
-# Git: First Steps
+# Git: The Basics
 
-This folder contains the exercises for **Git: First Steps**, the introductory one of the two C2SM
+This folder contains the exercises for **Git: The Basics**, the introductory one of the two C2SM
 Git Courses. Feel free to download the material to practice and enhance your Git skills.
 
-Once you are comfortable with these, [Git: Next Steps](../advanced) continues from here.
+Once you are comfortable with these, [Git: Beyond the Basics](../advanced) continues from here.
 
 The corresponding slides of this course can be found on our [C2SM User Landing Page](https://c2sm.github.io/events/git_courses/).
 
