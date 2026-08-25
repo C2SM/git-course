@@ -961,7 +961,7 @@ Three problems appear the moment a second person joins:
 
 <br>
 
-A web interface solves all three with the same object: the **pull request**.
+A web interface solves all three with the same object: the **pull request (PR)**.
 
 <div class="note">
 
@@ -1004,7 +1004,6 @@ workflow on <https://github.com/C2SM/c2sm-git-example>.
 - Using a real repository matters - not a toy example, a site they may well have used already
 - If the room doesn't know it: open the site briefly - many of them are the target audience for this documentation
 - Make the invitation explicit: if they spot something outdated/missing, this workflow is exactly how they fix it
-  - Several useful contributions have come from course participants
 - Preview website is the feature that makes contribution comfortable - foreshadow it here, return to it on the automated-checks slide
 -->
 
@@ -1013,12 +1012,8 @@ workflow on <https://github.com/C2SM/c2sm-git-example>.
 # It Starts With an Issue
 
 - An issue describes **what is wrong or missing, and why** - before any code is written
-- It is the place to agree on an approach before someone spends a day on it
+- It is the place to agree on an approach before someone spends time working on it
 - Labels, assignees and milestones make a backlog searchable months later
-
-<br>
-
-- Write `Fixes #12` in a pull request description and GitHub **closes issue 12 automatically** when it merges
 
 <div class="note">
 
@@ -1029,9 +1024,6 @@ A good issue is reproducible: what you did, what you expected, what happened ins
 <!--
 - Argument for issues: cost - ten minutes of discussion beforehand is much cheaper than a day of work followed by "actually, we want this differently"
 - An issue is also fine as a question or a proposal - doesn't have to be a bug
-- `Fixes #12` keyword = practical detail
-  - GitHub links the PR to the issue immediately, closes the issue on merge
-  - Backlog stays honest without anyone tidying it
 - Reproducibility note = the difference between an issue someone can act on and one that sits untouched for a year
   - What you did, what you expected, what happened instead, enough context to reproduce it
 -->
@@ -1040,7 +1032,7 @@ A good issue is reproducible: what you did, what you expected, what happened ins
 
 # Fork and Branch
 
-![w:1000](images/fork-triangle.svg)
+![w:1200](images/fork-triangle.svg)
 
 **Fork** when you cannot push to the original. **Branch** when you can. Either way the change arrives as a pull request.
 
@@ -1064,12 +1056,13 @@ A good issue is reproducible: what you did, what you expected, what happened ins
 
 - A request to merge one branch into another, plus the conversation around it
 - The **description** is the lasting record - say why, not just what
+- Write `Fixes #12` in the description to link the PR and **close the issue automatically** on merge
 - Open it **early** as a draft to show work in progress
 - Keep it small: a reviewer reads 200 lines carefully and 2000 lines not at all
 
 </div>
 
-![w:1050](images/pr-lifecycle.svg)
+![w:1200](images/pr-lifecycle.svg)
 
 <!--
 - Name is slightly misleading: a PR is a branch plus a conversation, not a Git operation
@@ -1077,6 +1070,9 @@ A good issue is reproducible: what you did, what you expected, what happened ins
 - Two pieces of advice worth more than the mechanics:
   - Description is the part that survives - diff shows what changed, only the description explains why
     - Six months later that's the only record, and what someone reads when deciding whether a change can be reverted
+  - `Fixes #12` keyword = practical detail
+    - GitHub links the PR to the issue immediately, closes the issue on merge
+    - Backlog stays honest without anyone tidying it
   - Size genuinely determines review quality
     - Be blunt about 200 vs. 2000 lines - everyone recognises skimming a huge diff and approving out of politeness
 - Drafts are underused: open one on day one, reviewers can steer the approach before the work is finished
@@ -1097,7 +1093,7 @@ A good issue is reproducible: what you did, what you expected, what happened ins
 
 <div class="note">
 
-Reviewers can look at the rendered page, not just the diff. This is the single biggest reason the landing-page workflow works well.
+Reviewers can look at the rendered page, not just the diff. This is very convenient for websites/documentation.
 
 </div>
 
@@ -1158,7 +1154,11 @@ Review is about the change, never the person. "This function could be clearer" b
 
 # Merging, and Staying in Sync
 
-<div class="columns">
+<style scoped>
+img { max-height: 520px; }
+</style>
+
+<div class="columns" style="grid-template-columns: 1fr 2fr;">
 <div>
 
 - **Merge commit** - keeps every commit and records the merge
@@ -1169,7 +1169,7 @@ Review is about the change, never the person. "This function could be clearer" b
 </div>
 <div>
 
-![w:300](images/fork-sync.svg)
+![h:520](images/fork-sync.svg)
 
 </div>
 </div>
@@ -1194,8 +1194,6 @@ section {font-size: 22px;}
 
 # GitHub and GitLab Side by Side
 
-C2SM works on both `github.com` and `gitlab.ethz.ch`. The **local Git commands are identical** - only the website and the CI file differ.
-
 | Concept | GitHub | GitLab |
 | --- | --- | --- |
 | Proposed change | Pull request (PR) | **Merge request (MR)** |
@@ -1210,6 +1208,7 @@ C2SM works on both `github.com` and `gitlab.ethz.ch`. The **local Git commands a
 
 <!--
 - Slide exists because ETH hosts GitLab and many will use both
+- The **local Git commands are identical** - only the website and the CI file differ.
 - Do not read the table - make the one point that matters and move on
 - That point: concepts map one to one, local Git commands are identical
   - Learning one platform means you know both
@@ -1219,6 +1218,10 @@ C2SM works on both `github.com` and `gitlab.ethz.ch`. The **local Git commands a
   - GitLab groups nest - why ETH GitLab paths often have several levels
   - GitLab approvals can be a required count, which GitHub expresses via branch protection rules
 -->
+
+<br>
+
+While C2SM works mostly on `github.com`, many self-hosted GitLab servers are also in use, such as `gitlab.ethz.ch` or `gitlab.dkrz.de`.
 
 ---
 
@@ -1303,7 +1306,7 @@ You will review each other's pull requests, so **work in pairs**.
 <div class="compact-lines">
 
 **In the terminal**
-- [gh](https://cli.github.com/) - pull requests and issues from the shell
+- [gh](https://cli.github.com/) / [glab](https://gitlab.com/gitlab-org/cli) - PRs and issues from the shell (GitHub / GitLab)
 - [lazygit](https://github.com/jesseduffield/lazygit) - terminal interface
 - [tig](https://jonas.github.io/tig/) - history browser
 
@@ -1366,7 +1369,7 @@ Language models are often useful for Git because the documentation is so good. T
 <div class="compact-lines">
 
 - Chacon, S. & Straub, B. *Pro Git*, 2nd ed. Apress, 2014. <https://git-scm.com/book>
-- Git Project. *Git Reference Documentation* - `git-log`, `git-diff`, `git-submodule`, `git-cherry-pick`, `git-rebase`, `git-stash`, `git-worktree`, `githooks`. <https://git-scm.com/docs>
+- Git Project. *Git Reference Documentation* - `git-log`, `git-diff`, `git-submodule`, `gitignore`, `git-cherry-pick`, `git-rebase`, `git-stash`, `git-worktree`, `githooks`. <https://git-scm.com/docs>
 - Git LFS Project. *Git Large File Storage Documentation*. <https://git-lfs.com>
 - pre-commit. *A Framework for Managing Multi-Language Pre-Commit Hooks*. <https://pre-commit.com>
 - GitHub, Inc. *GitHub Docs*. <https://docs.github.com>

@@ -124,10 +124,10 @@ section::after {
 section::before {
   content: "";
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 160px;
-  height: 160px;
+  top: 30px;
+  right: 70px;
+  width: 95px;
+  height: 60px;
   background-image: url("../../slides_theme/images/c2sm_logo_light.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -139,6 +139,12 @@ section.title {
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: center bottom 30px;
+}
+section.title::before {
+  top: 80px;
+  right: 70px;
+  width: 196px;
+  height: 124px;
 }
 section.title h1 {
   position: relative;
