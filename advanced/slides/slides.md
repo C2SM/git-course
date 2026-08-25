@@ -668,7 +668,7 @@ Stuck? `reset_advanced_repo` gives you a clean start at any time.
 
 # `git stash`: Park Your Work
 
-![w:900](images/stash.svg)
+![w:1100](images/stash.svg)
 
 - For when you must switch branch or pull, but are not ready to commit
 - `git stash push -m "message"`, then `git stash list`, then `git stash pop`
@@ -691,7 +691,7 @@ Stuck? `reset_advanced_repo` gives you a clean start at any time.
 
 # `git worktree`: Several Branches at Once
 
-![w:340](images/worktree.svg)
+![w:820](images/worktree.svg)
 
 - Multiple working directories sharing **one** `.git`
 - Cheaper than a second clone, and the configuration stays in one place
@@ -737,7 +737,6 @@ table {font-size: 20px;}
 <!--
 - About 15 minutes
 - Remind them: the worktree is created next to the repository, not inside it - watch which directory the shell is in
-  - Main source of confusion in this exercise
 - If the room is ahead of schedule: good moment to take questions before the break rather than starting hooks early
 -->
 
@@ -792,7 +791,7 @@ format, block commits of secrets, run fast tests before a push.
   - `pre-commit` runs on every single commit - must finish in well under a second or people start using `--no-verify` reflexively
   - Slow checks belong in `pre-push` or in CI
 - Live example: this course repository has a `pre-commit` hook in `.githooks/` - showing a real one beats describing it
-- Good realistic uses: block a commit containing an API key, keep notebooks free of output cells, enforce a commit message convention
+- Good realistic uses: block a commit containing an API key, keep Jupyter notebooks free of output cells, enforce a commit message convention
 -->
 
 ---
@@ -821,11 +820,10 @@ Everything happens in its `.git/hooks` directory.
 
 <!--
 - About 20 minutes
-- Predict the two failures out loud before they start (both will happen):
+- Stress the two common failures:
   - Forgetting `chmod +x`
   - Saving the file as `pre-commit.sh`
-  - Naming both now saves a lot of hands going up
-- Remind them `.git/hooks` is hidden - editor may need to be told to show hidden files, or edit from the terminal
+- Remind them `.git/hooks` is hidden - editor may need to be told to show hidden files, or edit from the terminal (`ls -a`)
 -->
 
 ---
