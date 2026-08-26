@@ -584,6 +584,19 @@ Stuck? `reset_advanced_repo` gives you a clean start at any time.
 
 ---
 
+<!-- _class: section -->
+
+# Coffee Break
+# ☕
+
+<!--
+- State the exact time we resume and stick to it
+- Good moment to check the clock against the schedule slide, decide whether the afternoon needs trimming
+- Also a good moment to catch anyone who's fallen behind and reset them with `reset_advanced_repo` before the next block
+-->
+
+---
+
 # `git cherry-pick`: One Commit, Copied
 
 ![w:580](images/cherry-pick.svg)
@@ -742,18 +755,6 @@ table {font-size: 20px;}
 
 ---
 
-<!-- _class: section -->
-
-# Coffee Break
-# ☕
-
-<!--
-- State the exact time we resume and stick to it
-- Good moment to check the clock against the schedule slide, decide whether the afternoon needs trimming
-- Also a good moment to catch anyone who's fallen behind and reset them with `reset_advanced_repo` before the next block
--->
-
----
 
 # Custom Git Hooks
 
