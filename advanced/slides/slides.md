@@ -90,11 +90,11 @@ You only need the **Git basics** for this course: `add`, `commit`, `push`, `pull
 
 <div class="no-bullets schedule-list">
 
-- **09:30 – 09:40** Welcome and overview
-- **09:40 – 10:50** Part 1 · history, submodules, .gitignore → Exercises 1 – 3
-- **10:50 – 11:10** Coffee break ☕
-- **11:10 – 11:50** Part 1 · moving, parallel work → Exercises 4 – 5
-- **11:50 – 12:30** Part 1 · hooks and large files → Exercises 6 – 7
+- **09:15 – 09:20** Welcome and overview
+- **09:20 – 10:20** Part 1 · history, submodules → Exercises 1 – 2
+- **10:20 – 11:25** Part 1 · ignoring files, cherry-pick, rebase, stash, worktree → Exercises 3 – 5
+- **11:25 – 11:45** Coffee break ☕
+- **11:45 – 12:30** Part 1 · hooks and large files → Exercises 6 – 7
 - **12:30 – 13:30** Lunch break 🍽️
 - **13:30 – 14:30** Part 2 · slides and live demonstration
 - **14:30 – 15:00** Part 2 · Exercise 8 and wrap-up
