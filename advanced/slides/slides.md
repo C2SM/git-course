@@ -205,7 +205,7 @@ table {font-size: 20px;}
 | `-3` | only the last three commits |
 | `--author="Lauber"` | only commits by a given author |
 | `-- path/to/file` | only commits touching that file |
-| `-S "Have fun!"` | commits that **add or remove** that text |
+| `-S 'Have fun!'` | commits that **add or remove** that text |
 | `-G "regex"` | commits whose diff matches a regular expression |
 
 <div class="note">
