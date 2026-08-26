@@ -35,7 +35,10 @@ In this exercise we cover the following:
 
 ## Shaping the log output <a name="shape"></a>
 
-Start with the plain command to see the default. Press `q` to leave the pager at any time.
+Start with the plain command to see the default. The output opens in a pager, which you can
+scroll: `↑`/`↓` (or `j`/`k`) move line by line, `Space` and `b` jump a full page forward and
+backward, `g` and `G` go to the very beginning and the very end, and `/pattern` searches
+(`n` for the next match). Press `q` to leave the pager at any time.
 
 ```plaintext
 git log
@@ -81,8 +84,8 @@ branch and tag names shown. Combine it with the compact output from Task 1.
 
 <details><summary>💡 Hint</summary>
 
-Three options together: one draws the graph, one adds the names, one includes every branch
-rather than only the current one.
+Four options together: the compact one from Task 1, plus one that draws the graph, one that
+adds the names, and one that includes every branch rather than only the current one.
 
 </details>
 
