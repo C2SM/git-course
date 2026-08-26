@@ -38,7 +38,7 @@ section {font-size: 25px;}
 
 <div class="compact-lines">
 
-### Part 1: Your Git Toolbox
+### Part 1: 🧰 Your Git Toolbox
 - Examining history: `log`, `blame`, `diff`, `show`
 - Nesting repositories with submodules
 - Ignoring files
@@ -55,7 +55,7 @@ section {font-size: 25px;}
 
 <div class="compact-lines">
 
-### Part 2: Working Together on GitHub
+### Part 2: 🤝 Working Together on GitHub
 - Why a shared workflow
 - A real example: the C2SM User Landing Page
 - Issues, forks and branches
@@ -77,28 +77,17 @@ You only need the **Git basics** for this course: `add`, `commit`, `push`, `pull
 
 ---
 
-<style scoped>
-.schedule-list {
-  font-size: 34px;
-}
-.schedule-list li {
-  margin-block: 10px;
-}
-</style>
-
 # Schedule
 
-<div class="no-bullets schedule-list">
-
-- **09:15 – 09:20** Welcome and overview
-- **09:20 – 10:50** Part 1 · history, submodules, ignoring files → Exercises 1 – 3
-- **10:50 – 11:10** Coffee break ☕
-- **11:10 – 11:45** Part 1 · cherry-pick, rebase, stash, worktree → Exercises 4 – 5
-- **11:45 – 12:30** Part 1 · hooks and large files → Exercises 6 – 7
-- **12:30 – 13:30** Lunch break 🍽️
-- **13:30 – 14:30** Part 2 · slides and live demonstration
-- **14:30 – 15:00** Part 2 · Exercise 8 and wrap-up
-
+<div class="schedule-list">
+<strong class="t-start">09:15</strong><strong class="t-dash">–</strong><strong class="t-end">09:20</strong><div>🧾 Welcome and overview</div>
+<strong class="t-start">09:20</strong><strong class="t-dash">–</strong><strong class="t-end">10:50</strong><div>🧰 History, submodules, ignoring files → Exercises 1 – 3</div>
+<strong class="t-start">10:50</strong><strong class="t-dash">–</strong><strong class="t-end">11:10</strong><div>☕ Coffee break</div>
+<strong class="t-start">11:10</strong><strong class="t-dash">–</strong><strong class="t-end">11:45</strong><div>🧰 Cherry-pick, rebase, stash, worktree → Exercises 4 – 5</div>
+<strong class="t-start">11:45</strong><strong class="t-dash">–</strong><strong class="t-end">12:30</strong><div>🧰 Hooks and large files → Exercises 6 – 7</div>
+<strong class="t-start">12:30</strong><strong class="t-dash">–</strong><strong class="t-end">13:30</strong><div>🍽️ Lunch break</div>
+<strong class="t-start">13:30</strong><strong class="t-dash">–</strong><strong class="t-end">14:30</strong><div>🤝 Slides and live demonstration</div>
+<strong class="t-start">14:30</strong><strong class="t-dash">–</strong><strong class="t-end">15:00</strong><div>🤝 Exercise 8 and wrap-up</div>
 </div>
 
 <!--

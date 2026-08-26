@@ -41,6 +41,7 @@ section {
   background: white;
   font-size: 27px;
   position: relative;
+  color-scheme: light;
 }
 h1 {
   color: var(--c2sm-blue);

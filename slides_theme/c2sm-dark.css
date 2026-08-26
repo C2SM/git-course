@@ -46,6 +46,8 @@ section {
   color: var(--c2sm-dark-text);
   font-size: 27px;
   position: relative;
+  /* Marp's built-in table styles use light-dark(); without this they stay stuck on light. */
+  color-scheme: dark;
 }
 h1 {
   color: var(--c2sm-accent);
@@ -302,4 +304,23 @@ td {
 }
 tr:nth-child(even) td {
   background: #1f2a3a;
+}
+
+/* Schedule list: plain grid, no table chrome. Time is split into three
+   columns so start times, dashes and end times each line up across rows. */
+.schedule-list {
+  display: grid;
+  grid-template-columns: max-content max-content max-content 1fr;
+  column-gap: 8px;
+  row-gap: 14px;
+  font-size: 33px;
+}
+.schedule-list .t-start {
+  text-align: right;
+}
+.schedule-list .t-dash {
+  text-align: center;
+}
+.schedule-list > div {
+  padding-left: 22px;
 }
