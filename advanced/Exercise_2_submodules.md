@@ -1,7 +1,8 @@
 # Exercise 2 - Nesting repositories with `git submodule`
 
 > [!NOTE]
-> **⏱️ Estimated working time:** 20-25 minutes
+> **⏱️ Estimated working time:** 15-18 minutes for the core tasks, plus 5-7 minutes more if you
+> also do the ones marked **(Bonus)**.
 
 A submodule lets one repository contain another one while both keep their own history. The
 parent does not copy the files: it records **one exact commit** of the other repository. Many
@@ -25,7 +26,7 @@ In this exercise we cover the following:
 - [Add a submodule](#add)
 - [See how Git keeps the two repositories apart](#separate)
 - [Push a change from the submodule](#push)
-- [Pull a change into the submodule](#pull)
+- [Pull a change into the submodule (Bonus)](#pull)
 - [What a fresh clone looks like](#clone)
 
 ## Add a submodule <a name="add"></a>
@@ -251,12 +252,12 @@ The ID reported by `git submodule status` is now the commit you just pushed.
 > but never push the submodule commit, everyone else gets a parent that points at a commit that
 > exists only on your laptop. This is the single most common submodule mistake.
 
-## Pull a change into the submodule <a name="pull"></a>
+## Pull a change into the submodule (Bonus) <a name="pull"></a>
 
 Now the other direction: someone else changes the sub-repository and you want that change.
 
-**Task 11.** A colleague changes *glossary.md* directly on `main` of `glossary-tool` while you are
-not looking. Run the helper to play their part:
+**Task 11. (Bonus)** A colleague changes *glossary.md* directly on `main` of `glossary-tool` while
+you are not looking. Run the helper to play their part:
 
 ```plaintext
 commit_to_submodule_remote_by_colleague
@@ -267,8 +268,8 @@ commit_to_submodule_remote_by_colleague
 > *glossary.md*, commits and pushes - exactly what a colleague would do from their own machine.
 > The point is what you do next, in Task 12, not how the change got there.
 
-**Task 12.** Back in your terminal, from the **parent** repository, bring that new commit into
-the submodule.
+**Task 12. (Bonus)** Back in your terminal, from the **parent** repository, bring that new commit
+into the submodule.
 
 <details><summary>💡 Hint</summary>
 
@@ -289,7 +290,7 @@ here.
 
 </details>
 
-**Task 13.** Record the new pointer in the parent.
+**Task 13. (Bonus)** Record the new pointer in the parent.
 
 <details><summary>✅ Solution</summary>
 

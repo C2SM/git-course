@@ -1,7 +1,8 @@
 # Exercise 5 - Parallel work with `git stash` and `git worktree`
 
 > [!NOTE]
-> **⏱️ Estimated working time:** 15-20 minutes
+> **⏱️ Estimated working time:** 12-15 minutes for the core tasks, plus 4-6 minutes more if you
+> also do the ones marked **(Bonus)**.
 
 Both commands solve the same everyday problem: you are in the middle of something and need to be
 somewhere else. `git stash` puts your unfinished work aside for a moment. `git worktree` gives
@@ -14,7 +15,7 @@ you a second directory so you never have to put it aside at all.
 
 In this exercise we cover the following:
 - [Stash a change and get it back](#stash)
-- [Stash untracked files too](#untracked)
+- [Stash untracked files too (Bonus)](#untracked)
 - [Work on two branches at once with a worktree](#worktree)
 - [Clean up worktrees](#cleanup)
 
@@ -96,10 +97,10 @@ when you want the same change on several branches.
 
 </details>
 
-## Stash untracked files too <a name="untracked"></a>
+## Stash untracked files too (Bonus) <a name="untracked"></a>
 
-**Task 5.** Create a new file *venue_notes.txt* with some content. Stash your work again, then
-check whether the new file was stashed.
+**Task 5. (Bonus)** Create a new file *venue_notes.txt* with some content. Stash your work again,
+then check whether the new file was stashed.
 
 <details><summary>✅ Solution</summary>
 
@@ -114,7 +115,7 @@ tracks.
 
 </details>
 
-**Task 6.** Get the untracked file stashed as well.
+**Task 6. (Bonus)** Get the untracked file stashed as well.
 
 <details><summary>💡 Hint</summary>
 
@@ -262,8 +263,8 @@ git worktree list
 
 </details>
 
-**Task 13.** If someone *had* deleted the directory by hand, the registration would still be
-there. Which command cleans up such leftovers?
+**Task 13. (Bonus)** If someone *had* deleted the directory by hand, the registration would still
+be there. Which command cleans up such leftovers?
 
 <details><summary>✅ Solution</summary>
 

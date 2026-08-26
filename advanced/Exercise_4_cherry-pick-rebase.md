@@ -1,7 +1,8 @@
 # Exercise 4 - Moving commits with `git cherry-pick` and `git rebase`
 
 > [!NOTE]
-> **⏱️ Estimated working time:** 25-30 minutes
+> **⏱️ Estimated working time:** 22-26 minutes for the core tasks, plus 3-4 minutes more if you
+> also do the ones marked **(Bonus)**.
 
 Both commands take commits that exist in one place and replay them somewhere else.
 `git cherry-pick` moves **one** commit; `git rebase` moves **a whole branch**. Both create new
@@ -109,8 +110,8 @@ git cherry-pick <commit-id-of-the-coffee-break-commit>
 
 </details>
 
-**Task 5.** Compare the commit on `main` with the original on `cherry_feature`. What is the same
-and what is different?
+**Task 5. (Bonus)** Compare the commit on `main` with the original on `cherry_feature`. What is
+the same and what is different?
 
 <details><summary>✅ Solution</summary>
 
@@ -123,7 +124,7 @@ with the same content, not the same commit in two places.
 
 </details>
 
-**Task 6.** Check the schedule files. Did the keynote and the excursion come along?
+**Task 6. (Bonus)** Check the schedule files. Did the keynote and the excursion come along?
 
 <details><summary>✅ Solution</summary>
 

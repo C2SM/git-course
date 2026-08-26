@@ -100,6 +100,10 @@ Commands that are genuinely unguessable, or where a typo would be destructive, a
 in full. Each exercise ends with a short **Check yourself** list so you can confirm you got the
 point.
 
+Some tasks are marked **(Bonus)**. These are worth doing if you have time, but skipping them
+will not leave a gap - later tasks never depend on one you skipped. If a session is running
+short, do the Bonus tasks last, or not at all.
+
 ## Beyond this course
 
 [Expert_Topics.md](../Expert_Topics.md) collects the Git topics these two parts deliberately

@@ -1,7 +1,8 @@
 # Exercise 1 - Examining a repository's history
 
 > [!NOTE]
-> **⏱️ Estimated working time:** 25-30 minutes
+> **⏱️ Estimated working time:** 20-25 minutes for the core tasks, plus 10-15 minutes more if you
+> also do the ones marked **(Bonus)**.
 
 Every repository carries a record of how it got to be the way it is. This exercise is about
 reading that record: which commits exist (`git log`), who last touched a given line
@@ -100,7 +101,7 @@ the difference between merging and rebasing.
 
 </details>
 
-**Task 4.** Find out **who has contributed** to this repository, and how many commits each
+**Task 4. (Bonus)** Find out **who has contributed** to this repository, and how many commits each
 person made.
 
 <details><summary>💡 Hint</summary>
@@ -126,7 +127,7 @@ input, so it silently produces nothing when used inside a script or a pipe.
 
 Shaping decides *how* commits are shown, filtering decides *which* ones.
 
-**Task 5.** Show only the **three most recent** commits.
+**Task 5. (Bonus)** Show only the **three most recent** commits.
 
 <details><summary>✅ Solution</summary>
 
@@ -136,7 +137,8 @@ git log -3
 
 </details>
 
-**Task 6.** Show only commits written by a particular author. Pick a name you saw in Task 4.
+**Task 6.** Show only commits written by a particular author. Run `git log` and pick any name you
+see in the output.
 
 <details><summary>💡 Hint</summary>
 
@@ -152,7 +154,7 @@ git log --oneline --author="Lauber"
 
 </details>
 
-**Task 7.** Show only the commits that changed the file *advanced/helpers.sh*.
+**Task 7. (Bonus)** Show only the commits that changed the file *advanced/helpers.sh*.
 
 <details><summary>💡 Hint</summary>
 
@@ -307,7 +309,7 @@ git diff main difftest
 
 </details>
 
-**Task 14.** Show the same comparison, but restricted to *README.md* only.
+**Task 14. (Bonus)** Show the same comparison, but restricted to *README.md* only.
 
 <details><summary>✅ Solution</summary>
 
@@ -317,8 +319,8 @@ git diff main difftest -- README.md
 
 </details>
 
-**Task 15.** Compare two commits from the repository's own history: the state ten commits ago
-against the state five commits ago.
+**Task 15. (Bonus)** Compare two commits from the repository's own history: the state ten commits
+ago against the state five commits ago.
 
 <details><summary>💡 Hint</summary>
 
@@ -337,7 +339,7 @@ keeps instructions like these working as the repository grows.
 
 </details>
 
-### Making diffs readable
+### Making diffs readable (Bonus)
 
 The raw output is hard to read once a change is more than a few lines. There are two easy ways
 to improve on it.
@@ -397,7 +399,7 @@ git show HEAD~3
 
 </details>
 
-**Task 17.** `git show` also works on things that are not commits. Show the contents of
+**Task 17. (Bonus)** `git show` also works on things that are not commits. Show the contents of
 *README.md* **as it was** five commits ago, without changing anything in your working directory.
 
 <details><summary>💡 Hint</summary>
