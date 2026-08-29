@@ -24,7 +24,7 @@ several hundred commits and many authors.
 > [!TIP]
 > Every task below has a **💡 Hint** and a **✅ Solution** you can unfold. Try the task first
 > by yourself before you make use of those.
-> If you get stuck on the exact syntax, try `git help log` (or `git log -h` for the short version).
+> If the exact syntax is unclear, try `git help log` (or `git log -h` for the short version).
 
 In this exercise we cover the following:
 - [Shaping the log output](#shape)
@@ -45,8 +45,8 @@ backward, `g` and `G` go to the very beginning and the very end, and `/pattern` 
 git log
 ```
 
-That is a lot of screen for very little information. The options below change how each commit
-is presented.
+This produces a large amount of output for very little information. The options below change how
+each commit is presented.
 
 **Task 1.** Get a compact overview with **one line per commit**.
 
@@ -116,7 +116,7 @@ This one is not an option to `git log` but a command of its own, a shortened log
 git shortlog -sn HEAD
 ```
 
-`-s` summarises to a count per author, `-n` sorts by that count.
+`-s` summarizes to a count per author, `-n` sorts by that count.
 
 Naming `HEAD` explicitly is a good habit: without a revision, `git shortlog` reads from standard
 input, so it silently produces nothing when used inside a script or a pipe.
@@ -171,8 +171,8 @@ git log --oneline -- advanced/helpers.sh
 
 </details>
 
-**Task 8.** This is the powerful one. Find every commit that **added or removed** the text
-`Have fun!` anywhere in the repository.
+**Task 8.** This task uses one of the most powerful options covered here. Find every commit that
+**added or removed** the text `Have fun!` anywhere in the repository.
 
 <details><summary>💡 Hint</summary>
 
@@ -194,11 +194,13 @@ commit whose diff contains it, whether or not the number of occurrences changed.
 
 > [!NOTE]
 > `-S` answers a question that is otherwise very hard to answer: *when did this string enter the
-> code, and who put it there?* Remember it exists - it will save you an afternoon one day.
+> code, and who put it there?* Remember that it exists - it can save considerable time during a
+> later investigation.
 
 ## Saving a favorite view as an alias <a name="alias"></a>
 
-Typing `--oneline --graph --decorate --all` gets old quickly. Git lets you name any command.
+Typing `--oneline --graph --decorate --all` repeatedly becomes tedious. Git lets you name any
+command.
 
 ```plaintext
 git config --global alias.lg "log --oneline --graph --decorate --all"
@@ -414,8 +416,8 @@ The syntax is `<commit>:<path>`.
 git show HEAD~5:README.md
 ```
 
-This is very handy: you can read any version of any file without switching branches or touching
-your working directory.
+This is useful: you can read any version of any file without switching branches or modifying your
+working directory.
 
 </details>
 
@@ -431,7 +433,7 @@ You should now be able to answer these without looking anything up:
 
 ## Clean up
 
-You made a branch and a commit in the course repository. Get rid of them:
+You made a branch and a commit in the course repository. Remove them:
 
 ```plaintext
 git switch main

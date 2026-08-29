@@ -290,7 +290,7 @@ git push origin main
 > You may see `git rebase upstream/main` recommended instead of `git merge`. It gives a cleaner
 > history, but rewrites your commits, so a branch you already pushed then needs
 > `git push --force-with-lease`. Use `--force-with-lease`, never a plain `--force`: it refuses to
-> overwrite work somebody else pushed while you were not looking.
+> overwrite work that somebody else pushed in the meantime.
 
 ## 8. Handle a conflict <a name="conflict"></a>
 

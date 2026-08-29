@@ -15,7 +15,7 @@ merging and rebasing on the same starting point so you can see the difference in
 > **Where you work:** `advanced_git/conference_planning`.
 > If you have not created the sandbox yet, follow the [Setup section](README.md#setup) first.
 >
-> This exercise makes a mess on purpose. If you lose the thread at any point, run
+> This exercise deliberately creates a complex history. If you lose track at any point, run
 > `reset_advanced_repo` and start the section again.
 
 > [!TIP]
@@ -90,8 +90,8 @@ git log --oneline --graph --decorate --all
 
 ## Rescue one commit with `git cherry-pick` <a name="cherry"></a>
 
-Suppose the keynote and the excursion turned out to be bad ideas, but extending the coffee break
-was right. You want that one change on `main`, and you want to abandon the rest.
+Assume the keynote and the excursion are later judged unnecessary, but extending the coffee break
+was the right decision. You want that one change on `main`, and you want to abandon the rest.
 
 **Task 4.** Switch to `main` and bring over **only** the coffee break commit.
 

@@ -33,8 +33,8 @@ git status
 
 </details>
 
-Now imagine a colleague asks you to look at something on another branch. You are not ready to
-commit this, but you do not want to throw it away either.
+Assume a colleague now asks you to look at something on another branch. The change is not ready
+to commit, but it should not be discarded either.
 
 **Task 2.** Put the change aside, with a message describing it, and check that your working
 directory is clean afterwards.
@@ -142,8 +142,8 @@ git stash pop
 > Two things worth remembering about stashes:
 > - They are **local only**. A stash cannot be pushed, and it will not appear on any other
 >   machine. Do not use one as a backup.
-> - They are easy to forget. `git stash list` on a repository you have not touched for months is
->   often an unpleasant surprise.
+> - They are easy to forget. `git stash list` on a repository you have not touched for months
+>   often reveals forgotten stashes.
 
 Tidy up before the next section:
 
@@ -160,8 +160,9 @@ git restore .
 
 ## Work on two branches at once with a worktree <a name="worktree"></a>
 
-Stashing works, but it is disruptive: you can only ever be on one branch, and every switch churns
-your whole working directory. If you compile anything, you also throw away the build.
+Stashing works, but it is disruptive: only one branch can be checked out at a time, and every
+switch modifies the entire working directory. Any build artifacts are discarded in the process
+as well.
 
 A **worktree** is a second working directory backed by the *same* repository. Both share one
 `.git`, so branches and commits are common to them, but each has its own checked-out files.

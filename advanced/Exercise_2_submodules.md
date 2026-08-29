@@ -19,8 +19,8 @@ move changes in both directions.
 > [!NOTE]
 > Everything in this exercise stays on your machine. A submodule needs a second repository to
 > point at, so the helper script builds a small local one, *glossary-tool*, that plays the part
-> of an external project you do not maintain yourself - the kind of thing a real submodule
-> usually points at. Exercise 8 covers the real equivalent, working with a fork on GitHub.
+> of an external project you do not maintain yourself, similar to what a real submodule usually
+> points at. Exercise 8 covers the real equivalent, working with a fork on GitHub.
 
 In this exercise we cover the following:
 - [Add a submodule](#add)
@@ -188,9 +188,9 @@ commit it.
 
 <details><summary>💡 Hint</summary>
 
-`git switch main` is a no-op here, since `git submodule add` already left you on `main`. Get in
-the habit anyway: it is not a no-op after a plain `git submodule update`, which always detaches
-HEAD, as you will see later in this exercise.
+`git switch main` is a no-op here, since `git submodule add` already left you on `main`. Follow
+this practice regardless: it is not a no-op after a plain `git submodule update`, which always
+detaches HEAD, as you will see later in this exercise.
 
 </details>
 
@@ -256,8 +256,8 @@ The ID reported by `git submodule status` is now the commit you just pushed.
 
 Now the other direction: someone else changes the sub-repository and you want that change.
 
-**Task 11. (Bonus)** A colleague changes *glossary.md* directly on `main` of `glossary-tool` while
-you are not looking. Run the helper to play their part:
+**Task 11. (Bonus)** A colleague changes *glossary.md* directly on `main` of `glossary-tool`
+without your knowledge. Run the helper to simulate their action:
 
 ```plaintext
 commit_to_submodule_remote_by_colleague
@@ -303,7 +303,7 @@ git commit -m "Update c2sm-info to the latest commit"
 
 ## What a fresh clone looks like <a name="clone"></a>
 
-This is the part that catches people out, so it is worth seeing once.
+This behavior is a frequent source of confusion, so it is worth observing directly.
 
 **Task 14.** Clone your *conference_submodule* repository into a new directory and look inside
 the submodule folder.

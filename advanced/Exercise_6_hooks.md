@@ -144,7 +144,8 @@ git commit -m "Add conference dinner"
 
 </details>
 
-**Task 7.** Sometimes you genuinely need to commit anyway. Find the option that skips hooks.
+**Task 7.** In some cases, committing without running the hook is necessary. Find the option that
+skips hooks.
 
 <details><summary>💡 Hint</summary>
 
@@ -255,7 +256,7 @@ Then add `.git/hooks/pre-commit-nonempty` to the dispatcher and `chmod +x` it.
 
 ## Sharing hooks with your team <a name="sharing"></a>
 
-Here is the catch that makes all of the above much less useful than it looks.
+The following limitation significantly reduces the usefulness of the setup described above.
 
 **Task 11.** Run `git status` in the repository. Do your hooks show up? Would a colleague who
 clones this repository get them?

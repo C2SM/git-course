@@ -116,8 +116,8 @@ what you were trying to avoid.
 
 ## See what actually gets committed <a name="pointer"></a>
 
-**Task 5.** Create a file that pretends to be model output. Make it big enough to be obviously
-not text.
+**Task 5.** Create a file that simulates model output. Make it large enough to be clearly
+non-text data.
 
 <details><summary>💡 Hint</summary>
 
@@ -145,8 +145,8 @@ git commit -m "Add model output"
 
 </details>
 
-**Task 7.** Here is the interesting part. Look at what Git actually stored for that file in the
-commit - not what is in your working directory.
+**Task 7.** Examine what Git actually stored for that file in the commit, as opposed to what is
+in your working directory.
 
 <details><summary>💡 Hint</summary>
 
@@ -224,7 +224,7 @@ du -sh .git/lfs
 
 ## Decide whether you need LFS at all <a name="decide"></a>
 
-LFS is not free, and reaching for it reflexively is a mistake.
+LFS is not free, and adopting it without careful consideration is a mistake.
 
 - **Quotas cost money.** GitHub gives 1 GB of LFS storage and 1 GB of bandwidth per month for
   free; beyond that somebody pays. Bandwidth is consumed by every clone and every CI run.

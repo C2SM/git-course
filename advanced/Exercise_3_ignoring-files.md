@@ -152,7 +152,7 @@ un-ignore the directory first.
 ## Find out why a file is ignored <a name="why"></a>
 
 Once a `.gitignore` has a dozen patterns, and especially once there are `.gitignore` files in
-several directories, "why on earth is this file not showing up" becomes a real question.
+several directories, why a particular file is not showing up becomes a genuine question.
 
 **Task 6.** Ask Git which pattern is responsible for ignoring *schedules.tar.gz*.
 
@@ -176,7 +176,7 @@ When a file is being ignored and you cannot work out why, this answers it in one
 
 ## The already-tracked trap <a name="trap"></a>
 
-This is the behavior that confuses nearly everyone at least once.
+This behavior is a frequent source of confusion.
 
 **Task 7.** Create a file *notes.txt*, commit it, and *then* add `notes.txt` to *.gitignore*.
 Now modify *notes.txt* and run `git status`. What happens, and why?
@@ -223,7 +223,7 @@ git commit -m "Stop tracking notes.txt"
 git status
 ```
 
-`git status` is clean, and *notes.txt* is quietly ignored.
+`git status` is clean, and *notes.txt* is now ignored as expected.
 
 </details>
 
