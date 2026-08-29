@@ -22,7 +22,8 @@ Michael Jähn, Mikael Stellio, Alitzel Macías Infante
   - Who has already worked with web interfaces such as GitHub or GitLab?
 - Set expectations:
   - Hands-on day, roughly half the time is exercises
-  - We walk around to help - nobody should sit stuck in silence
+  - We walk around to help - encourage participants to ask for assistance rather than continue
+    struggling alone
 -->
 
 ---
@@ -95,7 +96,7 @@ You only need the **Git basics** for this course: `add`, `commit`, `push`, `pull
 - Watch the clock against this slide during the day
   - Usual failure mode: too long on the first two topics, then rushing hooks and LFS
   - If running late by the coffee break: shorten the theory for stash/worktree, not an exercise
-- Exercise 8 needs GitHub accounts and pairs - flag now that they should sort out an account over lunch if they don't have one and find an exercise partner
+- Exercise 8 requires GitHub accounts and pairs - mention now that participants should set up an account during lunch if they do not have one, and find an exercise partner
 -->
 
 ---
@@ -106,10 +107,11 @@ You only need the **Git basics** for this course: `add`, `commit`, `push`, `pull
 # Your Git Toolbox
 
 <!--
-- Framing for this half: everything here is a tool you reach for occasionally, not daily
-- Goal is not to memorise the flags
-  - Goal is to know the tool exists and what problem it solves
-  - So months from now: "there was something for this" and look it up
+- Framing for this half: these are tools used occasionally, not daily
+- Goal is not to memorize the flags
+  - Goal is to know that the tool exists and what problem it solves
+  - Aim: months from now, participants recall that a tool exists for this and look up the
+    details then
 -->
 
 ---
@@ -122,7 +124,7 @@ You only need the **Git basics** for this course: `add`, `commit`, `push`, `pull
 - Only `git push` and `git fetch` talk to the server
 
 <!--
-- Short recap, two minutes at most - but don't skip it, the rest of Part 1 assumes people can place a command in this picture
+- Short recap, two minutes at most - but do not skip it, the rest of Part 1 assumes people can place a command in this picture
 - Walk the diagram left to right once: working directory → staging area → local repository → remote
 - Point worth repeating: Git is not a client to a server
   - Commits are local and free
@@ -168,14 +170,14 @@ You only need the **Git basics** for this course: `add`, `commit`, `push`, `pull
 Each takes many options. Exercise 1 explores the ones worth remembering.
 
 <!--
-- Motivate with the situation everybody recognises: open a file, find a line that makes no sense, want to know who wrote it and why
+- Motivate with the situation everybody recognizes: open a file, find a line that makes no sense, want to know who wrote it and why
 - The four commands answer four different questions - say them as questions:
   - log: what happened?
   - blame: who last touched this line?
   - diff: what is different between these two points?
   - show: what exactly did this one commit do?
-- On blame, get ahead of the name: it is for understanding, not for finding someone to blame
-  - The commit message it points you to is usually the real prize
+- On blame, address the name directly: it is for understanding context, not for assigning blame
+  - The commit message it points to is usually more valuable than the blame output itself
 -->
 
 ---
@@ -204,14 +206,14 @@ Found a combination you like? Save it: `git config --global alias.lg "log --onel
 </div>
 
 <!--
-- Do not read the table out. Pick the two rows that earn their keep, let the exercise cover the rest
+- Do not read the table aloud. Present the two rows that are most useful, and let the exercise cover the rest
 - Two worth demonstrating live:
-  - `--graph --decorate --all` - cheapest way to see the branch structure without any GUI
+  - `--graph --decorate --all` - the simplest way to see the branch structure without a GUI
   - `-S`, the "pickaxe" - finds the commit that introduced or removed a string
-    - How you track down when a magic constant or a stray debug line appeared
-    - Almost nobody knows about it
-- Mention the `--` before a path: separates paths from branch names (matters when a file and a branch share a name)
-- The alias tip will be part of the coming exercise, no need to do now
+    - Useful for finding when a magic constant or a stray debug line was introduced
+    - Most participants are unfamiliar with this option
+- Mention the `--` before a path: separates paths from branch names (relevant when a file and a branch share a name)
+- The alias tip is part of the coming exercise; no need to demonstrate it now
 -->
 
 ---
@@ -257,7 +259,7 @@ Hard to read in a terminal? Use `git difftool --tool-help` to see what your syst
 <!--
 - Single idea: `git diff` always compares two points, the only thing you ever change is which two
 - First two lines are what people get wrong:
-  - Plain `git diff` doesn't show what you already staged → "git diff shows nothing" is a common confusion right after `git add`
+  - Plain `git diff` does not show what you already staged → "git diff shows nothing" is a common confusion right after `git add`
   - `--staged` is the answer - exactly the preview of what `git commit` will record
 - Refer back to the recap diagram: each variant is an arrow between two boxes
 -->
@@ -290,7 +292,7 @@ All exercises: <https://github.com/C2SM/git-course/tree/main/advanced>
 <!--
 - First exercise - spend a moment on logistics:
   - Where the exercise files are
-  - Call one of us over rather than get stuck
+  - Call one of us over rather than continuing unassisted
 - Around 15 minutes. Walk the room
 - Common stumbling block: quoting in `-S` and `--author`, especially on Windows shells
 -->
@@ -312,9 +314,10 @@ All exercises: <https://github.com/C2SM/git-course/tree/main/advanced>
 
 <!--
 - Start with the concrete case, not the abstraction: a climate model pulling in a shared physics package or an I/O library from another group
-  - Want a specific, reproducible version - don't want to copy its source into your repository
-- Say plainly: we teach submodules because that's what C2SM code uses
-  - If they work with ICON or similar, they'll meet submodules whether they like them or not
+  - Want a specific, reproducible version - do not want to copy its source into your repository
+- State plainly: submodules are taught because that is what C2SM code uses
+  - If participants work with ICON or similar models, they will encounter submodules regardless
+    of preference
 - Subtrees get one sentence only: they exist, they copy content in instead of pointing at it, not covered today
 -->
 
@@ -330,9 +333,10 @@ The parent repository records **one exact commit** of the submodule, not "the la
 - Key slide - slow down here
 - Parent stores only a path, URL and commit hash (in `.gitmodules` + the recorded hash), not the submodule's files
   - Cloning the parent gives an empty directory until requested
-  - The pointer doesn't move on its own - only an explicit commit in the parent advances it
+  - The pointer does not move on its own - only an explicit commit in the parent advances it
   - Advancing it shows up in the parent's diff as a one-line hash change
-- Ask the room: anyone seen a diff that's just two hashes? That's this
+- Ask whether anyone has seen a diff consisting of only two hashes; this is the mechanism
+  behind it
 -->
 
 ---
@@ -371,19 +375,19 @@ The parent repository records **one exact commit** of the submodule, not "the la
 
 <div class="warning">
 
-A plain `git clone` gives you **empty** submodule directories. This surprises everybody once.
+A plain `git clone` gives you **empty** submodule directories, which is a common source of confusion.
 
 </div>
 
 <!--
-- Four commands - the middle two are most important ones
+- Four commands; the middle two are the most important
 - `--recurse-submodules` on clone is the habit worth forming
-- `update --init` is the rescue command for when they forgot
-  - `--init --recursive` handles submodules inside submodules (does happen in model code)
-- Be explicit about the warning box: Taken the ICON example, the build fails with a confusing "file not found" error, not with anything mentioning submodules
+- `update --init` is the command to run if this was forgotten
+  - `--init --recursive` handles submodules nested inside submodules (this occurs in model code)
+- Be explicit about the warning box: using the ICON example, the build fails with a confusing "file not found" error, with no indication that submodules are the cause
 - Also mention: `git status` inside a submodule shows a detached HEAD
-  - Expected, not broken - the parent checked out a commit, not a branch
-  - To make changes there, they have to check out a branch first
+  - Expected, not an error - the parent checked out a commit, not a branch
+  - To make changes there, a branch must be checked out first
 -->
 
 ---
@@ -419,7 +423,7 @@ section {font-size: 24px;}
 
 <div class="note">
 
-Some C2SM models and tools use submodules. Knowing the two or three key commands takes most of the pain away.
+Some C2SM models and tools use submodules. Knowing the two or three key commands resolves most of the difficulty.
 
 </div>
 
@@ -456,7 +460,7 @@ Everything stays local - the helper script builds a small stand-in repository to
 </div>
 
 <!--
-- Emphasise this is fully local: no GitHub account, no network
+- Emphasize this is fully local: no GitHub account, no network
   - The helper script creates a small repository on disk to act as the submodule
 - About 15 minutes
 - Watch for while walking around:
@@ -469,8 +473,8 @@ Everything stays local - the helper script builds a small stand-in repository to
 # The `.gitignore` file
 
 - Tell Git to leave alone what should never be committed
-- Build products, binaries, editor droppings, secrets, large data
-- Patterns live in a `.gitignore` file - commit it, so the everyone shares the same rules
+- Build products, binaries, editor backup files, secrets, large data
+- Patterns live in a `.gitignore` file - commit it, so that everyone shares the same rules
 
 ```
 *~
@@ -484,7 +488,7 @@ build/
 - `git check-ignore -v <file>` tells you **which line** ignored a file
 
 <!--
-- Frame: ignoring build artefacts and editor files keeps diffs and `git status` readable for collaborators
+- Frame: ignoring build artifacts and editor files keeps diffs and `git status` readable for collaborators
 - Walk the example: the trailing slash on `build/` restricts the pattern to directories; `!` re-includes one file
 - `check-ignore -v` pinpoints the exact rule and line responsible - faster than guessing
 - Beyond the slide: github.com/github/gitignore offers per-language templates; `core.excludesFile` is the right place for personal editor settings
@@ -504,8 +508,8 @@ build/
 </div>
 
 <!--
-- Single most common .gitignore misunderstanding - make it land
-- Scenario: commit a large output file, realise the mistake, add it to .gitignore, baffled that Git keeps reporting changes
+- Single most common .gitignore misunderstanding - ensure this point is clearly understood
+- Scenario: commit a large output file, realize the mistake, add it to .gitignore, confused that Git keeps reporting changes
   - Ignore rules are only consulted for files Git does not already track
 - `git rm --cached <file>` untracks it while leaving the file on disk
   - Ignore rule then takes effect, and the removal itself is a commit
@@ -525,18 +529,18 @@ build/
 
 <div class="note">
 
-**Note:** `.gitkeep` is a community convention, not a Git feature. The name has no special meaning - any file would do.
+**Note:** `.gitkeep` is a community convention, not a Git feature. The name has no special meaning - any filename would suffice.
 
 </div>
 
 <!--
 - Quick slide, a minute or two
-- Situation: a program expects `output/` or `logs/` to exist and crashes if it doesn't, but Git won't record an empty directory
+- Situation: a program expects `output/` or `logs/` to exist and crashes if it does not, but Git will not record an empty directory
 - Stress: `.gitkeep` is pure convention
-  - Git has no idea what the name means
-  - `.gitignore` is a real feature; `.gitkeep` is just a file people agreed to name that way
+  - Git assigns no special meaning to the name
+  - `.gitignore` is a real feature; `.gitkeep` is simply a filename convention adopted by developers
   - Some projects use an empty `README` instead
-- Neat combination worth showing: `output/*` plus `!output/.gitkeep` - ignore contents but keep the directory
+- Useful combination worth showing: `output/*` plus `!output/.gitkeep` - ignore contents but keep the directory
 -->
 
 ---
@@ -560,13 +564,13 @@ table {font-size: 20px;}
 <div class="note">
 
 **Where you work:** `advanced_git/conference_planning`
-Stuck? `reset_advanced_repo` gives you a clean start at any time.
+If you run into trouble, `reset_advanced_repo` gives you a clean start at any time.
 
 </div>
 
 <!--
 - Point out `reset_advanced_repo` clearly - works for every remaining exercise, not just this one
-  - Removes the fear of experimenting
+  - Removes hesitation about experimenting
 - About 15 minutes
 - Last exercise before the coffee break - fine if the room finishes early, fine to carry on into the break if still working
 -->
@@ -579,9 +583,9 @@ Stuck? `reset_advanced_repo` gives you a clean start at any time.
 # ☕
 
 <!--
-- State the exact time we resume and stick to it
+- State the exact time we resume and adhere to it
 - Good moment to check the clock against the schedule slide, decide whether the afternoon needs trimming
-- Also a good moment to catch anyone who's fallen behind and reset them with `reset_advanced_repo` before the next block
+- Also a good moment to catch anyone who has fallen behind and reset them with `reset_advanced_repo` before the next block
 -->
 
 ---
@@ -605,7 +609,7 @@ Do not merge the branch you picked from later: the change would arrive twice.
 - Key insight: a commit's identity is its hash, which covers content *and* parent and metadata
   - Same change, different parent, different hash
   - Git sees two unrelated commits, not one change in two places
-- That's exactly why the warning matters: merge later and the change arrives a second time, usually as a conflict rather than a clean duplicate
+- That is exactly why the warning matters: merge later and the change arrives a second time, usually as a conflict rather than a clean duplicate
 - Mention: a cherry-pick can conflict, `git cherry-pick --abort` backs out cleanly
 - Takeaway: cherry-pick is for exceptions - a workflow that needs it routinely usually wants a different branching model
 -->
@@ -654,7 +658,7 @@ table {font-size: 20px;}
 <div class="note">
 
 **Where you work:** `advanced_git/conference_planning`
-Stuck? `reset_advanced_repo` gives you a clean start at any time.
+If you run into trouble, `reset_advanced_repo` gives you a clean start at any time.
 
 </div>
 
@@ -662,7 +666,7 @@ Stuck? `reset_advanced_repo` gives you a clean start at any time.
 - Around 20 minutes - most conceptually demanding exercise of the morning, budget accordingly, expect more questions
 - Encourage running `git log --oneline --graph --all` before and after each step
   - Seeing the hashes change is what makes rebase concrete
-- Reassure: a conflict during the exercise is not a mistake, it's part of the exercise
+- Reassure: a conflict during the exercise is not a mistake, it is part of the exercise
   - `--abort` and `reset_advanced_repo` are both safety nets
 -->
 
@@ -678,14 +682,14 @@ Stuck? `reset_advanced_repo` gives you a clean start at any time.
 - Stashes are **local only** - they never reach a remote
 
 <!--
-- Situation everybody's been in: half-finished work in the tree, urgent request to look at something on another branch
+- Situation everybody has experienced: half-finished work in the working tree, urgent request to look at something on another branch
 - Stash puts changes aside, gives a clean working directory
   - `pop` brings them back and drops the entry; `apply` brings them back and keeps it
 - Practical warnings worth giving:
   - Always use `-m` with a message - a list of "WIP on main" entries three weeks later is useless
   - `-u` for untracked files - a brand new file is not stashed by default and people lose track of that
   - Stashes are local and invisible to everyone else - also easy to forget, a stash from six months ago probably no longer applies cleanly
-- Honest advice: for anything you care about, a commit on a scratch branch is safer than a stash
+- Practical advice: for anything you care about, a commit on a scratch branch is safer than a stash
   - Stash is for minutes, not for days
 -->
 
@@ -702,7 +706,7 @@ Stuck? `reset_advanced_repo` gives you a clean start at any time.
 `git worktree add ../conference_planning-feature feature`
 
 <!--
-- Lands well with a modelling audience - make the case concretely: switching branches in a compiled model means a full rebuild
+- This point is particularly relevant for a modeling audience: switching branches in a compiled model means a full rebuild
   - Worktree: two directories, each on its own branch and build, sharing one object database and one set of remotes
 - Much cheaper than a second clone: the history is stored once
 - Rules worth stating:
@@ -778,7 +782,7 @@ format, block commits of secrets, run fast tests before a push.
 <!--
 - Walk the timeline once, then narrow to the two that matter in practice: `pre-commit` and `pre-push`
 - Design rule is speed
-  - `pre-commit` runs on every single commit - must finish in well under a second or people start using `--no-verify` reflexively
+  - `pre-commit` runs on every single commit - must finish in well under a second or people start using `--no-verify` as a matter of habit
   - Slow checks belong in `pre-push` or in CI
 - Live example: this course repository has a `pre-commit` hook in `.githooks/` - showing a real one beats describing it
 - Good realistic uses: block a commit containing an API key, keep Jupyter notebooks free of output cells, enforce a commit message convention
@@ -797,7 +801,7 @@ table {font-size: 20px;}
 | Command | What it does |
 | --- | --- |
 | `.git/hooks/pre-commit` | hook file, named after the event, no extension |
-| `chmod +x .git/hooks/pre-commit` | make it executable - required, or it's ignored |
+| `chmod +x .git/hooks/pre-commit` | make it executable - required, or the hook is ignored |
 | `git commit --no-verify` | skip hooks for this one commit |
 | `git config core.hooksPath <folder>` | use a committed, shared hooks folder instead |
 
@@ -874,7 +878,7 @@ LFS is not free: hosts put quotas on storage and bandwidth, and rewriting LFS hi
 - Take the warning box seriously with this audience:
   - GitHub's free LFS quota is small, bandwidth counts too
   - For scientific data, an archive with a DOI is usually the better answer than a Git repository
-  - LFS suits reference figures, test fixtures, small binary assets that genuinely belong next to the code
+  - LFS suits reference figures, test fixtures, small binary assets that are appropriately kept alongside the code
 -->
 
 ---
@@ -904,7 +908,7 @@ Entirely local - no remote and no LFS quota needed.
 <!--
 - About 15 minutes, can be shortened if behind schedule
 - Fully local - no quota consumed, no account needed
-- Satisfying moment: `cat` on a tracked file inside a bare clone shows the three-line pointer instead of the content
+- Notable demonstration: `cat` on a tracked file inside a bare clone shows the three-line pointer instead of the content
   - Point people towards that if they finish early
 - Closes Part 1 - before moving on, ask whether anything from the morning needs revisiting
 -->
@@ -917,7 +921,7 @@ Entirely local - no remote and no LFS quota needed.
 # 🍽️
 
 <!--
-- State the exact time we resume and stick to it
+- State the exact time we resume and adhere to it
 - Good moment to check the clock against the schedule slide, decide whether the afternoon needs trimming
 -->
 
@@ -929,7 +933,7 @@ Entirely local - no remote and no LFS quota needed.
 # Working Together on GitHub
 
 <!--
-- Change of gear: Part 1 was individual tools, Part 2 is one continuous story about a group sharing a repository
+- Transition point: Part 1 covered individual tools, Part 2 is one continuous narrative about a group sharing a repository
 - Set up the arc: issue → fork → branch → pull request → automated checks → review → merge → keeping the fork in sync
   - Follow that path on a real C2SM repository, then Exercise 8
 - Worth saying up front: no new Git commands here - everything is a convention built on what they already know
@@ -966,7 +970,7 @@ The Git commands you already know do not change. What follows is a convention la
 - Traceability is the one this audience underrates
   - Research code: "why is this coefficient 0.7?" arrives years later, often from a reviewer
   - A pull request thread answers it; a commit message rarely does
-- Nice part: one object (the PR) solves all three at once
+- Notably, one object (the PR) addresses all three at once
 - Repeat the note: nothing they learned this morning becomes obsolete
 -->
 
@@ -992,7 +996,7 @@ workflow on <https://github.com/C2SM/c2sm-git-example>.
 
 <!--
 - Using a real repository matters - not a toy example, a site they may well have used already
-- If the room doesn't know it: open the site briefly - many of them are the target audience for this documentation
+- If the room does not know it: open the site briefly - many of them are the target audience for this documentation
 - Make the invitation explicit: if they spot something outdated/missing, this workflow is exactly how they fix it
 - Preview website is the feature that makes contribution comfortable - foreshadow it here, return to it on the automated-checks slide
 -->
@@ -1013,7 +1017,7 @@ A good issue is reproducible: what you did, what you expected, what happened ins
 
 <!--
 - Argument for issues: cost - ten minutes of discussion beforehand is much cheaper than a day of work followed by "actually, we want this differently"
-- An issue is also fine as a question or a proposal - doesn't have to be a bug
+- An issue is also fine as a question or a proposal - does not have to be a bug
 - Reproducibility note = the difference between an issue someone can act on and one that sits untouched for a year
   - What you did, what you expected, what happened instead, enough context to reproduce it
 -->
@@ -1059,12 +1063,12 @@ A good issue is reproducible: what you did, what you expected, what happened ins
   - Nothing is copied when you open one, can keep pushing to the branch afterwards
 - Two pieces of advice worth more than the mechanics:
   - Description is the part that survives - diff shows what changed, only the description explains why
-    - Six months later that's the only record, and what someone reads when deciding whether a change can be reverted
+    - Six months later that is the only record, and what someone reads when deciding whether a change can be reverted
   - `Fixes #12` keyword = practical detail
     - GitHub links the PR to the issue immediately, closes the issue on merge
     - Backlog stays honest without anyone tidying it
-  - Size genuinely determines review quality
-    - Be blunt about 200 vs. 2000 lines - everyone recognises skimming a huge diff and approving out of politeness
+  - Size significantly determines review quality
+    - State this directly: everyone recognizes skimming a huge diff and approving out of politeness
 - Drafts are underused: open one on day one, reviewers can steer the approach before the work is finished
 -->
 
@@ -1083,7 +1087,7 @@ A good issue is reproducible: what you did, what you expected, what happened ins
 
 <div class="note">
 
-Reviewers can look at the rendered page, not just the diff. This is very convenient for websites/documentation.
+Reviewers can look at the rendered page, not just the diff. This is particularly useful for websites and documentation.
 
 </div>
 
@@ -1094,7 +1098,7 @@ Reviewers can look at the rendered page, not just the diff. This is very conveni
 - Preview deployment: worth showing live if the network cooperates
   - Reviewing a documentation change as rendered pages vs. a Markdown diff is a completely different experience
   - Why non-programmers contribute to that repository comfortably
-- Connect back to hooks: same idea of automated checks, but running on the server where they can't be skipped with `--no-verify`
+- Connect back to hooks: same idea of automated checks, but running on the server where they cannot be skipped with `--no-verify`
   - Hooks = fast local convenience, CI = the actual guarantee
 - Tie-in worth mentioning: these very slides are built by a GitHub Actions workflow in this repository
 -->
@@ -1169,7 +1173,7 @@ img { max-height: 520px; }
 - Squash is the common default: a branch's twelve commits, half "fix typo", rarely worth keeping in the main history
 - Deleting the branch afterwards is safe, people hesitate over it
   - Commits are in `main`, the PR page preserves everything including the branch, which GitHub can restore
-- Sync half is where people actually get stuck
+- Sync half is where people most often have difficulty
   - After the merge, their fork's `main` is behind
   - Either the "Sync fork" button, or locally: fetch from `upstream`, merge/rebase into `main`, push to `origin`
 - Recommend starting every new piece of work from a freshly synced `main` - avoids most conflicts before they exist
@@ -1223,7 +1227,7 @@ While C2SM works mostly on `github.com`, many self-hosted GitLab servers are als
 <!--
 - Do the whole cycle live: issue → fork/branch → small edit → commit → PR referencing the issue → checks run → preview deployment → review → merge → delete branch → sync fork
 - Have the repository and a browser already open and logged in
-- Narrate what you're clicking, keep browser zoom high enough to read from the back
+- Narrate what you are clicking, keep browser zoom high enough to read from the back
 - Checks take a couple of minutes - fill that time with questions rather than watching a spinner
 - If the network fails: fall back to describing the PR lifecycle diagram from the earlier slide, go straight to the exercise
 -->
@@ -1256,13 +1260,13 @@ your fork anywhere outside `advanced_git`.
 You will review each other's pull requests, so **work in pairs**.
 
 <!--
-- Organise pairs before explaining anything else - make sure nobody is left without a partner
+- Organize pairs before explaining anything else - make sure nobody is left without a partner
   - Anyone lacking a GitHub account needs one now
 - About 30 minutes - exercise most likely to overrun
 - Two logistics points to state clearly:
   - Clone the fork somewhere outside `advanced_git` - avoids colliding with the morning's practice repositories
-  - They'll need to authenticate when pushing - sort out SSH key or token now if missing
-- Protect the review half - it's what people skip when time runs short
+  - They will need to authenticate when pushing - set up an SSH key or token now if missing
+- Protect the review half - it is what people skip when time runs short
   - Leaving a real comment on a colleague's PR is the whole point of pairing
 -->
 
@@ -1315,12 +1319,12 @@ You will review each other's pull requests, so **work in pairs**.
 
 <!--
 - Do not go through the list
-  - We taught the command line because it's what exists everywhere, and what error messages/docs assume
+  - We taught the command line because it is what exists everywhere, and what error messages/docs assume
   - A graphical tool day to day is entirely fine once the concepts are clear
-- Pick two or three favourites, say why in one sentence each - honest personal recommendations beat a complete catalogue
+- Pick two or three favorites, say why in one sentence each - honest personal recommendations beat a complete catalog
 - Two worth singling out for this audience:
   - GitLens in VS Code - blame info inline as you read code, the morning's `git blame` without the terminal
-  - `delta` - makes terminal diffs genuinely readable, small change with a large daily payoff
+  - `delta` - makes terminal diffs much more readable, a small change with a large daily benefit
 - Slide is a reference for later, not something to work through now
 -->
 
@@ -1330,7 +1334,7 @@ You will review each other's pull requests, so **work in pairs**.
 
 <div class="compact-lines">
 
-- The Git book, free and genuinely good: <https://git-scm.com/book>
+- The Git book, free and thorough: <https://git-scm.com/book>
 - Git reference: <https://git-scm.com/docs>
 - GitHub documentation: <https://docs.github.com>
 - GitHub cheat sheet: <https://education.github.com/git-cheat-sheet-education.pdf>
@@ -1347,7 +1351,7 @@ Language models are often useful for Git because the documentation is so good. T
 
 <!--
 - Pro Git is free and thorough - chapters 1-3 cover the beginner course, chapter 7 covers most of this morning
-- dangitgit.com is organised by situation rather than command - useful when something has gone wrong
+- dangitgit.com is organized by situation rather than command - useful when something has gone wrong
 - Take the warning box seriously: LLMs are strong on Git but confidently invent flags - check `git help` before running anything unfamiliar, especially `--force`, `reset --hard`, `clean -fd`
 - Reassurance: almost anything committed can be recovered, often via `git reflog` - what was never committed cannot
 -->
@@ -1369,7 +1373,7 @@ Language models are often useful for Git because the documentation is so good. T
 </div>
 
 <!--
-- Do not present this slide - it's there so the deck stands on its own as a document, and sources are properly credited
+- Do not present this slide - it is there so the deck stands on its own as a document, and sources are properly credited
 - Skip past it in the room, or use it as a two-second bridge to the closing slide
 -->
 
