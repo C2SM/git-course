@@ -12,9 +12,11 @@ In this exercise you add a submodule, watch how Git keeps the two repositories s
 move changes in both directions.
 
 > [!IMPORTANT]
-> **Where you work:** `advanced_git/conference_submodule`.
-> This exercise needs the *conference_planning* sandbox. If you have not created it yet, follow
-> the [Setup section](README.md#setup) first.
+> **Where you work:** `advanced_git/conference_submodule`, a copy of the sandbox you make in the
+> first task below. This has nothing to do with the *git-course* repository you cloned: the
+> sandbox lives in `advanced_git/`, a **separate** directory next to *git-course*. See
+> [Where each exercise happens](README.md#where-each-exercise-happens) for the full map.
+> If you have not created the sandbox yet, follow the [Setup section](README.md#setup) first.
 
 > [!NOTE]
 > Everything in this exercise stays on your machine. A submodule needs a second repository to
@@ -31,13 +33,28 @@ In this exercise we cover the following:
 
 ## Add a submodule <a name="add"></a>
 
-We work on a copy so the sandbox stays usable for the later exercises. Go to the folder that
-*contains* *conference_planning* (so you are not inside a repository). First create the local
-stand-in repository the submodule will point at, then copy the sandbox:
+The sandbox is the repository `advanced_git/conference_planning`. We work on a **copy** of it, so
+that the original stays usable for the later exercises. Three steps get you set up.
+
+First, move to `advanced_git/`, the folder that *contains* the sandbox, so that you are not inside
+any repository:
 
 ```plaintext
 cd ~/<path>/advanced_git
+```
+
+Second, create the repository the submodule will point at. The course helper
+`init_submodule_remote` builds a small one called *glossary-tool*, at
+`advanced_git/glossary-tool.git`:
+
+```plaintext
 init_submodule_remote
+```
+
+Third, copy the sandbox to *conference_submodule* and move into it. That copy is the parent
+repository you work in for the rest of this exercise:
+
+```plaintext
 cp -r conference_planning conference_submodule
 cd conference_submodule
 ```
@@ -46,7 +63,7 @@ cd conference_submodule
 > Modern Git refuses, by default, to let a submodule point at a plain filesystem path - a
 > protection against malicious repositories that try to make you clone something local and
 > sensitive. Real submodules point at `https://` or `git@` URLs, where this never comes up; ours
-> points at a path on disk, so allow it once:
+> points at a path on disk, so allow it once. The last section of this exercise undoes it again:
 > ```plaintext
 > git config --global protocol.file.allow always
 > ```
@@ -354,6 +371,13 @@ Clean up the test clone when you are done:
 ```plaintext
 cd ..
 rm -rf clone_test
+```
+
+Finally, undo the setting from the beginning of the exercise. It was only needed because our
+submodule points at a path on disk, which real ones do not:
+
+```plaintext
+git config --global --unset protocol.file.allow
 ```
 
 ## Check yourself

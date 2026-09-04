@@ -130,13 +130,15 @@ git stash push -u -m "Work in progress including notes"
 ls
 ```
 
-Now it is gone too. Restore everything:
+Now it is gone too.
+
+</details>
+
+Bring the file back before you move on:
 
 ```plaintext
 git stash pop
 ```
-
-</details>
 
 > [!NOTE]
 > Two things worth remembering about stashes:

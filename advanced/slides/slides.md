@@ -291,7 +291,9 @@ All exercises: <https://github.com/C2SM/git-course/tree/main/advanced>
 
 <!--
 - First exercise - spend a moment on logistics:
-  - Where the exercise files are
+  - Open `advanced/README.md` on screen and walk through it: the Setup section, and the
+    "Where each exercise happens" map showing which directory each exercise uses
+  - Point out that `advanced_git/` is created next to `git-course`, never inside it
   - Call one of us over rather than continuing unassisted
 - Around 15 minutes. Walk the room
 - Common stumbling block: quoting in `-S` and `--author`, especially on Windows shells

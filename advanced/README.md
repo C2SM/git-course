@@ -19,8 +19,10 @@ install Git and the other tools.
 
 ## Setup <a name="setup"></a>
 
-Most exercises use a small sandbox repository about planning a conference. A helper script
-creates it for you.
+Most exercises use a **sandbox**: a small throwaway repository, created on your own machine,
+that exists only for this course. Ours is about planning a conference. It has a bit of history to
+work with, nothing in it matters, and you can destroy and recreate it at any time. A helper
+script creates it for you.
 
 First, clone the course repository if you have not already:
 
