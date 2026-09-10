@@ -14,7 +14,7 @@ template, and Actions that check every pull request.
 
 > [!IMPORTANT]
 > **Where you work:** in your browser, and in a clone of **your fork** placed anywhere *outside*
-> `advanced_git` - for example next to the *git-course* directory. Do **not** put it inside
+> `beyond_git` - for example next to the *git-course* directory. Do **not** put it inside
 > another repository.
 
 > [!NOTE]

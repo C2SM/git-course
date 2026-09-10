@@ -209,7 +209,7 @@ commit_to_remote_by_third_party() {
     cd conference_planning_remote_tmp
     git checkout updated_schedules
     cp ../conference_planning/schedule_day1.txt .
-    sed '3s/.*/09:00-11:00: Workshop Git for advanced/' schedule_day1.txt > schedule_day1_tmp.txt
+    sed '3s/.*/09:00-11:00: Workshop Git for Force-Pushers Anonymous/' schedule_day1.txt > schedule_day1_tmp.txt
     mv -f schedule_day1_tmp.txt schedule_day1.txt
     git add * && git commit -m "Git workshop in the morning"
 

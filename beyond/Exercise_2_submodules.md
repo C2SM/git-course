@@ -12,9 +12,9 @@ In this exercise you add a submodule, watch how Git keeps the two repositories s
 move changes in both directions.
 
 > [!IMPORTANT]
-> **Where you work:** `advanced_git/conference_submodule`, a copy of the sandbox you make in the
+> **Where you work:** `beyond_git/conference_submodule`, a copy of the sandbox you make in the
 > first task below. This has nothing to do with the *git-course* repository you cloned: the
-> sandbox lives in `advanced_git/`, a **separate** directory next to *git-course*. See
+> sandbox lives in `beyond_git/`, a **separate** directory next to *git-course*. See
 > [Where each exercise happens](README.md#where-each-exercise-happens) for the full map.
 > If you have not created the sandbox yet, follow the [Setup section](README.md#setup) first.
 
@@ -33,19 +33,19 @@ In this exercise we cover the following:
 
 ## Add a submodule <a name="add"></a>
 
-The sandbox is the repository `advanced_git/conference_planning`. We work on a **copy** of it, so
+The sandbox is the repository `beyond_git/conference_planning`. We work on a **copy** of it, so
 that the original stays usable for the later exercises. Three steps get you set up.
 
-First, move to `advanced_git/`, the folder that *contains* the sandbox, so that you are not inside
+First, move to `beyond_git/`, the folder that *contains* the sandbox, so that you are not inside
 any repository:
 
 ```plaintext
-cd ~/<path>/advanced_git
+cd ~/<path>/beyond_git
 ```
 
 Second, create the repository the submodule will point at. The course helper
 `init_submodule_remote` builds a small one called *glossary-tool*, at
-`advanced_git/glossary-tool.git`:
+`beyond_git/glossary-tool.git`:
 
 ```plaintext
 init_submodule_remote
@@ -73,7 +73,7 @@ cd conference_submodule
 <details><summary>💡 Hint</summary>
 
 The command is `git submodule add <url> <path>`. `init_submodule_remote` created the repository
-at `~/<path>/advanced_git/glossary-tool.git` - use that path as the URL. A local filesystem path
+at `~/<path>/beyond_git/glossary-tool.git` - use that path as the URL. A local filesystem path
 works exactly like a GitHub URL here; Git does not care where a repository lives.
 
 </details>
@@ -81,7 +81,7 @@ works exactly like a GitHub URL here; Git does not care where a repository lives
 <details><summary>✅ Solution</summary>
 
 ```plaintext
-git submodule add ~/<path>/advanced_git/glossary-tool.git c2sm-info
+git submodule add ~/<path>/beyond_git/glossary-tool.git c2sm-info
 ```
 
 </details>
@@ -234,7 +234,7 @@ without going into the repository yourself.
 
 ```plaintext
 git push origin main
-git -C ~/<path>/advanced_git/glossary-tool.git log --oneline -3
+git -C ~/<path>/beyond_git/glossary-tool.git log --oneline -3
 ```
 
 The submodule is an ordinary repository, so the push is an ordinary push. `glossary-tool.git` is

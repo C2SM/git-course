@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Builds the advanced course slides: renders every Mermaid diagram to SVG, then
+# Builds the beyond course slides: renders every Mermaid diagram to SVG, then
 # renders the deck to HTML and PDF. The CI workflows run this same script, so a
 # local build and the committed PDF cannot drift apart, and the site published to
 # GitHub Pages is built exactly the way authors build it locally.
@@ -12,8 +12,8 @@ set -euo pipefail
 repo_root=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )/../.." &> /dev/null && pwd )
 cd "$repo_root"
 
-diagrams="advanced/slides/diagrams"
-images="advanced/slides/images"
+diagrams="beyond/slides/diagrams"
+images="beyond/slides/images"
 hashes="$images/.diagram-hashes"
 
 mkdir -p "$images"
@@ -82,16 +82,16 @@ fi
 # in slides.md into a note, shown in the presenter view (press "p"). The PDF renderer
 # drops them, so the notes stay out of the handout.
 echo "Rendering slides to HTML..."
-html="advanced/slides/slides_advanced.html"
-npx -y @marp-team/marp-cli@latest advanced/slides/slides.md \
+html="beyond/slides/slides_beyond.html"
+npx -y @marp-team/marp-cli@latest beyond/slides/slides.md \
     --config-file slides_theme/marprc.yml \
     --theme-set slides_theme/c2sm-light.css slides_theme/c2sm-dark.css \
     --allow-local-files \
     -o "$html"
 
 echo "Rendering slides to PDF..."
-pdf="advanced/slides/slides_advanced.pdf"
-npx -y @marp-team/marp-cli@latest advanced/slides/slides.md \
+pdf="beyond/slides/slides_beyond.pdf"
+npx -y @marp-team/marp-cli@latest beyond/slides/slides.md \
     --config-file slides_theme/marprc.yml \
     --theme-set slides_theme/c2sm-light.css slides_theme/c2sm-dark.css \
     --pdf \

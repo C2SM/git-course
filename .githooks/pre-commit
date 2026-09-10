@@ -15,7 +15,7 @@ cd "$repo_root"
 # Keep the per-check "n. ... / ok: ..." rundown quiet on a passing commit; show
 # it only when something actually failed, so it's there to diagnose but doesn't
 # scroll past on every commit.
-if output=$(bash advanced/tests/check_consistency.sh 2>&1); then
+if output=$(bash beyond/tests/check_consistency.sh 2>&1); then
     status=0
 else
     status=$?

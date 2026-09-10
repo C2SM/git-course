@@ -12,7 +12,7 @@ effect on files Git is already tracking, and when a file mysteriously refuses to
 is a command that tells you exactly why.
 
 > [!IMPORTANT]
-> **Where you work:** `advanced_git/conference_planning`.
+> **Where you work:** `beyond_git/conference_planning`.
 > If you have not created the sandbox yet, follow the [Setup section](README.md#setup) first.
 > Confirm with `pwd` that you are inside *conference_planning*.
 

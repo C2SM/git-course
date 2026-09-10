@@ -11,7 +11,7 @@ In this exercise you write a `pre-commit` hook, watch it stop a bad commit, then
 setup so several checks can run together.
 
 > [!IMPORTANT]
-> **Where you work:** `advanced_git/conference_planning`, specifically its *.git/hooks* directory.
+> **Where you work:** `beyond_git/conference_planning`, specifically its *.git/hooks* directory.
 > If you have not created the sandbox yet, follow the [Setup section](README.md#setup) first.
 
 > [!NOTE]

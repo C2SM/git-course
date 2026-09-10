@@ -11,7 +11,7 @@ tutorial - none of it is needed for the two existing courses.
 - **[Git: The Basics](beginner)** - `init`, `add`, `commit`, `status`, `log`, branches,
   `switch`, `restore`, merging and merge conflicts, `.gitignore`, remotes, `push`, `pull`,
   `fetch`, and a first pull request.
-- **[Git: Beyond the Basics](advanced)** - `log`/`blame`/`diff`/`show` in depth, submodules,
+- **[Git: Beyond the Basics](beyond)** - `log`/`blame`/`diff`/`show` in depth, submodules,
   `.gitignore` in depth, `cherry-pick`, `rebase`, `stash`, `worktree`, hooks, `git lfs`, and the
   issue → fork → pull request → review workflow.
 
@@ -59,7 +59,7 @@ Understanding what Git actually stores turns most of its odd behavior into commo
 
 - **`git bisect`** - binary search through history to find the commit that broke something.
   Manual (`git bisect start` / `good` / `bad`) and automated (`git bisect run <script>`, where the
-  script exits 0 for good, 1-127 for bad, and 125 to skip). This used to be in the advanced course
+  script exits 0 for good, 1-127 for bad, and 125 to skip). This used to be in the beyond course
   and is a strong candidate for a third part.
 - `git blame -C -M` - follow lines through file renames and moves between files.
 - `blame.ignoreRevsFile` - hide bulk reformatting commits from every blame.

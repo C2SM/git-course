@@ -154,7 +154,7 @@ git log --oneline --author="Lauber"
 
 </details>
 
-**Task 7. (Bonus)** Show only the commits that changed the file *advanced/helpers.sh*.
+**Task 7. (Bonus)** Show only the commits that changed the file *beyond/helpers.sh*.
 
 <details><summary>💡 Hint</summary>
 
@@ -166,7 +166,7 @@ branch.
 <details><summary>✅ Solution</summary>
 
 ```plaintext
-git log --oneline -- advanced/helpers.sh
+git log --oneline -- beyond/helpers.sh
 ```
 
 </details>

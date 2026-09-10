@@ -7,7 +7,7 @@ name: Content consistency
 on:
   pull_request:
     paths:
-      - "advanced/**"
+      - "beyond/**"
       - "beginner/**"
       - ".github/workflows/content_consistency.yml"
 
@@ -20,4 +20,4 @@ jobs:
       - uses: actions/checkout@v5
 
       - name: Check that slides, exercises and diagrams agree
-        run: bash advanced/tests/check_consistency.sh
+        run: bash beyond/tests/check_consistency.sh
