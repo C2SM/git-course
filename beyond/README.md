@@ -11,7 +11,7 @@ The course has two parts:
 - **Part 2 · Working Together on GitHub** - how a change actually travels from an idea to the
   `main` branch of a shared project: issues, forks, pull requests, checks and review.
 
-The [slides](slides/slides_advanced.pdf) are built from [slides/slides.md](slides/slides.md).
+The [slides](slides/slides_beyond.pdf) are built from [slides/slides.md](slides/slides.md).
 Feel free to download the material and work through it on your own.
 
 See the [Getting Started section](https://github.com/C2SM/git-course/#getting-started) for how to
@@ -40,17 +40,17 @@ git config --global init.defaultBranch main
 Then load the helper functions and create the sandbox:
 
 ```plaintext
-cd advanced
+cd beyond
 source helpers.sh
-init_advanced_repo
+init_beyond_repo
 ```
 
 > [!NOTE]
 > The functions in [helpers.sh](helpers.sh) are written by C2SM and are **not** part of Git. They
 > only exist to give you a repository with some history to practice on.
 >
-> - `init_advanced_repo` creates the sandbox and moves you into it.
-> - `reset_advanced_repo` throws it away and recreates it from scratch. Use it whenever an
+> - `init_beyond_repo` creates the sandbox and moves you into it.
+> - `reset_beyond_repo` throws it away and recreates it from scratch. Use it whenever an
 >   exercise goes sideways - that is what it is for.
 > - `insert_after '<pattern>' '<text>' <file>` inserts a line after the first line matching the
 >   pattern, and works the same on Linux, macOS and Git Bash.
@@ -63,24 +63,24 @@ This is the question that causes the most confusion, so here is the map. Everyth
 ```
 <the folder containing git-course>/
 ├── git-course/                        ← Exercise 1
-└── advanced_git/                      ← created by init_advanced_repo
+└── git_beyond/                        ← created by init_beyond_repo
     ├── conference_planning/           ← Exercises 3, 4, 5, 6, 7
     ├── conference_planning-feature/   ← you create this in Exercise 5
     └── conference_submodule/          ← Exercise 2
 ```
 
 Exercise 8 happens in the browser plus a clone of your own fork, which can live anywhere outside
-`advanced_git`.
+`git_beyond`.
 
 | Exercise | Topic | Working directory |
 | --- | --- | --- |
 | [1](Exercise_1_examining-history.md) | `git log`, `git blame`, `git diff`, `git show` | `git-course` |
-| [2](Exercise_2_submodules.md) | `git submodule` | `advanced_git/conference_submodule` |
-| [3](Exercise_3_ignoring-files.md) | `.gitignore`, `.gitkeep` | `advanced_git/conference_planning` |
-| [4](Exercise_4_cherry-pick-rebase.md) | `git cherry-pick`, `git rebase` | `advanced_git/conference_planning` |
-| [5](Exercise_5_stash-worktree.md) | `git stash`, `git worktree` | `advanced_git/conference_planning` |
-| [6](Exercise_6_hooks.md) | Custom Git hooks | `advanced_git/conference_planning` |
-| [7](Exercise_7_git-lfs.md) | `git lfs` | `advanced_git/conference_planning` |
+| [2](Exercise_2_submodules.md) | `git submodule` | `git_beyond/conference_submodule` |
+| [3](Exercise_3_ignoring-files.md) | `.gitignore`, `.gitkeep` | `git_beyond/conference_planning` |
+| [4](Exercise_4_cherry-pick-rebase.md) | `git cherry-pick`, `git rebase` | `git_beyond/conference_planning` |
+| [5](Exercise_5_stash-worktree.md) | `git stash`, `git worktree` | `git_beyond/conference_planning` |
+| [6](Exercise_6_hooks.md) | Custom Git hooks | `git_beyond/conference_planning` |
+| [7](Exercise_7_git-lfs.md) | `git lfs` | `git_beyond/conference_planning` |
 | [8](Exercise_8_web-workflow.md) | Issues, forks, pull requests, review | browser + a clone of your fork |
 
 If you are ever unsure where you are, `pwd` tells you, and `git status` tells you which

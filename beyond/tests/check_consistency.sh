@@ -26,9 +26,9 @@ pass () {
 echo "1. Every exercise referenced in the slides exists"
 missing=0
 # shellcheck disable=SC2013 # word-splitting is fine: these are bare numbers, never paths
-for n in $(grep -oE 'Exercise [0-9]+' advanced/slides/slides.md | grep -oE '[0-9]+' | sort -u); do
-    if ! ls advanced/Exercise_"$n"_*.md > /dev/null 2>&1; then
-        fail "slides mention Exercise $n, but no advanced/Exercise_${n}_*.md exists"
+for n in $(grep -oE 'Exercise [0-9]+' beyond/slides/slides.md | grep -oE '[0-9]+' | sort -u); do
+    if ! ls beyond/Exercise_"$n"_*.md > /dev/null 2>&1; then
+        fail "slides mention Exercise $n, but no beyond/Exercise_${n}_*.md exists"
         missing=1
     fi
 done
@@ -36,9 +36,9 @@ done
 
 echo "2. Every exercise on disk is referenced in the slides"
 missing=0
-for f in advanced/Exercise_*.md; do
+for f in beyond/Exercise_*.md; do
     n=$(basename "$f" | sed 's/Exercise_\([0-9]*\)_.*/\1/')
-    if ! grep -q "Exercise $n" advanced/slides/slides.md; then
+    if ! grep -q "Exercise $n" beyond/slides/slides.md; then
         fail "$f exists, but the slides never mention Exercise $n"
         missing=1
     fi
@@ -48,25 +48,25 @@ done
 echo "3. Every image used by the slides has a Mermaid source"
 missing=0
 # shellcheck disable=SC2013 # word-splitting is fine: these are single-token image paths
-for img in $(grep -oE 'images/[A-Za-z0-9_-]+\.svg' advanced/slides/slides.md | sort -u); do
+for img in $(grep -oE 'images/[A-Za-z0-9_-]+\.svg' beyond/slides/slides.md | sort -u); do
     name=$(basename "$img" .svg)
-    [ -f "advanced/slides/$img" ] || { fail "slides reference $img, which does not exist"; missing=1; }
-    [ -f "advanced/slides/diagrams/$name.mmd" ] || { fail "$img has no diagrams/$name.mmd source"; missing=1; }
+    [ -f "beyond/slides/$img" ] || { fail "slides reference $img, which does not exist"; missing=1; }
+    [ -f "beyond/slides/diagrams/$name.mmd" ] || { fail "$img has no diagrams/$name.mmd source"; missing=1; }
 done
 [ "$missing" -eq 0 ] && pass "every referenced diagram has a source and a rendered SVG"
 
 echo "4. No orphaned Mermaid sources"
 missing=0
-for f in advanced/slides/diagrams/*.mmd; do
+for f in beyond/slides/diagrams/*.mmd; do
     name=$(basename "$f" .mmd)
-    grep -q "images/$name.svg" advanced/slides/slides.md || { fail "$f is never used by the slides"; missing=1; }
+    grep -q "images/$name.svg" beyond/slides/slides.md || { fail "$f is never used by the slides"; missing=1; }
 done
 [ "$missing" -eq 0 ] && pass "no orphaned diagram sources"
 
 echo "5. No raster images left in the slides folder"
 missing=0
 shopt -s nullglob
-for f in advanced/slides/images/*.png advanced/slides/images/*.jpg advanced/slides/images/*.jpeg advanced/slides/images/*.gif; do
+for f in beyond/slides/images/*.png beyond/slides/images/*.jpg beyond/slides/images/*.jpeg beyond/slides/images/*.gif; do
     fail "$f is a raster image; diagrams should be Mermaid-generated SVG"
     missing=1
 done
@@ -128,24 +128,24 @@ if bad == 0:
 sys.exit(1 if bad else 0)
 PY
 
-echo "8. The exercise table in advanced/README.md is complete"
+echo "8. The exercise table in beyond/README.md is complete"
 missing=0
-for f in advanced/Exercise_*.md; do
-    grep -q "$(basename "$f")" advanced/README.md || { fail "$(basename "$f") is missing from the table in advanced/README.md"; missing=1; }
+for f in beyond/Exercise_*.md; do
+    grep -q "$(basename "$f")" beyond/README.md || { fail "$(basename "$f") is missing from the table in beyond/README.md"; missing=1; }
 done
-[ "$missing" -eq 0 ] && pass "advanced/README.md lists every exercise"
+[ "$missing" -eq 0 ] && pass "beyond/README.md lists every exercise"
 
-# The two checks below only cover advanced/ plus the root files this course update
+# The two checks below only cover beyond/ plus the root files this course update
 # owns. The beginner course uses trailing two spaces deliberately, for Markdown hard
 # line breaks, in a lot of its prose - a repo-wide rule would misfire on it constantly,
 # and reformatting that content is a separate piece of work from this one.
-scoped_files=$(git -C "$repo_root" ls-files -- 'advanced/*.md' 'advanced/*.sh' 2>/dev/null)
+scoped_files=$(git -C "$repo_root" ls-files -- 'beyond/*.md' 'beyond/*.sh' 2>/dev/null)
 scoped_files="$scoped_files
 README.md
 Expert_Topics.md
 check_requirements.sh"
 
-echo "9. No accidental trailing whitespace in advanced/ (two-space hard breaks allowed)"
+echo "9. No accidental trailing whitespace in beyond/ (two-space hard breaks allowed)"
 missing=0
 while IFS= read -r f; do
     [ -f "$f" ] || continue

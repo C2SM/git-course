@@ -3,10 +3,10 @@ name: Build Marp Slides PDF
 on:
   pull_request:
     paths:
-      - "advanced/slides/**"
+      - "beyond/slides/**"
       - "slides_theme/**"
-      - ".github/workflows/build_advanced_slides.yml"
-      - "!advanced/slides/slides_advanced.pdf"
+      - ".github/workflows/build_beyond_slides.yml"
+      - "!beyond/slides/slides_beyond.pdf"
 
   workflow_dispatch:
 
@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: build-advanced-slides-${{ github.ref }}
+  group: build-beyond-slides-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -34,20 +34,20 @@ jobs:
 
       - name: Build diagrams and PDF
         # Same script authors run locally, so the committed PDF cannot drift.
-        run: ./advanced/slides/build.sh
+        run: ./beyond/slides/build.sh
 
       - name: Commit updated diagrams and PDF to PR branch
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
 
-          git add advanced/slides/images advanced/slides/slides_advanced.pdf
+          git add beyond/slides/images beyond/slides/slides_beyond.pdf
           if git diff --cached --quiet; then
             echo "Diagrams and PDF are already up to date."
           else
             # [skip ci] stops GitHub from queuing new workflow runs for this commit,
             # so fork PRs don't need a fresh manual approval after every auto-push.
-            git commit -m "Update advanced slides diagrams and PDF [skip ci]"
+            git commit -m "Update beyond slides diagrams and PDF [skip ci]"
 
             # The sibling beginner-slides workflow can push to this same branch at
             # the same time (both trigger on shared slides_theme/** changes), so

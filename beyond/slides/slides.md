@@ -285,15 +285,15 @@ table {font-size: 20px;}
 <div class="note">
 
 **Where you work:** the `git-course` repository itself - we examine its real history.
-All exercises: <https://github.com/C2SM/git-course/tree/main/advanced>
+All exercises: <https://github.com/C2SM/git-course/tree/main/beyond>
 
 </div>
 
 <!--
 - First exercise - spend a moment on logistics:
-  - Open `advanced/README.md` on screen and walk through it: the Setup section, and the
+  - Open `beyond/README.md` on screen and walk through it: the Setup section, and the
     "Where each exercise happens" map showing which directory each exercise uses
-  - Point out that `advanced_git/` is created next to `git-course`, never inside it
+  - Point out that `git_beyond/` is created next to `git-course`, never inside it
   - Call one of us over rather than continuing unassisted
 - Around 15 minutes. Walk the room
 - Common stumbling block: quoting in `-S` and `--author`, especially on Windows shells
@@ -456,7 +456,7 @@ table {font-size: 20px;}
 
 <div class="note">
 
-**Where you work:** `advanced_git/conference_submodule`
+**Where you work:** `git_beyond/conference_submodule`
 Everything stays local - the helper script builds a small stand-in repository to point the submodule at.
 
 </div>
@@ -565,13 +565,13 @@ table {font-size: 20px;}
 
 <div class="note">
 
-**Where you work:** `advanced_git/conference_planning`
-If you run into trouble, `reset_advanced_repo` gives you a clean start at any time.
+**Where you work:** `git_beyond/conference_planning`
+If you run into trouble, `reset_beyond_repo` gives you a clean start at any time.
 
 </div>
 
 <!--
-- Point out `reset_advanced_repo` clearly - works for every remaining exercise, not just this one
+- Point out `reset_beyond_repo` clearly - works for every remaining exercise, not just this one
   - Removes hesitation about experimenting
 - About 15 minutes
 - Last exercise before the coffee break - fine if the room finishes early, fine to carry on into the break if still working
@@ -587,7 +587,7 @@ If you run into trouble, `reset_advanced_repo` gives you a clean start at any ti
 <!--
 - State the exact time we resume and adhere to it
 - Good moment to check the clock against the schedule slide, decide whether the afternoon needs trimming
-- Also a good moment to catch anyone who has fallen behind and reset them with `reset_advanced_repo` before the next block
+- Also a good moment to catch anyone who has fallen behind and reset them with `reset_beyond_repo` before the next block
 -->
 
 ---
@@ -659,8 +659,8 @@ table {font-size: 20px;}
 
 <div class="note">
 
-**Where you work:** `advanced_git/conference_planning`
-If you run into trouble, `reset_advanced_repo` gives you a clean start at any time.
+**Where you work:** `git_beyond/conference_planning`
+If you run into trouble, `reset_beyond_repo` gives you a clean start at any time.
 
 </div>
 
@@ -669,7 +669,7 @@ If you run into trouble, `reset_advanced_repo` gives you a clean start at any ti
 - Encourage running `git log --oneline --graph --all` before and after each step
   - Seeing the hashes change is what makes rebase concrete
 - Reassure: a conflict during the exercise is not a mistake, it is part of the exercise
-  - `--abort` and `reset_advanced_repo` are both safety nets
+  - `--abort` and `reset_beyond_repo` are both safety nets
 -->
 
 ---
@@ -738,7 +738,7 @@ table {font-size: 20px;}
 
 <div class="note">
 
-**Where you work:** `advanced_git/conference_planning`, plus the worktree it creates next to it.
+**Where you work:** `git_beyond/conference_planning`, plus the worktree it creates next to it.
 
 </div>
 
@@ -809,7 +809,7 @@ table {font-size: 20px;}
 
 <div class="note">
 
-**Where you work:** `advanced_git/conference_planning`
+**Where you work:** `git_beyond/conference_planning`
 Everything happens in its `.git/hooks` directory.
 
 </div>
@@ -902,7 +902,7 @@ table {font-size: 20px;}
 
 <div class="note">
 
-**Where you work:** `advanced_git/conference_planning`
+**Where you work:** `git_beyond/conference_planning`
 Entirely local - no remote and no LFS quota needed.
 
 </div>
@@ -1255,7 +1255,7 @@ table {font-size: 20px;}
 <div class="note">
 
 **Where you work:** <https://github.com/C2SM/c2sm-git-example> in the browser, plus a clone of
-your fork anywhere outside `advanced_git`.
+your fork anywhere outside `git_beyond`.
 
 </div>
 
@@ -1266,7 +1266,7 @@ You will review each other's pull requests, so **work in pairs**.
   - Anyone lacking a GitHub account needs one now
 - About 30 minutes - exercise most likely to overrun
 - Two logistics points to state clearly:
-  - Clone the fork somewhere outside `advanced_git` - avoids colliding with the morning's practice repositories
+  - Clone the fork somewhere outside `git_beyond` - avoids colliding with the morning's practice repositories
   - They will need to authenticate when pushing - set up an SSH key or token now if missing
 - Protect the review half - it is what people skip when time runs short
   - Leaving a real comment on a colleague's PR is the whole point of pairing

@@ -6,6 +6,6 @@ git-course_env/
 check_requirements.log
 
 # HTML decks are built on demand by build.sh and published from CI, not committed.
-advanced/slides/slides_advanced.html
+beyond/slides/slides_beyond.html
 beginner/slides/slides_beginner.html
 _site/

@@ -12,7 +12,7 @@ keeps the real bytes in a separate store. This exercise is entirely local, so yo
 and no storage quota.
 
 > [!IMPORTANT]
-> **Where you work:** `advanced_git/conference_planning`.
+> **Where you work:** `git_beyond/conference_planning`.
 > If you have not created the sandbox yet, follow the [Setup section](README.md#setup) first.
 
 > [!NOTE]

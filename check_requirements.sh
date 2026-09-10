@@ -31,7 +31,7 @@ else
 fi
 
 # Check if git-lfs is installed (skip if --beginner). Only Exercise 7 of the
-# advanced course needs it.
+# beyond course needs it.
 if ! $BEGINNER_MODE; then
     if git lfs version >/dev/null 2>&1; then
         echo "Git LFS is installed."

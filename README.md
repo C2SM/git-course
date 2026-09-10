@@ -10,7 +10,7 @@ working with branches, resolving merge conflicts, and pushing to a remote.
 
 ## Git: Beyond the Basics
 
-The folder [advanced](advanced) contains the exercises for **Git: Beyond the Basics**. It picks up where
+The folder [beyond](beyond) contains the exercises for **Git: Beyond the Basics**. It picks up where
 the first course leaves off and needs nothing more than those basics. It has two parts: the
 commands beyond the basics (reading history, submodules, cherry-pick and rebase, stash and
 worktree, hooks, large files), and how a change travels through a shared project on a web
@@ -25,7 +25,7 @@ view, with the current slide, the next slide, the notes and a timer. The PDFs co
 slides only.
 
 The sources are [beginner/slides/slides.md](beginner/slides/slides.md) and
-[advanced/slides/slides.md](advanced/slides/slides.md). To build a deck locally, run its
+[beyond/slides/slides.md](beyond/slides/slides.md). To build a deck locally, run its
 `build.sh` - it needs only Node.js and writes both the HTML and the PDF next to the source.
 Pushing to `main` republishes the site.
 

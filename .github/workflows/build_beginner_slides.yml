@@ -49,7 +49,7 @@ jobs:
             # so fork PRs don't need a fresh manual approval after every auto-push.
             git commit -m "Update beginner slides PDF [skip ci]"
 
-            # The sibling advanced-slides workflow can push to this same branch at
+            # The sibling beyond-slides workflow can push to this same branch at
             # the same time (both trigger on shared slides_theme/** changes), so
             # retry with a rebase if another push landed first.
             for attempt in 1 2 3 4 5; do

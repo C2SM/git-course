@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "advanced/slides/**"
+      - "beyond/slides/**"
       - "beginner/slides/**"
       - "slides_theme/**"
       - "pages/**"
@@ -40,7 +40,7 @@ jobs:
         # Same scripts authors run locally, so the published site cannot drift.
         run: |
           ./beginner/slides/build.sh
-          ./advanced/slides/build.sh
+          ./beyond/slides/build.sh
 
       - name: Assemble site
         # The theme stylesheets reference the C2SM logo and the title background as
@@ -48,16 +48,16 @@ jobs:
         # the site mirrors the repository layout, so keep the <course>/slides/ depth
         # and ship slides_theme/images alongside.
         run: |
-          mkdir -p _site/slides_theme _site/advanced _site/beginner
+          mkdir -p _site/slides_theme _site/beyond _site/beginner
 
           cp pages/index.html _site/index.html
           cp -r slides_theme/images _site/slides_theme/
 
-          cp -r advanced/slides _site/advanced/
+          cp -r beyond/slides _site/beyond/
           cp -r beginner/slides _site/beginner/
 
           # Serve each deck at <course>/slides/ instead of a long file name.
-          mv _site/advanced/slides/slides_advanced.html _site/advanced/slides/index.html
+          mv _site/beyond/slides/slides_beyond.html _site/beyond/slides/index.html
           mv _site/beginner/slides/slides_beginner.html _site/beginner/slides/index.html
 
           # Sources and build inputs have no business on the published site.

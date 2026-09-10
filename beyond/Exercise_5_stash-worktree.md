@@ -9,7 +9,7 @@ somewhere else. `git stash` puts your unfinished work aside for a moment. `git w
 you a second directory so you never have to put it aside at all.
 
 > [!IMPORTANT]
-> **Where you work:** `advanced_git/conference_planning`, plus a second directory next to it that
+> **Where you work:** `git_beyond/conference_planning`, plus a second directory next to it that
 > you create in the worktree section.
 > If you have not created the sandbox yet, follow the [Setup section](README.md#setup) first.
 

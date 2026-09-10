@@ -8,9 +8,9 @@ name: Test helper functions
 on:
   pull_request:
     paths:
-      - "advanced/helpers.sh"
-      - "advanced/examples/**"
-      - "advanced/tests/**"
+      - "beyond/helpers.sh"
+      - "beyond/examples/**"
+      - "beyond/tests/**"
       - "beginner/helpers.sh"
       - "beginner/examples/**"
       - "beginner/tests/**"
@@ -49,8 +49,8 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global init.defaultBranch main
 
-      - name: Test the advanced helpers
-        run: bash git-course/advanced/tests/test_helpers.sh
+      - name: Test the beyond helpers
+        run: bash git-course/beyond/tests/test_helpers.sh
 
       - name: Test the beginner helpers
         run: bash git-course/beginner/tests/test_helpers.sh
