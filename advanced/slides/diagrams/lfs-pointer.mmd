@@ -1,0 +1,16 @@
+flowchart LR
+    F["Working directory<br><b>model_output.nc</b><br><small>480 MB, the real file</small>"]
+    P["Git repository<br><b>pointer file</b><br><small>~130 bytes:<br>oid sha256:4d7a...<br>size 503316480</small>"]
+    S["LFS store<br><small>on the server</small>"]
+
+    F -- "clean filter<br>on git add" --> P
+    P -- "smudge filter<br>on git checkout" --> F
+    P -. "git push<br>uploads the blob" .-> S
+    S -. "git lfs pull<br>downloads the blob" .-> F
+
+    classDef work fill:#243041,stroke:#56abdf,stroke-width:2px,color:#e8edf2
+    classDef ptr fill:#134f7c,stroke:#ffbd0b,stroke-width:3px,color:#e8edf2
+    classDef store fill:#1e3a52,stroke:#92d050,stroke-width:2px,color:#e8edf2
+    class F work
+    class P ptr
+    class S store

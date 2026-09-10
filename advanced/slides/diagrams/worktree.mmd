@@ -1,0 +1,14 @@
+flowchart TD
+    GIT[".git<br><small>one object store,<br>one set of branches</small>"]
+    W1["conference_planning/<br><b>main</b>"]
+    W2["conference_planning-feature/<br><b>feature</b>"]
+    W3["conference_planning-hotfix/<br><b>hotfix</b>"]
+
+    GIT --- W1
+    GIT --- W2
+    GIT --- W3
+
+    classDef store fill:#134f7c,stroke:#ffbd0b,stroke-width:3px,color:#e8edf2
+    classDef tree fill:#243041,stroke:#56abdf,stroke-width:2px,color:#e8edf2
+    class GIT store
+    class W1,W2,W3 tree

@@ -1,14 +1,47 @@
-## Schedule
+# Schedule
 
-| Description             | Presenter | Extent    | Time est. | Time needed ('23,'24, '25) | Start time | End time |
-|-------------------------|-----------|-----------|-----------|----------------------------|------------|----------|
-| Welcome, Part 0 & 1     | Annika    | 10 slides | 10 min    | 12 min, 8 min, 8 min       | 09:00      | 09:10    |
-| Part 1 - Exercises 1-2  | 💻        |           | 40 min    | 34 min, 42 min, 42 min     | 09:10      | 09:50    |
-| Part 2 - Slides + Demo  | Mikael    | 8 slides  | 30 min    | 20 min, 31 min, 30 min     | 09:50      | 10:20    |
-| Part 2 - Exercises 3-5  | 💻        |           | 40 min    | 34 min, 29 min, 40 min     | 10:20      | 11:00    |
-| Coffee break            | all       | 1 coffee  | 20 min    | 17 min, 23 min, 20 min     | 11:00      | 11:20    |
-| Part 2 - Slides (cont.) | Mikael    | 4 slides  | 10 min    | 4 min, 6 min, 13 min       | 11:20      | 11:30    |
-| Part 2 - Exercises 6-7  | 💻        |           | 20 min    | 29 min, 21 min, 21 min     | 11:30      | 11:50    |
-| Part 3 - Slides         | Mikael    | 6 slides  | 10 min    | 4 min, 8 min, 8 min        | 11:50      | 12:00    |
-| Part 3 - Exercise 8     | 💻        |           | 20 min    | 21 min, 16 min, 17 min     | 12:00      | 12:20    |
-| Part 4 - Slides         | Annika    | 3 slides  | 10 min    | 17 min, 18 min, 3 min      | 12:20      | 12:30    |
+3/4-day course, 09:30 – 15:00, lunch break 12:30 – 13:30.
+
+> Notes:
+> - 2026: restructured from Parts 0-4 + Bonus into two parts (commands, then web workflow).
+> - 2026: `git bisect` dropped, `git lfs` added; rebase promoted from bonus into Exercise 4.
+> - 2026: exercises rewritten as tasks with optional hints, so they take longer to work through
+>   than the old copy-paste versions. Watch the timing on Exercises 1 and 4 in particular.
+> - 2026: start moved 15 min earlier to 09:15 (end time 15:00 stays fixed), welcome trimmed from
+>   10 to 5 min, and the three exercise blocks were extended to absorb the longer task-based
+>   format. This still falls short of the exercises' own printed time estimates, so Exercises 1,
+>   2, 4 and 5 have some of their tasks marked as Bonus (optional, skip if short on time).
+> - 2026: the coffee break sits right after Exercise 3, matching the slide deck order (the
+>   `.gitignore` slides and Exercise 3 come before the break, cherry-pick/rebase/stash/worktree
+>   after it). The former single "Exercises 3-5" row is split at that point; the '24/'25 timing
+>   data was only recorded for the combined block, so it doesn't carry over to the split rows.
+
+| Description | Presenter | Extent | Time est. | Time needed ('24, '25, '26) | Start time | End time |
+| --- | --- | --- | --- | --- | --- | --- |
+| Welcome, outline, schedule | Michael | 3 slides | 5 min | 8 min, 8 min, - | 09:15 | 09:20 |
+| Part 1 - Slides: history, submodules | Michael | 9 slides | 20 min | -, -, - | 09:20 | 09:40 |
+| Part 1 - Exercises 1-2 | 💻 | | 40 min | 42 min, 42 min, - | 09:40 | 10:20 |
+| Part 1 - Slides: ignoring files | Mikael | 3 slides | 10 min | -, -, - | 10:20 | 10:30 |
+| Part 1 - Exercise 3 | 💻 | | 20 min | -, -, - | 10:30 | 10:50 |
+| Coffee break | all | 1 coffee | 20 min | 23 min, 20 min, - | 10:50 | 11:10 |
+| Part 1 - Slides: cherry-pick, rebase, stash, worktree | Mikael | 6 slides | 10 min | -, -, - | 11:10 | 11:20 |
+| Part 1 - Exercises 4-5 | 💻 | | 25 min | -, -, - | 11:20 | 11:45 |
+| Part 1 - Slides: hooks, git lfs | Alitzel | 6 slides | 10 min | -, -, - | 11:45 | 11:55 |
+| Part 1 - Exercises 6-7 | 💻 | | 35 min | 21 min, 21 min, - | 11:55 | 12:30 |
+| Lunch break | all | | 60 min | | 12:30 | 13:30 |
+| Part 2 - Slides + live demonstration | Michael | 12 slides | 60 min | 8 min, 8 min, - | 13:30 | 14:30 |
+| Part 2 - Exercise 8 + wrap-up | 💻 | | 30 min | -, -, - | 14:30 | 15:00 |
+
+## Notes for the next run
+
+- Exercise 8 needs **pairs**: participants review each other's pull requests. Ask people to pair
+  up before the coffee break so no one is left without a reviewer.
+- Exercises 2 and 8 both need a fork of
+  [c2sm-git-example](https://github.com/C2SM/c2sm-git-example). Point this out at the start of
+  Part 1 so people fork once, early, rather than twice.
+- Exercise 7 needs `git lfs` installed. `check_requirements.sh` checks for it, but remind people
+  in the joining instructions.
+- Exercise 8 is deliberately last in the schedule. It continues past the end of the course for
+  anyone who wants to finish it, and the pull requests can be reviewed afterwards.
+- `test_helpers.yml` covers Linux, macOS and Git Bash for Windows on every pull request, so a
+  manual pre-course check of the helper scripts is no longer needed.

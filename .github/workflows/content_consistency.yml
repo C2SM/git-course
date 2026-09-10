@@ -1,0 +1,23 @@
+name: Content consistency
+
+# Catches exactly the kind of drift that made the 2026 content update necessary in the
+# first place: slides referencing an exercise that no longer exists, an exercise the
+# slides never mention, or a diagram that got renamed on one side but not the other.
+
+on:
+  pull_request:
+    paths:
+      - "advanced/**"
+      - "beginner/**"
+      - ".github/workflows/content_consistency.yml"
+
+  workflow_dispatch:
+
+jobs:
+  consistency:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Check that slides, exercises and diagrams agree
+        run: bash advanced/tests/check_consistency.sh

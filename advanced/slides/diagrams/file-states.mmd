@@ -1,0 +1,9 @@
+stateDiagram-v2
+    direction LR
+    [*] --> Untracked: create a file
+    Untracked --> Ignored: matches a pattern<br>in .gitignore
+    Untracked --> Staged: git add
+    Staged --> Tracked: git commit
+    Tracked --> Staged: edit, then git add
+    Ignored --> Staged: git add -f<br>(forces it in)
+    Tracked --> Untracked: git rm --cached<br>(stop tracking)

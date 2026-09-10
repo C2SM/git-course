@@ -1,0 +1,24 @@
+flowchart LR
+    I["<b>Issue</b><br><small>what and why</small>"]
+    B["<b>Branch</b><br><small>git switch -c</small>"]
+    C["<b>Commits</b><br><small>small, described</small>"]
+    P["<b>Pull request</b><br><small>Fixes #12</small>"]
+    K["<b>Checks</b><br><small>GitHub Actions</small>"]
+    R["<b>Review</b><br><small>comment / approve /<br>request changes</small>"]
+    M["<b>Merge</b><br><small>issue closes itself</small>"]
+
+    I --> B --> C --> P
+    P --> K
+    P --> R
+    K --> M
+    R -- "changes requested" --> C
+    R --> M
+
+    classDef issue fill:#134f7c,stroke:#56abdf,stroke-width:2px,color:#e8edf2
+    classDef work fill:#243041,stroke:#56abdf,stroke-width:2px,color:#e8edf2
+    classDef gate fill:#243041,stroke:#ffbd0b,stroke-width:3px,color:#e8edf2
+    classDef done fill:#1e3a52,stroke:#92d050,stroke-width:3px,color:#e8edf2
+    class I issue
+    class B,C,P work
+    class K,R gate
+    class M done

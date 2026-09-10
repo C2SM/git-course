@@ -1,0 +1,17 @@
+flowchart LR
+    WD["Working directory<br><small>uncommitted edits</small>"]
+    ST["Stash stack<br><small>stash@{0}<br>stash@{1}</small>"]
+    CLEAN["Clean working<br>directory"]
+
+    WD -- "git stash push -m 'msg'" --> ST
+    ST -.-> CLEAN
+    CLEAN -- "switch branch,<br>pull, rebase..." --> CLEAN
+    ST -- "git stash pop<br><small>apply and drop</small>" --> WD
+    ST -- "git stash apply<br><small>apply and keep</small>" --> WD
+
+    classDef work fill:#243041,stroke:#56abdf,stroke-width:2px,color:#e8edf2
+    classDef stash fill:#134f7c,stroke:#ffbd0b,stroke-width:3px,color:#e8edf2
+    classDef clean fill:#1e3a52,stroke:#92d050,stroke-width:2px,color:#e8edf2
+    class WD work
+    class ST stash
+    class CLEAN clean

@@ -1,0 +1,40 @@
+---
+config:
+  flowchart:
+    padding: 6
+    rankSpacing: 45
+    nodeSpacing: 30
+    subGraphTitleMargin:
+      top: 0
+      bottom: 6
+---
+flowchart TB
+    subgraph before["Before"]
+        direction LR
+        bA(("A")) --> bB(("B")) --> bC(("C"))
+        bC --> bD(("D")) --> bE(("E")) --> bMAIN["main"]
+        bC --> bF(("F")) --> bG(("G")) --> bH(("H")) --> bFEAT["feature"]
+    end
+
+    subgraph merged["git switch main + git merge feature"]
+        direction LR
+        mA(("A")) --> mB(("B")) --> mC(("C"))
+        mC --> mD(("D")) --> mE(("E")) --> mM
+        mC --> mF(("F")) --> mG(("G")) --> mH(("H")) --> mM(("M")) --> mMAIN["main"]
+        mH -.-> mFEAT["feature"]
+    end
+
+    subgraph rebased["git switch feature + git rebase main"]
+        direction LR
+        rA(("A")) --> rB(("B")) --> rC(("C")) --> rD(("D")) --> rE(("E")) --> rF(("F'")) --> rG(("G'")) --> rH(("H'")) --> rFEAT["feature"]
+    end
+
+    bA ~~~ mA
+    mA ~~~ rA
+
+    classDef commit fill:#243041,stroke:#56abdf,stroke-width:2px,color:#e8edf2,font-size:26px
+    classDef new fill:#134f7c,stroke:#ffbd0b,stroke-width:3px,color:#e8edf2,font-size:26px
+    classDef tip fill:none,stroke:none,color:#aab4be
+    class bA,bB,bC,bD,bE,bF,bG,bH,mA,mB,mC,mD,mE,mF,mG,mH,rA,rB,rC,rD,rE commit
+    class mM,rF,rG,rH new
+    class bMAIN,bFEAT,mFEAT,mMAIN,rFEAT tip

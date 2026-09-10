@@ -1,0 +1,17 @@
+flowchart LR
+    UP["<b>upstream</b><br>C2SM/c2sm-git-example<br><small>you cannot push here</small>"]
+    OR["<b>origin</b><br>your-name/c2sm-git-example<br><small>your fork, you own it</small>"]
+    LO["<b>local clone</b><br><small>on your laptop</small>"]
+
+    UP -- "1. Fork (on the website)" --> OR
+    OR -- "2. git clone" --> LO
+    LO -- "3. git push origin" --> OR
+    OR -- "4. Pull request" --> UP
+    UP -. "5. git fetch upstream" .-> LO
+
+    classDef upstream fill:#134f7c,stroke:#ffbd0b,stroke-width:3px,color:#e8edf2
+    classDef fork fill:#243041,stroke:#56abdf,stroke-width:2px,color:#e8edf2
+    classDef local fill:#1e3a52,stroke:#92d050,stroke-width:2px,color:#e8edf2
+    class UP upstream
+    class OR fork
+    class LO local

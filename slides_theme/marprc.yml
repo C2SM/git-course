@@ -1,0 +1,12 @@
+# Disables Marp Core's default emoji -> Twemoji conversion.
+#
+# By default Marp Core rewrites every Unicode emoji into an <img> tag that
+# loads an SVG from the jsDelivr CDN. In Chromium's print/PDF and screenshot
+# pipelines, that <img> gets forced onto its own line even when there's
+# plenty of room on the current line. Turning conversion off leaves emoji as
+# plain Unicode text, rendered inline by the system font, which lays out
+# normally and drops the CDN dependency at render time.
+options:
+  emoji:
+    shortcode: false
+    unicode: false

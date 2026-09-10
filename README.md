@@ -1,93 +1,133 @@
 # C2SM Git Courses
 
-## Git Course for Beginners
+Two annual Git courses, run by [C2SM](https://c2sm.ethz.ch) as part of its technical training.
 
-The folder [beginner](beginner) contains the exercises for the C2SM Git Workshop "Git for Beginners".
+## Git: The Basics
 
-## Git Course for Advanced
+The folder [beginner](beginner) contains the exercises for **Git: The Basics**, an introduction
+to Git for people who have never used it. It covers the everyday commands: making commits,
+working with branches, resolving merge conflicts, and pushing to a remote.
 
-The folder [advanced](advanced) contains the exercises for the C2SM Git Workshop "Git for Advanced".
+## Git: Beyond the Basics
+
+The folder [advanced](advanced) contains the exercises for **Git: Beyond the Basics**. It picks up where
+the first course leaves off and needs nothing more than those basics. It has two parts: the
+commands beyond the basics (reading history, submodules, cherry-pick and rebase, stash and
+worktree, hooks, large files), and how a change travels through a shared project on a web
+interface (issues, forks, pull requests, review).
+
+## Slides
+
+Both decks are published at **<https://c2sm.github.io/git-course/>**, as HTML and as PDF.
+
+The HTML decks carry the presenter notes: press `p` while a deck is open for the presenter
+view, with the current slide, the next slide, the notes and a timer. The PDFs contain the
+slides only.
+
+The sources are [beginner/slides/slides.md](beginner/slides/slides.md) and
+[advanced/slides/slides.md](advanced/slides/slides.md). To build a deck locally, run its
+`build.sh` - it needs only Node.js and writes both the HTML and the PDF next to the source.
+Pushing to `main` republishes the site.
+
+## Beyond both courses
+
+[Expert_Topics.md](Expert_Topics.md) collects the topics neither course covers - Git internals,
+history rewriting, recovery, large repositories, signing - as a reading list.
 
 ## Getting Started
 
-To run this course on your computer, the following things need to be set up:
-1. [Git](#1-installing-git-on-your-computer)
-2. [SSH key linked to your GitHub account](#2-creating-a-github-account-and-ssh-key)
-3. [Python](#3-installing-python) (only advanced)
-4. [Final check](#4-final-check)
+To follow either course on your computer, you need:
 
+1. [Git](#1-installing-git-on-your-computer)
+2. [An SSH key linked to your GitHub account](#2-creating-a-github-account-and-ssh-key)
+3. [Git LFS](#3-installing-git-lfs) (only for Git: Beyond the Basics)
+4. [A final check](#4-final-check)
 
 ### 1. Installing Git on your Computer
 
-To follow the course, Git needs to run on a _**Linux or MacOS terminal**_. Windows users can either follow the instructions below to install Ubuntu or use a Linux server they have access to.
+The courses are taught in a terminal, so you need a shell where Git works.
 
-> **_Important note:_**  You must have at least Git 2.28 (released 27 July 2020) installed.
-> You can check your Git version by typing `git --version` in your terminal.
+> [!IMPORTANT]
+> You need at least Git 2.28 (released 27 July 2020).
+> Check yours with `git --version`.
 
-**Mac and Linux users:** To install Git on your computer, please follow the instructions to [Install Git on Mac](https://github.com/git-guides/install-git#install-git-on-mac) or [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux)
+**Linux:** follow [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux).
 
-**Windows users:** Please follow the instructions below to install Ubuntu under Windows. Afterwards, please follow the [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux) instruction.
+**macOS:** follow [Install Git on Mac](https://github.com/git-guides/install-git#install-git-on-mac).
+
+**Windows:** install [Git for Windows](https://gitforwindows.org/). It includes **Git Bash**, a
+terminal in which every command in these courses works, and Git LFS is already bundled. Git Bash
+is all you need, and it is the quickest route.
+
 <details>
-<summary>Instructions for Windows Users</summary>
+<summary>Alternative for Windows users: WSL2</summary>
 <br>
 
-We recommend to install the **Windows Subsystem for Linux 2** (WSL2). Using Git with WSL2 provides a better terminal experience for Windows users. With WSL2, you can access a Linux terminal directly from Windows, which makes it easier to work with Git commands and other Linux-based tools. This also allows for more flexibility in managing and running scripts, as well as better compatibility with Linux-based workflows. Additionally, WSL2 provides a more secure environment for Git operations by isolating them from the Windows operating system.
+If you would rather have a full Linux environment on Windows - useful well beyond this course -
+install the **Windows Subsystem for Linux 2** (WSL2). It gives you a real Linux terminal, better
+compatibility with Linux-based workflows, and keeps your development environment separate from
+Windows.
 
-#### Setting up WSL2
+1. Enable WSL by following the [Microsoft instructions](https://learn.microsoft.com/en-us/windows/wsl/install).
+2. Install a Linux distribution from the Microsoft Store. We recommend Ubuntu 24.04 LTS.
+3. Open the Start menu, search for "Ubuntu" and launch it.
+4. Follow the prompts to set a username and password.
 
-1. Enable the Windows Subsystem for Linux (WSL) feature on your Windows machine by following the steps [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
-2. Install a Linux distribution of your choice from the Microsoft Store. We recommend using Ubuntu 22.04.3 LTS.
-3. Open the Start menu and search for "Ubuntu" to launch the distribution.
-4. Follow the prompts to set up a username and password for the Ubuntu distribution.
-
-Congratulations! You have now an Ubuntu environment and can work in the same way as on a Linux machine.
+Then follow the [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux)
+instructions inside that environment.
 </details>
 
 ### 2. Creating a GitHub Account and SSH key
 
-Having a GitHub account allows you to collaborate on open-source projects and store your own code in the cloud. With an SSH key, you can securely connect to GitHub without having to enter your username and password every time you push or pull code, which makes the process faster and more convenient. It also adds an extra layer of security to protect your GitHub account from unauthorized access.
+A GitHub account lets you collaborate on shared projects and keep your own code in the cloud. An
+SSH key connects your computer to that account, so you do not have to type a password on every
+push, and it is considerably more secure.
 
-#### Instructions
+Only the section under the corresponding heading in each link is relevant:
 
-Only the section under the corresponding header is relevant to you in the following links.
+- [Create a GitHub account](https://github.com/signup) (if you do not have one)
+- [Generate a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux#generating-a-new-ssh-key) (leave the passphrase empty)
+- [Add the SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=linux#adding-a-new-ssh-key-to-your-account)
 
-- [Create your own GitHub account](https://github.com/signup) (if not yet available)
-- [Generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux#generating-a-new-ssh-key) (leave the passphrase emtpy)
-- [Adding a new SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=linux#adding-a-new-ssh-key-to-your-account)
+### 3. Installing Git LFS
 
-### 3. Installing Python
+Only needed for Exercise 7 of **Git: Beyond the Basics**.
 
-To install Python, we recommend the [instructions from Real Python](https://realpython.com/installing-python/),
-but of course many other instructions will do as well.
+- **Windows:** already included in Git for Windows, nothing to do.
+- **macOS:** `brew install git-lfs`
+- **Debian / Ubuntu:** `sudo apt install git-lfs`
+- **Others:** see <https://git-lfs.com>
+
+Check with `git lfs version`.
 
 ### 4. Final Check
-Check if everything is set up correctly by following the steps below from a Linux shell.
 
-- Step 1: Download the file [check_requirements.sh](https://github.com/C2SM/git-course/blob/main/check_requirements.sh).
+Confirm your setup from a terminal:
+
+- Step 1: download [check_requirements.sh](https://github.com/C2SM/git-course/blob/main/check_requirements.sh).
 ```
 curl -O https://raw.githubusercontent.com/C2SM/git-course/main/check_requirements.sh
 ```
-- Step 2: Make the file executable.
+- Step 2: make it executable.
 ```
 chmod +x ./check_requirements.sh
 ```
-- Step 3: Run the script from a Linux shell.
+- Step 3: run it.
 
-#### Beginners Course
-
-For the Beginners course, Python is not required for the exercises in the _beginner_ folder.
+#### Git: The Basics
 
 ```
 ./check_requirements.sh --beginner
 ```
 
-#### Advanced Course
-For the Advanced course, there is an additional check if Python is installed.
+#### Git: Beyond the Basics
+
+This also checks for Git LFS.
 
 ```
 ./check_requirements.sh
 ```
 
-If the check is successful, everything is set up correctly. 
+If every line reports success, you are ready.
 
 **Have fun!**

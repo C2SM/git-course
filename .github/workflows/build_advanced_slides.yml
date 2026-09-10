@@ -13,6 +13,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: build-advanced-slides-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-pdf:
     runs-on: ubuntu-latest
@@ -28,23 +32,31 @@ jobs:
         with:
           node-version: 22
 
-      - name: Build PDF
-        run: |
-          npx @marp-team/marp-cli@latest advanced/slides/slides.md \
-            --theme-set slides_theme/c2sm-light.css slides_theme/c2sm-dark.css \
-            --pdf \
-            --allow-local-files \
-            -o advanced/slides/slides_advanced.pdf
+      - name: Build diagrams and PDF
+        # Same script authors run locally, so the committed PDF cannot drift.
+        run: ./advanced/slides/build.sh
 
-      - name: Commit updated PDF to PR branch
+      - name: Commit updated diagrams and PDF to PR branch
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
 
-          git add advanced/slides/slides_advanced.pdf
+          git add advanced/slides/images advanced/slides/slides_advanced.pdf
           if git diff --cached --quiet; then
-            echo "PDF is already up to date."
+            echo "Diagrams and PDF are already up to date."
           else
-            git commit -m "Update advanced slides PDF"
-            git push origin HEAD:${{ github.head_ref }}
+            # [skip ci] stops GitHub from queuing new workflow runs for this commit,
+            # so fork PRs don't need a fresh manual approval after every auto-push.
+            git commit -m "Update advanced slides diagrams and PDF [skip ci]"
+
+            # The sibling beginner-slides workflow can push to this same branch at
+            # the same time (both trigger on shared slides_theme/** changes), so
+            # retry with a rebase if another push landed first.
+            for attempt in 1 2 3 4 5; do
+              git push origin HEAD:${{ github.head_ref }} && break
+              [[ $attempt -eq 5 ]] && { echo "::error::Push failed after $attempt attempts"; exit 1; }
+              echo "Push rejected, rebasing onto latest and retrying..."
+              git fetch origin ${{ github.head_ref }}
+              git rebase FETCH_HEAD
+            done
           fi

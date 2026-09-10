@@ -11,14 +11,17 @@ if [ ! -f "$HELPERS_PATH" ]; then
     exit 1
 fi
 
+# shellcheck source=/dev/null
 source "$HELPERS_PATH"
 
 # Array to store test results
 declare -a TEST_RESULTS
+FAILED=0
 
 # Function to handle test failures
 fail_test() {
     TEST_RESULTS+=("$1: \033[31m\033[1mFAIL\033[0m")
+    FAILED=1
 }
 
 # Function to handle test successes
@@ -33,15 +36,6 @@ if [[ "$reset_output" == *"Here we go again!"* ]]; then
     pass_test "reset function"
 else
     fail_test "reset function"
-fi
-
-# Test get_default_branch_name function
-echo "Testing get_default_branch_name function..."
-default_branch=$(get_default_branch_name)
-if [[ "$default_branch" == "main" || "$default_branch" == "master" ]]; then
-    pass_test "get_default_branch_name function"
-else
-    fail_test "get_default_branch_name function"
 fi
 
 # Test init_exercise function
@@ -69,6 +63,16 @@ if [[ -d "$SCRIPT_DIR/../../../beginners_git/conference_planning/.git" ]]; then
     pass_test "init_simple_repo function"
 else
     fail_test "init_simple_repo function"
+fi
+
+# Test get_default_branch_name function. This has to run from inside a repository,
+# so it comes after init_simple_repo rather than before it.
+echo "Testing get_default_branch_name function..."
+default_branch=$(get_default_branch_name)
+if [[ "$default_branch" == "main" || "$default_branch" == "master" ]]; then
+    pass_test "get_default_branch_name function"
+else
+    fail_test "get_default_branch_name function"
 fi
 
 # Test init_simple_repo_remote function
@@ -112,3 +116,5 @@ echo -e "\n\033[1mTest Summary:\033[0m"
 for result in "${TEST_RESULTS[@]}"; do
     echo -e "$result"
 done
+
+exit $FAILED

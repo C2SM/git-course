@@ -1,0 +1,15 @@
+flowchart LR
+    A["git commit"] --> H1["pre-commit<br><small>reject bad content</small>"]
+    H1 --> H2["commit-msg<br><small>check the message</small>"]
+    H2 --> B["commit created"]
+    B --> H4["post-commit<br><small>notify</small>"]
+    B --> C["git push"]
+    C --> H5["pre-push<br><small>last gate</small>"]
+    H5 --> D["pushed to remote"]
+
+    classDef cmd fill:#134f7c,stroke:#56abdf,stroke-width:2px,color:#e8edf2
+    classDef hook fill:#243041,stroke:#ffbd0b,stroke-width:3px,color:#e8edf2
+    classDef done fill:#1e3a52,stroke:#92d050,stroke-width:2px,color:#e8edf2
+    class A,C cmd
+    class H1,H2,H4,H5 hook
+    class B,D done
