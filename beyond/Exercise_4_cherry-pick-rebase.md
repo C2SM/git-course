@@ -12,7 +12,7 @@ In this exercise you use cherry-pick to rescue a single commit from a branch, th
 merging and rebasing on the same starting point so you can see the difference in the history.
 
 > [!IMPORTANT]
-> **Where you work:** `beyond_git/conference_planning`.
+> **Where you work:** `git_beyond/conference_planning`.
 > If you have not created the sandbox yet, follow the [Setup section](README.md#setup) first.
 >
 > This exercise deliberately creates a complex history. If you lose track at any point, run

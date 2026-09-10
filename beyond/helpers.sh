@@ -13,8 +13,8 @@ insert_after () {
 }
 
 init_beyond_repo () {
-    mkdir -p "$script_dir/../../beyond_git"
-    cd "$script_dir/../../beyond_git" || return 1
+    mkdir -p "$script_dir/../../git_beyond"
+    cd "$script_dir/../../git_beyond" || return 1
     rm -rf conference_planning
     mkdir -p conference_planning
     cd conference_planning || return 1
@@ -34,7 +34,7 @@ init_beyond_repo () {
     git add . && git commit -m "Add coffee break"
 
     echo -e "Working directory prepared."
-    echo -e "\033[31m\033[1mYou have been moved to the 'conference_planning' directory within the 'beyond_git' directory. This is where you start your exercise.\033[0m"
+    echo -e "\033[31m\033[1mYou have been moved to the 'conference_planning' directory within the 'git_beyond' directory. This is where you start your exercise.\033[0m"
 }
 
 # Creates a local bare repository, glossary-tool.git, that stands in for a small
@@ -42,8 +42,8 @@ init_beyond_repo () {
 # keeps the submodule exercise entirely local; Exercise 8 covers the real
 # equivalent, a fork on GitHub.
 init_submodule_remote () {
-    mkdir -p "$script_dir/../../beyond_git"
-    cd "$script_dir/../../beyond_git" || return 1
+    mkdir -p "$script_dir/../../git_beyond"
+    cd "$script_dir/../../git_beyond" || return 1
     rm -rf glossary-tool.git glossary-tool_tmp
     mkdir glossary-tool_tmp
     cd glossary-tool_tmp || return 1
@@ -70,7 +70,7 @@ EOF
 # Plays the part of a colleague who pushes a change straight to glossary-tool's
 # main branch while you are working in the submodule.
 commit_to_submodule_remote_by_colleague () {
-    cd "$script_dir/../../beyond_git" || return 1
+    cd "$script_dir/../../git_beyond" || return 1
     rm -rf glossary-tool_colleague
     git clone -q glossary-tool.git glossary-tool_colleague
     cd glossary-tool_colleague || return 1
@@ -84,7 +84,7 @@ commit_to_submodule_remote_by_colleague () {
 # Throw away everything and start the exercises over from a clean state.
 reset_beyond_repo () {
     echo "Restoring a clean working directory"
-    rm -rf "$script_dir/../../beyond_git"
+    rm -rf "$script_dir/../../git_beyond"
     init_beyond_repo &> /dev/null
     echo -e "\033[31m\033[1mHere we go again! You are in the 'conference_planning' directory.\033[0m"
     pwd

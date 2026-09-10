@@ -6,7 +6,7 @@
 # Calculate the absolute path to helpers.sh
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 HELPERS_PATH="$SCRIPT_DIR/../helpers.sh"
-REPO="$SCRIPT_DIR/../../../beyond_git/conference_planning"
+REPO="$SCRIPT_DIR/../../../git_beyond/conference_planning"
 
 if [ ! -f "$HELPERS_PATH" ]; then
     echo -e "\033[31m\033[1mError: helpers.sh not found at $HELPERS_PATH\033[0m"

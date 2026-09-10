@@ -293,7 +293,7 @@ All exercises: <https://github.com/C2SM/git-course/tree/main/beyond>
 - First exercise - spend a moment on logistics:
   - Open `beyond/README.md` on screen and walk through it: the Setup section, and the
     "Where each exercise happens" map showing which directory each exercise uses
-  - Point out that `beyond_git/` is created next to `git-course`, never inside it
+  - Point out that `git_beyond/` is created next to `git-course`, never inside it
   - Call one of us over rather than continuing unassisted
 - Around 15 minutes. Walk the room
 - Common stumbling block: quoting in `-S` and `--author`, especially on Windows shells
@@ -456,7 +456,7 @@ table {font-size: 20px;}
 
 <div class="note">
 
-**Where you work:** `beyond_git/conference_submodule`
+**Where you work:** `git_beyond/conference_submodule`
 Everything stays local - the helper script builds a small stand-in repository to point the submodule at.
 
 </div>
@@ -565,7 +565,7 @@ table {font-size: 20px;}
 
 <div class="note">
 
-**Where you work:** `beyond_git/conference_planning`
+**Where you work:** `git_beyond/conference_planning`
 If you run into trouble, `reset_beyond_repo` gives you a clean start at any time.
 
 </div>
@@ -659,7 +659,7 @@ table {font-size: 20px;}
 
 <div class="note">
 
-**Where you work:** `beyond_git/conference_planning`
+**Where you work:** `git_beyond/conference_planning`
 If you run into trouble, `reset_beyond_repo` gives you a clean start at any time.
 
 </div>
@@ -738,7 +738,7 @@ table {font-size: 20px;}
 
 <div class="note">
 
-**Where you work:** `beyond_git/conference_planning`, plus the worktree it creates next to it.
+**Where you work:** `git_beyond/conference_planning`, plus the worktree it creates next to it.
 
 </div>
 
@@ -809,7 +809,7 @@ table {font-size: 20px;}
 
 <div class="note">
 
-**Where you work:** `beyond_git/conference_planning`
+**Where you work:** `git_beyond/conference_planning`
 Everything happens in its `.git/hooks` directory.
 
 </div>
@@ -902,7 +902,7 @@ table {font-size: 20px;}
 
 <div class="note">
 
-**Where you work:** `beyond_git/conference_planning`
+**Where you work:** `git_beyond/conference_planning`
 Entirely local - no remote and no LFS quota needed.
 
 </div>
@@ -1255,7 +1255,7 @@ table {font-size: 20px;}
 <div class="note">
 
 **Where you work:** <https://github.com/C2SM/c2sm-git-example> in the browser, plus a clone of
-your fork anywhere outside `beyond_git`.
+your fork anywhere outside `git_beyond`.
 
 </div>
 
@@ -1266,7 +1266,7 @@ You will review each other's pull requests, so **work in pairs**.
   - Anyone lacking a GitHub account needs one now
 - About 30 minutes - exercise most likely to overrun
 - Two logistics points to state clearly:
-  - Clone the fork somewhere outside `beyond_git` - avoids colliding with the morning's practice repositories
+  - Clone the fork somewhere outside `git_beyond` - avoids colliding with the morning's practice repositories
   - They will need to authenticate when pushing - set up an SSH key or token now if missing
 - Protect the review half - it is what people skip when time runs short
   - Leaving a real comment on a colleague's PR is the whole point of pairing

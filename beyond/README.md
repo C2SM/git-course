@@ -63,24 +63,24 @@ This is the question that causes the most confusion, so here is the map. Everyth
 ```
 <the folder containing git-course>/
 ├── git-course/                        ← Exercise 1
-└── beyond_git/                        ← created by init_beyond_repo
+└── git_beyond/                        ← created by init_beyond_repo
     ├── conference_planning/           ← Exercises 3, 4, 5, 6, 7
     ├── conference_planning-feature/   ← you create this in Exercise 5
     └── conference_submodule/          ← Exercise 2
 ```
 
 Exercise 8 happens in the browser plus a clone of your own fork, which can live anywhere outside
-`beyond_git`.
+`git_beyond`.
 
 | Exercise | Topic | Working directory |
 | --- | --- | --- |
 | [1](Exercise_1_examining-history.md) | `git log`, `git blame`, `git diff`, `git show` | `git-course` |
-| [2](Exercise_2_submodules.md) | `git submodule` | `beyond_git/conference_submodule` |
-| [3](Exercise_3_ignoring-files.md) | `.gitignore`, `.gitkeep` | `beyond_git/conference_planning` |
-| [4](Exercise_4_cherry-pick-rebase.md) | `git cherry-pick`, `git rebase` | `beyond_git/conference_planning` |
-| [5](Exercise_5_stash-worktree.md) | `git stash`, `git worktree` | `beyond_git/conference_planning` |
-| [6](Exercise_6_hooks.md) | Custom Git hooks | `beyond_git/conference_planning` |
-| [7](Exercise_7_git-lfs.md) | `git lfs` | `beyond_git/conference_planning` |
+| [2](Exercise_2_submodules.md) | `git submodule` | `git_beyond/conference_submodule` |
+| [3](Exercise_3_ignoring-files.md) | `.gitignore`, `.gitkeep` | `git_beyond/conference_planning` |
+| [4](Exercise_4_cherry-pick-rebase.md) | `git cherry-pick`, `git rebase` | `git_beyond/conference_planning` |
+| [5](Exercise_5_stash-worktree.md) | `git stash`, `git worktree` | `git_beyond/conference_planning` |
+| [6](Exercise_6_hooks.md) | Custom Git hooks | `git_beyond/conference_planning` |
+| [7](Exercise_7_git-lfs.md) | `git lfs` | `git_beyond/conference_planning` |
 | [8](Exercise_8_web-workflow.md) | Issues, forks, pull requests, review | browser + a clone of your fork |
 
 If you are ever unsure where you are, `pwd` tells you, and `git status` tells you which
