@@ -136,11 +136,18 @@ ls -lh model_output.nc
 
 **Task 6.** Add and commit it.
 
+> [!NOTE]
+> If you kept the large-file check from [Exercise 6](Exercise_6_hooks.md#several), this commit is
+> rejected. That hook reads the file straight off disk with `wc -c`, so it sees the real 2 MB
+> regardless of what LFS is about to store. The check is asking the wrong question here: not "how
+> big is this file" but "how big is what Git will actually commit." Skip it for this one commit
+> with `git commit --no-verify`, or fix the hook to check `git cat-file -s :"$file"` instead.
+
 <details><summary>✅ Solution</summary>
 
 ```plaintext
 git add model_output.nc
-git commit -m "Add model output"
+git commit --no-verify -m "Add model output"
 ```
 
 </details>
