@@ -82,13 +82,14 @@ You only need the **Git basics** for this course: `add`, `commit`, `push`, `pull
 
 <div class="schedule-list">
 <strong class="t-start">09:15</strong><strong class="t-dash">–</strong><strong class="t-end">09:20</strong><div>🧾 Welcome and overview</div>
-<strong class="t-start">09:20</strong><strong class="t-dash">–</strong><strong class="t-end">10:50</strong><div>🧰 History, submodules, ignoring files → Exercises 1 – 3</div>
-<strong class="t-start">10:50</strong><strong class="t-dash">–</strong><strong class="t-end">11:10</strong><div>☕ Coffee break</div>
-<strong class="t-start">11:10</strong><strong class="t-dash">–</strong><strong class="t-end">11:45</strong><div>🧰 Cherry-pick, rebase, stash, worktree → Exercises 4 – 5</div>
-<strong class="t-start">11:45</strong><strong class="t-dash">–</strong><strong class="t-end">12:30</strong><div>🧰 Hooks and large files → Exercises 6 – 7</div>
+<strong class="t-start">09:20</strong><strong class="t-dash">–</strong><strong class="t-end">10:40</strong><div>🧰 History, submodules, ignoring files → Exercises 1 – 3</div>
+<strong class="t-start">10:40</strong><strong class="t-dash">–</strong><strong class="t-end">11:00</strong><div>☕ Coffee break</div>
+<strong class="t-start">11:00</strong><strong class="t-dash">–</strong><strong class="t-end">11:55</strong><div>🧰 Cherry-pick, rebase, stash, worktree → Exercises 4 – 5</div>
+<strong class="t-start">11:55</strong><strong class="t-dash">–</strong><strong class="t-end">12:30</strong><div>🧰 Hooks and large files → Exercises 6 – 7</div>
 <strong class="t-start">12:30</strong><strong class="t-dash">–</strong><strong class="t-end">13:30</strong><div>🍽️ Lunch break</div>
-<strong class="t-start">13:30</strong><strong class="t-dash">–</strong><strong class="t-end">14:30</strong><div>🤝 Slides and live demonstration</div>
-<strong class="t-start">14:30</strong><strong class="t-dash">–</strong><strong class="t-end">15:00</strong><div>🤝 Exercise 8 and wrap-up</div>
+<strong class="t-start">13:30</strong><strong class="t-dash">–</strong><strong class="t-end">14:15</strong><div>🤝 Slides and live demonstration</div>
+<strong class="t-start">14:15</strong><strong class="t-dash">–</strong><strong class="t-end">14:55</strong><div>🤝 Exercise 8</div>
+<strong class="t-start">14:55</strong><strong class="t-dash">–</strong><strong class="t-end">15:00</strong><div>🧾 Wrap-up</div>
 </div>
 
 <!--
