@@ -13,28 +13,28 @@ budgeted independently. The **Exercise est.** column repeats the working time pr
 exercise file: *core tasks* first, *bonus tasks* in brackets. Where the budget is below the core
 estimate, the block is expected to be tight - keep an eye on the clock and let the bonus tasks go.
 
-| # | Description | Presenter | Material | Budget | Exercise est. | Start | End |
+| # | Description | Presenter | Slides | Budget | Exercise est. | Start | End |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| | Welcome, outline, schedule | Micha | 3 slides | 5 min | | 09:15 | 09:20 |
-| | **Part 1 · Slides:** recap, examining history | Ali | 5 slides | 15 min | | 09:20 | 09:35 |
-| 1 | **Part 1 · Exercise:** examining history 💻 | | | 20 min | 20-25 min (+10-15) | 09:35 | 09:55 |
-| | **Part 1 · Slides:** submodules | Ali | 4 slides | 10 min | | 09:55 | 10:05 |
-| 2 | **Part 1 · Exercise:** submodules 💻 | | | 15 min | 15-18 min (+5-7) | 10:05 | 10:20 |
-| | **Part 1 · Slides:** ignoring files | Ali | 3 slides | 5 min | | 10:20 | 10:25 |
-| 3 | **Part 1 · Exercise:** ignoring files 💻 | | | 15 min | 10-15 min | 10:25 | 10:40 |
-| | Coffee break | all | 1 coffee | 20 min | | 10:40 | 11:00 |
-| | **Part 1 · Slides:** cherry-pick, rebase | Mikael | 2 slides | 10 min | | 11:00 | 11:10 |
-| 4 | **Part 1 · Exercise:** cherry-pick, rebase 💻 | | | 25 min | 22-26 min (+3-4) | 11:10 | 11:35 |
-| | **Part 1 · Slides:** stash, worktree | Mikael | 2 slides | 5 min | | 11:35 | 11:40 |
-| 5 | **Part 1 · Exercise:** stash, worktree 💻 | | | 15 min | 12-15 min (+4-6) | 11:40 | 11:55 |
-| | **Part 1 · Slides:** hooks | Mikael | 2 slides | 5 min | | 11:55 | 12:00 |
-| 6 | **Part 1 · Exercise:** hooks 💻 | | | 15 min | 15-20 min | 12:00 | 12:15 |
-| | **Part 1 · Slides:** large files (`git lfs`) | Mikael | 2 slides | 5 min | | 12:15 | 12:20 |
-| 7 | **Part 1 · Exercise:** `git lfs` 💻 | | | 10 min | 10-15 min | 12:20 | 12:30 |
-| | Lunch break | all | | 60 min | | 12:30 | 13:30 |
-| | **Part 2 · Slides:** web workflow + live demonstration | Micha | 11 slides | 45 min | | 13:30 | 14:15 |
-| 8 | **Part 2 · Exercise:** full web workflow 💻 | | | 40 min | 30-40 min | 14:15 | 14:55 |
-| | Wrap-up: tools, references, questions | Micha | 4 slides | 5 min | | 14:55 | 15:00 |
+| | Welcome, outline, schedule | Micha | 1-3 | 5 min | | 09:15 | 09:20 |
+| | **Part 1 · Slides:** recap, examining history | Ali | 4-8 | 15 min | | 09:20 | 09:35 |
+| 1 | **Part 1 · Exercise:** examining history 💻 | | 9 | 20 min | 20-25 min (+10-15) | 09:35 | 09:55 |
+| | **Part 1 · Slides:** submodules | Ali | 10-13 | 10 min | | 09:55 | 10:05 |
+| 2 | **Part 1 · Exercise:** submodules 💻 | | 14 | 15 min | 15-18 min (+5-7) | 10:05 | 10:20 |
+| | **Part 1 · Slides:** ignoring files | Ali | 15-17 | 5 min | | 10:20 | 10:25 |
+| 3 | **Part 1 · Exercise:** ignoring files 💻 | | 18 | 15 min | 10-15 min | 10:25 | 10:40 |
+| | Coffee break | all | 19 | 20 min | | 10:40 | 11:00 |
+| | **Part 1 · Slides:** cherry-pick, rebase | Mikael | 20-21 | 10 min | | 11:00 | 11:10 |
+| 4 | **Part 1 · Exercise:** cherry-pick, rebase 💻 | | 22 | 25 min | 22-26 min (+3-4) | 11:10 | 11:35 |
+| | **Part 1 · Slides:** stash, worktree | Mikael | 23-24 | 5 min | | 11:35 | 11:40 |
+| 5 | **Part 1 · Exercise:** stash, worktree 💻 | | 25 | 15 min | 12-15 min (+4-6) | 11:40 | 11:55 |
+| | **Part 1 · Slides:** hooks | Mikael | 26-27 | 5 min | | 11:55 | 12:00 |
+| 6 | **Part 1 · Exercise:** hooks 💻 | | 28 | 15 min | 15-20 min | 12:00 | 12:15 |
+| | **Part 1 · Slides:** large files (`git lfs`) | Mikael | 29-30 | 5 min | | 12:15 | 12:20 |
+| 7 | **Part 1 · Exercise:** `git lfs` 💻 | | 31 | 10 min | 10-15 min | 12:20 | 12:30 |
+| | Lunch break | all | 32 | 60 min | | 12:30 | 13:30 |
+| | **Part 2 · Slides:** web workflow + live demonstration | Micha | 33-43 | 45 min | | 13:30 | 14:15 |
+| 8 | **Part 2 · Exercise:** full web workflow 💻 | | 44 | 40 min | 30-40 min | 14:15 | 14:55 |
+| | Wrap-up: tools, references, questions | Micha | 45-48 | 5 min | | 14:55 | 15:00 |
 
 Totals: 115 min of slides and demonstration, 150 min of exercises, 80 min of breaks.
 
