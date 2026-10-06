@@ -941,9 +941,7 @@ Entirely local - no remote and no LFS quota needed.
 
 <!--
 - Transition point: Part 1 covered individual tools, Part 2 is one continuous narrative about a group sharing a repository
-- Set up the arc: issue → fork → branch → pull request → automated checks → review → merge → keeping the fork in sync
-  - Follow that path on a real C2SM repository, then Exercise 8
-- Worth saying up front: no new Git commands here - everything is a convention built on what they already know
+- No new Git commands here - everything is a convention built on what they already know
 -->
 
 ---
@@ -991,7 +989,7 @@ The Git commands you already know do not change. What follows is a convention la
 
 - Documentation for models, tools, datasets and HPC systems used across C2SM
 - Written as plain Markdown, built into a website automatically
-- Maintained by the core team, but **anyone in the group can contribute**
+- Maintained by the core team, but **anyone can contribute**
 - Every pull request gets a **preview website** before anything is merged
 
 </div>
@@ -1002,8 +1000,7 @@ We will walk through a real change to this repository, then you will practice th
 workflow on <https://github.com/C2SM/c2sm-git-example>.
 
 <!--
-- Using a real repository matters - not a toy example, a site they may well have used already
-- If the room does not know it: open the site briefly - many of them are the target audience for this documentation
+- Open the site briefly - many of them are the target audience for this documentation
 - Make the invitation explicit: if they spot something outdated/missing, this workflow is exactly how they fix it
 - Preview website is the feature that makes contribution comfortable - foreshadow it here, return to it on the automated-checks slide
 -->
@@ -1139,7 +1136,7 @@ Reviewers can look at the rendered page, not just the diff. This is particularly
 
 <div class="note">
 
-Review is about the change, never the person. "This function could be clearer" beats "you wrote this badly".
+Review is about the change, never the person. Use "this function could be clearer" beats "you wrote this badly".
 
 </div>
 
@@ -1161,6 +1158,8 @@ img { max-height: 520px; }
 
 <div class="columns" style="grid-template-columns: 1fr 2fr;">
 <div>
+
+**In the GitHub PR:**
 
 - **Merge commit** - keeps every commit and records the merge
 - **Squash** - collapses the branch into one tidy commit (a common default)
@@ -1352,7 +1351,7 @@ You will review each other's pull requests, so **work in pairs**.
 
 <div class="warning">
 
-Language models are often useful for Git because the documentation is so good. They also invent flags that do not exist. Check `git help <command>` before running anything you do not recognize - especially anything with `--force`.
+LLMs are often helpful for Git questions, since Git is extensively documented and widely discussed. Still, check `git help <command>` before running anything you do not recognize - especially anything with `--force`.
 
 </div>
 
