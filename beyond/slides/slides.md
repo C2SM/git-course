@@ -78,6 +78,10 @@ You only need the **Git basics** for this course: `add`, `commit`, `push`, `pull
 
 ---
 
+<style scoped>
+.schedule-list {row-gap: 6px; font-size: 30px;}
+</style>
+
 # Schedule
 
 <div class="schedule-list">
