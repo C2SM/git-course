@@ -758,7 +758,7 @@ table {font-size: 20px;}
 
 # Custom Git Hooks
 
-- Scripts Git runs automatically when a certain event happens
+- Scripts Git runs automatically when a certain (pre-defined) event happens
 - Live in `.git/hooks`, named after their event, must be **executable**
 - A non-zero exit status from a `pre-` hook **cancels** the operation
 - `.git/hooks` is **not** part of the repository, so hooks are not shared by cloning
@@ -766,7 +766,7 @@ table {font-size: 20px;}
 
 <div class="note">
 
-Want hooks that everybody gets? Commit them to a folder and point Git at it with `git config core.hooksPath <folder>`, or use the [pre-commit](https://pre-commit.com/) framework.
+Want hooks that everybody can use? Commit them to a folder and point Git at it with `git config core.hooksPath <folder>`, or use the [pre-commit](https://pre-commit.com/) framework.
 
 </div>
 
@@ -831,7 +831,7 @@ Everything happens in its `.git/hooks` directory.
 
 # Large Files: `git lfs`
 
-- Git stores a **full copy of every version** of every file
+- Git stores a **full snapshot of every version** of every file
 - That is perfect for text and terrible for a 500 MB NetCDF file
 - Git Large File Storage keeps a tiny **pointer** in the repository and the real bytes elsewhere
 
@@ -852,7 +852,7 @@ Everything happens in its `.git/hooks` directory.
 <div class="compact-lines">
 
 - `git lfs install`
-  - once per machine: registers the filters
+  - once per machine: registers the filters in the global git config
 
 </div>
 
@@ -860,6 +860,7 @@ Everything happens in its `.git/hooks` directory.
 
 - `git lfs track "*.nc"`
   - records the pattern in `.gitattributes` - **commit that file**
+  - files matching the patterns in `.gitattributes` will be tracked by Git LFS
 
 </div>
 

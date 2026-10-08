@@ -6,7 +6,7 @@
 
 Both commands take commits that exist in one place and replay them somewhere else.
 `git cherry-pick` moves **one** commit; `git rebase` moves **a whole branch**. Both create new
-commits with new IDs, which is what makes them powerful and what makes them dangerous.
+commits with new IDs, which is what makes them powerful, but also dangerous.
 
 In this exercise you use cherry-pick to rescue a single commit from a branch, then compare
 merging and rebasing on the same starting point so you can see the difference in the history.
@@ -139,8 +139,8 @@ whole difference from `git merge`, which would bring the entire branch.
 </details>
 
 > [!WARNING]
-> Because the cherry-picked commit has a **new ID**, you should not later merge `cherry_feature`
-> into `main`: the same change would arrive a second time, and depending on the content you may
+> Because the cherry-picked commit has a **new ID**, you should not merge `cherry_feature`
+> into `main` later on: the same change would arrive a second time, and depending on the content you may
 > get a conflict for a change that is already there.
 >
 > Cherry-pick is for salvaging work from a branch you are **abandoning**. If the branch is still
