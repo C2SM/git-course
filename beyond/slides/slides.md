@@ -78,17 +78,22 @@ You only need the **Git basics** for this course: `add`, `commit`, `push`, `pull
 
 ---
 
+<style scoped>
+.schedule-list {row-gap: 6px; font-size: 30px;}
+</style>
+
 # Schedule
 
 <div class="schedule-list">
 <strong class="t-start">09:15</strong><strong class="t-dash">–</strong><strong class="t-end">09:20</strong><div>🧾 Welcome and overview</div>
-<strong class="t-start">09:20</strong><strong class="t-dash">–</strong><strong class="t-end">10:50</strong><div>🧰 History, submodules, ignoring files → Exercises 1 – 3</div>
-<strong class="t-start">10:50</strong><strong class="t-dash">–</strong><strong class="t-end">11:10</strong><div>☕ Coffee break</div>
-<strong class="t-start">11:10</strong><strong class="t-dash">–</strong><strong class="t-end">11:45</strong><div>🧰 Cherry-pick, rebase, stash, worktree → Exercises 4 – 5</div>
-<strong class="t-start">11:45</strong><strong class="t-dash">–</strong><strong class="t-end">12:30</strong><div>🧰 Hooks and large files → Exercises 6 – 7</div>
+<strong class="t-start">09:20</strong><strong class="t-dash">–</strong><strong class="t-end">10:40</strong><div>🧰 History, submodules, ignoring files → Exercises 1 – 3</div>
+<strong class="t-start">10:40</strong><strong class="t-dash">–</strong><strong class="t-end">11:00</strong><div>☕ Coffee break</div>
+<strong class="t-start">11:00</strong><strong class="t-dash">–</strong><strong class="t-end">11:55</strong><div>🧰 Cherry-pick, rebase, stash, worktree → Exercises 4 – 5</div>
+<strong class="t-start">11:55</strong><strong class="t-dash">–</strong><strong class="t-end">12:30</strong><div>🧰 Hooks and large files → Exercises 6 – 7</div>
 <strong class="t-start">12:30</strong><strong class="t-dash">–</strong><strong class="t-end">13:30</strong><div>🍽️ Lunch break</div>
-<strong class="t-start">13:30</strong><strong class="t-dash">–</strong><strong class="t-end">14:30</strong><div>🤝 Slides and live demonstration</div>
-<strong class="t-start">14:30</strong><strong class="t-dash">–</strong><strong class="t-end">15:00</strong><div>🤝 Exercise 8 and wrap-up</div>
+<strong class="t-start">13:30</strong><strong class="t-dash">–</strong><strong class="t-end">14:15</strong><div>🤝 Slides and live demonstration</div>
+<strong class="t-start">14:15</strong><strong class="t-dash">–</strong><strong class="t-end">14:55</strong><div>🤝 Exercise 8</div>
+<strong class="t-start">14:55</strong><strong class="t-dash">–</strong><strong class="t-end">15:00</strong><div>🧾 Wrap-up</div>
 </div>
 
 <!--
@@ -753,7 +758,7 @@ table {font-size: 20px;}
 
 # Custom Git Hooks
 
-- Scripts Git runs automatically when a certain event happens
+- Scripts Git runs automatically when a certain (pre-defined) event happens
 - Live in `.git/hooks`, named after their event, must be **executable**
 - A non-zero exit status from a `pre-` hook **cancels** the operation
 - `.git/hooks` is **not** part of the repository, so hooks are not shared by cloning
@@ -761,7 +766,7 @@ table {font-size: 20px;}
 
 <div class="note">
 
-Want hooks that everybody gets? Commit them to a folder and point Git at it with `git config core.hooksPath <folder>`, or use the [pre-commit](https://pre-commit.com/) framework.
+Want hooks that everybody can use? Commit them to a folder and point Git at it with `git config core.hooksPath <folder>`, or use the [pre-commit](https://pre-commit.com/) framework.
 
 </div>
 
@@ -826,7 +831,7 @@ Everything happens in its `.git/hooks` directory.
 
 # Large Files: `git lfs`
 
-- Git stores a **full copy of every version** of every file
+- Git stores a **full snapshot of every version** of every file
 - That is perfect for text and terrible for a 500 MB NetCDF file
 - Git Large File Storage keeps a tiny **pointer** in the repository and the real bytes elsewhere
 
@@ -847,7 +852,7 @@ Everything happens in its `.git/hooks` directory.
 <div class="compact-lines">
 
 - `git lfs install`
-  - once per machine: registers the filters
+  - once per machine: registers the filters in the global git config
 
 </div>
 
@@ -855,6 +860,7 @@ Everything happens in its `.git/hooks` directory.
 
 - `git lfs track "*.nc"`
   - records the pattern in `.gitattributes` - **commit that file**
+  - files matching the patterns in `.gitattributes` will be tracked by Git LFS
 
 </div>
 
@@ -935,10 +941,8 @@ Entirely local - no remote and no LFS quota needed.
 # Working Together on GitHub
 
 <!--
-- Transition point: Part 1 covered individual tools, Part 2 is one continuous narrative about a group sharing a repository
-- Set up the arc: issue → fork → branch → pull request → automated checks → review → merge → keeping the fork in sync
-  - Follow that path on a real C2SM repository, then Exercise 8
-- Worth saying up front: no new Git commands here - everything is a convention built on what they already know
+- Part 1 covered individual tools; Part 2 follows one group sharing a repository
+- No new Git commands: everything is a convention built on familiar commands
 -->
 
 ---
@@ -966,14 +970,14 @@ The Git commands you already know do not change. What follows is a convention la
 </div>
 
 <!--
-- Motivate from failure rather than process
-  - Solo repository needs none of this
-  - Second person → overwritten work, unexplainable changes, broken `main` blocking everybody
-- Traceability is the one this audience underrates
-  - Research code: "why is this coefficient 0.7?" arrives years later, often from a reviewer
-  - A pull request thread answers it; a commit message rarely does
-- Notably, one object (the PR) addresses all three at once
-- Repeat the note: nothing they learned this morning becomes obsolete
+- Motivate from the problems, not the process
+  - A single-user repository needs none of this
+  - A second person brings overwritten work, unexplained changes and a broken `main` that blocks everyone
+- Traceability is the point this audience tends to underestimate
+  - In research code, "why is this coefficient 0.7?" is often asked years later, frequently by a reviewer
+  - A pull request discussion answers it; a commit message rarely does
+- One object, the PR, addresses all three problems
+- Repeat the note: nothing from this morning becomes obsolete
 -->
 
 ---
@@ -986,7 +990,7 @@ The Git commands you already know do not change. What follows is a convention la
 
 - Documentation for models, tools, datasets and HPC systems used across C2SM
 - Written as plain Markdown, built into a website automatically
-- Maintained by the core team, but **anyone in the group can contribute**
+- Maintained by the core team, but **anyone can contribute**
 - Every pull request gets a **preview website** before anything is merged
 
 </div>
@@ -997,10 +1001,9 @@ We will walk through a real change to this repository, then you will practice th
 workflow on <https://github.com/C2SM/c2sm-git-example>.
 
 <!--
-- Using a real repository matters - not a toy example, a site they may well have used already
-- If the room does not know it: open the site briefly - many of them are the target audience for this documentation
-- Make the invitation explicit: if they spot something outdated/missing, this workflow is exactly how they fix it
-- Preview website is the feature that makes contribution comfortable - foreshadow it here, return to it on the automated-checks slide
+- Open the site briefly: many participants are the target audience of this documentation
+- State the invitation explicitly: outdated or missing content can be fixed with exactly this workflow
+- The preview website lowers the barrier to contributing; mention it here and explain it on the automated checks slide
 -->
 
 ---
@@ -1018,10 +1021,9 @@ A good issue is reproducible: what you did, what you expected, what happened ins
 </div>
 
 <!--
-- Argument for issues: cost - ten minutes of discussion beforehand is much cheaper than a day of work followed by "actually, we want this differently"
-- An issue is also fine as a question or a proposal - does not have to be a bug
-- Reproducibility note = the difference between an issue someone can act on and one that sits untouched for a year
-  - What you did, what you expected, what happened instead, enough context to reproduce it
+- Main argument is cost: ten minutes of discussion beforehand is cheaper than a day of work that turns out to be unwanted
+- An issue can also be a question or a proposal, not only a bug report
+- Reproducibility decides whether an issue can be acted on or remains open indefinitely
 -->
 
 ---
@@ -1033,15 +1035,15 @@ A good issue is reproducible: what you did, what you expected, what happened ins
 **Fork** when you cannot push to the original. **Branch** when you can. Either way the change arrives as a pull request.
 
 <!--
-- Keep this simple - the fork/branch distinction confuses people more than it should
-- A fork is your own copy of the repository on the server
-- A branch is a line of development, exists in both cases
-  - Only question a fork answers: where your branch lives, decided purely by write access
-- Walk the triangle: upstream, your fork, your local clone
-- Name the two remotes (where confusion starts): `origin` = your fork, `upstream` = the original
+- Keep this simple: the fork/branch distinction is often more confusing than necessary
+- A fork is a personal copy of the repository on the server
+- A branch is a line of development and exists in both cases
+  - A fork only determines where the branch lives, which depends solely on write access
+- Explain the diagram: upstream, fork, local clone
+- Name the two remotes, as this is where confusion usually begins: `origin` is the fork, `upstream` is the original
   - `git remote -v` shows which is which
-- Note for this audience: C2SM members often *do* have write access, so branching directly is the common case
-  - Exercise uses a fork deliberately, so they see the harder path
+- C2SM members often have write access, so branching directly is the common case
+  - The exercise uses a fork deliberately to show the more involved path
 -->
 
 ---
@@ -1061,17 +1063,14 @@ A good issue is reproducible: what you did, what you expected, what happened ins
 ![w:1200](images/pr-lifecycle.svg)
 
 <!--
-- Name is slightly misleading: a PR is a branch plus a conversation, not a Git operation
-  - Nothing is copied when you open one, can keep pushing to the branch afterwards
-- Two pieces of advice worth more than the mechanics:
-  - Description is the part that survives - diff shows what changed, only the description explains why
-    - Six months later that is the only record, and what someone reads when deciding whether a change can be reverted
-  - `Fixes #12` keyword = practical detail
-    - GitHub links the PR to the issue immediately, closes the issue on merge
-    - Backlog stays honest without anyone tidying it
-  - Size significantly determines review quality
-    - State this directly: everyone recognizes skimming a huge diff and approving out of politeness
-- Drafts are underused: open one on day one, reviewers can steer the approach before the work is finished
+- The name is slightly misleading: a PR is a branch plus a discussion, not a Git operation
+  - Nothing is copied when it is opened; further pushes to the branch update it
+- Three points matter more than the mechanics:
+  - The description is the lasting record: the diff shows what changed, only the description explains why
+    - Months later, it is what someone reads when deciding whether a change can be reverted
+  - `Fixes #12` links the PR to the issue and closes the issue on merge, keeping the backlog accurate
+  - Size largely determines review quality: large diffs tend to be skimmed and approved without real scrutiny
+- Draft PRs are underused: opened early, they let reviewers influence the approach before the work is finished
 -->
 
 ---
@@ -1094,15 +1093,14 @@ Reviewers can look at the rendered page, not just the diff. This is particularly
 </div>
 
 <!--
-- Framing: automated checks handle everything a machine can judge, human reviewer spends attention on what only a human can judge
-- Removes a whole category of awkward review comments
-  - Nobody has to tell a colleague their indentation is wrong when a formatter says it first
-- Preview deployment: worth showing live if the network cooperates
-  - Reviewing a documentation change as rendered pages vs. a Markdown diff is a completely different experience
-  - Why non-programmers contribute to that repository comfortably
-- Connect back to hooks: same idea of automated checks, but running on the server where they cannot be skipped with `--no-verify`
-  - Hooks = fast local convenience, CI = the actual guarantee
-- Tie-in worth mentioning: these very slides are built by a GitHub Actions workflow in this repository
+- Automated checks cover what a machine can judge, so reviewers can focus on what requires human judgment
+- This removes many minor review comments, such as remarks on formatting
+- Show the preview deployment live if the network allows
+  - Reviewing rendered pages is far easier than reviewing a Markdown diff
+  - This is why people without a programming background contribute to this repository
+- Link back to hooks: the same idea, but running on the server, where `--no-verify` cannot skip them
+  - Hooks provide fast local feedback; CI provides the actual guarantee
+- These slides are also built by a GitHub Actions workflow in this repository
 -->
 
 ---
@@ -1134,16 +1132,16 @@ Reviewers can look at the rendered page, not just the diff. This is particularly
 
 <div class="note">
 
-Review is about the change, never the person. "This function could be clearer" beats "you wrote this badly".
+Review is about the change, never the person. Use "this function could be clearer" instead of "you wrote this badly".
 
 </div>
 
 <!--
-- Most culturally sensitive slide - being reviewed can feel exposing the first time; acknowledging that helps
-- For authors: push fixes as new commits rather than amending or force-pushing, so reviewers see what changed - tidy up later if the project squashes on merge
-- For reviewers: demonstrate the suggestion feature; "good enough, not perfect" prevents a PR stalling over style preferences
-- Asking questions instead of issuing orders often surfaces reasoning the reviewer had not considered
-- A real C2SM review example fits well here, if one is available
+- Most sensitive topic of the afternoon: a first review can feel uncomfortable, and saying so helps
+- Authors: push fixes as new commits instead of amending or force-pushing, so reviewers see what changed; squashing on merge cleans up the history
+- Reviewers: demonstrate the suggestion feature; "good enough, not perfect" keeps a PR from stalling over style preferences
+- Asking questions often reveals reasoning the reviewer had not considered
+- Show a real C2SM review example, if available
 -->
 
 ---
@@ -1156,6 +1154,8 @@ img { max-height: 520px; }
 
 <div class="columns" style="grid-template-columns: 1fr 2fr;">
 <div>
+
+**In the GitHub PR:**
 
 - **Merge commit** - keeps every commit and records the merge
 - **Squash** - collapses the branch into one tidy commit (a common default)
@@ -1171,14 +1171,14 @@ img { max-height: 520px; }
 </div>
 
 <!--
-- Point out: these three buttons are exactly merge, squash and rebase from this morning, now with a GUI - nothing new to learn
-- Squash is the common default: a branch's twelve commits, half "fix typo", rarely worth keeping in the main history
-- Deleting the branch afterwards is safe, people hesitate over it
-  - Commits are in `main`, the PR page preserves everything including the branch, which GitHub can restore
-- Sync half is where people most often have difficulty
-  - After the merge, their fork's `main` is behind
-  - Either the "Sync fork" button, or locally: fetch from `upstream`, merge/rebase into `main`, push to `origin`
-- Recommend starting every new piece of work from a freshly synced `main` - avoids most conflicts before they exist
+- The three buttons correspond to merge, squash and rebase from this morning; nothing new to learn
+- Squash is a common default: a branch's many small commits, such as "fix typo", are rarely worth keeping in the main history
+- Deleting the branch afterwards is safe, although people tend to hesitate
+  - The commits are in `main`, and the PR page preserves the branch, which GitHub can restore
+- Synchronizing is where most difficulties arise
+  - After the merge, the fork's `main` is behind
+  - Use the "Sync fork" button, or locally: fetch from `upstream`, merge or rebase into `main`, push to `origin`
+- Start every new piece of work from a freshly synchronized `main`; this prevents most conflicts
 -->
 
 ---
@@ -1203,16 +1203,14 @@ section {font-size: 22px;}
 | Namespaces | User / organization | User / **group**, nestable |
 
 <!--
-- Slide exists because ETH hosts GitLab and many will use both
-- The **local Git commands are identical** - only the website and the CI file differ.
-- Do not read the table - make the one point that matters and move on
-- That point: concepts map one to one, local Git commands are identical
-  - Learning one platform means you know both
-  - Vocabulary differs, CI file has a different name and syntax
-- Single most confusing difference: merge request and pull request are the same thing
-- Worth mentioning if asked:
-  - GitLab groups nest - why ETH GitLab paths often have several levels
-  - GitLab approvals can be a required count, which GitHub expresses via branch protection rules
+- This slide exists because ETH hosts GitLab and many participants will use both platforms
+- Do not read the table; make one point and move on
+  - The concepts map one to one, and the local Git commands are identical
+  - Only the vocabulary and the CI file (name and syntax) differ
+- The most confusing difference is terminology: a merge request and a pull request are the same thing
+- If asked:
+  - GitLab groups can be nested, which is why ETH GitLab paths often have several levels
+  - GitLab approvals can require a minimum count; GitHub achieves this through branch protection rules
 -->
 
 <br>
@@ -1227,11 +1225,11 @@ While C2SM works mostly on `github.com`, many self-hosted GitLab servers are als
 <https://github.com/C2SM/c2sm.github.io>
 
 <!--
-- Do the whole cycle live: issue → fork/branch → small edit → commit → PR referencing the issue → checks run → preview deployment → review → merge → delete branch → sync fork
-- Have the repository and a browser already open and logged in
-- Narrate what you are clicking, keep browser zoom high enough to read from the back
-- Checks take a couple of minutes - fill that time with questions rather than watching a spinner
-- If the network fails: fall back to describing the PR lifecycle diagram from the earlier slide, go straight to the exercise
+- Demonstrate the full cycle: issue → fork/branch → small edit → commit → PR referencing the issue → checks → preview deployment → review → merge → delete branch → sync fork
+- Have the repository open in a browser and be logged in beforehand
+- Describe each step while clicking; keep the browser zoom large enough to read from the back of the room
+- The checks take a few minutes; use that time for questions
+- If the network fails, explain the PR lifecycle diagram from the earlier slide and continue with the exercise
 -->
 
 ---
@@ -1262,14 +1260,14 @@ your fork anywhere outside `git_beyond`.
 You will review each other's pull requests, so **work in pairs**.
 
 <!--
-- Organize pairs before explaining anything else - make sure nobody is left without a partner
-  - Anyone lacking a GitHub account needs one now
-- About 30 minutes - exercise most likely to overrun
-- Two logistics points to state clearly:
-  - Clone the fork somewhere outside `git_beyond` - avoids colliding with the morning's practice repositories
-  - They will need to authenticate when pushing - set up an SSH key or token now if missing
-- Protect the review half - it is what people skip when time runs short
-  - Leaving a real comment on a colleague's PR is the whole point of pairing
+- Form pairs before explaining anything else and make sure everyone has a partner
+  - Participants without a GitHub account need to create one now
+- About 30 minutes; this exercise is the most likely to run over time
+- State two practical points clearly:
+  - Clone the fork outside `git_beyond` to avoid conflicts with the morning's practice repositories
+  - Pushing requires authentication; set up an SSH key or token now if missing
+- Reserve time for the review part, as it is usually skipped when time runs short
+  - Commenting on a colleague's PR is the purpose of working in pairs
 -->
 
 ---
@@ -1320,14 +1318,13 @@ You will review each other's pull requests, so **work in pairs**.
 </div>
 
 <!--
-- Do not go through the list
-  - We taught the command line because it is what exists everywhere, and what error messages/docs assume
-  - A graphical tool day to day is entirely fine once the concepts are clear
-- Pick two or three favorites, say why in one sentence each - honest personal recommendations beat a complete catalog
-- Two worth singling out for this audience:
-  - GitLens in VS Code - blame info inline as you read code, the morning's `git blame` without the terminal
-  - `delta` - makes terminal diffs much more readable, a small change with a large daily benefit
-- Slide is a reference for later, not something to work through now
+- Do not go through the list; it is a reference for later
+  - The course uses the command line because it is available everywhere and is what error messages and documentation assume
+  - Using a graphical tool daily is fine once the concepts are clear
+- Name two or three personal recommendations with a one-sentence reason each
+- Two tools are particularly relevant for this audience:
+  - GitLens in VS Code shows `git blame` information inline while reading code
+  - `delta` makes terminal diffs considerably more readable
 -->
 
 ---
@@ -1347,15 +1344,15 @@ You will review each other's pull requests, so **work in pairs**.
 
 <div class="warning">
 
-Language models are often useful for Git because the documentation is so good. They also invent flags that do not exist. Check `git help <command>` before running anything you do not recognize - especially anything with `--force`.
+LLMs are often helpful for Git questions, since Git is extensively documented and widely discussed. Still, check `git help <command>` before running anything you do not recognize - especially anything with `--force`.
 
 </div>
 
 <!--
-- Pro Git is free and thorough - chapters 1-3 cover the beginner course, chapter 7 covers most of this morning
-- dangitgit.com is organized by situation rather than command - useful when something has gone wrong
-- Take the warning box seriously: LLMs are strong on Git but confidently invent flags - check `git help` before running anything unfamiliar, especially `--force`, `reset --hard`, `clean -fd`
-- Reassurance: almost anything committed can be recovered, often via `git reflog` - what was never committed cannot
+- Pro Git: chapters 1-3 cover the beginner course, chapter 7 covers most of this morning
+- dangitgit.com is organized by situation rather than by command, which helps when something has gone wrong
+- Emphasize the warning box: check `git help` before running unfamiliar commands, especially `--force`, `reset --hard` and `clean -fd`
+- Almost anything committed can be recovered, often via `git reflog`; uncommitted work cannot
 -->
 
 ---
@@ -1375,8 +1372,7 @@ Language models are often useful for Git because the documentation is so good. T
 </div>
 
 <!--
-- Do not present this slide - it is there so the deck stands on its own as a document, and sources are properly credited
-- Skip past it in the room, or use it as a two-second bridge to the closing slide
+- Do not present this slide; it credits the sources and makes the deck usable as a standalone document
 -->
 
 ---
@@ -1387,7 +1383,7 @@ Language models are often useful for Git because the documentation is so good. T
 
 <!--
 - Leave this slide up for the remaining time
-- Before opening the floor: mention the feedback form, note that slides and exercises stay available, and that mistakes can be reported as an issue on the course repo
-- If the room is quiet, prompt with a question: which tool from today they expect to use first, or whether their group already has a review convention
+- Before opening the discussion: mention the feedback form, that slides and exercises remain available, and that errors can be reported as an issue on the course repository
+- If nobody asks, prompt with a question: which tool from today they will use first, or whether their group has a review convention
 - Thank the participants and mention the next course in the series, if known
 -->

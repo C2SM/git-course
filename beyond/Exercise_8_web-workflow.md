@@ -1,4 +1,4 @@
-# Exercise 8 - A full workflow in the web interface
+# Exercise 8 - A full workflow in GitHub
 
 > [!NOTE]
 > **⏱️ Estimated working time:** 30-40 minutes
@@ -30,7 +30,6 @@ In this exercise we cover the following:
 - [6. Respond to your own review and merge](#merge)
 - [7. Keep your fork in sync](#sync)
 - [8. Handle a conflict](#conflict)
-- [GitHub and GitLab](#gitlab)
 
 ## 1. Open an issue <a name="issue"></a>
 
@@ -347,23 +346,6 @@ The pull request updates itself and the conflict warning disappears.
 
 If conflict markers are unfamiliar, the beginner course covers them in detail:
 [Exercise 6 - Merge conflicts](../beginner/Exercise_6_merge_conflicts.md).
-
-## GitHub and GitLab <a name="gitlab"></a>
-
-C2SM works on both `github.com` and `gitlab.ethz.ch`. Everything you just did transfers; only the
-names and the CI file change. **The local Git commands are identical.**
-
-| Concept | GitHub | GitLab |
-| --- | --- | --- |
-| Proposed change | Pull request (PR) | **Merge request (MR)** |
-| Close an issue automatically | `Fixes #12` / `Closes #12` | `Closes #12` |
-| CI configuration | `.github/workflows/*.yml` | **`.gitlab-ci.yml`** |
-| Sign-off on a change | Approve / request changes | **Approvals**, a required count |
-| Static site hosting | GitHub Pages | GitLab Pages |
-| Preview of a change | PR preview via an Action | Review Apps |
-| Ownership rules | `CODEOWNERS` | `CODEOWNERS` |
-| Update a fork | "Sync fork" button or `upstream` remote | `upstream` remote |
-| Namespaces | User / organization | User / **group**, nestable |
 
 ## Check yourself
 

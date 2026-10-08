@@ -212,8 +212,8 @@ set -e
 
 </details>
 
-**Task 10.** Add a second check of your own as *.git/hooks/pre-commit-nonempty*: reject a commit
-whose message would be empty, or write something else useful. Wire it into the dispatcher and
+**Task 10.** Add a second check of your own as *.git/hooks/pre-commit-large-files*: reject committing
+a large file, or write something else useful. Wire it into the dispatcher and
 verify both checks run.
 
 <details><summary>💡 Hint</summary>
@@ -246,7 +246,7 @@ for file in $(git diff --cached --name-only --diff-filter=ACM); do
 done
 ```
 
-Then add `.git/hooks/pre-commit-nonempty` to the dispatcher and `chmod +x` it.
+Then add `.git/hooks/pre-commit-large-files` to the dispatcher and `chmod +x` it.
 
 </details>
 
